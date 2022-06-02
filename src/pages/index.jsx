@@ -19,10 +19,10 @@ export const query = graphql`
     }
   }
 `
-function Hero (props) {
+function Hero(props) {
   return (
     <div className={container}>
-      <h1 className={intro}>Welcome to the GatsbyJS + Shopify Demo Store.</h1>
+      <h1 className={intro}>Welcome to the GatsbyJS + Shopify Demo Store!!!</h1>
       {!!process.env.GATSBY_DEMO_STORE && (
         <>
           <p className={callOut}>
