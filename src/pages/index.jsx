@@ -312,6 +312,32 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <div className="bg_membership">
+        <div className="container">
+          <div className="row row_padding align-items-end">
+            <div className="col-md-5">
+              <p>
+                <img src="/bg_membership.png" />
+              </p>
+            </div>
+            <div className="col-md-7">
+              <h2 className="text-uppercase">Get exclusive with us</h2>
+              <p className="pb-5">
+                Join M.INT Club and be a part of something bigger! Gain access
+                to member-only benefits and stay informed with the latest
+                interior trends and news from us.
+              </p>
+              <p>
+                <Link to="/">
+                  <button type="button" className="btn btn-outline">
+                    Join now and enjoy 10% off your first purchase
+                  </button>
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
