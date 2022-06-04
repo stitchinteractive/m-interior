@@ -5,7 +5,7 @@ import * as React from "react"
 export function LookBookDetailsItem(props) {
   return (
     <div>
-      <div className="row">
+      <div className="row row_padding">
         <div className="col-12">
           <h2 class="text-uppercase">{props.area}</h2>
         </div>

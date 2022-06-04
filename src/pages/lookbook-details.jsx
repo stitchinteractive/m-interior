@@ -8,7 +8,7 @@ import { LookBookDetailsItem } from "../components/lookbook-details-item"
 const LookBookDetails = () => {
   return (
     <Layout>
-      <div className="row">
+      <div className="container">
         <LookBookDetailsItem
           area="Living Room"
           image_1="/lookbook/living_room/1.jpg"

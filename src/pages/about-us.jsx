@@ -28,7 +28,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="col col-md-5 offset-md-1">
-              <img src={"/about_brand_story.jpg"} alt="Brand Story" />
+              <img src={"/about/brand_story.jpg"} alt="Brand Story" />
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="order-md-1 col col-md-5 ">
-              <img src={"/about_mission.jpg"} alt="Mission" />
+              <img src={"/about/mission.jpg"} alt="Mission" />
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="col col-md-5 offset-md-1">
-              <img src={"/about_services.jpg"} alt="Services" />
+              <img src={"/about/services.jpg"} alt="Services" />
             </div>
           </div>
         </div>

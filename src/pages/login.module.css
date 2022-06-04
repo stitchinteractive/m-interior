@@ -1,7 +1,7 @@
 .login_bg {
   width: 100%;
   height: auto;
-  background: url(/login_bg.jpg) center center no-repeat;
+  background: url(/account/bg.jpg) center center no-repeat;
   background-size: cover;
 }
 
