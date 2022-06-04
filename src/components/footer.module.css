@@ -1,53 +1,98 @@
-.footerStyle {
-  padding: var(--space-2xl) var(--space-xl);
-  gap: var(--space-xl);
-  display: grid;
-  grid-template-columns: 1fr;
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: var(--space-50) 0 var(--space-50) 0;
+  letter-spacing: 0.8px;
   text-align: center;
-  color: var(--text-color-secondary);
-  margin-top: var(--space-3xl);
 }
 
-.logos {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: center;
-  padding-bottom: var(--space-lg);
+footer img {
+  margin: 0 auto 50px auto;
 }
 
-.blurb {
+footer h6 {
+  color: var(--grey-light);
+}
+
+footer ul {
+  padding: 0;
+  margin: 0 0 50px 0;
+}
+
+footer ul li {
+  padding: var(--space-5) 0;
+  margin: 0;
+  list-style-type: none;
+  font-weight: var(--medium);
   font-size: var(--text-sm);
 }
 
-.copyright {
-  color: var(--text-color-secondary);
-  font-size: var(--text-xs);
+footer ul li a {
+  color: var(--white);
 }
 
-.footerNavList {
+footer ul li a:hover {
+  color: var(--grey);
+}
+
+footer ul.icons {
   display: flex;
-  flex-direction: column;
-  font-size: var(--text-md);
+  justify-content: center;
 }
 
-.footerNavListItem {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 100%;
-  white-space: nowrap;
+footer ul.icons li {
+  float: left;
+  padding-right: var(--space-10);
 }
 
-.links ul {
-  flex-direction: column;
-  font-size: var(--text-md);
+footer .terms a {
+  color: var(--grey-dark);
+  text-transform: uppercase;
+  font-weight: var(--medium);
 }
 
-.links li {
-  flex-direction: column;
-  align-items: center;
+footer .terms a:hover {
+  color: var(--grey);
 }
 
-.links a {
-  padding: var(--space-md);
+footer .spacer {
+  margin: 0 30px 0 30px;
+  font-size: 21px;
+  line-height: 21px;
+}
+
+/********** tablets  **********/
+@media (min-width: 768px) {
+  footer {
+    padding: var(--space-100) 0 var(--space-100) 0;
+    text-align: left;
+  }
+
+  footer ul.icons {
+    display: flex;
+    justify-content: left;
+  }
+
+  footer .terms {
+    text-align: center;
+  }
+}
+
+/********** extra large desktops **********/
+@media (min-width: 1200px) {
+  footer img {
+    margin: 0;
+  }
+
+  footer h6 {
+    margin-top: 10px;
+  }
+
+  footer ul li {
+    font-size: var(--text-md);
+  }
+
+  footer .terms {
+    text-align: right;
+  }
 }

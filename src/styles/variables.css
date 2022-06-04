@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   /* tokens */
   /* font-family */
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-body: "Raleway", sans-serif;
+  --font-headings: "Montserrat", sans-serif;
 
   /* palette */
   --black-fade-5: rgba(0, 0, 0, 0.05);
@@ -11,7 +13,16 @@
   --grey-50: #78757a;
   --green-80: #088413;
   --green-50-rgb: 55, 182, 53;
+  --black: #1d1d1d;
+  --grey-extra-dark: #464646;
+  --grey-dark: #ccc6bd;
+  --grey-medium: #909090;
+  --grey: #e6dfd5;
+  --grey-light: #f7f6f4;
   --white: #ffffff;
+  --yellow: #f3cd46;
+  --blue: #0e3244;
+  --blue-light: #103443;
 
   /* radii */
   --radius-sm: 4px;
@@ -22,9 +33,22 @@
   --space-sm: 4px;
   --space-md: 8px;
   --space-lg: 16px;
-  --space-xl: 20px;
-  --space-2xl: 24px;
-  --space-3xl: 48px;
+  --space-xl: 10px;
+  --space-2xl: 20px;
+  --space-3xl: 30px;
+  --space-5xl: 50px;
+  --space-5: 5px;
+  --space-10: 10px;
+  --space-20: 20px;
+  --space-30: 30px;
+  --space-40: 40px;
+  --space-50: 50px;
+  --space-60: 60px;
+  --space-70: 70px;
+  --space-80: 80px;
+  --space-90: 90px;
+  --space-100: 100px;
+  --space-150: 150px;
 
   /* line-height */
   --solid: 1;
@@ -38,24 +62,30 @@
 
   /* font-weight */
   --body: 400;
+  --light: 300;
   --medium: 500;
   --semibold: 600;
   --bold: 700;
+  --extrabold: 1000;
 
   /* font-size */
   --text-xs: 12px;
-  --text-sm: 14px;
+  --text-sm: 15px;
   --text-md: 16px;
   --text-lg: 18px;
   --text-xl: 20px;
-  --text-2xl: 24px;
-  --text-3xl: 32px;
+  --text-30: 30px;
+  --text-40: 40px;
+  --text-50: 50px;
+  --text-60: 60px;
+  --text-100: 100px;
 
   /* role-based tokens */
 
   /* colors */
   --primary: var(--green-80);
   --background: var(--white);
+  --background-black: var(--black);
   --border: var(--black-fade-5);
 
   /* transitions */
@@ -67,7 +97,7 @@
   /* text */
   /* color */
   --text-color: var(--grey-90);
-  --text-color-secondary: var(--grey-50);
+  --text-color-secondary: var(--grey-dark);
   --text-color-inverted: var(--white);
   /* size */
   --text-display: var(--text-2xl);
