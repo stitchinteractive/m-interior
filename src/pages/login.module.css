@@ -1,0 +1,25 @@
+.login_bg {
+  width: 100%;
+  height: auto;
+  background: url(/login_bg.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.login_container {
+  background: var(--grey-light);
+  padding: var(--space-90) var(--space-30);
+  margin: 30px 15px;
+}
+
+/********** tablets **********/
+@media (min-width: 768px) {
+  .login_bg {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .login_container {
+    padding: var(--space-150) var(--space-50);
+    margin: 0;
+  }
+}
