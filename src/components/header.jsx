@@ -1,68 +1,118 @@
-import * as React from "react"
+import React, { useEffect, useState, useRef } from "react"
+// import { gsap } from "gsap"
 import { Link } from "gatsby"
-import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
-import { Navigation } from "./navigation"
-import { CartButton } from "./cart-button"
 import SearchIcon from "../icons/search"
-import { Toast } from "./toast"
-import {
-  header,
-  container,
-  logo as logoCss,
-  searchButton,
-  nav,
-} from "./header.module.css"
+import ProfileIcon from "../icons/profile"
+import CartIcon from "../icons/cart"
+import MenuIcon from "../icons/menu"
+import * as headerModule from "./header.module.css"
 
 export function Header() {
-  const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
-
-  const items = checkout ? checkout.lineItems : []
-
-  const quantity = items.reduce((total, item) => {
-    return total + item.quantity
-  }, 0)
-
+  const [show, setShow] = useState(true)
   return (
-    <div className={container}>
-      <header className={header}>
-        <Link to="/" className={logoCss}>
-          <Logo />
-        </Link>
-        <Navigation className={nav} />
-        <Link to="/search" className={searchButton}>
-          <SearchIcon />
-        </Link>
-        <CartButton quantity={quantity} />
+    <div className={headerModule.container_header}>
+      <header className={headerModule.header}>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-4 col-md-2 d-flex align-items-center">
+              <Link to="/">
+                <Logo className="logo" />
+              </Link>
+            </div>
+            <div className="col-8 col-md-10">
+              <div className="row">
+                <div className="col-md-12 d-flex justify-content-end">
+                  <ul className={headerModule.nav_link_icon}>
+                    <li className="d-none d-lg-block">
+                      <Link to="/">
+                        <SearchIcon />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/login">
+                        <ProfileIcon />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/cart">
+                        <CartIcon />
+                      </Link>
+                    </li>
+                    <li className="d-lg-none">
+                      <button onClick={() => setShow(!show)}>
+                        <MenuIcon />
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="row d-none d-lg-block">
+                <div className="col-12 col-md-12 d-flex justify-content-end">
+                  <ul className={headerModule.nav_link}>
+                    <li>
+                      <Link to="/">Shop</Link>
+                    </li>
+                    <li>
+                      <Link to="/about-us">About Us</Link>
+                    </li>
+                    <li>
+                      <Link to="/lookbook">Lookbook</Link>
+                    </li>
+                    <li>
+                      <Link to="/interior-design">Interior Design</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Membership</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Blog</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          {show ? (
+            <div className="row d-lg-none">
+              <div className="col-10 offset-1">
+                <div className="input-group my-3">
+                  <input
+                    type="text"
+                    className="form-control-sm txt_search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search"
+                  />
+                  <button className="btn btn_search" type="button">
+                    <SearchIcon />
+                  </button>
+                </div>
+                <ul className={headerModule.nav_link_mobile}>
+                  <li>
+                    <Link to="/">Shop</Link>
+                  </li>
+                  <li>
+                    <Link to="/about-us">About Us</Link>
+                  </li>
+                  <li>
+                    <Link to="/lookbook">Lookbook</Link>
+                  </li>
+                  <li>
+                    <Link to="/interior-design">Interior Design</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Membership</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Blog</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : null}
+        </div>
       </header>
-      <Toast show={loading || didJustAddToCart}>
-        {!didJustAddToCart ? (
-          "Updating…"
-        ) : (
-          <>
-            Added to cart{" "}
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5.019 10.492l-2.322-3.17A.796.796 0 013.91 6.304L6.628 9.14a1.056 1.056 0 11-1.61 1.351z"
-                fill="#fff"
-              />
-              <path
-                d="M5.209 10.693a1.11 1.11 0 01-.105-1.6l5.394-5.88a.757.757 0 011.159.973l-4.855 6.332a1.11 1.11 0 01-1.593.175z"
-                fill="#fff"
-              />
-              <path
-                d="M5.331 7.806c.272.326.471.543.815.163.345-.38-.108.96-.108.96l-1.123-.363.416-.76z"
-                fill="#fff"
-              />
-            </svg>
-          </>
-        )}
-      </Toast>
     </div>
   )
 }

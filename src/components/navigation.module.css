@@ -12,14 +12,15 @@
   text-decoration: none;
   height: var(--size-input);
   display: flex;
-  color: var(--text-color-secondary);
+  color: var(--grey-light);
+  font-weight: var(--light);
   align-items: center;
-  padding-left: var(--space-md);
-  padding-right: var(--space-md);
+  padding-left: var(--space-2xl);
+  padding-right: var(--space-2xl);
 }
 
 .navLink:hover {
-  color: var(--text-color);
+  color: var(--grey-dark);
 }
 
 .activeLink,

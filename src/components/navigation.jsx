@@ -22,18 +22,48 @@ export function Navigation({ className }) {
         to="/products/"
         activeClassName={activeLink}
       >
-        All products
+        Shop
       </Link>
-      {productTypes.map((name) => (
-        <Link
-          key={name}
-          className={navLink}
-          to={`/products/${slugify(name)}`}
-          activeClassName={activeLink}
-        >
-          {name}
-        </Link>
-      ))}
+      <Link
+        key="All"
+        className={navLink}
+        to="/about-us/"
+        activeClassName={activeLink}
+      >
+        About Us
+      </Link>
+      <Link
+        key="All"
+        className={navLink}
+        to="/lookbook/"
+        activeClassName={activeLink}
+      >
+        Lookbook
+      </Link>
+      <Link
+        key="All"
+        className={navLink}
+        to="/interior-design/"
+        activeClassName={activeLink}
+      >
+        Interior Design
+      </Link>
+      <Link
+        key="All"
+        className={navLink}
+        to="/membership/"
+        activeClassName={activeLink}
+      >
+        Membership
+      </Link>
+      <Link
+        key="All"
+        className={navLink}
+        to="/blog/"
+        activeClassName={activeLink}
+      >
+        Blog
+      </Link>
     </nav>
   )
 }
