@@ -323,6 +323,10 @@ a:active {
   padding: 0 100px 0 100px;
 }
 
+.swiper.testimonial_swiper {
+  padding: 30px 30px 50px 30px !important;
+}
+
 .swiper-pagination {
   bottom: 40px !important;
 }
@@ -340,6 +344,10 @@ a:active {
 
 .swiper-pagination-bullet-active {
   background: #ffffff !important;
+}
+
+.avatar {
+  border-radius: 50%;
 }
 
 /********** tablets **********/
@@ -385,8 +393,8 @@ a:active {
   h6 {
     font-family: var(--font-headings);
     font-weight: var(--semibold);
-    font-size: var(--text-20);
-    padding-bottom: var(--space-20);
+    font-size: 18px;
+    padding-bottom: var(--space-10);
   }
 
   .text_vertical {
