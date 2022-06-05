@@ -273,11 +273,13 @@ p {
 }
 
 .bg_membership {
-  /*background: #0e3244 url(/bg_membership.png) 15% 100% no-repeat;*/
   background: #0e3244;
   width: 100%;
   color: var(--white);
-  padding: 80px 0 80px 0;
+}
+
+.membership_padding {
+  padding: 80px 30px 80px 30px;
 }
 
 a {
@@ -411,6 +413,10 @@ a:active {
 
   .padding_lookbook_lead_in {
     padding: 140px 15% 0 15%;
+  }
+
+  .membership_padding {
+    padding: 120px 0 120px 0;
   }
 
   .container_lead_in {
