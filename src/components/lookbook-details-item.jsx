@@ -5,6 +5,11 @@ import * as React from "react"
 export function LookBookDetailsItem(props) {
   return (
     <div>
+      <div className="row padding_heading">
+        <div className="col-12">
+          <h2 class="text-uppercase">{props.area}</h2>
+        </div>
+      </div>
       <div className="row row_padding">
         <div className="col-12 col-md-6">
           <p>

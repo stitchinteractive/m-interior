@@ -302,6 +302,10 @@ a:active {
   padding: 0 15px;
 }
 
+.padding_heading {
+  padding: 80px 30px 0 30px;
+}
+
 .padding_min_module {
   padding: 50px 50px 80px 50px;
 }
@@ -451,6 +455,10 @@ a:active {
 
   .padding_testimonial {
     padding: 80px 30px;
+  }
+
+  .padding_heading {
+    padding: 80px 0 0 0;
   }
 
   .text_indent {

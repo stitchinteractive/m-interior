@@ -9,7 +9,7 @@ const LookBook = () => {
   return (
     <Layout>
       <div className="row_padding_sides">
-        <div className="row row_padding">
+        <div className="row padding_heading">
           <div className="col-12">
             <h2 class="text-uppercase pb-4">
               There’s 101 ways you can go modular with us.
