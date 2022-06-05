@@ -30,7 +30,7 @@ const InteriorDesignDetails = () => {
         </div>
       </div>
       <div className="row_padding_sides bg_grey">
-        <div className="row row_padding">
+        <div className="row">
           <LookBookDetailsItem
             image_1="/interior/living_room/1.jpg"
             image_2="/interior/living_room/2.jpg"
