@@ -115,7 +115,7 @@ const HomePage = () => {
               </div>
               <div className="col-12">
                 <div className="d-flex flex-column flex-lg-row justify-content-evenly align-items-end bd-highlight mb-3">
-                  <div className="p-2 flex-fill bd-highlight text-center">
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
                     <p>
                       <img src="/home/1.png" alt="" />
                     </p>
@@ -127,7 +127,7 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="p-2 flex-fill bd-highlight text-center">
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
                     <p>
                       <img src="/home/2.png" alt="" />
                     </p>
@@ -139,7 +139,7 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="p-2 flex-fill bd-highlight text-center">
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
                     <p>
                       <img src="/home/3.png" alt="" />
                     </p>
@@ -151,7 +151,7 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="p-2 flex-fill bd-highlight text-center">
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
                     <p>
                       <img src="/home/4.png" alt="" />
                     </p>
@@ -163,7 +163,7 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="p-2 flex-fill bd-highlight text-center">
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
                     <p>
                       <img src="/home/5.png" alt="" />
                     </p>
@@ -196,12 +196,12 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row row_padding">
-            <div className="col-md-6">
+            <div className="col-md-6 order-2 order-md-1">
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_connectors.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 order-1 order-md-2">
               <h1 className="text-uppercase">Flexible.</h1>
               <div className="text_indent">
                 <h2 className="text-uppercase">Magnetic Connectors.</h2>
@@ -230,12 +230,12 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row row_padding">
-            <div className="col-md-6">
+            <div className="col-md-6 order-2 order-md-1">
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_colours.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 order-1 order-md-2">
               <h1 className="text-uppercase">Your Space.</h1>
               <div className="text_indent">
                 <h2 className="text-uppercase">Your Style.</h2>
@@ -293,23 +293,23 @@ const HomePage = () => {
               <h2 className="pb-5 text-uppercase">As featured on</h2>
             </div>
             <div className="col">
-              <div className="d-flex flex-column flex-lg-row justify-content-evenly align-items-center bd-highlight mb-3">
-                <div>
+              <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center bd-highlight mb-3">
+                <div className="padding_featured">
                   <img
                     src="/home/logo_straits_times.png"
                     alt="The Straits Times"
                   />
                 </div>
-                <div>
+                <div className="padding_featured">
                   <img src="/home/logo_today.png" alt="Today" />
                 </div>
-                <div>
+                <div className="padding_featured">
                   <img src="/home/logo_home_decor.png" alt="Home Decor" />
                 </div>
-                <div>
+                <div className="padding_featured">
                   <img src="/home/logo_pets.png" alt="Pets" />
                 </div>
-                <div>
+                <div className="padding_featured">
                   <img src="/home/logo_squarerooms.png" alt="Square Rooms" />
                 </div>
               </div>
@@ -319,7 +319,7 @@ const HomePage = () => {
       </div>
       <div className="bg_grey">
         <div className="container-fluid">
-          <div className="row row_padding">
+          <div className="row padding_testimonial">
             <div className="col text-center">
               <h2 className="pb-5 text-uppercase">Hear from our customers</h2>
               <p class="pb-10">
@@ -376,7 +376,9 @@ const HomePage = () => {
           <div className="row d-flex">
             <div className="col-md-5 align-self-end">
               <div className="pt-5">
-                <img src="/membership.png" />
+                <div className="padding_featured">
+                  <img src="/membership.png" />
+                </div>
               </div>
             </div>
             <div className="col-md-7 align-self-center">

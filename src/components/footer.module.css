@@ -24,7 +24,7 @@ footer ul li {
   margin: 0;
   list-style-type: none;
   font-weight: var(--medium);
-  font-size: var(--text-sm);
+  font-size: 14px;
 }
 
 footer ul li a {
@@ -49,6 +49,7 @@ footer .terms a {
   color: var(--grey-dark);
   text-transform: uppercase;
   font-weight: var(--medium);
+  font-size: 12px;
 }
 
 footer .terms a:hover {
@@ -75,6 +76,10 @@ footer .spacer {
 
   footer .terms {
     text-align: center;
+  }
+
+  footer .terms a {
+    font-size: 14px;
   }
 }
 

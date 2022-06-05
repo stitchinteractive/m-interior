@@ -9,7 +9,7 @@ import MenuIcon from "../icons/menu"
 import * as headerModule from "./header.module.css"
 
 export function Header() {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
   return (
     <div className={headerModule.container_header}>
       <header className={headerModule.header}>
@@ -74,40 +74,42 @@ export function Header() {
             </div>
           </div>
           {show ? (
-            <div className="row d-lg-none">
-              <div className="col-10 offset-1">
-                <div className="input-group my-3">
-                  <input
-                    type="text"
-                    className="form-control-sm txt_search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search"
-                  />
-                  <button className="btn btn_search" type="button">
-                    <SearchIcon />
-                  </button>
+            <div id="nav_mobile">
+              <div className="row d-lg-none">
+                <div className="col-10 offset-1">
+                  <div className="input-group my-3">
+                    <input
+                      type="text"
+                      className="form-control-sm txt_search"
+                      placeholder="Search"
+                      aria-label="Search"
+                      aria-describedby="search"
+                    />
+                    <button className="btn btn_search" type="button">
+                      <SearchIcon />
+                    </button>
+                  </div>
+                  <ul className={headerModule.nav_link_mobile}>
+                    <li>
+                      <Link to="/">Shop</Link>
+                    </li>
+                    <li>
+                      <Link to="/about-us">About Us</Link>
+                    </li>
+                    <li>
+                      <Link to="/lookbook">Lookbook</Link>
+                    </li>
+                    <li>
+                      <Link to="/interior-design">Interior Design</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Membership</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Blog</Link>
+                    </li>
+                  </ul>
                 </div>
-                <ul className={headerModule.nav_link_mobile}>
-                  <li>
-                    <Link to="/">Shop</Link>
-                  </li>
-                  <li>
-                    <Link to="/about-us">About Us</Link>
-                  </li>
-                  <li>
-                    <Link to="/lookbook">Lookbook</Link>
-                  </li>
-                  <li>
-                    <Link to="/interior-design">Interior Design</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Membership</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Blog</Link>
-                  </li>
-                </ul>
               </div>
             </div>
           ) : null}
