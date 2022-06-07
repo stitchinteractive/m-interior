@@ -63,7 +63,7 @@ export function Header() {
                       <Link to="/interior-design">Interior Design</Link>
                     </li>
                     <li>
-                      <Link to="/">Membership</Link>
+                      <Link to="/">M.INT Club</Link>
                     </li>
                     <li>
                       <Link to="/">Blog</Link>
@@ -103,7 +103,7 @@ export function Header() {
                       <Link to="/interior-design">Interior Design</Link>
                     </li>
                     <li>
-                      <Link to="/">Membership</Link>
+                      <Link to="/">M.INT Club</Link>
                     </li>
                     <li>
                       <Link to="/">Blog</Link>

@@ -326,7 +326,7 @@
 }
 
 .paginationButton:hover {
-  background-color: var(--black-fade-5);
+  background-color: var(--grey-50);
 }
 
 .paginationButton:disabled {

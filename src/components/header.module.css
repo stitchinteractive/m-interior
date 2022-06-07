@@ -30,24 +30,6 @@
   filter: brightness(0) invert(1);
 }
 
-.nav_link li a {
-  font-family: var(--font-body);
-  font-weight: var(--medium);
-  color: var(--grey-medium);
-  font-size: var(--text-lg);
-  padding: 0 5rem 0 5rem;
-}
-
-.nav_link li a:last-child {
-  padding: 0 0 0 5rem;
-}
-
-.nav_link a:hover {
-  font-family: var(--font-body);
-  font-weight: var(--medium);
-  color: var(--white);
-}
-
 #nav_mobile {
   display: none;
   position: fixed;
@@ -63,8 +45,8 @@
 .nav_link_mobile li a {
   font-family: var(--font-body);
   font-weight: var(--bold);
-  color: var(--grey-medium);
-  font-size: var(--text-sm);
+  color: var(--grey-dark);
+  font-size: var(--text-md);
   text-transform: uppercase;
 }
 
@@ -78,5 +60,46 @@
 @media (min-width: 768px) {
   .container_header {
     padding: 20px 0;
+  }
+}
+
+/********** laptops **********/
+@media (min-width: 992px) {
+  .nav_link li a {
+    font-family: var(--font-body);
+    font-weight: var(--medium);
+    color: var(--grey-dark);
+    font-size: var(--text-md);
+    padding: 0 1rem 0 1rem;
+  }
+
+  .nav_link li:last-child a {
+    padding: 0 0.8rem 0 1rem;
+  }
+
+  .nav_link a:hover {
+    font-family: var(--font-body);
+    font-weight: var(--medium);
+    color: var(--white);
+  }
+}
+
+/********** desktops **********/
+@media (min-width: 1440px) {
+  .container_header {
+    padding: 35px 0;
+  }
+
+  .nav_link_icon li {
+    display: block;
+    padding: 0.5rem 0.8rem 1.5rem 0.5rem;
+  }
+
+  .nav_link li a {
+    padding: 0 3rem 0 3rem;
+  }
+
+  .nav_link li:last-child a {
+    padding: 0 1rem 0 3rem;
   }
 }

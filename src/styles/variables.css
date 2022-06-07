@@ -4,19 +4,14 @@
   /* tokens */
   /* font-family */
   --font-body: "Raleway", sans-serif;
+  --font-default: 18px;
   --font-headings: "Montserrat", sans-serif;
 
   /* palette */
-  --black-fade-5: rgba(0, 0, 0, 0.05);
-  --black-fade-40: rgba(0, 0, 0, 0.4);
-  --grey-90: #232129;
-  --grey-50: #78757a;
-  --green-80: #088413;
-  --green-50-rgb: 55, 182, 53;
   --black: #1d1d1d;
   --grey-extra-dark: #464646;
-  --grey-dark: #ccc6bd;
-  --grey-medium: #909090;
+  --grey-dark: #909090;
+  --grey-medium: #ccc6bd;
   --grey: #e6dfd5;
   --grey-light: #f7f6f4;
   --white: #ffffff;
@@ -24,19 +19,14 @@
   --blue: #0e3244;
   --blue-light: #103443;
 
-  /* radii */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-rounded: 999px;
-
   /* spacing */
-  --space-sm: 4px;
-  --space-md: 8px;
-  --space-lg: 16px;
-  --space-xl: 10px;
-  --space-2xl: 20px;
-  --space-3xl: 30px;
-  --space-5xl: 50px;
+  --space-h1: 1.8rem;
+  --space-h2: 1.8rem;
+  --space-h3: 1.8rem;
+  --space-h4: 1.8rem;
+  --space-h5: 1.8rem;
+  --space-h6: 1.8rem;
+
   --space-5: 5px;
   --space-10: 10px;
   --space-20: 20px;
@@ -48,6 +38,10 @@
   --space-80: 80px;
   --space-90: 90px;
   --space-100: 100px;
+  --space-110: 110px;
+  --space-120: 120px;
+  --space-130: 130px;
+  --space-140: 140px;
   --space-150: 150px;
 
   /* line-height */
@@ -59,6 +53,7 @@
   /* letter-spacing */
   --tracked: 0.075em;
   --tight: -0.015em;
+  --spaced: 1.25em;
 
   /* font-weight */
   --body: 400;
@@ -69,24 +64,18 @@
   --extrabold: 1000;
 
   /* font-size */
-  --text-xs: 12px;
-  --text-sm: 15px;
+  --text-xs: 13px;
+  --text-sm: 14px;
   --text-md: 16px;
   --text-lg: 18px;
-  --text-xl: 20px;
-  --text-30: 30px;
-  --text-40: 40px;
-  --text-50: 50px;
-  --text-60: 60px;
-  --text-100: 100px;
-
-  /* role-based tokens */
-
-  /* colors */
-  --primary: var(--green-80);
-  --background: var(--white);
-  --background-black: var(--black);
-  --border: var(--black-fade-5);
+  --text-xl: 21px;
+  --text-xxl: 24px;
+  --text-h1: 30px;
+  --text-h2: 24px;
+  --text-h3: 20px;
+  --text-h4: 18px;
+  --text-h5: 16px;
+  --text-h6: 14px;
 
   /* transitions */
   --transition: box-shadow 0.125s ease-in;
@@ -94,53 +83,77 @@
   /* shadows */
   --shadow: 0 4px 12px rgba(var(--green-50-rgb), 0.5);
 
-  /* text */
-  /* color */
-  --text-color: var(--grey-90);
-  --text-color-secondary: var(--grey-dark);
-  --text-color-inverted: var(--white);
-  /* size */
-  --text-display: var(--text-2xl);
-  --text-prose: var(--text-md);
-
-  /* input */
-  --input-background: var(--black-fade-5);
-  --input-background-hover: var(--black-fade-5);
-  --input-border: var(--black-fade-5);
-  --input-text: var(--text-color);
-  --input-text-disabled: var(--black-fade-40);
-  --input-ui: var(--text-color-secondary);
-  --input-ui-active: (--text-color);
-
-  /* size */
-  --size-input: var(--space-3xl);
-  --size-gap: 12px;
-  --size-gutter-raw: var(--space-2xl);
-  --size-gutter: calc(var(--size-gutter-raw) - 12px);
-
   /* product */
   --product-grid: 1fr;
 }
 
-/* role-based token adjustments per breakpoint */
-@media (min-width: 640px) {
+/********** tablet **********/
+@media (min-width: 768px) {
   :root {
+    /* font-size */
+    --text-xs: 14px;
+    --text-sm: 15px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 23px;
+    --text-xxl: 26px;
+    --text-h1: 45px;
+    --text-h2: 32px;
+    --text-h3: 25px;
+    --text-h4: 18px;
+    --text-h5: 16px;
+    --text-h6: 14px;
+
+    /* spacing */
+    --space-h1: 1rem;
+    --space-h2: 1rem;
+    --space-h3: 1rem;
+    --space-h4: 1rem;
+    --space-h5: 1rem;
+    --space-h6: 1rem;
+
+    /* product */
     --product-grid: 1fr 1fr;
   }
 }
 
-@media (min-width: 1024px) {
+/********** laptop **********/
+@media (min-width: 992px) {
   :root {
-    --text-display: var(--text-3xl);
-    --text-prose: var(--text-lg);
-    --product-grid: repeat(3, 1fr);
-    --size-gutter-raw: var(--space-3xl);
-    --size-gap: var(--space-2xl);
+    /* font-size */
+    --text-xs: 14px;
+    --text-sm: 15px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 23px;
+    --text-xxl: 26px;
+    --text-h1: 45px;
+    --text-h2: 32px;
+    --text-h3: 25px;
+    --text-h4: 18px;
+    --text-h5: 16px;
+    --text-h6: 14px;
   }
 }
 
+/********** desktop **********/
 @media (min-width: 1280px) {
   :root {
+    /* font-size */
+    --text-xs: 15px;
+    --text-sm: 16px;
+    --text-md: 18px;
+    --text-lg: 23px;
+    --text-xl: 26px;
+    --text-xxl: 30px;
+    --text-h1: 70px;
+    --text-h2: 45px;
+    --text-h3: 32px;
+    --text-h4: 25px;
+    --text-h5: 18px;
+    --text-h6: 16px;
+
+    /* product */
     --product-grid: repeat(4, 1fr);
   }
 }

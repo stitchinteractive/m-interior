@@ -1,6 +1,7 @@
 // step 1: import
 import * as React from "react"
 import { Link } from "gatsby"
+
 // import components
 import { Layout } from "../components/layout"
 import { TestimonialItem } from "../components/testimonial-item"
@@ -8,11 +9,15 @@ import { TestimonialItem } from "../components/testimonial-item"
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
-// Import Swiper styles
+
+// import Swiper styles
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
+
+// import module.css
+import * as indexModule from "./index.module.css"
 
 // step 2: define
 const HomePage = () => {
@@ -29,12 +34,15 @@ const HomePage = () => {
           onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide
-            className="banner_home d-flex flex-column justify-content-center align-items-start h-100"
+            className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
             style={{
               background: "url(/home/banner_1.jpg) center center no-repeat",
               backgroundSize: "cover",
             }}
           >
+            <p>
+              <img src="/home/banner_1.jpg" alt="" />
+            </p>
             <h1 className="text-uppercase">Acacia Blocks</h1>
             <p className="pb-9">
               Find fun and freedom in transforming your spaces with our modular
@@ -53,7 +61,7 @@ const HomePage = () => {
             </p>
           </SwiperSlide>
           <SwiperSlide
-            className="banner_home d-flex flex-column justify-content-center align-items-start h-100"
+            className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
             style={{
               background: "url(/home/banner_2.jpg) center center no-repeat",
               backgroundSize: "cover",
@@ -61,8 +69,10 @@ const HomePage = () => {
           >
             <h1 className="text-uppercase">M.INT club</h1>
             <p>
-              <strong>is</strong> <i>more than just </i>
-              <strong>a rewards program</strong>
+              <div className="text-uppercase">
+                <strong>is</strong> <i>more than just </i>
+                <strong>a rewards program</strong>
+              </div>
             </p>
             <p className="pb-9">
               Join our community and be a part of something bigger.
@@ -79,7 +89,7 @@ const HomePage = () => {
             </p>
           </SwiperSlide>
           <SwiperSlide
-            className="banner_home d-flex flex-column justify-content-center align-items-start h-100"
+            className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
             style={{
               background: "url(/home/banner_3.jpg) center center no-repeat",
               backgroundSize: "cover",

@@ -1,40 +1,28 @@
-.container {
-  padding-left: var(--size-gutter-raw);
-  padding-right: var(--size-gutter-raw);
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-3xl);
-  max-width: 76ch;
+.banner_home {
+  padding: 0;
+  font-size: var(--text-xl);
+  background: none !important;
 }
 
-.intro {
-  padding-bottom: var(--space-lg);
-  line-height: var(--dense);
-  font-size: var(--text-display);
-  color: var(--text-color-secondary);
+/********** tablets **********/
+@media (min-width: 768px) {
+  .banner_home {
+    min-height: calc(80vh - 100px);
+    padding: 0 15% 0 35%;
+  }
 }
 
-.callOut {
-  padding-bottom: var(--space-lg);
-  font-size: var(--text-display);
-  font-weight: var(--bold);
-  line-height: var(--dense);
-  line-height: var(--dense);
-  letter-spacing: var(--tight);
-  color: var(--text-color-secondary);
+/********** laptops **********/
+@media (min-width: 992px) {
+  .banner_home {
+    min-height: calc(100vh - 100px);
+    padding: 0 15% 0 45%;
+  }
 }
 
-.callOut > strong {
-  text-decoration: underline;
-}
-
-.callToAction {
-  font-size: var(--text-prose);
-  line-height: var(--dense);
-  line-height: var(--dense);
-  letter-spacing: var(--tight);
-  color: var(--text-color-secondary);
-}
-
-.deployButton {
-  margin-top: var(--space-lg);
+/********** desktops **********/
+@media (min-width: 1440px) {
+  .banner_home {
+    min-height: calc(100vh - 150px);
+  }
 }
