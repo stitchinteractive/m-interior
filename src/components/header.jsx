@@ -54,13 +54,22 @@ export function Header() {
                       <Link to="/">Shop</Link>
                     </li>
                     <li>
-                      <Link to="/about-us">About Us</Link>
+                      <Link to="/about-us" activeStyle={{ color: "white" }}>
+                        About Us
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/lookbook">Lookbook</Link>
+                      <Link to="/lookbook" activeStyle={{ color: "white" }}>
+                        Lookbook
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/interior-design">Interior Design</Link>
+                      <Link
+                        to="/interior-design"
+                        activeStyle={{ color: "white" }}
+                      >
+                        Interior Design
+                      </Link>
                     </li>
                     <li>
                       <Link to="/">M.INT Club</Link>
@@ -94,13 +103,22 @@ export function Header() {
                       <Link to="/">Shop</Link>
                     </li>
                     <li>
-                      <Link to="/about-us">About Us</Link>
+                      <Link to="/about-us" activeStyle={{ color: "white" }}>
+                        About Us
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/lookbook">Lookbook</Link>
+                      <Link to="/lookbook" activeStyle={{ color: "white" }}>
+                        Lookbook
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/interior-design">Interior Design</Link>
+                      <Link
+                        to="/interior-design"
+                        activeStyle={{ color: "white" }}
+                      >
+                        Interior Design
+                      </Link>
                     </li>
                     <li>
                       <Link to="/">M.INT Club</Link>

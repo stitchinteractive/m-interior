@@ -2,6 +2,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
+import { Membership } from "../components/membership"
 import * as aboutModule from "./about-us.module.css"
 
 // step 2: define component
@@ -160,6 +161,10 @@ const AboutUs = () => {
           </div>
         </div>
         {/* end design philosophy */}
+
+        {/* membership */}
+        <Membership />
+        {/* end membership */}
       </div>
     </Layout>
   )

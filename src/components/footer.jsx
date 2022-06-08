@@ -13,13 +13,13 @@ export function Footer() {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-md-12 col-xl-3">
+          <div className="col-md-12 col-xl-3 d-none d-md-block">
             <Link to="/">
               <Logo className="logo" />
             </Link>
           </div>
           <div className="col-md-6 col-xl-3">
-            <h6 class="text-uppercase">M.INT</h6>
+            <h5 class="text-uppercase mb-3">M.INT</h5>
             <ul class="text-uppercase">
               <li>
                 <Link to="/">Complimentary design service</Link>
@@ -33,7 +33,7 @@ export function Footer() {
             </ul>
           </div>
           <div className="col-md-6 col-xl-3">
-            <h6 class="text-uppercase">Customer Care</h6>
+            <h5 class="text-uppercase mb-3">Customer Care</h5>
             <ul class="text-uppercase">
               <li>
                 <Link to="/">Faqs</Link>
@@ -52,7 +52,7 @@ export function Footer() {
           <div className="col-md-12 col-xl-3">
             <div class="row">
               <div className="col-md-3 col-xl-6">
-                <h6 class="text-uppercase">We Accept</h6>
+                <h5 class="text-uppercase mb-3">We Accept</h5>
                 <ul className={footerModule.icons}>
                   <li>
                     <Link to="/">
@@ -72,7 +72,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="col-md-3 col-xl-6">
-                <h6 class="text-uppercase">Socials</h6>
+                <h5 class="text-uppercase mb-3">Socials</h5>
                 <ul className={footerModule.icons}>
                   <li>
                     <Link to="/">
@@ -87,7 +87,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
-                <h6 className="text-uppercase">Newsletter</h6>
+                <h5 class="text-uppercase mb-3">Newsletter</h5>
                 <div className="font_sm mb-5">
                   <div className="input-group mb-1">
                     <input
