@@ -86,6 +86,10 @@ h6 {
   font-size: var(--text-xxl);
 }
 
+.font_light {
+  font-weight: var(--light);
+}
+
 .font_white {
   color: var(--white);
 }
@@ -104,6 +108,15 @@ h6 {
   font-size: 30px;
   line-height: 1.8rem;
   padding-bottom: var(--space-30);
+}
+
+/********** links **********/
+.link_underline {
+  border-bottom: 1px solid var(--grey-extra-dark);
+}
+
+.link_underline:hover {
+  border-bottom: 1px solid var(--grey);
 }
 
 /********** forms **********/
@@ -256,7 +269,10 @@ h6 {
 
 .img_border {
   border: 15px solid #ffffff;
-  margin-top: -250px;
+}
+
+.border_bottom {
+  border-bottom: 2px solid var(--grey-medium);
 }
 
 p {
@@ -316,6 +332,10 @@ a:active {
 
 /********** layout *********/
 .row_padding {
+  padding: 80px 30px;
+}
+
+.padding_about {
   padding: 80px 30px;
 }
 
@@ -399,6 +419,10 @@ a:active {
     padding: 100px 0;
   }
 
+  .padding_about {
+    padding: 100px 0;
+  }
+
   .padding_min_module {
     padding: 20px;
   }
@@ -456,6 +480,14 @@ a:active {
   .btn-outline-large {
     font-size: 16px;
     padding: 1rem 2rem;
+  }
+
+  .padding_about {
+    padding: 80px 0 120px 0;
+  }
+
+  .img_overflow {
+    margin-top: -160px;
   }
 }
 
