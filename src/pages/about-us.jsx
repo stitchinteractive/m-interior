@@ -7,7 +7,10 @@ import { Layout } from "../components/layout"
 const AboutUs = () => {
   return (
     <Layout>
-      <div className="row_padding_sides">
+      <div>
+        <img src="/about/banner.jpg" alt="About Us" />
+      </div>
+      <div className="container">
         <div className="row row_padding">
           <div className="d-md-flex align-items-center">
             <div className="col col-md-6">
@@ -28,39 +31,49 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="col col-md-5 offset-md-1">
-              <img src={"/about/brand_story.jpg"} alt="Brand Story" />
+              <img
+                src={"/about/brand_story.jpg"}
+                alt="Brand Story"
+                className="img_border"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="row_padding_sides bg_grey">
-        <div className="row row_padding">
-          <div className="d-md-flex align-items-center">
-            <div className="order-md-2 col col-md-6 offset-md-1 text-md-end">
-              <div className="d-flex justify-content-start justify-content-lg-end">
-                <h1 className="heading_boxed mb-5">02</h1>
-                <h2 class="text-uppercase">Mission</h2>
+      <div className="bg_grey">
+        <div class="container">
+          <div className="row row_padding">
+            <div className="d-md-flex align-items-center">
+              <div className="order-md-2 col col-md-6 offset-md-1 text-md-end">
+                <div className="d-flex justify-content-start justify-content-lg-end">
+                  <h1 className="heading_boxed mb-5">02</h1>
+                  <h2 class="text-uppercase">Mission</h2>
+                </div>
+                <p>
+                  M.INT specialises in modular furniture, with a significant
+                  emphasis on space-saving and durability. Lorem ipsum dolor sit
+                  amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua.
+                </p>
+
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
               </div>
-              <p>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
-            <div className="order-md-1 col col-md-5 ">
-              <img src={"/about/mission.jpg"} alt="Mission" />
+              <div className="order-md-1 col col-md-5 ">
+                <img
+                  src={"/about/mission.jpg"}
+                  alt="Mission"
+                  className="img_border"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="row_padding_sides">
+      <div className="container">
         <div className="row row_padding">
           <div className="d-md-flex align-items-center">
             <div className="col col-md-6">
@@ -96,7 +109,11 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="col col-md-5 offset-md-1">
-              <img src={"/about/services.jpg"} alt="Services" />
+              <img
+                src={"/about/services.jpg"}
+                alt="Services"
+                className="img_border"
+              />
             </div>
           </div>
         </div>

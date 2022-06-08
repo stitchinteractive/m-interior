@@ -215,8 +215,8 @@ const HomePage = () => {
           </Swiper>
         </div>
         {/* end banner for tablets and larger screens */}
-        <div className="container_fluid">
-          <div className="row_padding_sides d-none d-md-block">
+        <div className="container">
+          <div className="d-none d-md-block">
             <div className="row row_padding">
               <div className="col-12 col-md-8 col-lg-5">
                 <h1 className="text-uppercase pb-7">Min+Modules</h1>
@@ -294,7 +294,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="row_padding_sides">
+        <div className="container">
           <div className="row row_padding">
             <div className="col-md-6">
               <h1 className="text-uppercase">Two Sizes.</h1>
@@ -393,32 +393,30 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid">
-        <div className="row_padding_sides">
-          <div className="row_padding">
-            <div className="col text-center">
-              <h2 className="pb-5 text-uppercase">As featured on</h2>
-            </div>
-            <div className="col">
-              <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center bd-highlight mb-3">
-                <div className="padding_featured">
-                  <img
-                    src="/home/logo_straits_times.png"
-                    alt="The Straits Times"
-                  />
-                </div>
-                <div className="padding_featured">
-                  <img src="/home/logo_today.png" alt="Today" />
-                </div>
-                <div className="padding_featured">
-                  <img src="/home/logo_home_decor.png" alt="Home Decor" />
-                </div>
-                <div className="padding_featured">
-                  <img src="/home/logo_pets.png" alt="Pets" />
-                </div>
-                <div className="padding_featured">
-                  <img src="/home/logo_squarerooms.png" alt="Square Rooms" />
-                </div>
+      <div className="container">
+        <div className="row_padding">
+          <div className="col text-center">
+            <h2 className="pb-5 text-uppercase">As featured on</h2>
+          </div>
+          <div className="col">
+            <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center bd-highlight mb-3">
+              <div className="padding_featured">
+                <img
+                  src="/home/logo_straits_times.png"
+                  alt="The Straits Times"
+                />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_today.png" alt="Today" />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_home_decor.png" alt="Home Decor" />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_pets.png" alt="Pets" />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_squarerooms.png" alt="Square Rooms" />
               </div>
             </div>
           </div>

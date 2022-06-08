@@ -254,6 +254,11 @@ h6 {
   border-radius: var(--radius-sm);
 }
 
+.img_border {
+  border: 15px solid #ffffff;
+  margin-top: -250px;
+}
+
 p {
   padding-bottom: 25px;
 }
@@ -312,10 +317,6 @@ a:active {
 /********** layout *********/
 .row_padding {
   padding: 80px 30px;
-}
-
-.row_padding_sides {
-  padding: 0 15px;
 }
 
 .padding_heading {
@@ -398,10 +399,6 @@ a:active {
     padding: 100px 0;
   }
 
-  .row_padding_sides {
-    padding: 0 5% 0 5%;
-  }
-
   .padding_min_module {
     padding: 20px;
   }
@@ -450,10 +447,6 @@ a:active {
 
 /********** laptops **********/
 @media (min-width: 992px) {
-  .row_padding_sides {
-    padding: 0 5% 0 5%;
-  }
-
   .container_lead_in {
     padding: 150px 50px;
     margin: 0 15px;
@@ -470,10 +463,6 @@ a:active {
 @media (min-width: 1440px) {
   .row_padding {
     padding: 120px 0;
-  }
-
-  .row_padding_sides {
-    padding: 0 15% 0 15%;
   }
 
   .btn-outline-large {

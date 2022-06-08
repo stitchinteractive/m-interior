@@ -8,7 +8,7 @@ import { LookBookItem } from "../components/lookbook-item"
 const LookBook = () => {
   return (
     <Layout>
-      <div className="row_padding_sides">
+      <div className="container">
         <div className="row padding_heading">
           <div className="col-12">
             <h2 class="text-uppercase pb-4">
