@@ -15,7 +15,7 @@ const Account = () => {
               <div className={loginModule.login_container}>
                 <form className="row g-3">
                   <div className="col-12">
-                    <h2 className="text-uppercase">Create Account</h2>
+                    <h2 className="text-uppercase pb-6">Create Account</h2>
                   </div>
                   <div className="col-lg-6">
                     <div className="row">

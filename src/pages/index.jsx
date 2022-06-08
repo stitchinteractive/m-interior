@@ -43,7 +43,7 @@ const HomePage = () => {
                   <img src="/home/banner_1.jpg" alt="Acacia Blocks" />
                 </div>
                 <div className={indexModule.padding_banner}>
-                  <h1 className="text-uppercase">Acacia Blocks</h1>
+                  <h1 className="text-uppercase pb-3">Acacia Blocks</h1>
                   <p className="pb-5">
                     Find fun and freedom in transforming your spaces with our
                     modular furniture series. Simply connect, stack and mount
@@ -70,9 +70,9 @@ const HomePage = () => {
                   <img src="/home/banner_2.jpg" alt="M.INT club" />
                 </div>
                 <div className={indexModule.padding_banner}>
-                  <h1 className="text-uppercase">M.INT club</h1>
+                  <h1 className="text-uppercase pb-3">M.INT club</h1>
                   <p>
-                    <div className="text-uppercase">
+                    <div className="text-uppercase pb-3">
                       <strong>is</strong> <i>more than just </i>
                       <strong>a rewards program</strong>
                     </div>
@@ -141,8 +141,8 @@ const HomePage = () => {
               }}
             >
               <div className="d-flex flex-column justify-content-center align-items-start h-100">
-                <h1 className="text-uppercase">Acacia Blocks</h1>
-                <p className="pb-9">
+                <h1 className="text-uppercase pb-3">Acacia Blocks</h1>
+                <p className="font_lg pb-9">
                   Find fun and freedom in transforming your spaces with our
                   modular furniture series. Simply connect, stack and mount the
                   blocks to build your own creative storage display.
@@ -166,14 +166,14 @@ const HomePage = () => {
                 backgroundSize: "cover",
               }}
             >
-              <h1 className="text-uppercase">M.INT club</h1>
+              <h1 className="text-uppercase pb-3">M.INT club</h1>
               <p>
-                <div className="text-uppercase">
+                <div className="font_xxl text-uppercase">
                   <strong>is</strong> <i>more than just </i>
                   <strong>a rewards program</strong>
                 </div>
               </p>
-              <p className="pb-9">
+              <p className="font_lg pb-9">
                 Join our community and be a part of something bigger.
               </p>
               <p>
@@ -194,8 +194,10 @@ const HomePage = () => {
                 backgroundSize: "cover",
               }}
             >
-              <h1 className="text-uppercase">Free delivery to your door</h1>
-              <p className="pb-9">
+              <h1 className="text-uppercase pb-3">
+                Free delivery to your door
+              </h1>
+              <p className="font_lg pb-9">
                 Enjoy free delivery when you spend over $150 in a single
                 purchase.
               </p>
@@ -214,11 +216,11 @@ const HomePage = () => {
         </div>
         {/* end banner for tablets and larger screens */}
         <div className="container_fluid">
-          <div className="row_padding_sides">
+          <div className="row_padding_sides d-none d-md-block">
             <div className="row row_padding">
               <div className="col-12 col-md-8 col-lg-5">
-                <h1 className="text-uppercase">Min+Modules</h1>
-                <p className="font_lg">
+                <h1 className="text-uppercase pb-7">Min+Modules</h1>
+                <p className="font_lg font_grey_light">
                   Min+Modules is a series of modular furniture exclusively
                   designed in-house by M.INT. Each module is connected by
                   magnetic connectors which allows flexible arrangements to suit
@@ -488,7 +490,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-7 align-self-center">
               <div className="membership_padding">
-                <h2 className="text-uppercase">Get exclusive with us</h2>
+                <h2 className="text-uppercase pb-3">Get exclusive with us</h2>
                 <p className="pb-5">
                   Join M.INT Club and be a part of something bigger! Gain access
                   to member-only benefits and stay informed with the latest

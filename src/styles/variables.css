@@ -10,10 +10,12 @@
   /* palette */
   --black: #1d1d1d;
   --grey-extra-dark: #464646;
+  --grey-medium-dark: #707070;
   --grey-dark: #909090;
   --grey-medium: #ccc6bd;
   --grey: #e6dfd5;
   --grey-light: #f7f6f4;
+  --grey-extra-light: #fafafa;
   --white: #ffffff;
   --yellow: #f3cd46;
   --blue: #0e3244;

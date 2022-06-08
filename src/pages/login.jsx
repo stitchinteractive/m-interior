@@ -15,7 +15,7 @@ const Login = () => {
               <div className={loginModule.login_container}>
                 <form className="row g-3">
                   <div className="col">
-                    <h2 className="text-uppercase">Log In</h2>
+                    <h2 className="text-uppercase pb-6">Log In</h2>
                   </div>
                   <div className="col-12">
                     <label for="inputEmail4" className="form-label">
@@ -43,11 +43,11 @@ const Login = () => {
                         Log in
                       </button>
                     </Link>
-                  </div>
-                  <div className="col-12 text-end">
-                    <Link to="/" className="fst-italic">
-                      Forgot your password?
-                    </Link>
+                    <div className="mt-2">
+                      <Link to="/" className="fst-italic font_grey_medium_dark">
+                        Forgot your password?
+                      </Link>
+                    </div>
                   </div>
                 </form>
               </div>

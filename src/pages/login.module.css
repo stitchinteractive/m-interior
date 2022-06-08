@@ -15,11 +15,11 @@
 @media (min-width: 768px) {
   .login_bg {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .login_container {
     padding: var(--space-150) var(--space-50);
-    margin: 0;
+    margin: 120px 0;
   }
 }
