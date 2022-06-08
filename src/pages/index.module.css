@@ -1,7 +1,6 @@
-.banner_home {
-  padding: 0;
-  font-size: var(--text-xl);
-  background: none !important;
+.padding_banner {
+  padding: 50px 50px 80px 50px;
+  line-height: 2rem;
 }
 
 /********** tablets **********/
@@ -9,6 +8,14 @@
   .banner_home {
     min-height: calc(80vh - 100px);
     padding: 0 15% 0 35%;
+    line-height: 2.3rem;
+  }
+
+  .banner_1 {
+    width: 100%;
+    height: 100%;
+    background: url(/home/banner_1.jpg) center center no-repeat;
+    background-size: cover;
   }
 }
 

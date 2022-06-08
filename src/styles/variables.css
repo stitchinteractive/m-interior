@@ -4,7 +4,7 @@
   /* tokens */
   /* font-family */
   --font-body: "Raleway", sans-serif;
-  --font-default: 18px;
+  --font-default: 16px;
   --font-headings: "Montserrat", sans-serif;
 
   /* palette */
@@ -48,7 +48,7 @@
   --solid: 1;
   --dense: 1.25;
   --default: 1.5;
-  --loose: 2;
+  --loose: 1.8;
 
   /* letter-spacing */
   --tracked: 0.075em;
@@ -90,6 +90,8 @@
 /********** tablet **********/
 @media (min-width: 768px) {
   :root {
+    --font-default: 18px;
+
     /* font-size */
     --text-xs: 14px;
     --text-sm: 15px;
@@ -139,6 +141,8 @@
 /********** desktop **********/
 @media (min-width: 1280px) {
   :root {
+    --loose: 1.8;
+
     /* font-size */
     --text-xs: 15px;
     --text-sm: 16px;
