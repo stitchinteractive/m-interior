@@ -87,12 +87,12 @@ export function Footer() {
                 </ul>
               </div>
               <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
-                <h5 class="text-uppercase mb-3">Newsletter</h5>
+                <h5 class="text-uppercase mb-3">Subscribe</h5>
                 <div className="font_sm mb-5">
-                  <div className="input-group mb-1">
+                  <div className="input-group textfield_footer mb-2">
                     <input
                       type="text"
-                      className="form-control"
+                      className={`form-control ${footerModule.subscribe}`}
                       placeholder="Enter your email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"

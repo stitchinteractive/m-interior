@@ -343,9 +343,11 @@ a:active {
   padding: 80px 30px 0 30px;
 }
 
+/*
 .padding_min_module {
   padding: 50px 50px 80px 50px;
 }
+*/
 
 .padding_lookbook {
   padding: 80px 45px 80px 45px;
@@ -424,7 +426,7 @@ a:active {
   }
 
   .padding_min_module {
-    padding: 20px;
+    padding: 10px;
   }
 
   .padding_lookbook {
@@ -466,6 +468,13 @@ a:active {
   .row-flex {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  #container_min_modules .btn {
+    width: 100%;
+    font-size: 10px !important;
+    height: 70px;
+    padding: 10px;
   }
 }
 
@@ -514,5 +523,11 @@ a:active {
   .text_vertical {
     font-size: 60px;
     margin-left: 10px;
+  }
+
+  #container_min_modules .btn {
+    width: 100%;
+    font-size: 12px !important;
+    padding: 10px;
   }
 }

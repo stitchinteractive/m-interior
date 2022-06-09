@@ -216,7 +216,7 @@ const HomePage = () => {
           </Swiper>
         </div>
         {/* end banner for tablets and larger screens */}
-        <div className="container">
+        <div id="container_min_modules" className="container">
           <div className="d-none d-md-block">
             <div className="row row_padding">
               <div className="col-12 col-md-8 col-lg-5">
@@ -228,6 +228,7 @@ const HomePage = () => {
                   your needs and spaces.
                 </p>
               </div>
+              {/*
               <div className="col-12">
                 <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-end bd-highlight mb-3">
                   <div className="padding_min_module flex-fill bd-highlight text-center">
@@ -238,6 +239,71 @@ const HomePage = () => {
                       <Link to="/">
                         <button type="button" className="btn btn-outline">
                           Small Side table
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <p>
+                      <img src="/home/2.png" alt="" />
+                    </p>
+                    <p>
+                      <Link to="/">
+                        <button type="button" className="btn btn-outline">
+                          Large side table
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <p>
+                      <img src="/home/3.png" alt="" />
+                    </p>
+                    <p>
+                      <Link to="/">
+                        <button type="button" className="btn btn-outline">
+                          Small bedroom chest
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <p>
+                      <img src="/home/4.png" alt="" />
+                    </p>
+                    <p>
+                      <Link to="/">
+                        <button type="button" className="btn btn-outline">
+                          Tall bookshelf
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <p>
+                      <img src="/home/5.png" alt="" />
+                    </p>
+                    <p>
+                      <Link to="/">
+                        <button type="button" className="btn btn-outline">
+                          Full bookshelf
+                        </button>
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              */}
+              <div className="col-12">
+                <div className="d-flex flex-column flex-md-row justify-content-center align-items-end bd-highlight mb-3">
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <p>
+                      <img src="/home/1.png" alt="" />
+                    </p>
+                    <p>
+                      <Link to="/">
+                        <button type="button" className="btn btn-outline">
+                          Small side table
                         </button>
                       </Link>
                     </p>

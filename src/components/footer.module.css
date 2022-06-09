@@ -62,6 +62,13 @@ footer .spacer {
   line-height: 21px;
 }
 
+footer .subscribe {
+  font-style: italic;
+  font-size: var(--text-xs) !important;
+  padding: 5px 10px !important;
+  margin-bottom: 0 !important;
+}
+
 /********** tablets  **********/
 @media (min-width: 768px) {
   footer {
