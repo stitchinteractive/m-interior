@@ -101,7 +101,7 @@ footer .subscribe {
   }
 
   footer ul li {
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
   }
 
   footer .terms {
