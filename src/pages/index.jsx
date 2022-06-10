@@ -219,7 +219,7 @@ const HomePage = () => {
         <div id="container_min_modules" className="container">
           <div className="d-none d-md-block">
             <div className="row row_padding">
-              <div className="col-12 col-md-8 col-lg-5">
+              <div className="col-12 col-md-8 col-lg-6">
                 <h1 className="text-uppercase pb-7">Min+Modules</h1>
                 <p className="font_lg font_grey_light">
                   Min+Modules is a series of modular furniture exclusively
@@ -228,72 +228,6 @@ const HomePage = () => {
                   your needs and spaces.
                 </p>
               </div>
-              {/*
-              <div className="col-12">
-                <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-end bd-highlight mb-3">
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
-                    <p>
-                      <img src="/home/1.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Small Side table
-                        </button>
-                      </Link>
-                    </p>
-                  </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
-                    <p>
-                      <img src="/home/2.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Large side table
-                        </button>
-                      </Link>
-                    </p>
-                  </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
-                    <p>
-                      <img src="/home/3.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Small bedroom chest
-                        </button>
-                      </Link>
-                    </p>
-                  </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
-                    <p>
-                      <img src="/home/4.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Tall bookshelf
-                        </button>
-                      </Link>
-                    </p>
-                  </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
-                    <p>
-                      <img src="/home/5.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Full bookshelf
-                        </button>
-                      </Link>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              */}
               <div className="col-12">
                 <div className="d-flex flex-column flex-md-row justify-content-center align-items-end bd-highlight mb-3">
                   <div className="padding_min_module flex-fill bd-highlight text-center">
@@ -366,7 +300,7 @@ const HomePage = () => {
             <div className="col-md-6">
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
-                <h2 className="text-uppercase">Endless Configurations.</h2>
+                <h2 className="text-uppercase mb-4">Endless Configurations.</h2>
                 <p>Stack and arrange the modules in any way you want.</p>
               </div>
             </div>
@@ -385,7 +319,7 @@ const HomePage = () => {
             <div className="col-md-6 order-1 order-md-2">
               <h2 className="text-uppercase">Magnetic</h2>
               <div className="text_indent">
-                <h2 className="text-uppercase">Connectors.</h2>
+                <h2 className="text-uppercase mb-4">Connectors.</h2>
                 <p>
                   Each module is connected by magnetic connectors which allows
                   flexible arrangements to suit your needs and spaces.
@@ -397,7 +331,7 @@ const HomePage = () => {
             <div className="col-md-6">
               <h1 className="text-uppercase">Flexible</h1>
               <div className="text_indent">
-                <h2 className="text-uppercase">Storage Compartments.</h2>
+                <h2 className="text-uppercase mb-4">Storage Compartments.</h2>
                 <p>
                   Choose from a selection of doors, drawers and space dividers
                   to satisfy your storage requirements.
@@ -419,7 +353,7 @@ const HomePage = () => {
             <div className="col-md-6 order-1 order-md-2">
               <h2 className="text-uppercase">Your Space.</h2>
               <div className="text_indent">
-                <h1 className="text-uppercase">Your Style.</h1>
+                <h1 className="text-uppercase mb-4">Your Style.</h1>
                 <p>
                   From wood grains to solid colours and patterns, mix and match
                   to form the perfect combination that suit your interior style.
@@ -427,12 +361,12 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="row row_padding">
-            <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center bd-highlight mb-3">
-              <div className="container_lead_in text-center h-100 flex-fill">
-                <h2 className="pb-10">
+          <div class="row row_padding row-flex">
+            <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div class="content_100 bg_blue text-center">
+                <h3 className="pb-10">
                   Why compromise when you can customise?
-                </h2>
+                </h3>
                 <p>
                   <Link to="/">
                     <button type="button" className="btn btn-outline">
@@ -441,13 +375,17 @@ const HomePage = () => {
                   </Link>
                 </p>
               </div>
-              <div className="container_lead_in d-flex justify-content-center h-100 flex-fill">
-                <p>
-                  <img src="/home/1.png" alt="" />
+            </div>
+            <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div class="content_100 bg_blue">
+                <p className="p-5">
+                  <img src="/home/1.png" alt="" className="mx-auto" />
                 </p>
               </div>
-              <div className="container_lead_in text-center h-100 flex-fill">
-                <h2 className="pb-10">There’s a Min+Module for every space.</h2>
+            </div>
+            <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div class="content_100 bg_blue text-center">
+                <h3 className="pb-10">There’s a Min+Module for every space.</h3>
                 <p>
                   <Link to="/">
                     <button type="button" className="btn btn-outline">

@@ -13,7 +13,7 @@ export function TestimonialItem() {
           <img src="/profile.jpg" className="avatar" />
         </div>
         <div className="col-9">
-          <div className="row">
+          <div className="row align-items-center">
             <div class="col-12">
               <h6>John D.</h6>
             </div>

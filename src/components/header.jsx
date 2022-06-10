@@ -35,7 +35,7 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/cart">
+                      <Link to="/">
                         <CartIcon />
                       </Link>
                     </li>

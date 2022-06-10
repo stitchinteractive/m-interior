@@ -259,6 +259,17 @@ h6 {
 }
 
 /********** global **********/
+.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content_100 {
+  height: 100%;
+  padding: 80px 50px;
+  color: #fff;
+}
+
 .gatsby-image-wrapper {
   margin: auto;
 }
@@ -297,6 +308,10 @@ p {
 
 .pb-10 {
   padding-bottom: var(--space-100);
+}
+
+.bg_blue {
+  background: var(--blue);
 }
 
 .bg_grey {
@@ -367,12 +382,6 @@ a:active {
 
 .text_indent {
   padding-left: 40px;
-}
-
-.container_lead_in {
-  background: var(--blue-light);
-  padding: 100px 50px;
-  margin-bottom: 50px;
 }
 
 .swiper.testimonial_swiper {
@@ -453,10 +462,6 @@ a:active {
     padding: 80px 0 0 0;
   }
 
-  .text_indent {
-    padding-left: 80px;
-  }
-
   .form-label {
     font-size: var(--text-md);
   }
@@ -480,12 +485,6 @@ a:active {
 
 /********** laptops **********/
 @media (min-width: 992px) {
-  .container_lead_in {
-    padding: 150px 50px;
-    margin: 0 15px;
-    width: 33.33%;
-  }
-
   .btn-outline-large {
     font-size: 16px;
     padding: 1rem 2rem;
@@ -497,6 +496,16 @@ a:active {
 
   .img_overflow {
     margin-top: -160px;
+  }
+
+  .content_100 {
+    height: 100%;
+    padding: 100px 50px;
+    color: #fff;
+  }
+
+  .text_indent {
+    padding-left: 80px;
   }
 }
 
