@@ -14,7 +14,6 @@ h5,
 h6 {
   letter-spacing: 3px;
   font-family: var(--font-headings);
-  font-weight: var(--bold);
 }
 
 h1 {
@@ -184,7 +183,7 @@ h6 {
 }
 
 .btn-outline-large {
-  font-size: 14px;
+  font-size: 12px;
   padding: 0.5rem 1rem;
   border: 2px solid var(--grey-extra-light);
 }
@@ -266,7 +265,7 @@ h6 {
 
 .content_100 {
   height: 100%;
-  padding: 80px 50px;
+  padding: 80px 40px;
   color: #fff;
 }
 
@@ -500,7 +499,7 @@ a:active {
 
   .content_100 {
     height: 100%;
-    padding: 100px 50px;
+    padding: 100px 30px;
     color: #fff;
   }
 

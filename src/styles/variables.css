@@ -5,7 +5,7 @@
   /* font-family */
   --font-body: "Raleway", sans-serif;
   --font-default: 16px;
-  --font-headings: "Montserrat", sans-serif;
+  --font-headings: "Montserrat Semibold", sans-serif;
 
   /* palette */
   --black: #1d1d1d;
@@ -68,11 +68,11 @@
   /* font-size */
   --text-xs: 13px;
   --text-sm: 14px;
-  --text-md: 16px;
-  --text-lg: 18px;
-  --text-xl: 21px;
-  --text-xxl: 24px;
-  --text-h1: 30px;
+  --text-md: 15px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-xxl: 21px;
+  --text-h1: 27px;
   --text-h2: 24px;
   --text-h3: 20px;
   --text-h4: 18px;
@@ -101,9 +101,9 @@
     --text-lg: 18px;
     --text-xl: 23px;
     --text-xxl: 26px;
-    --text-h1: 45px;
+    --text-h1: 32px;
     --text-h2: 28px;
-    --text-h3: 25px;
+    --text-h3: 23px;
     --text-h4: 18px;
     --text-h5: 16px;
     --text-h6: 14px;
@@ -131,9 +131,9 @@
     --text-lg: 18px;
     --text-xl: 23px;
     --text-xxl: 26px;
-    --text-h1: 45px;
-    --text-h2: 32px;
-    --text-h3: 25px;
+    --text-h1: 32px;
+    --text-h2: 28px;
+    --text-h3: 21px;
     --text-h4: 18px;
     --text-h5: 16px;
     --text-h6: 14px;
