@@ -5,6 +5,10 @@ body {
   line-height: var(--loose);
 }
 
+#content_container {
+  overflow-x: hidden !important;
+}
+
 /********** fonts **********/
 h1,
 h2,
@@ -410,6 +414,10 @@ a:active {
 
 .avatar {
   border-radius: 50%;
+}
+
+circle {
+  background: white;
 }
 
 /********** tablets **********/

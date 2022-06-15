@@ -6,7 +6,7 @@ import { Seo } from "./seo"
 
 export function Layout({ children }) {
   return (
-    <div>
+    <div id="content_container">
       <Seo />
       <SkipNavLink />
       <Header />
