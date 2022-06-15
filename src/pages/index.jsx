@@ -1,5 +1,7 @@
 // step 1: import
-import * as React from "react"
+import React, { useEffect, useLayoutEffect, useState, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 
 // import components
@@ -22,32 +24,247 @@ import * as indexModule from "./index.module.css"
 
 // step 2: define
 const HomePage = () => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const bannerRef = useRef(null)
+  const minLeadInRef = useRef(null)
+  const furniture1Ref = useRef(null)
+  const furniture2Ref = useRef(null)
+  const furniture3Ref = useRef(null)
+  const furniture4Ref = useRef(null)
+  const furniture5Ref = useRef(null)
+  const sizes1Ref = useRef(null)
+  const sizes2Ref = useRef(null)
+
+  // wait until DOM has been rendered
+  useLayoutEffect(() => {
+    const banner = bannerRef.current
+    gsap.fromTo(
+      banner,
+      { autoAlpha: 0, y: -100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: banner,
+          start: "top center+=100",
+          toggleActions: "restart none none none",
+        },
+      }
+    )
+
+    const min_lead_in = minLeadInRef.current
+    gsap.fromTo(
+      min_lead_in,
+      { autoAlpha: 0, ease: "none", y: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        y: 0,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: min_lead_in,
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_1 = furniture1Ref.current
+    gsap.fromTo(
+      furniture_1,
+      { autoAlpha: 0, ease: "none", y: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        y: 0,
+        delay: 1,
+        scrollTrigger: {
+          trigger: "#test",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_2 = furniture2Ref.current
+    gsap.fromTo(
+      furniture_2,
+      { autoAlpha: 0, ease: "none", y: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        y: 0,
+        delay: 1.2,
+        scrollTrigger: {
+          trigger: "#test",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_3 = furniture3Ref.current
+    gsap.fromTo(
+      furniture_3,
+      { autoAlpha: 0, ease: "none", y: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        y: 0,
+        delay: 1.4,
+        scrollTrigger: {
+          trigger: "#test",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_4 = furniture4Ref.current
+    gsap.fromTo(
+      furniture_4,
+      { autoAlpha: 0, ease: "none", y: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        y: 0,
+        delay: 1.6,
+        scrollTrigger: {
+          trigger: "#test",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_5 = furniture5Ref.current
+    gsap.fromTo(
+      furniture_5,
+      { autoAlpha: 0, ease: "none", y: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        y: 0,
+        delay: 1.8,
+        scrollTrigger: {
+          trigger: "#test",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const sizes_1 = sizes1Ref.current
+    gsap.fromTo(
+      sizes_1,
+      { autoAlpha: 0, x: -100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: sizes_1,
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const sizes_2 = sizes2Ref.current
+    gsap.fromTo(
+      sizes_2,
+      { autoAlpha: 0, x: 100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        delay: 1,
+        scrollTrigger: {
+          trigger: sizes_2,
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+  })
+
   return (
     <Layout>
       <div className="bg_black font_white">
         {/* banner */}
-        <Swiper
-          // install Swiper modules
-          modules={[Pagination, A11y]}
-          spaceBetween={50}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
-        >
-          <SwiperSlide
-            className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
-            style={{
-              background: "url(/home/banner_1.jpg) center center no-repeat",
-              backgroundSize: "cover",
-            }}
+        <div ref={bannerRef}>
+          <Swiper
+            // install Swiper modules
+            modules={[Pagination, A11y]}
+            spaceBetween={50}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log("slide change")}
           >
-            <div className="d-flex flex-column justify-content-center align-items-start h-100">
-              <h1 className="text-uppercase pb-3">Acacia Blocks</h1>
+            <SwiperSlide
+              className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
+              style={{
+                background: "url(/home/banner_1.jpg) center center no-repeat",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="d-flex flex-column justify-content-center align-items-start h-100">
+                <h1 className="text-uppercase pb-3">Acacia Blocks</h1>
+                <p>
+                  Find fun and freedom in transforming your spaces with our
+                  modular furniture series. Simply connect, stack and mount the
+                  blocks to build your own creative storage display.
+                </p>
+                <p>
+                  <Link to="/">
+                    <button
+                      type="button"
+                      className="btn btn-outline btn-outline-large"
+                    >
+                      Discover More
+                    </button>
+                  </Link>
+                </p>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide
+              className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
+              style={{
+                background: "url(/home/banner_2.jpg) center center no-repeat",
+                backgroundSize: "cover",
+              }}
+            >
+              <h1 className="text-uppercase pb-3">M.INT club</h1>
               <p>
-                Find fun and freedom in transforming your spaces with our
-                modular furniture series. Simply connect, stack and mount the
-                blocks to build your own creative storage display.
+                <div className="font_xxl text-uppercase">
+                  <strong>is</strong> <i>more than just </i>
+                  <strong>a rewards program</strong>
+                </div>
+              </p>
+              <p>Join our community and be a part of something bigger.</p>
+              <p>
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-outline-large"
+                  >
+                    Join now and enjoy 10% off your first purchase
+                  </button>
+                </Link>
+              </p>
+            </SwiperSlide>
+            <SwiperSlide
+              className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
+              style={{
+                background: "url(/home/banner_3.jpg) center center no-repeat",
+                backgroundSize: "cover",
+              }}
+            >
+              <h1 className="text-uppercase pb-3">
+                Free delivery to your door
+              </h1>
+              <p>
+                Enjoy free delivery when you spend over $150 in a single
+                purchase.
               </p>
               <p>
                 <Link to="/">
@@ -55,66 +272,18 @@ const HomePage = () => {
                     type="button"
                     className="btn btn-outline btn-outline-large"
                   >
-                    Discover More
+                    Shop Now
                   </button>
                 </Link>
               </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide
-            className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
-            style={{
-              background: "url(/home/banner_2.jpg) center center no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            <h1 className="text-uppercase pb-3">M.INT club</h1>
-            <p>
-              <div className="font_xxl text-uppercase">
-                <strong>is</strong> <i>more than just </i>
-                <strong>a rewards program</strong>
-              </div>
-            </p>
-            <p>Join our community and be a part of something bigger.</p>
-            <p>
-              <Link to="/">
-                <button
-                  type="button"
-                  className="btn btn-outline btn-outline-large"
-                >
-                  Join now and enjoy 10% off your first purchase
-                </button>
-              </Link>
-            </p>
-          </SwiperSlide>
-          <SwiperSlide
-            className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
-            style={{
-              background: "url(/home/banner_3.jpg) center center no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            <h1 className="text-uppercase pb-3">Free delivery to your door</h1>
-            <p>
-              Enjoy free delivery when you spend over $150 in a single purchase.
-            </p>
-            <p>
-              <Link to="/">
-                <button
-                  type="button"
-                  className="btn btn-outline btn-outline-large"
-                >
-                  Shop Now
-                </button>
-              </Link>
-            </p>
-          </SwiperSlide>
-        </Swiper>
+            </SwiperSlide>
+          </Swiper>
+        </div>
         {/* end banner */}
         <div id="container_min_modules" className="container">
           <div className="d-none d-md-block">
             <div className="row row_padding">
-              <div className="col-12 col-md-8 col-lg-6">
+              <div className="col-12 col-md-8 col-lg-6 box" ref={minLeadInRef}>
                 <h1 className="text-uppercase pb-7">Min+Modules</h1>
                 <p className="font_lg font_grey_light">
                   Min+Modules is a series of modular furniture exclusively
@@ -123,9 +292,12 @@ const HomePage = () => {
                   your needs and spaces.
                 </p>
               </div>
-              <div className="col-12">
+              <div id="test" className="col-12">
                 <div className="d-flex flex-column flex-md-row justify-content-center align-items-end bd-highlight mb-3">
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                  <div
+                    className="padding_min_module flex-fill bd-highlight text-center"
+                    ref={furniture1Ref}
+                  >
                     <p>
                       <img src="/home/1.png" alt="" />
                     </p>
@@ -137,7 +309,10 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                  <div
+                    className="padding_min_module flex-fill bd-highlight text-center"
+                    ref={furniture2Ref}
+                  >
                     <p>
                       <img src="/home/2.png" alt="" />
                     </p>
@@ -149,7 +324,10 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                  <div
+                    className="padding_min_module flex-fill bd-highlight text-center"
+                    ref={furniture3Ref}
+                  >
                     <p>
                       <img src="/home/3.png" alt="" />
                     </p>
@@ -161,7 +339,10 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                  <div
+                    className="padding_min_module flex-fill bd-highlight text-center"
+                    ref={furniture4Ref}
+                  >
                     <p>
                       <img src="/home/4.png" alt="" />
                     </p>
@@ -173,7 +354,10 @@ const HomePage = () => {
                       </Link>
                     </p>
                   </div>
-                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                  <div
+                    className="padding_min_module flex-fill bd-highlight text-center"
+                    ref={furniture5Ref}
+                  >
                     <p>
                       <img src="/home/5.png" alt="" />
                     </p>
@@ -192,14 +376,14 @@ const HomePage = () => {
         </div>
         <div className="container">
           <div className="row row_padding">
-            <div className="col-md-6">
+            <div className="col-md-6" ref={sizes1Ref}>
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Endless Configurations.</h3>
                 <p>Stack and arrange the modules in any way you want.</p>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6" ref={sizes2Ref}>
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
