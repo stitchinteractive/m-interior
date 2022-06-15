@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useLayoutEffect, useState, useRef } from "react"
 import { gsap } from "gsap"
 import { Link } from "gatsby"
 import Logo from "../icons/logo"
@@ -21,14 +21,14 @@ export function Header() {
   // store the timeline in a ref.
   const tl = useRef()
 
-  useEffect(() => {
-    // add a box and circle animation to our timeline and play on first render
+  useLayoutEffect(() => {
+    // add mobile nav container and play on first render
     tl.current = gsap.timeline().to(q(".mobile_nav_container"), {
       x: 768,
     })
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // toggle the direction of our timeline
     tl.current.reversed(reversed)
   }, [reversed])
