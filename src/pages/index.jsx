@@ -163,7 +163,6 @@ const HomePage = () => {
         autoAlpha: 1,
         ease: "none",
         x: 0,
-        delay: 0.5,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "bottom center",
@@ -179,7 +178,7 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 1,
+        delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "bottom center",
@@ -195,7 +194,7 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 1,
+        delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "bottom center",
@@ -211,7 +210,7 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 1,
+        delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "bottom center",
@@ -227,7 +226,7 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 1,
+        delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "bottom center",
@@ -243,7 +242,7 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 1,
+        delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "bottom center",
