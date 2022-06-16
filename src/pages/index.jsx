@@ -71,8 +71,10 @@ const HomePage = () => {
         delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "top center+=300",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          scrub: true,
         },
       }
     )
@@ -88,8 +90,10 @@ const HomePage = () => {
         delay: 1.2,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "top center+=300",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          scrub: true,
         },
       }
     )
@@ -105,8 +109,10 @@ const HomePage = () => {
         delay: 1.4,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "top center+=300",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          scrub: true,
         },
       }
     )
@@ -122,8 +128,10 @@ const HomePage = () => {
         delay: 1.6,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "top center+=300",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          scrub: true,
         },
       }
     )
@@ -139,8 +147,10 @@ const HomePage = () => {
         delay: 1.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "top center+=300",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          scrub: true,
         },
       }
     )
@@ -153,10 +163,10 @@ const HomePage = () => {
         autoAlpha: 1,
         ease: "none",
         x: 0,
-        delay: 3,
+        delay: 0.5,
         scrollTrigger: {
-          trigger: min_lead_in,
-          start: "top center+=100",
+          trigger: "#container_min_modules_content",
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -169,10 +179,10 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 4,
+        delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -185,10 +195,10 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 4,
+        delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -201,10 +211,10 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 4,
+        delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -217,10 +227,10 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 4,
+        delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -233,10 +243,10 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         ease: "none",
-        delay: 4,
+        delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=100",
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
