@@ -33,8 +33,15 @@ const HomePage = () => {
   const furniture3Ref = useRef(null)
   const furniture4Ref = useRef(null)
   const furniture5Ref = useRef(null)
+  const furniture1TextRef = useRef(null)
+  const furniture2TextRef = useRef(null)
+  const furniture3TextRef = useRef(null)
+  const furniture4TextRef = useRef(null)
+  const furniture5TextRef = useRef(null)
+  /*
   const sizes1Ref = useRef(null)
   const sizes2Ref = useRef(null)
+  */
 
   // wait until DOM has been rendered
   useLayoutEffect(() => {
@@ -54,34 +61,16 @@ const HomePage = () => {
       }
     )
 
-    const min_lead_in = minLeadInRef.current
-    gsap.fromTo(
-      min_lead_in,
-      { autoAlpha: 0, ease: "none", y: -100 },
-      {
-        autoAlpha: 1,
-        ease: "none",
-        y: 0,
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: min_lead_in,
-          start: "top center+=100",
-          toggleActions: "restart none reverse reset",
-        },
-      }
-    )
-
     const furniture_1 = furniture1Ref.current
     gsap.fromTo(
       furniture_1,
-      { autoAlpha: 0, ease: "none", y: -100 },
+      { x: 0 },
       {
-        autoAlpha: 1,
         ease: "none",
-        y: 0,
+        x: 0,
         delay: 1,
         scrollTrigger: {
-          trigger: "#test",
+          trigger: "#container_min_modules_content",
           start: "top center+=100",
           toggleActions: "restart none reverse reset",
         },
@@ -91,14 +80,14 @@ const HomePage = () => {
     const furniture_2 = furniture2Ref.current
     gsap.fromTo(
       furniture_2,
-      { autoAlpha: 0, ease: "none", y: -100 },
+      { x: -50, y: -50 },
       {
-        autoAlpha: 1,
         ease: "none",
+        x: 0,
         y: 0,
         delay: 1.2,
         scrollTrigger: {
-          trigger: "#test",
+          trigger: "#container_min_modules_content",
           start: "top center+=100",
           toggleActions: "restart none reverse reset",
         },
@@ -108,14 +97,14 @@ const HomePage = () => {
     const furniture_3 = furniture3Ref.current
     gsap.fromTo(
       furniture_3,
-      { autoAlpha: 0, ease: "none", y: -100 },
+      { x: -100, y: -100 },
       {
-        autoAlpha: 1,
         ease: "none",
+        x: 0,
         y: 0,
         delay: 1.4,
         scrollTrigger: {
-          trigger: "#test",
+          trigger: "#container_min_modules_content",
           start: "top center+=100",
           toggleActions: "restart none reverse reset",
         },
@@ -125,14 +114,14 @@ const HomePage = () => {
     const furniture_4 = furniture4Ref.current
     gsap.fromTo(
       furniture_4,
-      { autoAlpha: 0, ease: "none", y: -100 },
+      { x: -150, y: -150 },
       {
-        autoAlpha: 1,
         ease: "none",
+        x: 0,
         y: 0,
         delay: 1.6,
         scrollTrigger: {
-          trigger: "#test",
+          trigger: "#container_min_modules_content",
           start: "top center+=100",
           toggleActions: "restart none reverse reset",
         },
@@ -142,20 +131,118 @@ const HomePage = () => {
     const furniture_5 = furniture5Ref.current
     gsap.fromTo(
       furniture_5,
-      { autoAlpha: 0, ease: "none", y: -100 },
+      { x: -200, y: -200 },
       {
-        autoAlpha: 1,
         ease: "none",
+        x: 0,
         y: 0,
         delay: 1.8,
         scrollTrigger: {
-          trigger: "#test",
+          trigger: "#container_min_modules_content",
           start: "top center+=100",
           toggleActions: "restart none reverse reset",
         },
       }
     )
 
+    const min_lead_in = minLeadInRef.current
+    gsap.fromTo(
+      min_lead_in,
+      { autoAlpha: 0, ease: "none", x: -100 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        x: 0,
+        delay: 3,
+        scrollTrigger: {
+          trigger: min_lead_in,
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_1_text = furniture1TextRef.current
+    gsap.fromTo(
+      furniture_1_text,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        delay: 4,
+        scrollTrigger: {
+          trigger: "#container_min_modules_content",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_2_text = furniture2TextRef.current
+    gsap.fromTo(
+      furniture_2_text,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        delay: 4,
+        scrollTrigger: {
+          trigger: "#container_min_modules_content",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_3_text = furniture3TextRef.current
+    gsap.fromTo(
+      furniture_3_text,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        delay: 4,
+        scrollTrigger: {
+          trigger: "#container_min_modules_content",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_4_text = furniture4TextRef.current
+    gsap.fromTo(
+      furniture_4_text,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        delay: 4,
+        scrollTrigger: {
+          trigger: "#container_min_modules_content",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const furniture_5_text = furniture5TextRef.current
+    gsap.fromTo(
+      furniture_5_text,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        ease: "none",
+        delay: 4,
+        scrollTrigger: {
+          trigger: "#container_min_modules_content",
+          start: "top center+=100",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    /*
     const sizes_1 = sizes1Ref.current
     gsap.fromTo(
       sizes_1,
@@ -184,6 +271,7 @@ const HomePage = () => {
         },
       }
     )
+    */
   })
 
   return (
@@ -283,91 +371,98 @@ const HomePage = () => {
         <div id="container_min_modules" className="container">
           <div className="d-none d-md-block">
             <div className="row row_padding">
-              <div className="col-12 col-md-8 col-lg-6 box" ref={minLeadInRef}>
+              <div className="col-12 col-md-8 col-lg-6 box">
                 <h1 className="text-uppercase pb-7">Min+Modules</h1>
-                <p className="font_lg font_grey_light">
-                  Min+Modules is a series of modular furniture exclusively
-                  designed in-house by M.INT. Each module is connected by
-                  magnetic connectors which allows flexible arrangements to suit
-                  your needs and spaces.
-                </p>
+                <div ref={minLeadInRef}>
+                  <p className="font_lg font_grey_light">
+                    Min+Modules is a series of modular furniture exclusively
+                    designed in-house by M.INT. Each module is connected by
+                    magnetic connectors which allows flexible arrangements to
+                    suit your needs and spaces.
+                  </p>
+                </div>
               </div>
-              <div id="test" className="col-12">
+              <div id="container_min_modules_content" className="col-12">
                 <div className="d-flex flex-column flex-md-row justify-content-center align-items-end bd-highlight mb-3">
-                  <div
-                    className="padding_min_module flex-fill bd-highlight text-center"
-                    ref={furniture1Ref}
-                  >
-                    <p>
-                      <img src="/home/1.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Small side table
-                        </button>
-                      </Link>
-                    </p>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <div ref={furniture1Ref}>
+                      <p>
+                        <img src="/home/1.png" alt="" />
+                      </p>
+                    </div>
+                    <div ref={furniture1TextRef}>
+                      <p>
+                        <Link to="/">
+                          <button type="button" className="btn btn-outline">
+                            Small side table
+                          </button>
+                        </Link>
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className="padding_min_module flex-fill bd-highlight text-center"
-                    ref={furniture2Ref}
-                  >
-                    <p>
-                      <img src="/home/2.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Large side table
-                        </button>
-                      </Link>
-                    </p>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <div ref={furniture2Ref}>
+                      <p>
+                        <img src="/home/2.png" alt="" />
+                      </p>
+                    </div>
+                    <div ref={furniture2TextRef}>
+                      <p>
+                        <Link to="/">
+                          <button type="button" className="btn btn-outline">
+                            Large side table
+                          </button>
+                        </Link>
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className="padding_min_module flex-fill bd-highlight text-center"
-                    ref={furniture3Ref}
-                  >
-                    <p>
-                      <img src="/home/3.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Small bedroom chest
-                        </button>
-                      </Link>
-                    </p>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <div ref={furniture3Ref}>
+                      <p>
+                        <img src="/home/3.png" alt="" />
+                      </p>
+                    </div>
+                    <div ref={furniture3TextRef}>
+                      <p>
+                        <Link to="/">
+                          <button type="button" className="btn btn-outline">
+                            Small bedroom chest
+                          </button>
+                        </Link>
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className="padding_min_module flex-fill bd-highlight text-center"
-                    ref={furniture4Ref}
-                  >
-                    <p>
-                      <img src="/home/4.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Tall bookshelf
-                        </button>
-                      </Link>
-                    </p>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <div ref={furniture4Ref}>
+                      <p>
+                        <img src="/home/4.png" alt="" />
+                      </p>
+                    </div>
+                    <div ref={furniture4TextRef}>
+                      <p>
+                        <Link to="/">
+                          <button type="button" className="btn btn-outline">
+                            Tall bookshelf
+                          </button>
+                        </Link>
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className="padding_min_module flex-fill bd-highlight text-center"
-                    ref={furniture5Ref}
-                  >
-                    <p>
-                      <img src="/home/5.png" alt="" />
-                    </p>
-                    <p>
-                      <Link to="/">
-                        <button type="button" className="btn btn-outline">
-                          Full bookshelf
-                        </button>
-                      </Link>
-                    </p>
+                  <div className="padding_min_module flex-fill bd-highlight text-center">
+                    <div ref={furniture5Ref}>
+                      <p>
+                        <img src="/home/5.png" alt="" />
+                      </p>
+                    </div>
+                    <div ref={furniture5TextRef}>
+                      <p>
+                        <Link to="/">
+                          <button type="button" className="btn btn-outline">
+                            Full bookshelf
+                          </button>
+                        </Link>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -376,14 +471,14 @@ const HomePage = () => {
         </div>
         <div className="container">
           <div className="row row_padding">
-            <div className="col-md-6" ref={sizes1Ref}>
+            <div className="col-md-6">
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Endless Configurations.</h3>
                 <p>Stack and arrange the modules in any way you want.</p>
               </div>
             </div>
-            <div className="col-md-6" ref={sizes2Ref}>
+            <div className="col-md-6">
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
