@@ -38,10 +38,23 @@ const HomePage = () => {
   const furniture3TextRef = useRef(null)
   const furniture4TextRef = useRef(null)
   const furniture5TextRef = useRef(null)
-  /*
   const sizes1Ref = useRef(null)
   const sizes2Ref = useRef(null)
-  */
+  const connectors1Ref = useRef(null)
+  const connectors2Ref = useRef(null)
+  const compartments1Ref = useRef(null)
+  const compartments2Ref = useRef(null)
+  const style1Ref = useRef(null)
+  const style2Ref = useRef(null)
+  const minCta1Ref = useRef(null)
+  const minCta2Ref = useRef(null)
+  const minCta3Ref = useRef(null)
+  const featured1Ref = useRef(null)
+  const featured2Ref = useRef(null)
+  const review1Ref = useRef(null)
+  const review2Ref = useRef(null)
+  const review3Ref = useRef(null)
+  const memberRef = useRef(null)
 
   // wait until DOM has been rendered
   useLayoutEffect(() => {
@@ -251,7 +264,6 @@ const HomePage = () => {
       }
     )
 
-    /*
     const sizes_1 = sizes1Ref.current
     gsap.fromTo(
       sizes_1,
@@ -261,6 +273,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: sizes_1,
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -273,14 +286,244 @@ const HomePage = () => {
       {
         autoAlpha: 1,
         x: 0,
-        delay: 1,
         scrollTrigger: {
           trigger: sizes_2,
+          start: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
     )
-    */
+
+    const connectors_1 = connectors1Ref.current
+    gsap.fromTo(
+      connectors_1,
+      { autoAlpha: 0, x: -100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: connectors_1,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const connectors_2 = connectors2Ref.current
+    gsap.fromTo(
+      connectors_2,
+      { autoAlpha: 0, x: 100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: connectors_2,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const compartments_1 = compartments1Ref.current
+    gsap.fromTo(
+      compartments_1,
+      { autoAlpha: 0, x: -100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: compartments_1,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const compartments_2 = compartments2Ref.current
+    gsap.fromTo(
+      compartments_2,
+      { autoAlpha: 0, x: 100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: compartments_2,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const style_1 = style1Ref.current
+    gsap.fromTo(
+      style_1,
+      { autoAlpha: 0, x: -100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: style_1,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const style_2 = style2Ref.current
+    gsap.fromTo(
+      style_2,
+      { autoAlpha: 0, x: 100 },
+      {
+        autoAlpha: 1,
+        x: 0,
+        scrollTrigger: {
+          trigger: style_2,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const min_cta_1 = minCta1Ref.current
+    gsap.fromTo(
+      min_cta_1,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: min_cta_1,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const min_cta_2 = minCta2Ref.current
+    gsap.fromTo(
+      min_cta_2,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: min_cta_2,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const min_cta_3 = minCta3Ref.current
+    gsap.fromTo(
+      min_cta_3,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.8,
+        scrollTrigger: {
+          trigger: min_cta_3,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const featured_1 = featured1Ref.current
+    gsap.fromTo(
+      featured_1,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: featured_1,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const featured_2 = featured2Ref.current
+    gsap.fromTo(
+      featured_2,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: featured_2,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const review_1 = review1Ref.current
+    gsap.fromTo(
+      review_1,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: review_1,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const review_2 = review2Ref.current
+    gsap.fromTo(
+      review_2,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.4,
+        scrollTrigger: {
+          trigger: review_2,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const review_3 = review3Ref.current
+    gsap.fromTo(
+      review_3,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.8,
+        scrollTrigger: {
+          trigger: review_3,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
+
+    const member = memberRef.current
+    gsap.fromTo(
+      member,
+      { autoAlpha: 0, y: 100 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        delay: 0.8,
+        scrollTrigger: {
+          trigger: member,
+          start: "bottom center",
+          toggleActions: "restart none reverse reset",
+        },
+      }
+    )
   })
 
   return (
@@ -480,26 +723,26 @@ const HomePage = () => {
         </div>
         <div className="container">
           <div className="row row_padding">
-            <div className="col-md-6">
+            <div className="col-md-6" ref={sizes1Ref}>
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Endless Configurations.</h3>
                 <p>Stack and arrange the modules in any way you want.</p>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6" ref={sizes2Ref}>
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="row row_padding">
-            <div className="col-md-6 order-2 order-md-1">
+            <div className="col-md-6 order-2 order-md-1" ref={connectors1Ref}>
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_connectors.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="col-md-6 order-1 order-md-2">
+            <div className="col-md-6 order-1 order-md-2" ref={connectors2Ref}>
               <h3 className="text-uppercase">Magnetic</h3>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Connectors.</h3>
@@ -511,7 +754,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row row_padding">
-            <div className="col-md-6">
+            <div className="col-md-6" ref={compartments1Ref}>
               <h1 className="text-uppercase">Flexible</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Storage Compartments.</h3>
@@ -521,19 +764,19 @@ const HomePage = () => {
                 </p>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6" ref={compartments2Ref}>
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_storage.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="row row_padding">
-            <div className="col-md-6 order-2 order-md-1">
+            <div className="col-md-6 order-2 order-md-1" ref={style1Ref}>
               <video width="100%" height="100%" controls>
                 <source src="/home/intro_colours.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="col-md-6 order-1 order-md-2">
+            <div className="col-md-6 order-1 order-md-2" ref={style2Ref}>
               <h3 className="text-uppercase">Your Space.</h3>
               <div className="text_indent">
                 <h1 className="text-uppercase mb-4">Your Style.</h1>
@@ -546,7 +789,7 @@ const HomePage = () => {
           </div>
           <div class="row row_padding row-flex">
             <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div class="content_100 bg_blue text-center">
+              <div class="content_100 bg_blue text-center" ref={minCta1Ref}>
                 <h3 className="pb-10">
                   Why compromise when you can customise?
                 </h3>
@@ -560,14 +803,14 @@ const HomePage = () => {
               </div>
             </div>
             <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div class="content_100 bg_blue">
+              <div class="content_100 bg_blue" ref={minCta2Ref}>
                 <p className="p-5">
                   <img src="/home/1.png" alt="" className="mx-auto" />
                 </p>
               </div>
             </div>
             <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div class="content_100 bg_blue text-center">
+              <div class="content_100 bg_blue text-center" ref={minCta3Ref}>
                 <h3 className="pb-10">There’s a Min+Module for every space.</h3>
                 <p>
                   <Link to="/">
@@ -583,10 +826,10 @@ const HomePage = () => {
       </div>
       <div className="container">
         <div className="row_padding">
-          <div className="col text-center">
+          <div className="col text-center" ref={featured1Ref}>
             <h2 className="pb-5 text-uppercase">As featured on</h2>
           </div>
-          <div className="col">
+          <div className="col" ref={featured2Ref}>
             <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center bd-highlight mb-3">
               <div className="padding_featured">
                 <img
@@ -614,57 +857,65 @@ const HomePage = () => {
         <div className="container-fluid">
           <div className="row padding_testimonial">
             <div className="col text-center">
-              <h2 className="pb-5 text-uppercase">Hear from our customers</h2>
-              <p class="pb-10">
-                <Link to="/">
-                  <button type="button" className="btn btn-light">
-                    Write a review
-                  </button>
-                </Link>
-              </p>
+              <h2 className="pb-5 text-uppercase" ref={review1Ref}>
+                Hear from our customers
+              </h2>
+              <div ref={review2Ref}>
+                <p class="pb-10">
+                  <Link to="/">
+                    <button type="button" className="btn btn-light">
+                      Write a review
+                    </button>
+                  </Link>
+                </p>
+              </div>
             </div>
             <div className="col">
-              <Swiper
-                className="testimonial_swiper"
-                // install Swiper modules
-                modules={[Scrollbar, A11y]}
-                spaceBetween={60}
-                scrollbar={{ draggable: true }}
-                breakpoints={{
-                  320: {
-                    slidesPerView: 1,
-                  },
-                  1024: {
-                    slidesPerView: 2,
-                  },
-                  1280: {
-                    slidesPerView: 3,
-                  },
-                }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log("slide change")}
-              >
-                <SwiperSlide>
-                  <TestimonialItem />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestimonialItem />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestimonialItem />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestimonialItem />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <TestimonialItem />
-                </SwiperSlide>
-              </Swiper>
+              <div ref={review3Ref}>
+                <Swiper
+                  className="testimonial_swiper"
+                  // install Swiper modules
+                  modules={[Scrollbar, A11y]}
+                  spaceBetween={60}
+                  scrollbar={{ draggable: true }}
+                  breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                    },
+                    1024: {
+                      slidesPerView: 2,
+                    },
+                    1280: {
+                      slidesPerView: 3,
+                    },
+                  }}
+                  onSwiper={(swiper) => console.log(swiper)}
+                  onSlideChange={() => console.log("slide change")}
+                >
+                  <SwiperSlide>
+                    <TestimonialItem />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestimonialItem />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestimonialItem />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestimonialItem />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <TestimonialItem />
+                  </SwiperSlide>
+                </Swiper>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <Membership />
+      <div ref={memberRef}>
+        <Membership />
+      </div>
     </Layout>
   )
 }
