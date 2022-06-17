@@ -68,7 +68,7 @@ const HomePage = () => {
         delay: 0.5,
         scrollTrigger: {
           trigger: banner,
-          start: "top center+=100",
+          start: "top center",
           toggleActions: "restart none none none",
         },
       }
@@ -84,7 +84,7 @@ const HomePage = () => {
         delay: 1,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=300",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
           scrub: true,
@@ -103,7 +103,7 @@ const HomePage = () => {
         delay: 1.2,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=300",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
           scrub: true,
@@ -122,7 +122,7 @@ const HomePage = () => {
         delay: 1.4,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=300",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
           scrub: true,
@@ -141,7 +141,7 @@ const HomePage = () => {
         delay: 1.6,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=300",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
           scrub: true,
@@ -160,7 +160,7 @@ const HomePage = () => {
         delay: 1.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "top center+=300",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
           scrub: true,
@@ -274,7 +274,9 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: sizes_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          markers: true,
         },
       }
     )
@@ -289,7 +291,9 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: sizes_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
+          markers: true,
         },
       }
     )
@@ -304,6 +308,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: connectors_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -319,6 +324,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: connectors_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -334,6 +340,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: compartments_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -349,6 +356,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: compartments_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -364,6 +372,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: style_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -379,6 +388,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: style_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -394,6 +404,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: min_cta_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -410,6 +421,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: min_cta_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -426,6 +438,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: min_cta_3,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -441,6 +454,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: featured_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -457,6 +471,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: featured_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -472,6 +487,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: review_1,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -488,6 +504,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: review_2,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -504,6 +521,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: review_3,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -520,6 +538,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: member,
           start: "bottom center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -723,7 +742,7 @@ const HomePage = () => {
         </div>
         <div className="container">
           <div className="row row_padding">
-            <div className="col-md-6" ref={sizes1Ref}>
+            <div className="col-md-6 sizes_container" ref={sizes1Ref}>
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Endless Configurations.</h3>
