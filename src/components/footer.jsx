@@ -13,13 +13,13 @@ export function Footer() {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-md-12 col-xl-3 d-none d-md-block">
+          <div className="col-4 offset-4 col-xl-3 offset-xl-0">
             <Link to="/">
               <Logo className="logo" />
             </Link>
           </div>
           <div className="col-md-6 col-xl-3">
-            <h5 class="text-uppercase mb-3">M.INT</h5>
+            <h5 class="text-uppercase mb-3 d-none d-md-block">M.INT</h5>
             <ul class="text-uppercase">
               <li>
                 <Link to="/">Complimentary design service</Link>
