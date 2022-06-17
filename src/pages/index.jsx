@@ -273,10 +273,9 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: sizes_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
-          markers: true,
         },
       }
     )
@@ -290,10 +289,9 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: sizes_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
-          markers: true,
         },
       }
     )
@@ -307,7 +305,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: connectors_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -323,7 +321,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: connectors_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -339,7 +337,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: compartments_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -355,7 +353,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: compartments_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -371,7 +369,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: style_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -387,7 +385,7 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: style_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -403,7 +401,7 @@ const HomePage = () => {
         y: 0,
         scrollTrigger: {
           trigger: min_cta_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -420,7 +418,7 @@ const HomePage = () => {
         delay: 0.4,
         scrollTrigger: {
           trigger: min_cta_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -437,7 +435,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: min_cta_3,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -453,7 +451,7 @@ const HomePage = () => {
         y: 0,
         scrollTrigger: {
           trigger: featured_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -470,7 +468,7 @@ const HomePage = () => {
         delay: 0.4,
         scrollTrigger: {
           trigger: featured_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -486,7 +484,7 @@ const HomePage = () => {
         y: 0,
         scrollTrigger: {
           trigger: review_1,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -503,7 +501,7 @@ const HomePage = () => {
         delay: 0.4,
         scrollTrigger: {
           trigger: review_2,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -520,7 +518,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: review_3,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -537,7 +535,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: member,
-          start: "bottom center",
+          start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
@@ -742,7 +740,7 @@ const HomePage = () => {
         </div>
         <div className="container">
           <div className="row row_padding">
-            <div className="col-md-6 sizes_container" ref={sizes1Ref}>
+            <div className="col-md-6" ref={sizes1Ref}>
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Endless Configurations.</h3>
