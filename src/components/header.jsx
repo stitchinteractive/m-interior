@@ -24,6 +24,7 @@ export function Header() {
   useLayoutEffect(() => {
     // add mobile nav container and play on first render
     tl.current = gsap.timeline().to(q(".mobile_nav_container"), {
+      autoAlpha: 0,
       x: 768,
     })
   }, [])
