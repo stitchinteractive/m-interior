@@ -34,7 +34,6 @@
 }
 
 .nav_mobile {
-  display: block;
   width: calc(100vw - 30px);
   height: 100vh;
   background: var(--black);
