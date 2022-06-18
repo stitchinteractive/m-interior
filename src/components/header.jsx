@@ -25,7 +25,7 @@ export function Header() {
     // add mobile nav container and play on first render
     tl.current = gsap.timeline().to(q(".mobile_nav_container"), {
       x: 768,
-      visibility: "hidden",
+      autoAlpha: 0,
     })
   }, [])
 
