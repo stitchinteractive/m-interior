@@ -21,15 +21,12 @@ export function Header() {
   // store the timeline in a ref.
   const tl = useRef()
 
-  const test = useLayoutEffect(() => {
+  useLayoutEffect(() => {
     // add mobile nav container and play on first render
     tl.current = gsap.timeline().to(q(".mobile_nav_container"), {
       x: 768,
-      autoAlpha: 0,
     })
   }, [])
-
-  setTimeout(test, 2000)
 
   useLayoutEffect(() => {
     // toggle the direction of our timeline
