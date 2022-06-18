@@ -8,6 +8,10 @@ import CartIcon from "../icons/cart"
 import MenuIcon from "../icons/menu"
 import * as headerModule from "./header.module.css"
 
+function AnimateMobileNav({ children }) {
+  return <div className="mobile_nav_container">{children}</div>
+}
+
 export function Header() {
   // animate mobile menu
   const [reversed, setReversed] = useState(false)
@@ -21,7 +25,7 @@ export function Header() {
     // add mobile nav container and play on first render
     tl.current = gsap.timeline().to(q(".mobile_nav_container"), {
       x: 768,
-      autoAlpha: 0,
+      visibility: "hidden",
     })
   }, [])
 
@@ -160,8 +164,4 @@ export function Header() {
       </header>
     </div>
   )
-}
-
-function AnimateMobileNav({ children }) {
-  return <div className="mobile_nav_container">{children}</div>
 }
