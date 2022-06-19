@@ -1,18 +1,35 @@
 // step 1: import
-import * as React from "react"
+import React, { useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { LookBookDetailsItem } from "../components/lookbook-details-item"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  useLayoutEffect(() => {
+    gsap.utils.toArray(".animate").forEach(function (e) {
+      gsap.from(e, {
+        duration: 0.8,
+        ease: "power1.out",
+        opacity: 0,
+        y: 100,
+        scrollTrigger: e,
+        onComplete: () => console.log(e),
+      })
+    })
+  })
+
   return (
     <Layout>
       <div className="container">
-        <div className="row row_padding">
+        <div className="row row_padding animate">
           <div className="col-lg-5">
-            <h2 class="text-uppercase mb-5">Treescape condo, 4-room</h2>
-            <h5 class="text-uppercase mb-3">Modern Contemporary</h5>
+            <h2 className="text-uppercase mb-5">Treescape condo, 4-room</h2>
+            <h5 className="text-uppercase mb-3">Modern Contemporary</h5>
             <p>
               M.INT missions are Lorem ipsum dolor sit amet, consectetur
               adipiscing elit, sed do eiusmod tempor incididunt ut labore et

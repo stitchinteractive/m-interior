@@ -1,20 +1,37 @@
 // step 1: import
-import * as React from "react"
+import React, { useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { LookBookItem } from "../components/lookbook-item"
 
 // step 2: define component
 const LookBook = () => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  useLayoutEffect(() => {
+    gsap.utils.toArray(".animate").forEach(function (e) {
+      gsap.from(e, {
+        duration: 0.8,
+        ease: "power1.out",
+        opacity: 0,
+        y: 100,
+        scrollTrigger: e,
+        onComplete: () => console.log(e),
+      })
+    })
+  })
+
   return (
     <Layout>
       <div className="container">
-        <div className="row padding_heading">
+        <div className="row padding_heading each">
           <div className="col-12">
-            <h2 class="text-uppercase pb-4">
+            <h2 className="text-uppercase pb-4 ">
               There’s 101 ways you can go modular with us.
             </h2>
-            <h4 class="text-uppercase pb-0">
+            <h4 className="text-uppercase pb-0">
               Shop the look below and get inspirations for your space.
             </h4>
           </div>

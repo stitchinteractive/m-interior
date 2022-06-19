@@ -105,7 +105,7 @@ const HomePage = () => {
           trigger: "#container_min_modules_content",
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
+
           scrub: true,
         },
       }

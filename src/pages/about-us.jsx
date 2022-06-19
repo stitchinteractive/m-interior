@@ -1,17 +1,34 @@
 // step 1: import
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Link, scriptCallbackCache } from "gatsby"
 import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
 import * as aboutModule from "./about-us.module.css"
 
 // step 2: define component
 const AboutUs = () => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  useLayoutEffect(() => {
+    gsap.utils.toArray(".animate").forEach(function (e) {
+      gsap.from(e, {
+        duration: 0.8,
+        ease: "power1.out",
+        opacity: 0,
+        y: 100,
+        scrollTrigger: e,
+        onComplete: () => console.log(e),
+      })
+    })
+  })
+
   return (
     <Layout>
       {/* banner */}
       <div
-        className={aboutModule.banner}
+        className={`${aboutModule.banner} animate`}
         style={{
           background: "url(/about/banner.jpg) center center no-repeat",
           backgroundSize: "cover",
@@ -19,7 +36,7 @@ const AboutUs = () => {
       ></div>
       {/* end banner */}
 
-      <div className="bg_grey">
+      <div className="bg_grey animate">
         {/* brand story */}
         <div className="border_bottom">
           <div className="container">
@@ -64,7 +81,7 @@ const AboutUs = () => {
         {/* end brand story */}
 
         {/* what we do */}
-        <div className="border_bottom">
+        <div className="border_bottom animate">
           <div class="container">
             <div className="row padding_about">
               <div className="d-lg-flex align-items-start">
@@ -117,7 +134,7 @@ const AboutUs = () => {
         {/* end what we do */}
 
         {/* design philosophy */}
-        <div className="container">
+        <div className="container animate">
           <div className="row padding_about">
             <div className="d-lg-flex align-items-start">
               <div className="col col-lg-6">
@@ -163,7 +180,9 @@ const AboutUs = () => {
         {/* end design philosophy */}
 
         {/* membership */}
-        <Membership />
+        <div className="animate">
+          <Membership />
+        </div>
         {/* end membership */}
       </div>
     </Layout>
