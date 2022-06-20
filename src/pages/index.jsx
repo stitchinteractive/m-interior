@@ -805,7 +805,7 @@ const HomePage = () => {
                 defaultmuted
                 muted
                 loop
-                controls="false"
+                controls
                 ref={intro1Ref}
                 id="intro_sizes"
               >
@@ -823,7 +823,7 @@ const HomePage = () => {
                 defaultmuted
                 muted
                 loop
-                controls="false"
+                controls
                 ref={intro2Ref}
                 id="intro_connectors"
               >
@@ -861,7 +861,7 @@ const HomePage = () => {
                 defaultmuted
                 muted
                 loop
-                controls="false"
+                controls
                 ref={intro3Ref}
                 id="intro_storage"
               >
@@ -879,7 +879,7 @@ const HomePage = () => {
                 defaultmuted
                 muted
                 loop
-                controls="false"
+                controls
                 ref={intro4Ref}
                 id="intro_colours"
               >
