@@ -26,6 +26,22 @@ import * as indexModule from "./index.module.css"
 const HomePage = () => {
   gsap.registerPlugin(ScrollTrigger)
 
+  const videos = gsap.utils.toArray("video")
+
+  videos.forEach(function (video, i) {
+    ScrollTrigger.create({
+      trigger: video,
+      scroller: "#test",
+      start: "top center",
+      end: "bottom center",
+      markers: true,
+      onEnter: () => video.play(),
+      onEnterBack: () => video.play(),
+      onLeave: () => video.pause(),
+      onLeaveBack: () => video.pause(),
+    })
+  })
+
   const bannerRef = useRef(null)
   const minLeadInRef = useRef(null)
   const furniture1Ref = useRef(null)
@@ -738,7 +754,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container" id="test">
           <div className="row row_padding">
             <div className="col-md-6" ref={sizes1Ref}>
               <h1 className="text-uppercase">Two Sizes.</h1>
@@ -751,11 +767,10 @@ const HomePage = () => {
               <video
                 width="100%"
                 height="100%"
-                playsinline
-                autoplay
-                muted
-                loop
-                controls
+                playsinline="true"
+                webkit-playsinline="true"
+                preload="auto"
+                muted="muted"
               >
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
