@@ -8,7 +8,6 @@ import { LookBookDetailsItem } from "../components/lookbook-details-item"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
-  /*
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -23,70 +22,10 @@ const InteriorDesignDetails = () => {
       })
     })
   })
-  */
-
-  const videos = gsap.utils.toArray("video")
-
-  videos.forEach(function (video, i) {
-    ScrollTrigger.create({
-      trigger: video,
-      scroller: ".appVideos",
-      start: "top center",
-      end: "bottom center",
-      markers: true,
-      onEnter: () => video.play(),
-      onEnterBack: () => video.play(),
-      onLeave: () => video.pause(),
-      onLeaveBack: () => video.pause(),
-    })
-  })
 
   return (
     <Layout>
       <div className="container">
-        <div class="appVideos">
-          <div class="videoPlayer">
-            <video
-              src="/home/intro_sizes.mp4"
-              playsinline="true"
-              webkit-playsinline="true"
-              preload="auto"
-              muted="muted"
-              controls
-            ></video>
-          </div>
-
-          <div class="videoPlayer">
-            <video
-              src="/home/intro_sizes.mp4"
-              playsinline="true"
-              webkit-playsinline="true"
-              preload="auto"
-              muted="muted"
-            ></video>
-          </div>
-
-          <div class="videoPlayer">
-            <video
-              src="/home/intro_sizes.mp4"
-              playsinline="true"
-              webkit-playsinline="true"
-              preload="auto"
-              muted="muted"
-            ></video>
-          </div>
-
-          <div class="videoPlayer last">
-            <video
-              src="/home/intro_sizes.mp4"
-              playsinline="true"
-              webkit-playsinline="true"
-              preload="auto"
-              muted="muted"
-            ></video>
-          </div>
-        </div>
-
         <div className="row row_padding animate">
           <div className="col-lg-5">
             <h2 className="text-uppercase mb-5">Treescape condo, 4-room</h2>
