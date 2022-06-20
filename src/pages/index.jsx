@@ -26,6 +26,55 @@ import * as indexModule from "./index.module.css"
 const HomePage = () => {
   gsap.registerPlugin(ScrollTrigger)
 
+  /* autoplay videos */
+  const intro1Ref = useRef()
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_sizes",
+      onEnter: () => intro1Ref.current.play(),
+      onEnterBack: () => intro1Ref.current.play(),
+      onLeave: () => intro1Ref.current.pause(),
+      onLeaveBack: () => intro1Ref.current.pause(),
+    })
+  }, [])
+
+  const intro2Ref = useRef()
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_connectors",
+      onEnter: () => intro2Ref.current.play(),
+      onEnterBack: () => intro2Ref.current.play(),
+      onLeave: () => intro2Ref.current.pause(),
+      onLeaveBack: () => intro2Ref.current.pause(),
+    })
+  }, [])
+
+  const intro3Ref = useRef()
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_storage",
+      onEnter: () => intro3Ref.current.play(),
+      onEnterBack: () => intro3Ref.current.play(),
+      onLeave: () => intro3Ref.current.pause(),
+      onLeaveBack: () => intro3Ref.current.pause(),
+    })
+  }, [])
+
+  const intro4Ref = useRef()
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_colours",
+      onEnter: () => intro4Ref.current.play(),
+      onEnterBack: () => intro4Ref.current.play(),
+      onLeave: () => intro4Ref.current.pause(),
+      onLeaveBack: () => intro4Ref.current.pause(),
+    })
+  }, [])
+
   const bannerRef = useRef(null)
   const minLeadInRef = useRef(null)
   const furniture1Ref = useRef(null)
@@ -755,7 +804,9 @@ const HomePage = () => {
                 autoplay
                 muted
                 loop
-                controls
+                controls="false"
+                ref={intro1Ref}
+                id="intro_sizes"
               >
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
@@ -763,7 +814,17 @@ const HomePage = () => {
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={connectors1Ref}>
-              <video width="100%" height="100%" playsinline autoplay muted loop>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls="false"
+                ref={intro2Ref}
+                id="intro_connectors"
+              >
                 <source src="/home/intro_connectors.mp4" type="video/mp4" />
               </video>
             </div>
@@ -790,14 +851,34 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6" ref={compartments2Ref}>
-              <video width="100%" height="100%" playsinline autoplay muted loop>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls="false"
+                ref={intro3Ref}
+                id="intro_storage"
+              >
                 <source src="/home/intro_storage.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={style1Ref}>
-              <video width="100%" height="100%" playsinline autoplay muted loop>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls="false"
+                ref={intro4Ref}
+                id="intro_colours"
+              >
                 <source src="/home/intro_colours.mp4" type="video/mp4" />
               </video>
             </div>

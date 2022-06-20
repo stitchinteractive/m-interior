@@ -5,6 +5,10 @@ body {
   line-height: var(--loose);
 }
 
+video {
+  pointer-events: none;
+}
+
 #content_container {
   overflow-x: hidden !important;
 }
