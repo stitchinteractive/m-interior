@@ -14,8 +14,7 @@ function AnimateMobileNav({ children }) {
 
 // show after 2 seconds
 setTimeout(function () {
-  document.getElementById("test").style.visibility = "visible"
-  alert("test")
+  document.getElementById("nav_mobile").style.visibility = "visible"
 }, 2000)
 
 export function Header() {
@@ -115,7 +114,7 @@ export function Header() {
           <div ref={el}>
             <AnimateMobileNav>
               {/* mobile navigation */}
-              <div className={headerModule.nav_mobile} id="test">
+              <div className={headerModule.nav_mobile} id="nav_mobile">
                 <div className="row d-lg-none">
                   <div className="col-10 offset-1">
                     <div className="input-group my-3">
