@@ -802,6 +802,7 @@ const HomePage = () => {
                 height="100%"
                 playsinline
                 autoplay
+                defaultmuted
                 muted
                 loop
                 controls="false"
@@ -819,6 +820,7 @@ const HomePage = () => {
                 height="100%"
                 playsinline
                 autoplay
+                defaultmuted
                 muted
                 loop
                 controls="false"
@@ -856,6 +858,7 @@ const HomePage = () => {
                 height="100%"
                 playsinline
                 autoplay
+                defaultmuted
                 muted
                 loop
                 controls="false"
@@ -873,6 +876,7 @@ const HomePage = () => {
                 height="100%"
                 playsinline
                 autoplay
+                defaultmuted
                 muted
                 loop
                 controls="false"
