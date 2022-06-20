@@ -12,6 +12,12 @@ function AnimateMobileNav({ children }) {
   return <div className="mobile_nav_container">{children}</div>
 }
 
+// show after 2 seconds
+setTimeout(function () {
+  document.getElementsByClassName("mobile_nav_container").style.visibility =
+    "visible"
+}, 2000)
+
 export function Header() {
   // animate mobile menu
   const [reversed, setReversed] = useState(false)

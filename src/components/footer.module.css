@@ -74,6 +74,7 @@ footer .subscribe {
   footer {
     padding: var(--space-100) 0 var(--space-100) 0;
     text-align: left;
+    margin-top: -1px;
   }
 
   footer ul.icons {

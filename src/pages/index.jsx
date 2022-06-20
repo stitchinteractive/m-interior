@@ -748,14 +748,30 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6" ref={sizes2Ref}>
-              <video width="100%" height="100%" controls>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls
+              >
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={connectors1Ref}>
-              <video width="100%" height="100%" controls>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls
+              >
                 <source src="/home/intro_connectors.mp4" type="video/mp4" />
               </video>
             </div>
@@ -782,14 +798,30 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6" ref={compartments2Ref}>
-              <video width="100%" height="100%" controls>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls
+              >
                 <source src="/home/intro_storage.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={style1Ref}>
-              <video width="100%" height="100%" controls>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls
+              >
                 <source src="/home/intro_colours.mp4" type="video/mp4" />
               </video>
             </div>
