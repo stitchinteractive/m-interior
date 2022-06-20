@@ -26,22 +26,6 @@ import * as indexModule from "./index.module.css"
 const HomePage = () => {
   gsap.registerPlugin(ScrollTrigger)
 
-  const videos = gsap.utils.toArray("video")
-
-  videos.forEach(function (video, i) {
-    ScrollTrigger.create({
-      trigger: video,
-      scroller: "#test",
-      start: "top center",
-      end: "bottom center",
-      markers: true,
-      onEnter: () => video.play(),
-      onEnterBack: () => video.play(),
-      onLeave: () => video.pause(),
-      onLeaveBack: () => video.pause(),
-    })
-  })
-
   const bannerRef = useRef(null)
   const minLeadInRef = useRef(null)
   const furniture1Ref = useRef(null)
@@ -754,7 +738,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="container" id="test">
+        <div className="container">
           <div className="row row_padding">
             <div className="col-md-6" ref={sizes1Ref}>
               <h1 className="text-uppercase">Two Sizes.</h1>
@@ -767,10 +751,11 @@ const HomePage = () => {
               <video
                 width="100%"
                 height="100%"
-                playsinline="true"
-                webkit-playsinline="true"
-                preload="auto"
-                muted="muted"
+                playsinline
+                autoplay
+                muted
+                loop
+                controls
               >
                 <source src="/home/intro_sizes.mp4" type="video/mp4" />
               </video>
@@ -778,15 +763,7 @@ const HomePage = () => {
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={connectors1Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                muted
-                loop
-                controls
-              >
+              <video width="100%" height="100%" playsinline autoplay muted loop>
                 <source src="/home/intro_connectors.mp4" type="video/mp4" />
               </video>
             </div>
@@ -813,30 +790,14 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6" ref={compartments2Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                muted
-                loop
-                controls
-              >
+              <video width="100%" height="100%" playsinline autoplay muted loop>
                 <source src="/home/intro_storage.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={style1Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                muted
-                loop
-                controls
-              >
+              <video width="100%" height="100%" playsinline autoplay muted loop>
                 <source src="/home/intro_colours.mp4" type="video/mp4" />
               </video>
             </div>
