@@ -99,9 +99,11 @@ export function Header() {
                         Interior Design
                       </Link>
                     </li>
+                    {/*
                     <li>
-                      <Link to="/">M.INT Club</Link>
+                      <Link to="/mint-club">M.INT Club</Link>
                     </li>
+                    */}
                     <li>
                       <Link to="/">Blog</Link>
                     </li>
@@ -151,9 +153,11 @@ export function Header() {
                           Interior Design
                         </Link>
                       </li>
+                      {/*
                       <li>
-                        <Link to="/">M.INT Club</Link>
+                        <Link to="/mint-club">M.INT Club</Link>
                       </li>
+                      */}
                       <li>
                         <Link to="/">Blog</Link>
                       </li>

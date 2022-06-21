@@ -1,16 +1,16 @@
 // step 1: import
-import React, { useEffect, useLayoutEffect, useState, useRef } from "react"
+import React, { useEffect, useLayoutEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 
 // import components
 import { Layout } from "../components/layout"
-import { TestimonialItem } from "../components/testimonial-item"
 import { Membership } from "../components/membership"
+import { Testimonials } from "../components/testimonials"
 
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
+import { Pagination, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 // import Swiper styles
@@ -100,9 +100,7 @@ const HomePage = () => {
   const minCta3Ref = useRef(null)
   const featured1Ref = useRef(null)
   const featured2Ref = useRef(null)
-  const review1Ref = useRef(null)
-  const review2Ref = useRef(null)
-  const review3Ref = useRef(null)
+  const testimonialsRef = useRef(null)
   const memberRef = useRef(null)
 
   // wait until DOM has been rendered
@@ -524,49 +522,15 @@ const HomePage = () => {
       }
     )
 
-    const review_1 = review1Ref.current
+    const testimonials = testimonialsRef.current
     gsap.fromTo(
-      review_1,
+      testimonials,
       { autoAlpha: 0, y: 100 },
       {
         autoAlpha: 1,
         y: 0,
         scrollTrigger: {
-          trigger: review_1,
-          start: "top center",
-          end: "bottom center",
-          toggleActions: "restart none reverse reset",
-        },
-      }
-    )
-
-    const review_2 = review2Ref.current
-    gsap.fromTo(
-      review_2,
-      { autoAlpha: 0, y: 100 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        delay: 0.4,
-        scrollTrigger: {
-          trigger: review_2,
-          start: "top center",
-          end: "bottom center",
-          toggleActions: "restart none reverse reset",
-        },
-      }
-    )
-
-    const review_3 = review3Ref.current
-    gsap.fromTo(
-      review_3,
-      { autoAlpha: 0, y: 100 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        delay: 0.8,
-        scrollTrigger: {
-          trigger: review_3,
+          trigger: testimonials,
           start: "top center",
           end: "bottom center",
           toggleActions: "restart none reverse reset",
@@ -934,6 +898,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      {/*
       <div className="container">
         <div className="row_padding">
           <div className="col text-center" ref={featured1Ref}>
@@ -1022,6 +987,39 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+      </div>
+      */}
+      <div className="container">
+        <div className="row_padding">
+          <div className="col text-center" ref={featured1Ref}>
+            <h2 className="pb-5 text-uppercase">As featured on</h2>
+          </div>
+          <div className="col" ref={featured2Ref}>
+            <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center bd-highlight mb-3">
+              <div className="padding_featured">
+                <img
+                  src="/home/logo_straits_times.png"
+                  alt="The Straits Times"
+                />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_today.png" alt="Today" />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_home_decor.png" alt="Home Decor" />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_pets.png" alt="Pets" />
+              </div>
+              <div className="padding_featured">
+                <img src="/home/logo_squarerooms.png" alt="Square Rooms" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ref={testimonialsRef}>
+        <Testimonials />
       </div>
       <div ref={memberRef}>
         <Membership />

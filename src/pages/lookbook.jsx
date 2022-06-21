@@ -26,7 +26,7 @@ const LookBook = () => {
   return (
     <Layout>
       <div className="container">
-        <div className="row padding_heading each">
+        <div className="row padding_heading animate">
           <div className="col-12">
             <h2 className="text-uppercase pb-4 ">
               There’s 101 ways you can go modular with us.

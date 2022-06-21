@@ -55,12 +55,20 @@ const Login = () => {
                     />
                   </div>
                   <div className="col-12 mt-5 text-end">
-                    <Link to="/create-account">
+                    <Link to="/profile">
                       <button type="submit" className="btn btn-secondary">
                         Log in
                       </button>
                     </Link>
-                    <div className="mt-2">
+                    <div className="mt-3 font_sm">
+                      <Link
+                        to="/create-account"
+                        className="fst-italic font_grey_medium_dark"
+                      >
+                        Don't have an account yet?
+                      </Link>
+                    </div>
+                    <div className="mt-1 font_sm">
                       <Link to="/" className="fst-italic font_grey_medium_dark">
                         Forgot your password?
                       </Link>
