@@ -29,6 +29,7 @@ footer ul li {
 
 footer ul li a {
   color: var(--white);
+  text-decoration: none;
 }
 
 footer ul li a:hover {
@@ -50,6 +51,7 @@ footer .terms a {
   text-transform: uppercase;
   font-weight: var(--medium);
   font-size: 12px;
+  text-decoration: none;
 }
 
 footer .terms a:hover {

@@ -139,6 +139,7 @@ h6 {
 /********** links **********/
 .link_underline {
   border-bottom: 1px solid var(--grey-extra-dark);
+  text-decoration: none;
 }
 
 .link_underline:hover {
