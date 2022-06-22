@@ -29,11 +29,9 @@ const Profile = () => {
   // set default values for textfields
   const [oldFirstName, newFirstName] = useState("James")
   const [oldLastName, newLastName] = useState("Smith")
-  const [oldEmail, newEmail] = useState("jamessmith@gmail.com")
-  const [oldPhone, newPhone] = useState("+65 9123 4567")
-  const [oldBirthday, newBirthday] = useState("2000-01-01")
-  const [oldPassword, newPassword] = useState("12345678")
-  const [oldChangePassword, newChangePassword] = useState("")
+  const [oldAddress1, newAddress1] = useState("Block 123 Ang Mo Kio Street 1")
+  const [oldAddress2, newAddress2] = useState("#01-23")
+  const [oldPostal, newPostal] = useState("322123")
 
   return (
     <Layout>
@@ -62,7 +60,8 @@ const Profile = () => {
                       <div class="font_grey_variant text-uppercase">
                         My Account /
                       </div>
-                      <h3 className="text-uppercase pb-6">My Profile</h3>
+                      <h3 className="text-uppercase pb-6">Saved Address</h3>
+                      <h4 className="text-uppercase pb-3">Shipping Address</h4>
                     </div>
                   </div>
                   <div class="row">
@@ -94,80 +93,43 @@ const Profile = () => {
                   <div class="row">
                     <div class="col-12 pb-5">
                       <label for="input_email" className="form-label">
-                        Email
+                        Address Line 1
                       </label>
                       <input
                         type="email"
                         className="form-control"
                         id="input_email"
-                        value={oldEmail}
-                        onChange={(event) => newEmail(event.target.value)}
+                        value={oldAddress1}
+                        onChange={(event) => newAddress1(event.target.value)}
                       />
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
                       <label for="input_phone" className="form-label">
-                        Phone Number
+                        Address Line 2 (Apt / Flat No.)
                       </label>
                       <input
                         type="text"
                         className="form-control"
                         id="input_phone"
-                        value={oldPhone}
-                        onChange={(event) => newPhone(event.target.value)}
+                        value={oldAddress2}
+                        onChange={(event) => newAddress2(event.target.value)}
                       />
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
                       <label for="input_first_name" className="form-label">
-                        Birthday
+                        Postal Code
                       </label>
                       <input
-                        type="date"
+                        type="text"
                         className="form-control"
                         id="input_last_name"
-                        value={oldBirthday}
-                        onChange={(event) => newBirthday(event.target.value)}
+                        value={oldPostal}
+                        onChange={(event) => newPostal(event.target.value)}
                       />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-md-6 pb-5">
-                      <label for="input_password" className="form-label">
-                        Password
-                      </label>
-                      <input
-                        type="textfield"
-                        className="form-control"
-                        id="input_password"
-                        value={oldPassword}
-                        onChange={(event) => newPassword(event.target.value)}
-                      />
-                    </div>
-                    <div class="col-12 col-md-6 pb-5">
-                      <label for="input_password" className="form-label">
-                        New Password
-                      </label>
-                      <input
-                        type="textfield"
-                        className="form-control"
-                        id="input_password"
-                        value={oldChangePassword}
-                        onChange={(event) =>
-                          newChangePassword(event.target.value)
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div className="col-12 mt-5 text-center">
-                      <Link to="/">
-                        <button type="submit" className="btn btn-secondary">
-                          Update
-                        </button>
-                      </Link>
                     </div>
                   </div>
                 </form>
