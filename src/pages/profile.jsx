@@ -67,7 +67,7 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-6 pb-5">
-                      <label for="input_first_name" className="form-label">
+                      <label htmlFor="input_first_name" className="form-label">
                         First Name
                       </label>
                       <input
@@ -79,7 +79,7 @@ const Profile = () => {
                       />
                     </div>
                     <div class="col-12 col-md-6 pb-5">
-                      <label for="input_first_name" className="form-label">
+                      <label htmlFor="input_first_name" className="form-label">
                         Last Name
                       </label>
                       <input
@@ -93,7 +93,7 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
-                      <label for="input_email" className="form-label">
+                      <label htmlFor="input_email" className="form-label">
                         Email
                       </label>
                       <input
@@ -107,7 +107,7 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
-                      <label for="input_phone" className="form-label">
+                      <label htmlFor="input_phone" className="form-label">
                         Phone Number
                       </label>
                       <input
@@ -121,7 +121,7 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
-                      <label for="input_first_name" className="form-label">
+                      <label htmlFor="input_first_name" className="form-label">
                         Birthday
                       </label>
                       <input
@@ -135,7 +135,7 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-6 pb-5">
-                      <label for="input_password" className="form-label">
+                      <label htmlFor="input_password" className="form-label">
                         Password
                       </label>
                       <input
@@ -147,7 +147,7 @@ const Profile = () => {
                       />
                     </div>
                     <div class="col-12 col-md-6 pb-5">
-                      <label for="input_password" className="form-label">
+                      <label htmlFor="input_password" className="form-label">
                         New Password
                       </label>
                       <input

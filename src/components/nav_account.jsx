@@ -9,19 +9,27 @@ export function NavAccount(props) {
       <div className="font_grey_variant">My Account</div>
       <ul className="listing">
         <li>
-          <Link to="/profile">My Profile</Link>
+          <Link to="/profile" activeStyle={{ fontWeight: 600 }}>
+            My Profile
+          </Link>
         </li>
         <li>
-          <Link to="/orders">My Orders</Link>
+          <Link to="/orders" activeStyle={{ fontWeight: 600 }}>
+            My Orders
+          </Link>
         </li>
         <li>
-          <Link to="/account-activity">Account Activity</Link>
+          <Link to="/account-activity" activeStyle={{ fontWeight: 600 }}>
+            Account Activity
+          </Link>
         </li>
       </ul>
       <div className="font_grey_variant">Shipping &amp; Billing</div>
       <ul className="listing">
         <li>
-          <Link to="/saved-address">Saved Address</Link>
+          <Link to="/saved-address" activeStyle={{ fontWeight: 600 }}>
+            Saved Address
+          </Link>
         </li>
       </ul>
     </div>

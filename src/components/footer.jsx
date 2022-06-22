@@ -36,16 +36,24 @@ export function Footer() {
             <h5 class="text-uppercase mb-3">Customer Care</h5>
             <ul class="text-uppercase">
               <li>
-                <Link to="/">Faqs</Link>
+                <Link to="/faqs" activeStyle={{ fontWeight: 700 }}>
+                  Faqs
+                </Link>
               </li>
               <li>
-                <Link to="/">Shipping</Link>
+                <Link to="/shipping" activeStyle={{ fontWeight: 700 }}>
+                  Shipping
+                </Link>
               </li>
               <li>
-                <Link to="/">Exchange &amp; Returns</Link>
+                <Link to="/exchange-returns" activeStyle={{ fontWeight: 700 }}>
+                  Exchange &amp; Returns
+                </Link>
               </li>
               <li>
-                <Link to="/">Contact Us</Link>
+                <Link to="/contact-us" activeStyle={{ fontWeight: 700 }}>
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -117,9 +125,9 @@ export function Footer() {
         <div className="row">
           <div className={footerModule.terms}>
             <div className="font_sm">
-              <Link to="/">Terms of use</Link>
+              <Link to="/terms">Terms of use</Link>
               <span className={footerModule.spacer}>&bull;</span>
-              <Link to="/">Privacy Policy</Link>
+              <Link to="/privacy">Privacy Policy</Link>
             </div>
           </div>
         </div>

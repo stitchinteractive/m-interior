@@ -2,7 +2,6 @@
 import React, { useState, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 
@@ -58,7 +57,7 @@ const Profile = () => {
                   <div class="row">
                     <div className="col-12">
                       <div class="font_grey_variant text-uppercase">
-                        My Account /
+                        Shipping &amp; Billing /
                       </div>
                       <h3 className="text-uppercase pb-6">Saved Address</h3>
                       <h4 className="text-uppercase pb-3">Shipping Address</h4>
@@ -66,7 +65,7 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-6 pb-5">
-                      <label for="input_first_name" className="form-label">
+                      <label htmlFor="input_first_name" className="form-label">
                         First Name
                       </label>
                       <input
@@ -78,7 +77,7 @@ const Profile = () => {
                       />
                     </div>
                     <div class="col-12 col-md-6 pb-5">
-                      <label for="input_first_name" className="form-label">
+                      <label htmlFor="input_first_name" className="form-label">
                         Last Name
                       </label>
                       <input
@@ -92,13 +91,13 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
-                      <label for="input_email" className="form-label">
+                      <label htmlFor="input_address_1" className="form-label">
                         Address Line 1
                       </label>
                       <input
                         type="email"
                         className="form-control"
-                        id="input_email"
+                        id="input_address_1"
                         value={oldAddress1}
                         onChange={(event) => newAddress1(event.target.value)}
                       />
@@ -106,13 +105,13 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
-                      <label for="input_phone" className="form-label">
+                      <label htmlFor="input_address_2" className="form-label">
                         Address Line 2 (Apt / Flat No.)
                       </label>
                       <input
                         type="text"
                         className="form-control"
-                        id="input_phone"
+                        id="input_address_2"
                         value={oldAddress2}
                         onChange={(event) => newAddress2(event.target.value)}
                       />
@@ -120,13 +119,13 @@ const Profile = () => {
                   </div>
                   <div class="row">
                     <div class="col-12 pb-5">
-                      <label for="input_first_name" className="form-label">
+                      <label htmlFor="input_postal" className="form-label">
                         Postal Code
                       </label>
                       <input
                         type="text"
                         className="form-control"
-                        id="input_last_name"
+                        id="input_postal"
                         value={oldPostal}
                         onChange={(event) => newPostal(event.target.value)}
                       />

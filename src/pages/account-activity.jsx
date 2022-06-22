@@ -1,8 +1,7 @@
 // step 1: import
-import React, { useState, useLayoutEffect } from "react"
+import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 
@@ -25,15 +24,6 @@ const Profile = () => {
       })
     })
   })
-
-  // set default values for textfields
-  const [oldFirstName, newFirstName] = useState("James")
-  const [oldLastName, newLastName] = useState("Smith")
-  const [oldEmail, newEmail] = useState("jamessmith@gmail.com")
-  const [oldPhone, newPhone] = useState("+65 9123 4567")
-  const [oldBirthday, newBirthday] = useState("2000-01-01")
-  const [oldPassword, newPassword] = useState("12345678")
-  const [oldChangePassword, newChangePassword] = useState("")
 
   return (
     <Layout>
