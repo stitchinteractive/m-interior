@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 // step 2: define
 export function NavAccount(props) {
   return (
-    <div className="text-uppercase">
+    <div id="nav_account" className="text-uppercase">
       <div className="font_grey_variant">My Account</div>
       <ul className="listing">
         <li>

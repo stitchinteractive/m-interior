@@ -424,6 +424,31 @@ a:active {
   text-decoration: underline;
 }
 
+.accordion-item {
+  border-width: 1px 0 1px 0;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #e5dfd6;
+  color: var(--black);
+}
+
+.accordion-button:focus {
+  border-color: none;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.accordion-button::after {
+  background-image: url(/ico_plus.png);
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url(/ico_minus.png);
+}
+
+.accordion-body {
+}
+
 /********** layout *********/
 .row_padding {
   padding: 80px 30px;
@@ -494,6 +519,10 @@ a:active {
 
 circle {
   background: white;
+}
+
+#nav_account a {
+  text-decoration: none;
 }
 
 /********** tablets **********/
