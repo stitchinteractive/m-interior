@@ -79,7 +79,7 @@ export function Header() {
                 <div className="col-12 col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link}>
                     <li>
-                      <Link to="/">Shop</Link>
+                      <Link to="/shop">Shop</Link>
                     </li>
                     <li>
                       <Link to="/about-us" activeStyle={{ color: "white" }}>
@@ -133,7 +133,7 @@ export function Header() {
                     </div>
                     <ul className={headerModule.nav_link_mobile}>
                       <li>
-                        <Link to="/">Shop</Link>
+                        <Link to="/shop">Shop</Link>
                       </li>
                       <li>
                         <Link to="/about-us" activeStyle={{ color: "white" }}>

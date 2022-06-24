@@ -1,57 +1,89 @@
-import * as React from "react"
-import { graphql } from "gatsby"
+// step 1: import
+import React, { useState, useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Link } from "gatsby"
 import { Layout } from "../components/layout"
-import { ProductListing } from "../components/product-listing"
-import {
-  container,
-  intro,
-  callOut,
-  callToAction,
-  deployButton,
-} from "./shop.module.css"
+import { Membership } from "../components/membership"
+import { Testimonials } from "../components/testimonials"
+import { NavShop } from "../components/nav_shop"
+import { ImgCard } from "../components/img-card"
+import { BackToTop } from "../components/back-to-top"
 
-export const query = graphql`
-  query {
-    shopifyCollection(handle: { eq: "frontpage" }) {
-      products {
-        ...ProductCard
-      }
-    }
-  }
-`
-function Hero(props) {
-  return (
-    <div className={container}>
-      <h1 className={intro}>Welcome to the GatsbyJS + Shopify Demo Store.</h1>
-      {!!process.env.GATSBY_DEMO_STORE && (
-        <>
-          <p className={callOut}>
-            It's a proof-of-concept in a box, with 10k products and 30k variants
-            to help you get to proof-of-concept as soon as right now.
-          </p>
-          <p className={callToAction}>
-            Hook it up to your own Shopify store data and start customizing in
-            minutes by deploying it to Gatsby Cloud for free. Grab your Shopify
-            store credentials and
-            <a href="https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-shopify&utm_campaign=shopify-starter">
-              <img
-                src="https://www.gatsbyjs.com/deploynow.png"
-                alt="Deploy to Gatsby Cloud"
-                className={deployButton}
-              />
-            </a>
-          </p>
-        </>
-      )}
-    </div>
-  )
-}
+// step 2: define component
+const Shop = () => {
+  gsap.registerPlugin(ScrollTrigger)
 
-export default function ShopPage({ data }) {
+  useLayoutEffect(() => {
+    gsap.utils.toArray(".animate").forEach(function (e) {
+      gsap.from(e, {
+        duration: 0.8,
+        ease: "power1.out",
+        opacity: 0,
+        y: 100,
+        scrollTrigger: e,
+        onComplete: () => console.log(e),
+      })
+    })
+  })
+
   return (
     <Layout>
-      <Hero />
-      <ProductListing products={data?.shopifyCollection?.products} />
+      <div className="container">
+        <div className="row row_padding">
+          <div className="col-lg-3">
+            <NavShop />
+          </div>
+          <div className="col-lg-9">
+            <div className="row ps-lg-3 d-flex">
+              <div className="col-md-7 p-0 d-flex h-100">
+                <ImgCard
+                  background="/shop/categories/min_modules.jpg"
+                  category="Modular Furniture /"
+                  sub_category="Min+Modules"
+                />
+              </div>
+              <div className="col-md-5 p-0">
+                <ImgCard
+                  background="/shop/categories/acacia.jpg"
+                  category="Modular Furniture /"
+                  sub_category="Acacia Blocks "
+                />
+              </div>
+            </div>
+            <div className="row ps-lg-3 d-flex">
+              <div className="col-md-5 p-0 d-flex h-100">
+                <ImgCard
+                  background="/shop/categories/acacia_pets.jpg"
+                  category="Pet Furniture /"
+                  sub_category="Acacia For Pets"
+                />
+              </div>
+              <div className="col-md-7 p-0">
+                <ImgCard
+                  background="/shop/categories/accessories.jpg"
+                  category="Home Decor /"
+                  sub_category="Accessories"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <h3 className="text-uppercase py-5">Best Sellers</h3>
+              <Testimonials />
+              <BackToTop />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="animate">
+        <Testimonials />
+      </div>
+      <div className="animate">
+        <Membership />
+      </div>
     </Layout>
   )
 }
+
+// step 3: export
+export default Shop

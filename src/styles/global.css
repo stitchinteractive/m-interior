@@ -235,6 +235,11 @@ h6 {
   font-size: var(--text-sm);
 }
 
+.btn_back_to_top {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
 .form-label {
   text-transform: uppercase;
   font-size: var(--text-sm);
@@ -424,6 +429,10 @@ a:active {
   text-decoration: underline;
 }
 
+a.no_underline {
+  text-decoration: none;
+}
+
 .accordion-item {
   border-width: 1px 0 1px 0;
 }
@@ -446,9 +455,6 @@ a:active {
   background-image: url(/ico_minus.png);
 }
 
-.accordion-body {
-}
-
 /********** layout *********/
 .row_padding {
   padding: 80px 30px;
@@ -461,12 +467,6 @@ a:active {
 .padding_heading {
   padding: 80px 30px 0 30px;
 }
-
-/*
-.padding_min_module {
-  padding: 50px 50px 80px 50px;
-}
-*/
 
 .padding_lookbook {
   padding: 80px 45px 80px 45px;
@@ -523,6 +523,18 @@ circle {
 
 #nav_account a {
   text-decoration: none;
+}
+
+.img_card {
+  width: 100%;
+  height: 250px;
+  line-height: 1.5rem;
+  color: #ffffff;
+}
+
+.img_card .overlay {
+  padding: 180px 30px 30px 30px;
+  background-image: linear-gradient(transparent, transparent, #1d1d1d);
 }
 
 /********** tablets **********/
@@ -622,6 +634,14 @@ circle {
 
   .text_indent {
     padding-left: 80px;
+  }
+
+  .img_card {
+    height: 350px;
+  }
+
+  .img_card .overlay {
+    padding: 270px 30px 30px 30px;
   }
 }
 
