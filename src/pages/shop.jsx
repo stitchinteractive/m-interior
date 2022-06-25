@@ -1,11 +1,10 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
-import { ProductList } from "../components/product-list"
 import { Testimonials } from "../components/testimonials"
 import { NavShop } from "../components/nav_shop"
 import { ImgCard } from "../components/img-card"
@@ -38,47 +37,39 @@ const Shop = () => {
           <div className="col-lg-9">
             <div className="row ps-lg-3 d-flex">
               <div className="col-md-7 p-0 d-flex h-100">
-                <Link to="/" className="d-flex w-100 h-100 no_underline">
-                  <ImgCard
-                    background="/shop/categories/min_modules.jpg"
-                    category="Modular Furniture /"
-                    sub_category="Min+Modules"
-                  />
-                </Link>
+                <ImgCard
+                  background="/shop/categories/min_modules.jpg"
+                  category="Modular Furniture /"
+                  sub_category="Min+Modules"
+                />
               </div>
               <div className="col-md-5 p-0">
-                <Link to="/" className="d-flex w-100 h-100 no_underline">
-                  <ImgCard
-                    background="/shop/categories/acacia.jpg"
-                    category="Modular Furniture /"
-                    sub_category="Acacia Blocks "
-                  />
-                </Link>
+                <ImgCard
+                  background="/shop/categories/acacia.jpg"
+                  category="Modular Furniture /"
+                  sub_category="Acacia Blocks "
+                />
               </div>
             </div>
             <div className="row ps-lg-3 d-flex">
               <div className="col-md-5 p-0 d-flex h-100">
-                <Link to="/" className="d-flex w-100 h-100 no_underline">
-                  <ImgCard
-                    background="/shop/categories/acacia_pets.jpg"
-                    category="Pet Furniture /"
-                    sub_category="Acacia For Pets"
-                  />
-                </Link>
+                <ImgCard
+                  background="/shop/categories/acacia_pets.jpg"
+                  category="Pet Furniture /"
+                  sub_category="Acacia For Pets"
+                />
               </div>
               <div className="col-md-7 p-0">
-                <Link to="/" className="d-flex w-100 h-100 no_underline">
-                  <ImgCard
-                    background="/shop/categories/accessories.jpg"
-                    category="Home Decor /"
-                    sub_category="Accessories"
-                  />
-                </Link>
+                <ImgCard
+                  background="/shop/categories/accessories.jpg"
+                  category="Home Decor /"
+                  sub_category="Accessories"
+                />
               </div>
             </div>
             <div className="row">
               <h3 className="text-uppercase py-5">Best Sellers</h3>
-              <ProductList />
+              <Testimonials />
               <BackToTop />
             </div>
           </div>
