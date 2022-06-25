@@ -496,6 +496,10 @@ a.no_underline {
   z-index: 20000;
 }
 
+.offcanvas-end {
+  max-width: 90%;
+}
+
 .row_padding {
   padding: 80px 30px;
 }

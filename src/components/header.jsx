@@ -9,7 +9,7 @@ import * as headerModule from "./header.module.css"
 import Button from "react-bootstrap/Button"
 import Offcanvas from "react-bootstrap/Offcanvas"
 
-function OffCanvasExample({ name, ...props }) {
+function OffCanvasExample({ ...props }) {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -17,9 +17,9 @@ function OffCanvasExample({ name, ...props }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="me-2">
-        {name}
-      </Button>
+      <button onClick={handleShow}>
+        <MenuIcon />
+      </button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
@@ -36,11 +36,6 @@ function OffCanvasExample({ name, ...props }) {
 export function Header() {
   return (
     <div className={headerModule.container_header}>
-      <>
-        {["end"].map((placement, idx) => (
-          <OffCanvasExample key={idx} placement={placement} name={placement} />
-        ))}
-      </>
       <header className={headerModule.header}>
         <div className="container-fluid">
           <div className="row">
@@ -69,9 +64,13 @@ export function Header() {
                       </Link>
                     </li>
                     <li className="d-lg-none">
-                      <button>
-                        <MenuIcon />
-                      </button>
+                      {["end"].map((placement, idx) => (
+                        <OffCanvasExample
+                          key={idx}
+                          placement={placement}
+                          name={placement}
+                        />
+                      ))}
                     </li>
                   </ul>
                 </div>
