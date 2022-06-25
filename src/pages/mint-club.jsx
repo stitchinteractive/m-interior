@@ -4,7 +4,6 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
-import SearchIcon from "../icons/search"
 import AsteriskIcon from "../icons/asterisk"
 
 // import module.css

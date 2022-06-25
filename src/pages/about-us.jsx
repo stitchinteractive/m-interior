@@ -2,7 +2,7 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link, scriptCallbackCache } from "gatsby"
+import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
 import * as aboutModule from "./about-us.module.css"
