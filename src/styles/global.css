@@ -105,6 +105,14 @@ h6 {
   font-weight: var(--light);
 }
 
+.font_normal {
+  font-weight: var(--body);
+}
+
+.font_medium {
+  font-weight: var(--medium);
+}
+
 .font_semibold {
   font-weight: var(--semibold);
 }
@@ -174,6 +182,26 @@ h6 {
 }
 
 /********** spacing **********/
+.pb-6 {
+  padding-bottom: 2rem;
+}
+
+.pb-7 {
+  padding-bottom: 2.5rem;
+}
+
+.pt-10 {
+  padding-top: var(--space-100);
+}
+
+.pb-9 {
+  padding-bottom: var(--space-90);
+}
+
+.pb-10 {
+  padding-bottom: var(--space-100);
+}
+
 .mb-60 {
   margin-bottom: var(--space-60);
 }
@@ -192,6 +220,26 @@ h6 {
 
 .mb-100 {
   margin-bottom: var(--space-100);
+}
+
+.mb-110 {
+  margin-bottom: var(--space-110);
+}
+
+.mb-120 {
+  margin-bottom: var(--space-120);
+}
+
+.mb-130 {
+  margin-bottom: var(--space-130);
+}
+
+.mb-140 {
+  margin-bottom: var(--space-140);
+}
+
+.mb-150 {
+  margin-bottom: var(--space-150);
 }
 
 /********** links **********/
@@ -442,26 +490,6 @@ p {
   padding-bottom: 25px;
 }
 
-.pb-6 {
-  padding-bottom: 2rem;
-}
-
-.pb-7 {
-  padding-bottom: 2.5rem;
-}
-
-.pt-10 {
-  padding-top: var(--space-100);
-}
-
-.pb-9 {
-  padding-bottom: var(--space-90);
-}
-
-.pb-10 {
-  padding-bottom: var(--space-100);
-}
-
 .bg_white {
   background: var(--white);
 }
@@ -510,6 +538,10 @@ a.no_underline {
   border-width: 0;
 }
 
+.nav_accordion .accordion-body {
+  padding: 0 50px;
+}
+
 .nav_accordion .accordion-button,
 .nav_accordion .accordion-button:not(.collapsed) {
   background: var(--white);
@@ -518,6 +550,7 @@ a.no_underline {
   font-size: 18px;
   box-shadow: 0 0 0 0 !important;
   text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
 }
 
 .nav_accordion .accordion-button::after {

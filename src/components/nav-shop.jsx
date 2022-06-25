@@ -2,6 +2,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import Accordion from "react-bootstrap/Accordion"
+import * as navShopModule from "./nav-shop.module.css"
 
 // step 2: define
 export function NavShop(props) {
@@ -25,9 +26,11 @@ export function NavShop(props) {
 
       <Accordion defaultActiveKey="1" className="nav_accordion">
         <Accordion.Item eventKey="1">
-          <Accordion.Header>Modular Furniture</Accordion.Header>
+          <Accordion.Header>
+            <div className="font_medium">Modular Furniture</div>
+          </Accordion.Header>
           <Accordion.Body>
-            <ul className="listing">
+            <ul className={navShopModule.listing}>
               <li>
                 <Link to="/min-modules" activeStyle={{ fontWeight: 600 }}>
                   Min-modules
@@ -42,7 +45,7 @@ export function NavShop(props) {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <ul className="listing">
+      <ul className="listing font_medium">
         <li>
           <Link to="/" activeStyle={{ fontWeight: 600 }}>
             Acacia For Pets
@@ -72,7 +75,7 @@ export function NavShop(props) {
           <div className="mb-3 font_grey_medium_4">Sort by</div>
         </div>
       </div>
-      <ul className="listing">
+      <ul className="listing font_medium">
         <li>
           <Link to="/" activeStyle={{ fontWeight: 600 }}>
             Bestselling

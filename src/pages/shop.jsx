@@ -7,7 +7,7 @@ import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
 import { ProductList } from "../components/product-list"
 import { Testimonials } from "../components/testimonials"
-import { NavShop } from "../components/nav_shop"
+import { NavShop } from "../components/nav-shop"
 import { ImgCard } from "../components/img-card"
 import { BackToTop } from "../components/back-to-top"
 
