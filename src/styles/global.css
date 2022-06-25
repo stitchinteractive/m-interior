@@ -112,10 +112,6 @@ h6 {
   color: var(--white);
 }
 
-.font_grey_light {
-  color: var(--grey-light);
-}
-
 .font_grey_variant {
   color: var(--grey-variant) !important;
 }
@@ -126,6 +122,22 @@ h6 {
 
 .font_grey_medium_dark {
   color: var(--grey-medium-dark);
+}
+
+.font_grey {
+  color: var(--grey);
+}
+
+.font_grey_light {
+  color: var(--grey-light);
+}
+
+.font_grey_extra_light {
+  color: var(--grey-extra-light);
+}
+
+.font_grey_variant_2 {
+  color: var(--grey-variant-2);
 }
 
 .text_vertical {
@@ -346,9 +358,6 @@ ul.listing_bullet li {
 ul.listing_colors {
   margin: 0;
   padding: 0;
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
 }
 
 ul.listing_colors li {
@@ -404,6 +413,26 @@ p {
   padding-bottom: var(--space-100);
 }
 
+.mb-60 {
+  margin-bottom: var(--space-60);
+}
+
+.mb-70 {
+  margin-bottom: var(--space-70);
+}
+
+.mb-80 {
+  margin-bottom: var(--space-80);
+}
+
+.mb-90 {
+  margin-bottom: var(--space-90);
+}
+
+.mb-100 {
+  margin-bottom: var(--space-100);
+}
+
 .bg_white {
   background: var(--white);
 }
@@ -446,6 +475,24 @@ a:active {
 
 a.no_underline {
   text-decoration: none;
+}
+
+.nav_accordion .accordion-item {
+  border-width: 0;
+}
+
+.nav_accordion .accordion-button,
+.nav_accordion .accordion-button:not(.collapsed) {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 18px;
+  box-shadow: 0 0 0 0 !important;
+  text-transform: uppercase;
+}
+
+.nav_accordion .accordion-button::after {
+  margin-left: 30px;
 }
 
 .accordion-item {
