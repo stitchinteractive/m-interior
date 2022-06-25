@@ -470,6 +470,32 @@ a.no_underline {
   text-decoration: none;
 }
 
+.nav_accordion .accordion-item {
+  border-width: 0;
+}
+
+.nav_accordion .accordion-button,
+.nav_accordion .accordion-button:not(.collapsed) {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 18px;
+  box-shadow: 0 0 0 0 !important;
+  text-transform: uppercase;
+}
+
+.nav_accordion .accordion-button::after {
+  margin-left: 30px;
+}
+
+.nav_accordion .accordion-button::after {
+  background-image: url(/icons/arrow_more.png);
+}
+
+.nav_accordion .accordion-button:not(.collapsed)::after {
+  background-image: url(/icons/arrow_less.png);
+}
+
 .accordion-item {
   border-width: 1px 0 1px 0;
 }
