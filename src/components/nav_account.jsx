@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 export function NavAccount(props) {
   return (
     <div id="nav_account" className="text-uppercase">
-      <div className="font_grey_variant">My Account</div>
+      <div className="font_grey_medium_3">My Account</div>
       <ul className="listing">
         <li>
           <Link to="/profile" activeStyle={{ fontWeight: 600 }}>
@@ -24,7 +24,7 @@ export function NavAccount(props) {
           </Link>
         </li>
       </ul>
-      <div className="font_grey_variant">Shipping &amp; Billing</div>
+      <div className="font_grey_medium_3">Shipping &amp; Billing</div>
       <ul className="listing">
         <li>
           <Link to="/saved-address" activeStyle={{ fontWeight: 600 }}>

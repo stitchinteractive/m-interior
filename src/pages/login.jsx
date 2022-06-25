@@ -63,13 +63,13 @@ const Login = () => {
                     <div className="mt-3 font_sm">
                       <Link
                         to="/create-account"
-                        className="fst-italic font_grey_medium_dark"
+                        className="fst-italic font_grey_medium_2"
                       >
                         Don't have an account yet?
                       </Link>
                     </div>
                     <div className="mt-1 font_sm">
-                      <Link to="/" className="fst-italic font_grey_medium_dark">
+                      <Link to="/" className="fst-italic font_grey_medium_2">
                         Forgot your password?
                       </Link>
                     </div>

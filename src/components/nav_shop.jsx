@@ -19,7 +19,7 @@ export function NavShop(props) {
           />
         </div>
         <div className="align-self-start">
-          <div className="mb-3 font_grey_variant_2">Filter by</div>
+          <div className="mb-3 font_grey_medium_3_2">Filter by</div>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ export function NavShop(props) {
           />
         </div>
         <div className="align-self-start">
-          <div className="mb-3 font_grey_variant_2">Sort by</div>
+          <div className="mb-3 font_grey_medium_3_2">Sort by</div>
         </div>
       </div>
       <ul className="listing">

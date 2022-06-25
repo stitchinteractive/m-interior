@@ -42,7 +42,7 @@ const Profile = () => {
                 <div className={ProfileModule.initials}>JS</div>
                 <div class="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
-                    <div className="font_grey_variant">Hello.</div>
+                    <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_xl font_semibold text-uppercase">
                       James Smith
                     </div>
@@ -56,7 +56,7 @@ const Profile = () => {
                 <form className="g-3">
                   <div class="row">
                     <div className="col-12">
-                      <div class="font_grey_variant text-uppercase">
+                      <div class="font_grey_medium_3 text-uppercase">
                         Shipping &amp; Billing /
                       </div>
                       <h3 className="text-uppercase pb-6">Saved Address</h3>

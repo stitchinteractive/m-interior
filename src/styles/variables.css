@@ -9,14 +9,15 @@
 
   /* palette */
   --black: #202020;
-  --grey-extra-dark: #464646;
-  --grey-dark: #909090;
-  --grey-medium-dark: #707070;
-  --grey-medium: #ccc6bd;
-  --grey-variant: #858384;
-  --grey: #e6dfd5;
   --grey-light: #f7f6f4;
-  --grey-extra-light: #fafafa;
+  --grey-light-2: #fafafa;
+  --grey: #e6dfd5;
+  --grey-medium: #ccc6bd;
+  --grey-medium-2: #707070;
+  --grey-medium-3: #858384;
+  --grey-medium-4: #a3a3a3;
+  --grey-dark: #909090;
+  --grey-dark-2: #464646;
   --white: #ffffff;
   --yellow: #f3cd46;
   --blue: #0e3244;
