@@ -7,7 +7,7 @@ import Accordion from "react-bootstrap/Accordion"
 export function NavShop(props) {
   return (
     <div id="nav_account" className="text-uppercase">
-      <h2 className="text-uppercase mb-80">Shop</h2>
+      <h2 className="text-uppercase mb-70">Shop</h2>
       <div className="d-flex align-items-start">
         <div className="align-self-start">
           <img
@@ -53,6 +53,9 @@ export function NavShop(props) {
           </Link>
         </li>
       </ul>
+
+      <br />
+      <br />
 
       <div className="d-flex align-items-start">
         <div className="align-self-start">
