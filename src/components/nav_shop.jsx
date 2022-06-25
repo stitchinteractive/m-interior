@@ -15,6 +15,7 @@ export function NavShop(props) {
             className="mt-2 me-2"
             width="16"
             height="16"
+            alt="Filter"
           />
         </div>
         <div className="align-self-start">
@@ -64,6 +65,7 @@ export function NavShop(props) {
             className="mt-2 me-2"
             width="16"
             height="16"
+            alt="Sort"
           />
         </div>
         <div className="align-self-start">

@@ -9,7 +9,7 @@ export function Membership() {
           <div className="col-md-5 align-self-end">
             <div className="pt-5">
               <div className="padding_featured">
-                <img src="/membership.png" />
+                <img src="/membership.png" alt="Membership" />
               </div>
             </div>
           </div>
