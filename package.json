@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-shopify",
+  "name": "M.INT",
   "version": "1.0.0",
   "private": true,
-  "description": "A Gatsby starter using the latest Shopify plugin showcasing a store with product overview, individual product pages, and a cart.",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "description": "Enter description here.",
+  "author": "Tan Bo An",
   "license": "0BSD",
   "keywords": [
     "gatsby",
