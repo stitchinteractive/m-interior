@@ -77,7 +77,7 @@ const Shop = () => {
               </div>
             </div>
             <div className="row">
-              <h3 className="text-uppercase py-5">Best Sellerssss</h3>
+              <h3 className="text-uppercase py-5">Best Sellers</h3>
               <ProductList />
               <BackToTop />
             </div>
