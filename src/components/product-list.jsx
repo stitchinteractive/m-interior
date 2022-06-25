@@ -58,14 +58,14 @@ export function ProductList() {
               </SwiperSlide>
               <SwiperSlide className="d-flex flex-column h-100">
                 <ProductListItem
-                  image="/shop/min_modules/small_tv_console.png"
+                  image="/shop/min_modules/tv_console_small.png"
                   name="Small Tv Console"
                   price="505"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <ProductListItem
-                  image="/shop/min_modules/tall_bookshelf_1.png"
+                  image="/shop/min_modules/bookshelf_tall.png"
                   name="Tall Bookshelf"
                   price="1173"
                 />
