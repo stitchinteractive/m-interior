@@ -6,7 +6,7 @@ import SearchIcon from "../icons/search"
 import ProfileIcon from "../icons/profile"
 import CartIcon from "../icons/cart"
 import MenuIcon from "../icons/menu"
-import * as header from "./header.module.css"
+import * as headerModule from "./header.module.css"
 
 function AnimateMobileNav({ children }) {
   return <div className="mobile_nav_container">{children}</div>
@@ -39,8 +39,8 @@ export function Header() {
   }, [reversed])
 
   return (
-    <div className={header.container_header}>
-      <header className={header.header}>
+    <div className={headerModule.container_header}>
+      <header className={headerModule.header}>
         <div className="container-fluid">
           <div className="row">
             <div className="col-4 col-md-2 d-flex align-items-center">
@@ -51,7 +51,7 @@ export function Header() {
             <div className="col-8 col-md-10">
               <div className="row">
                 <div className="col-md-12 d-flex justify-content-end">
-                  <ul className={header.nav_link_icon}>
+                  <ul className={headerModule.nav_link_icon}>
                     <li className="d-none d-lg-block">
                       <Link to="/">
                         <SearchIcon />
@@ -77,7 +77,7 @@ export function Header() {
               </div>
               <div className="row d-none d-lg-block">
                 <div className="col-12 col-md-12 d-flex justify-content-end">
-                  <ul className={header.nav_link}>
+                  <ul className={headerModule.nav_link}>
                     <li>
                       <Link to="/shop">Shop</Link>
                     </li>
@@ -116,7 +116,7 @@ export function Header() {
           <div ref={el}>
             <AnimateMobileNav>
               {/* mobile navigation */}
-              <div className={header.nav_mobile} id="nav_mobile">
+              <div className={headerModule.nav_mobile} id="nav_mobile">
                 <div className="row d-lg-none">
                   <div className="col-10 offset-1">
                     <div className="input-group my-3">
@@ -131,7 +131,7 @@ export function Header() {
                         <SearchIcon />
                       </button>
                     </div>
-                    <ul className={header.nav_link_mobile}>
+                    <ul className={headerModule.nav_link_mobile}>
                       <li>
                         <Link to="/shop">Shop</Link>
                       </li>
