@@ -492,6 +492,10 @@ a.no_underline {
 }
 
 /********** layout *********/
+.offcanvas {
+  z-index: 20000;
+}
+
 .row_padding {
   padding: 80px 30px;
 }
@@ -653,6 +657,10 @@ circle {
 
 /********** laptops **********/
 @media (min-width: 992px) {
+  .offcanvas {
+    display: none;
+  }
+
   .btn-outline-large {
     font-size: 16px;
     padding: 1rem 2rem;
