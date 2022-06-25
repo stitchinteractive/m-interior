@@ -15,7 +15,7 @@ function AnimateMobileNav({ children }) {
 // show after 2 seconds
 setTimeout(function () {
   document.getElementById("nav_mobile").style.visibility = "visible"
-}, 100)
+}, 2000)
 
 export function Header() {
   // animate mobile menu

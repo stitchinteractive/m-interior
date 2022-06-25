@@ -800,7 +800,7 @@ const HomePage = () => {
                 <h3 className="text-uppercase mb-4">Connectors.</h3>
                 <p>
                   Each module is connected by magnetic connectors which allows
-                  flexible arrangements to suit your needs and spacesss.
+                  flexible arrangements to suit your needs and spaces.
                 </p>
               </div>
             </div>
