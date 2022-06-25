@@ -6,27 +6,60 @@ import ProfileIcon from "../icons/profile"
 import CartIcon from "../icons/cart"
 import MenuIcon from "../icons/menu"
 import * as headerModule from "./header.module.css"
-import Button from "react-bootstrap/Button"
 import Offcanvas from "react-bootstrap/Offcanvas"
 
 function OffCanvasExample({ ...props }) {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const toggleShow = () => setShow((s) => !s)
 
   return (
     <>
-      <button onClick={handleShow}>
+      <button onClick={toggleShow}>
         <MenuIcon />
       </button>
-      <Offcanvas show={show} onHide={handleClose} {...props}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
+      <Offcanvas show={show} onHide={toggleShow} {...props}>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <div className="row d-lg-none">
+            <div className="col-10 offset-1">
+              <div className="input-group my-3">
+                <input
+                  type="text"
+                  className="form-control-sm txt_search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="search"
+                />
+                <button className="btn btn_search" type="button">
+                  <SearchIcon />
+                </button>
+              </div>
+              <ul className={headerModule.nav_link_mobile}>
+                <li>
+                  <Link to="/shop">Shop</Link>
+                </li>
+                <li>
+                  <Link to="/about-us" activeStyle={{ color: "white" }}>
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/lookbook" activeStyle={{ color: "white" }}>
+                    Lookbook
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/interior-design" activeStyle={{ color: "white" }}>
+                    Interior Design
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/">Blog</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
@@ -107,58 +140,6 @@ export function Header() {
               </div>
             </div>
           </div>
-
-          {/* mobile navigation */}
-          <div className={headerModule.nav_mobile} id="nav_mobile">
-            <div className="row d-lg-none">
-              <div className="col-10 offset-1">
-                <div className="input-group my-3">
-                  <input
-                    type="text"
-                    className="form-control-sm txt_search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search"
-                  />
-                  <button className="btn btn_search" type="button">
-                    <SearchIcon />
-                  </button>
-                </div>
-                <ul className={headerModule.nav_link_mobile}>
-                  <li>
-                    <Link to="/shop">Shop</Link>
-                  </li>
-                  <li>
-                    <Link to="/about-us" activeStyle={{ color: "white" }}>
-                      About Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/lookbook" activeStyle={{ color: "white" }}>
-                      Lookbook
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/interior-design"
-                      activeStyle={{ color: "white" }}
-                    >
-                      Interior Design
-                    </Link>
-                  </li>
-                  {/*
-                      <li>
-                        <Link to="/mint-club">M.INT Club</Link>
-                      </li>
-                      */}
-                  <li>
-                    <Link to="/">Blog</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          {/* end mobile navigation */}
         </div>
       </header>
     </div>

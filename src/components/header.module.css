@@ -33,18 +33,6 @@
   filter: brightness(0) invert(1);
 }
 
-.nav_mobile {
-  visibility: hidden;
-  width: calc(100vw - 30px);
-  height: 100vh;
-  background: var(--black);
-  position: fixed;
-  z-index: 100000;
-  top: 10px;
-  left: 30px;
-  touch-action: none;
-}
-
 .nav_link_mobile li {
   float: none !important;
   padding: 10px 0;
@@ -92,10 +80,6 @@
     font-family: var(--font-body);
     font-weight: var(--semibold);
     color: var(--white);
-  }
-
-  .nav_mobile {
-    display: none;
   }
 }
 

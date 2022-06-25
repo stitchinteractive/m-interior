@@ -494,6 +494,8 @@ a.no_underline {
 /********** layout *********/
 .offcanvas {
   z-index: 20000;
+  top: 65px !important;
+  background: var(--black);
 }
 
 .offcanvas-end {
@@ -587,6 +589,10 @@ circle {
 
 /********** tablets **********/
 @media (min-width: 768px) {
+  .offcanvas {
+    top: 90px !important;
+  }
+
   video {
     pointer-events: none;
   }
