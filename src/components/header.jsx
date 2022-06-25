@@ -17,15 +17,15 @@ setTimeout(function () {
   document.getElementById("nav_mobile").style.visibility = "visible"
 }, 100)
 
+// animate mobile menu
+const [reversed, setReversed] = useState(false)
+const el = useRef()
+const q = gsap.utils.selector(el)
+
+// store the timeline in a ref.
+const tl = useRef()
+
 export function Header() {
-  // animate mobile menu
-  const [reversed, setReversed] = useState(false)
-  const el = useRef()
-  const q = gsap.utils.selector(el)
-
-  // store the timeline in a ref.
-  const tl = useRef()
-
   useLayoutEffect(() => {
     // add mobile nav container and play on first render
     tl.current = gsap.timeline().to(q(".mobile_nav_container"), {
