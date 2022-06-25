@@ -136,6 +136,27 @@ h6 {
   padding-bottom: var(--space-30);
 }
 
+/********** spacing **********/
+.mb-60 {
+  margin-bottom: var(--space-60);
+}
+
+.mb-70 {
+  margin-bottom: var(--space-70);
+}
+
+.mb-80 {
+  margin-bottom: var(--space-80);
+}
+
+.mb-90 {
+  margin-bottom: var(--space-90);
+}
+
+.mb-100 {
+  margin-bottom: var(--space-100);
+}
+
 /********** links **********/
 .link_underline {
   border-bottom: 1px solid var(--grey-extra-dark);
