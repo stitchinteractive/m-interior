@@ -1,0 +1,19 @@
+.item {
+  padding: 25px;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  background: var(--grey-light);
+  height: 500px;
+  margin-bottom: 10px;
+}
+.item .info {
+  height: 70px;
+}
+
+/********** tablets **********/
+@media (min-width: 768px) {
+  .item {
+    padding: 25px;
+    height: 450px;
+  }
+}
