@@ -28,7 +28,7 @@ export function NavShop(props) {
           <Accordion.Body>
             <ul className="listing">
               <li>
-                <Link to="/min-modules" activeStyle={{ fontWeight: 600 }}>
+                <Link to="/" activeStyle={{ fontWeight: 600 }}>
                   Min-modules
                 </Link>
               </li>
