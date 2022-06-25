@@ -33,6 +33,12 @@
   filter: brightness(0) invert(1);
 }
 
+.nav_link_mobile a:hover {
+  font-family: var(--font-body);
+  font-weight: var(--medium);
+  color: var(--white);
+}
+
 /********** tablets **********/
 @media (min-width: 768px) {
   .container_header {

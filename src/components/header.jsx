@@ -11,7 +11,6 @@ import Offcanvas from "react-bootstrap/Offcanvas"
 function OffCanvasExample({ ...props }) {
   const [show, setShow] = useState(false)
 
-  const handleClose = () => setShow(false)
   const toggleShow = () => setShow((s) => !s)
 
   return (

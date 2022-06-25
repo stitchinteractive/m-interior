@@ -505,6 +505,7 @@ a.no_underline {
 .nav_link_mobile li {
   float: none !important;
   padding: 10px 0;
+  list-style-type: none;
 }
 
 .nav_link_mobile li a {
