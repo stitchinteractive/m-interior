@@ -797,7 +797,7 @@ const HomePage = () => {
             <div className="col-md-6 order-1 order-md-2" ref={connectors2Ref}>
               <h3 className="text-uppercase">Magnetic</h3>
               <div className="text_indent">
-                <h3 className="text-uppercase mb-4">Connectors.</h3>
+                <h3 className="text-uppercase mb-4">Connectorssss.</h3>
                 <p>
                   Each module is connected by magnetic connectors which allows
                   flexible arrangements to suit your needs and spaces.
