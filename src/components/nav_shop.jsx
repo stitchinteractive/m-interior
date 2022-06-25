@@ -7,28 +7,15 @@ import Accordion from "react-bootstrap/Accordion"
 export function NavShop(props) {
   return (
     <div id="nav_account" className="text-uppercase">
-      <h2 className="text-uppercase mb-70">Shop</h2>
-      <div className="d-flex align-items-start">
-        <div className="align-self-start">
-          <img
-            src="/icons/filter.png"
-            className="mt-2 me-2"
-            width="16"
-            height="16"
-          />
-        </div>
-        <div className="align-self-start">
-          <div className="mb-3 font_grey_variant_2">Filter by</div>
-        </div>
-      </div>
-
-      <Accordion defaultActiveKey="1" className="nav_accordion">
+      <h2 class="text-uppercase mb-5">Shop</h2>
+      <h5 class="mb-3">Filter by</h5>
+      <Accordion defaultActiveKey="1">
         <Accordion.Item eventKey="1">
           <Accordion.Header>Modular Furniture</Accordion.Header>
           <Accordion.Body>
             <ul className="listing">
               <li>
-                <Link to="/min-modules" activeStyle={{ fontWeight: 600 }}>
+                <Link to="/" activeStyle={{ fontWeight: 600 }}>
                   Min-modules
                 </Link>
               </li>
@@ -54,22 +41,7 @@ export function NavShop(props) {
         </li>
       </ul>
 
-      <br />
-      <br />
-
-      <div className="d-flex align-items-start">
-        <div className="align-self-start">
-          <img
-            src="/icons/sort.png"
-            className="mt-2 me-2"
-            width="16"
-            height="16"
-          />
-        </div>
-        <div className="align-self-start">
-          <div className="mb-3 font_grey_variant_2">Sort by</div>
-        </div>
-      </div>
+      <h5 className="mb-3">Sort by</h5>
       <ul className="listing">
         <li>
           <Link to="/" activeStyle={{ fontWeight: 600 }}>
