@@ -16,7 +16,7 @@ export function NavShop(props) {
             <ul className="listing">
               <li>
                 <Link to="/" activeStyle={{ fontWeight: 600 }}>
-                  Min-modules
+                  Min-modulessss
                 </Link>
               </li>
               <li>
