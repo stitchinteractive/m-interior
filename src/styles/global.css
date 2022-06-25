@@ -502,6 +502,26 @@ a.no_underline {
   max-width: 90%;
 }
 
+.nav_link_mobile li {
+  float: none !important;
+  padding: 10px 0;
+}
+
+.nav_link_mobile li a {
+  font-family: var(--font-body);
+  font-weight: var(--bold);
+  color: var(--grey-dark);
+  font-size: var(--text-md);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav_link_mobile a:hover {
+  font-family: var(--font-body);
+  font-weight: var(--medium);
+  color: var(--white);
+}
+
 .row_padding {
   padding: 80px 30px;
 }

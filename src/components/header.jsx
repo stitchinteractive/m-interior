@@ -35,7 +35,7 @@ function OffCanvasExample({ ...props }) {
                   <SearchIcon />
                 </button>
               </div>
-              <ul className={headerModule.nav_link_mobile}>
+              <ul className="nav_link_mobile">
                 <li>
                   <Link to="/shop">Shop</Link>
                 </li>
