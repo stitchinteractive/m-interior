@@ -36,7 +36,9 @@ function OffCanvasExample({ ...props }) {
               </div>
               <ul className="nav_link_mobile">
                 <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/shop" activeStyle={{ color: "white" }}>
+                    Shop
+                  </Link>
                 </li>
                 <li>
                   <Link to="/about-us" activeStyle={{ color: "white" }}>
@@ -54,7 +56,9 @@ function OffCanvasExample({ ...props }) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">Blog</Link>
+                  <Link to="/" activeStyle={{ color: "white" }}>
+                    Blog
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -111,7 +115,9 @@ export function Header() {
                 <div className="col-12 col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link}>
                     <li>
-                      <Link to="/shop">Shop</Link>
+                      <Link to="/shop" activeStyle={{ color: "white" }}>
+                        Shop
+                      </Link>
                     </li>
                     <li>
                       <Link to="/about-us" activeStyle={{ color: "white" }}>
@@ -132,7 +138,9 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/">Blog</Link>
+                      <Link to="/" activeStyle={{ color: "white" }}>
+                        Blog
+                      </Link>
                     </li>
                   </ul>
                 </div>
