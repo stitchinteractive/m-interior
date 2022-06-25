@@ -43,39 +43,23 @@ export function ProductList() {
               onSlideChange={() => console.log("slide change")}
             >
               <SwiperSlide className="d-flex flex-column h-100">
-                <ProductListItem
-                  image="/shop/acacia/acacia_block_1.png"
-                  name="Acacia Block"
-                  price="67"
-                />
+                <ProductListItem image="" name="Acacia Block" price="67" />
               </SwiperSlide>
               <SwiperSlide className="d-flex flex-column h-100">
                 <ProductListItem
-                  image="/shop/acacia/acacia_block_bundle_5.png"
+                  image=""
                   name="Acacia Block - bundle of 5"
                   price="285"
                 />
               </SwiperSlide>
               <SwiperSlide className="d-flex flex-column h-100">
-                <ProductListItem
-                  image="/shop/min_modules/tv_console_small.png"
-                  name="Small Tv Console"
-                  price="505"
-                />
+                <ProductListItem image="" name="Small Tv Console" price="505" />
               </SwiperSlide>
               <SwiperSlide>
-                <ProductListItem
-                  image="/shop/min_modules/bookshelf_tall.png"
-                  name="Tall Bookshelf"
-                  price="1173"
-                />
+                <ProductListItem image="" name="Tall Bookshelf" price="1173" />
               </SwiperSlide>
               <SwiperSlide>
-                <ProductListItem
-                  image="/shop/acacia_pets/mewwy_go_round.png"
-                  name="Mewwy Go Round"
-                  price="288"
-                />
+                <ProductListItem image="" name="Mewwy Go Round" price="288" />
               </SwiperSlide>
             </Swiper>
           </div>
