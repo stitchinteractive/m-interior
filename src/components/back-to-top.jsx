@@ -7,7 +7,7 @@ export function BackToTop(props) {
   return (
     <div className="d-flex justify-content-center mt-5">
       <Link to="/" className="d-flex no_underline">
-        <img src="/ico_top.png" width="31" height="31" />
+        <img src="/ico_top.png" alt="" width="31" height="31" />
         <div className="ps-2">Back To Top</div>
       </Link>
     </div>
