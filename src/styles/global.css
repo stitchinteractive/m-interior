@@ -343,21 +343,6 @@ ul.listing_bullet li {
   line-height: 1.6;
 }
 
-ul.listing_colors {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
-}
-
-ul.listing_colors li {
-  margin: 0 6px 0 6px;
-  padding: 0;
-  float: left;
-  list-style-type: none;
-}
-
 .content_100 {
   height: 100%;
   padding: 80px 40px;
@@ -505,10 +490,6 @@ a.no_underline {
 
 .swiper.testimonial_swiper {
   padding: 30px 30px 50px 30px !important;
-}
-
-.swiper.product_list_swiper {
-  padding: 0 !important;
 }
 
 .swiper-pagination {
