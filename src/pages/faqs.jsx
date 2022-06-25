@@ -4,7 +4,6 @@ import React, { useLayoutEffect } from "react"
 import Accordion from "react-bootstrap/Accordion"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 
 // step 2: define component

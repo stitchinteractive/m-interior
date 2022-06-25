@@ -37,7 +37,10 @@ const Account = () => {
                   <div className="col-lg-6">
                     <div className="row">
                       <div className="col">
-                        <label for="input_first_name" className="form-label">
+                        <label
+                          htmlFor="input_first_name"
+                          className="form-label"
+                        >
                           First Name
                         </label>
                         <input
@@ -47,7 +50,10 @@ const Account = () => {
                         />
                       </div>
                       <div className="col-12 mt-5">
-                        <label for="input_first_name" className="form-label">
+                        <label
+                          htmlFor="input_first_name"
+                          className="form-label"
+                        >
                           Last Name
                         </label>
                         <input
@@ -57,7 +63,7 @@ const Account = () => {
                         />
                       </div>
                       <div className="col-12 mt-5">
-                        <label for="input_phone" className="form-label">
+                        <label htmlFor="input_phone" className="form-label">
                           Phone Number
                         </label>
                         <input
@@ -67,7 +73,10 @@ const Account = () => {
                         />
                       </div>
                       <div className="col-12 mt-5">
-                        <label for="input_first_name" className="form-label">
+                        <label
+                          htmlFor="input_first_name"
+                          className="form-label"
+                        >
                           Birthday
                         </label>
                         <input
@@ -81,7 +90,7 @@ const Account = () => {
                   <div className="col-lg-6">
                     <div className="row">
                       <div className="col">
-                        <label for="input_email" className="form-label">
+                        <label htmlFor="input_email" className="form-label">
                           Email
                         </label>
                         <input
@@ -91,7 +100,7 @@ const Account = () => {
                         />
                       </div>
                       <div className="col-12 mt-5">
-                        <label for="input_password" className="form-label">
+                        <label htmlFor="input_password" className="form-label">
                           Password
                         </label>
                         <input
@@ -101,7 +110,7 @@ const Account = () => {
                         />
                       </div>
                       <div className="col-12 mt-5">
-                        <label for="input_password" className="form-label">
+                        <label htmlFor="input_password" className="form-label">
                           Confirm Password
                         </label>
                         <input
@@ -111,7 +120,7 @@ const Account = () => {
                         />
                       </div>
                       <div className="col-12 mt-5">
-                        <label for="input_referral" className="form-label">
+                        <label htmlFor="input_referral" className="form-label">
                           Referral Code
                         </label>
                         <input

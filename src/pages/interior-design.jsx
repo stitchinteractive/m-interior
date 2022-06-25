@@ -2,20 +2,9 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { LookBookDetailsItem } from "../components/lookbook-details-item"
 import { Testimonials } from "../components/testimonials"
-
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
-
-// import Swiper styles
-import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import "swiper/css/scrollbar"
 
 // step 2: define component
 const InteriorDesignDetails = () => {

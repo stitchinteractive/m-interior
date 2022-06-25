@@ -10,7 +10,7 @@ export function TestimonialItem() {
     <div className={testimonalModule.testimonial_item}>
       <div className="row">
         <div className="col-3">
-          <img src="/profile.jpg" className="avatar" />
+          <img src="/profile.jpg" className="avatar" alt="Profile" />
         </div>
         <div className="col-9">
           <div className="row align-items-center">

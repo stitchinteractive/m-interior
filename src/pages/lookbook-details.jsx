@@ -1,6 +1,5 @@
 // step 1: import
 import * as React from "react"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { LookBookDetailsItem } from "../components/lookbook-details-item"
 

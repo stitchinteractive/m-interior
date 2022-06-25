@@ -2,7 +2,6 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { LookBookItem } from "../components/lookbook-item"
 
