@@ -26,7 +26,11 @@ export function SubBanner(props) {
         </div>
         <div className="scroll_down font_xs font_black font_medium text-uppercase">
           <div class="d-flex">
-            <img src="/icons/scroll_down.png" className="me-2" />
+            <img
+              src="/icons/scroll_down.png"
+              className="me-2"
+              alt="Scroll down"
+            />
             Scroll down to explore
           </div>
         </div>

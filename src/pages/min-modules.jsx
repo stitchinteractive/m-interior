@@ -2,7 +2,6 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
 import { Testimonials } from "../components/testimonials"
@@ -61,6 +60,7 @@ const Shop = () => {
                   image="/shop/min_modules/bedside_table_small_2.png"
                   name="Small Side Table"
                   price="205"
+                  color="white"
                 />
               </div>
               <div class="col-12 col-md-6 col-lg-4 mb-4">

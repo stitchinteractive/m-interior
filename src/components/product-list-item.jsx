@@ -1,7 +1,6 @@
 // step 1: import
 import React from "react"
 import * as productListModule from "./product-list-item.module.css"
-import { Link } from "gatsby"
 
 // step 2: define and export
 export function ProductListItem(props) {
@@ -19,34 +18,10 @@ export function ProductListItem(props) {
         </div>
         <ul class="listing_colors">
           <li>
-            <Link to="/">
-              <img src="/icons/color_white.png" alt="" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <img src="/icons/color_grey.png" alt="" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <img src="/icons/color_black.png" alt="" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <img src="/icons/color_blue.png" alt="" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <img src="/icons/color_yellow.png" alt="" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <img src="/icons/color_red.png" alt="" />
-            </Link>
+            <img
+              src={"/icons/color_" + props.color + ".png"}
+              alt={props.color}
+            />
           </li>
         </ul>
       </div>
