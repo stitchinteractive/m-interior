@@ -12,7 +12,6 @@
 /********** tablets **********/
 @media (min-width: 768px) {
   .item {
-    padding: 25px;
     height: 450px;
   }
 }

@@ -76,6 +76,10 @@ h6 {
   position: relative;
 }
 
+.font_letterspacing_1 {
+  letter-spacing: 1px;
+}
+
 .font_xs {
   font-size: var(--text-xs);
 }
@@ -678,6 +682,11 @@ a.no_underline {
 
 .swiper-pagination-bullet-active {
   background: #ffffff !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--grey-medium-4) !important;
 }
 
 .avatar {

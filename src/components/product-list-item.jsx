@@ -9,8 +9,10 @@ export function ProductListItem(props) {
     <div className={productListModule.item}>
       <div className="d-flex flex-column">
         <div className={productListModule.info}>
-          <h5>{props.name}</h5>
-          <h6>SGD {props.price}</h6>
+          <h5 className="font_letterspacing_1">{props.name}</h5>
+          <div className="font_letterspacing_1 font_grey_medium_3">
+            SGD {props.price}
+          </div>
         </div>
         <div className="d-flex align-items-center">
           <img src={props.image} alt={props.name} className="mx-auto" />
