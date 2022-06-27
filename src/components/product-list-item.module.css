@@ -4,6 +4,7 @@
   line-height: 1.5;
   background: var(--grey-light);
   height: 500px;
+  position: relative;
 }
 .item .info {
   height: 70px;
