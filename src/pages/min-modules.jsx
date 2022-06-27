@@ -57,38 +57,267 @@ const Shop = () => {
             <div className="row mb-100">
               <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/bedside_table_small_2.png"
                   name="Small Side Table"
                   price="205"
-                  color="white"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </div>
               <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/bookshelf_tall_3.png"
                   name="Tall Bookshelf"
                   price="205"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </div>
               <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/bedroom_chest_small.png"
                   name="Small Bedroom Chest"
                   price="205"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </div>
               <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/bookshelf_full.png"
                   name="Full Bookshelf"
                   price="205"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </div>
               <div class="col-12 col-lg-8 mb-4">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/tv_console_small_2.png"
                   name="Small Tv Console"
                   price="205"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </div>
             </div>
@@ -120,6 +349,7 @@ const Shop = () => {
                   >
                     <SwiperSlide className="d-flex flex-column h-100">
                       <ProductListItem
+                        url="/shop-details"
                         image="/shop/acacia/acacia_block_1.png"
                         name="Min+Modules Sample Kit"
                         price="15"
@@ -127,6 +357,7 @@ const Shop = () => {
                     </SwiperSlide>
                     <SwiperSlide className="d-flex flex-column h-100">
                       <ProductListItem
+                        url="/shop-details"
                         image="/shop/acacia/acacia_block_bundle_5.png"
                         name="Big Module"
                         price="100"
@@ -134,13 +365,40 @@ const Shop = () => {
                     </SwiperSlide>
                     <SwiperSlide className="d-flex flex-column h-100">
                       <ProductListItem
+                        url="/shop-details"
                         image="/shop/min_modules/tv_console_small.png"
                         name="Door"
                         price="35"
+                        color_1={
+                          <li>
+                            <img src="/icons/color_white.png" />
+                          </li>
+                        }
+                        color_2={
+                          <li>
+                            <img src="/icons/color_grey_light.png" />
+                          </li>
+                        }
+                        color_3={
+                          <li>
+                            <img src="/icons/color_black.png" />
+                          </li>
+                        }
+                        color_4={
+                          <li>
+                            <img src="/icons/color_blue_dark.png" />
+                          </li>
+                        }
+                        color_5={
+                          <li>
+                            <img src="/icons/color_yellow.png" />
+                          </li>
+                        }
                       />
                     </SwiperSlide>
                     <SwiperSlide>
                       <ProductListItem
+                        url="/shop-details"
                         image="/shop/min_modules/bookshelf_tall_3.png"
                         name="Small Module"
                         price="60"
@@ -148,6 +406,7 @@ const Shop = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                       <ProductListItem
+                        url="/shop-details"
                         image="/shop/acacia_pets/mewwy_go_round.png"
                         name="Big Module"
                         price="100"
@@ -155,6 +414,7 @@ const Shop = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                       <ProductListItem
+                        url="/shop-details"
                         image="/shop/acacia_pets/mewwy_go_round.png"
                         name="Door"
                         price="35"

@@ -44,37 +44,237 @@ export function ProductList() {
             >
               <SwiperSlide className="d-flex flex-column h-100">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/acacia/acacia_block_1.png"
                   name="Acacia Block"
                   price="67"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_grey.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_blue.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_yellow.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_red.png" />
+                    </li>
+                  }
                 />
               </SwiperSlide>
               <SwiperSlide className="d-flex flex-column h-100">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/acacia/acacia_block_bundle_5.png"
                   name="Acacia Block - bundle of 5"
                   price="285"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_grey.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_blue.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_yellow.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_red.png" />
+                    </li>
+                  }
                 />
               </SwiperSlide>
               <SwiperSlide className="d-flex flex-column h-100">
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/tv_console_small.png"
                   name="Small Tv Console"
                   price="505"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/min_modules/bookshelf_tall_3.png"
                   name="Tall Bookshelf"
                   price="1173"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <ProductListItem
+                  url="/shop-details"
                   image="/shop/acacia_pets/mewwy_go_round.png"
                   name="Mewwy Go Round"
                   price="288"
+                  color_1={
+                    <li>
+                      <img src="/icons/color_brown_white.png" />
+                    </li>
+                  }
+                  color_2={
+                    <li>
+                      <img src="/icons/color_black.png" />
+                    </li>
+                  }
+                  color_3={
+                    <li>
+                      <img src="/icons/color_dark_brown_white.png" />
+                    </li>
+                  }
+                  color_4={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_5={
+                    <li>
+                      <img src="/icons/color_white_grey.png" />
+                    </li>
+                  }
+                  color_6={
+                    <li>
+                      <img src="/icons/color_black_white.png" />
+                    </li>
+                  }
+                  color_7={
+                    <li>
+                      <img src="/icons/color_black_grey.png" />
+                    </li>
+                  }
+                  color_8={
+                    <li>
+                      <img src="/icons/color_black_yellow.png" />
+                    </li>
+                  }
+                  color_9={
+                    <li>
+                      <img src="/icons/color_brown_black.png" />
+                    </li>
+                  }
                 />
               </SwiperSlide>
             </Swiper>
