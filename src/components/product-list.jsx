@@ -50,32 +50,32 @@ export function ProductList() {
                   price="67"
                   color_1={
                     <li>
-                      <img src="/icons/color_white.png" />
+                      <img src="/icons/color_white.png" alt="" />
                     </li>
                   }
                   color_2={
                     <li>
-                      <img src="/icons/color_grey.png" />
+                      <img src="/icons/color_grey.png" alt="" />
                     </li>
                   }
                   color_3={
                     <li>
-                      <img src="/icons/color_black.png" />
+                      <img src="/icons/color_black.png" alt="" />
                     </li>
                   }
                   color_4={
                     <li>
-                      <img src="/icons/color_blue.png" />
+                      <img src="/icons/color_blue.png" alt="" />
                     </li>
                   }
                   color_5={
                     <li>
-                      <img src="/icons/color_yellow.png" />
+                      <img src="/icons/color_yellow.png" alt="" />
                     </li>
                   }
                   color_6={
                     <li>
-                      <img src="/icons/color_red.png" />
+                      <img src="/icons/color_red.png" alt="" />
                     </li>
                   }
                 />
@@ -88,32 +88,32 @@ export function ProductList() {
                   price="285"
                   color_1={
                     <li>
-                      <img src="/icons/color_white.png" />
+                      <img src="/icons/color_white.png" alt="" />
                     </li>
                   }
                   color_2={
                     <li>
-                      <img src="/icons/color_grey.png" />
+                      <img src="/icons/color_grey.png" alt="" />
                     </li>
                   }
                   color_3={
                     <li>
-                      <img src="/icons/color_black.png" />
+                      <img src="/icons/color_black.png" alt="" />
                     </li>
                   }
                   color_4={
                     <li>
-                      <img src="/icons/color_blue.png" />
+                      <img src="/icons/color_blue.png" alt="" />
                     </li>
                   }
                   color_5={
                     <li>
-                      <img src="/icons/color_yellow.png" />
+                      <img src="/icons/color_yellow.png" alt="" />
                     </li>
                   }
                   color_6={
                     <li>
-                      <img src="/icons/color_red.png" />
+                      <img src="/icons/color_red.png" alt="" />
                     </li>
                   }
                 />
@@ -126,47 +126,47 @@ export function ProductList() {
                   price="505"
                   color_1={
                     <li>
-                      <img src="/icons/color_brown_white.png" />
+                      <img src="/icons/color_brown_white.png" alt="" />
                     </li>
                   }
                   color_2={
                     <li>
-                      <img src="/icons/color_black.png" />
+                      <img src="/icons/color_black.png" alt="" />
                     </li>
                   }
                   color_3={
                     <li>
-                      <img src="/icons/color_dark_brown_white.png" />
+                      <img src="/icons/color_dark_brown_white.png" alt="" />
                     </li>
                   }
                   color_4={
                     <li>
-                      <img src="/icons/color_black_white.png" />
+                      <img src="/icons/color_black_white.png" alt="" />
                     </li>
                   }
                   color_5={
                     <li>
-                      <img src="/icons/color_white_grey.png" />
+                      <img src="/icons/color_white_grey.png" alt="" />
                     </li>
                   }
                   color_6={
                     <li>
-                      <img src="/icons/color_black_white.png" />
+                      <img src="/icons/color_black_white.png" alt="" />
                     </li>
                   }
                   color_7={
                     <li>
-                      <img src="/icons/color_black_grey.png" />
+                      <img src="/icons/color_black_grey.png" alt="" />
                     </li>
                   }
                   color_8={
                     <li>
-                      <img src="/icons/color_black_yellow.png" />
+                      <img src="/icons/color_blue_yellow.png" alt="" />
                     </li>
                   }
                   color_9={
                     <li>
-                      <img src="/icons/color_brown_black.png" />
+                      <img src="/icons/color_brown_black.png" alt="" />
                     </li>
                   }
                 />
@@ -179,47 +179,47 @@ export function ProductList() {
                   price="1173"
                   color_1={
                     <li>
-                      <img src="/icons/color_brown_white.png" />
+                      <img src="/icons/color_brown_white.png" alt="" />
                     </li>
                   }
                   color_2={
                     <li>
-                      <img src="/icons/color_black.png" />
+                      <img src="/icons/color_black.png" alt="" />
                     </li>
                   }
                   color_3={
                     <li>
-                      <img src="/icons/color_dark_brown_white.png" />
+                      <img src="/icons/color_dark_brown_white.png" alt="" />
                     </li>
                   }
                   color_4={
                     <li>
-                      <img src="/icons/color_black_white.png" />
+                      <img src="/icons/color_black_white.png" alt="" />
                     </li>
                   }
                   color_5={
                     <li>
-                      <img src="/icons/color_white_grey.png" />
+                      <img src="/icons/color_white_grey.png" alt="" />
                     </li>
                   }
                   color_6={
                     <li>
-                      <img src="/icons/color_black_white.png" />
+                      <img src="/icons/color_black_white.png" alt="" />
                     </li>
                   }
                   color_7={
                     <li>
-                      <img src="/icons/color_black_grey.png" />
+                      <img src="/icons/color_black_grey.png" alt="" />
                     </li>
                   }
                   color_8={
                     <li>
-                      <img src="/icons/color_black_yellow.png" />
+                      <img src="/icons/color_blue_yellow.png" alt="" />
                     </li>
                   }
                   color_9={
                     <li>
-                      <img src="/icons/color_brown_black.png" />
+                      <img src="/icons/color_brown_black.png" alt="" />
                     </li>
                   }
                 />
@@ -232,47 +232,47 @@ export function ProductList() {
                   price="288"
                   color_1={
                     <li>
-                      <img src="/icons/color_brown_white.png" />
+                      <img src="/icons/color_brown_white.png" alt="" />
                     </li>
                   }
                   color_2={
                     <li>
-                      <img src="/icons/color_black.png" />
+                      <img src="/icons/color_black.png" alt="" />
                     </li>
                   }
                   color_3={
                     <li>
-                      <img src="/icons/color_dark_brown_white.png" />
+                      <img src="/icons/color_dark_brown_white.png" alt="" />
                     </li>
                   }
                   color_4={
                     <li>
-                      <img src="/icons/color_black_white.png" />
+                      <img src="/icons/color_black_white.png" alt="" />
                     </li>
                   }
                   color_5={
                     <li>
-                      <img src="/icons/color_white_grey.png" />
+                      <img src="/icons/color_white_grey.png" alt="" />
                     </li>
                   }
                   color_6={
                     <li>
-                      <img src="/icons/color_black_white.png" />
+                      <img src="/icons/color_black_white.png" alt="" />
                     </li>
                   }
                   color_7={
                     <li>
-                      <img src="/icons/color_black_grey.png" />
+                      <img src="/icons/color_black_grey.png" alt="" />
                     </li>
                   }
                   color_8={
                     <li>
-                      <img src="/icons/color_black_yellow.png" />
+                      <img src="/icons/color_blue_yellow.png" alt="" />
                     </li>
                   }
                   color_9={
                     <li>
-                      <img src="/icons/color_brown_black.png" />
+                      <img src="/icons/color_brown_black.png" alt="" />
                     </li>
                   }
                 />

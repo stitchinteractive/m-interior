@@ -206,6 +206,26 @@ h6 {
   padding-bottom: var(--space-100);
 }
 
+.mb-10 {
+  margin-bottom: var(--space-10);
+}
+
+.mb-20 {
+  margin-bottom: var(--space-20);
+}
+
+.mb-30 {
+  margin-bottom: var(--space-30);
+}
+
+.mb-40 {
+  margin-bottom: var(--space-40);
+}
+
+.mb-50 {
+  margin-bottom: var(--space-50);
+}
+
 .mb-60 {
   margin-bottom: var(--space-60);
 }
@@ -491,6 +511,23 @@ ul.listing_bullet li {
   background: url(/bullet.png) no-repeat top left;
   background-position: 0 5px;
   line-height: 1.6;
+}
+
+ul.listing_left_align {
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+ul.listing_left_align li {
+  margin: 0 5px 0 5px;
+  padding: 0;
+  list-style-type: none;
+  float: left;
+}
+
+ul.listing_left_align li:first-child {
+  margin: 0;
+  line-height: 31px;
 }
 
 ul.listing_colors {

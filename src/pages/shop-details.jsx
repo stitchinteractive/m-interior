@@ -4,12 +4,8 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { Link } from "gatsby"
-import { Membership } from "../components/membership"
-import { Testimonials } from "../components/testimonials"
-import { NavShop } from "../components/nav-shop"
-import { ProductListItem } from "../components/product-list-item"
-import { SubBanner } from "../components/subpage-banner"
-import { BackToTop } from "../components/back-to-top"
+import OverlayTrigger from "react-bootstrap/OverlayTrigger"
+import Tooltip from "react-bootstrap/Tooltip"
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -49,11 +45,17 @@ const ShopDetails = () => {
     "https://picsum.photos/1920/1084",
   ]
 
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Mid-tone wood & white gloss
+    </Tooltip>
+  )
+
   return (
     <Layout>
       <div className="bg_grey">
         <div className="container">
-          <div className="row row_padding">
+          <div className="row padding_heading">
             <div className="text-uppercase font_xs">
               <ul className="listing_breadcrumbs">
                 <li>
@@ -74,7 +76,7 @@ const ShopDetails = () => {
               </ul>
             </div>
           </div>
-          <div className="row">
+          <div className="row pt-3 pb-5">
             <div className="col-12 col-lg-7">
               <section className="slider">
                 <div className="slider__flex">
@@ -139,7 +141,7 @@ const ShopDetails = () => {
             </div>
             <div className="col-12 col-lg-5">
               <h3 className="text-uppercase">Tall Bookshelf</h3>
-              <h4 className="text-uppercase font_grey_medium_3 mb-5">
+              <h4 className="text-uppercase font_grey_medium_3 mb-40">
                 SGD 1,173
               </h4>
               <p>
@@ -160,7 +162,44 @@ const ShopDetails = () => {
                 </Link>
               </p>
               <hr className="my-3" />
-              <p>Colour: </p>
+              <p>
+                <ul class="listing_left_align">
+                  <li>Colour:</li>
+                  <li>
+                    <OverlayTrigger
+                      placement="top"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={renderTooltip}
+                    >
+                      <img src="/icons/color_brown_white.png" alt="" />
+                    </OverlayTrigger>
+                  </li>
+                  <li>
+                    <img src="/icons/color_dark_brown_white.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_black.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_white_grey.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_black_white.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_blue_white.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_black_grey.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_blue_yellow.png" alt="" />
+                  </li>
+                  <li>
+                    <img src="/icons/color_brown_black.png" alt="" />
+                  </li>
+                </ul>
+              </p>
               <div className="d-flex">
                 <p className="pb-3">
                   <Link to="/">
@@ -175,14 +214,14 @@ const ShopDetails = () => {
                   </Link>
                 </p>
               </div>
-              <p>
+              <p className="pb-1">
                 <Link to="/">
                   <button type="button" className="btn btn-light w-100">
                     Get Complimentary Design Service
                   </button>
                 </Link>
               </p>
-              <em className="font_sm font_grey_medium_2">
+              <em className="font_xs font_grey_medium_2">
                 *Delivery lead time is around 3-4 weeks
               </em>
             </div>
