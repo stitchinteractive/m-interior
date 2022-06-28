@@ -1,8 +1,9 @@
 // step 1: import
-import React, { useRef, useState, useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { NumericInput } from "../components/numeric-input"
 import { Link } from "gatsby"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
@@ -51,6 +52,8 @@ const ShopDetails = () => {
     </Tooltip>
   )
 
+  const [quantity, setQuantity] = React.useState(1)
+
   return (
     <Layout>
       <div className="bg_grey">
@@ -76,7 +79,7 @@ const ShopDetails = () => {
               </ul>
             </div>
           </div>
-          <div className="row pt-3 pb-5">
+          <div className="row padding_about py-5">
             <div className="col-12 col-lg-7">
               <section className="slider">
                 <div className="slider__flex">
@@ -156,7 +159,7 @@ const ShopDetails = () => {
               </p>
               <p>
                 <Link to="/">
-                  <button type="button" className="btn btn-light w-100">
+                  <button type="button" className="btn btn-light">
                     Customise this bookshelf
                   </button>
                 </Link>
@@ -202,11 +205,15 @@ const ShopDetails = () => {
               </p>
               <div className="d-flex">
                 <p className="pb-3">
-                  <Link to="/">
-                    <button type="button" className="btn btn-tertiary me-3">
-                      Add to cart
-                    </button>
-                  </Link>
+                  <NumericInput
+                    aria-label="Quantity"
+                    onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
+                    onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
+                    onChange={(event) => setQuantity(event.currentTarget.value)}
+                    value={quantity}
+                    min="1"
+                    max="20"
+                  />
                   <Link to="/">
                     <button type="button" className="btn btn-tertiary">
                       Add to cart
@@ -216,7 +223,7 @@ const ShopDetails = () => {
               </div>
               <p className="pb-1">
                 <Link to="/">
-                  <button type="button" className="btn btn-light w-100">
+                  <button type="button" className="btn btn-light">
                     Get Complimentary Design Service
                   </button>
                 </Link>
