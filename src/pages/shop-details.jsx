@@ -4,6 +4,10 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NumericInput } from "../components/numeric-input"
+import { MinQuality } from "../components/min-quality"
+import { Testimonials } from "../components/testimonials"
+import { ProductList } from "../components/product-list"
+import { BackToTop } from "../components/back-to-top"
 import { Link } from "gatsby"
 import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tabs from "react-bootstrap/Tabs"
@@ -483,6 +487,15 @@ const ShopDetails = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <MinQuality />
+      <Testimonials />
+      <div className="container">
+        <div className="row row_padding">
+          <h3 className="text-uppercase py-5">You might also like</h3>
+          <ProductList />
+          <BackToTop />
         </div>
       </div>
     </Layout>
