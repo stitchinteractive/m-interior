@@ -456,6 +456,13 @@ hr {
   margin: 5rem 0 8rem 0;
 }
 
+hr.dashed {
+  margin: 2rem 0 2rem 0;
+  border-top: 1px dashed var(--grey-medium-4);
+  background: transparent;
+  opacity: 1;
+}
+
 table th {
   text-transform: uppercase;
 }
@@ -717,6 +724,14 @@ a.no_underline {
 }
 
 /********** layout *********/
+.order_note {
+  color: var(--grey-medium-4);
+  font-size: 11px;
+  border: 1px solid #c0c0c0;
+  padding: 15px;
+  width: 100%;
+}
+
 .offcanvas {
   z-index: 20000;
   top: 65px !important;
@@ -1132,6 +1147,11 @@ circle {
   .sub_banner .scroll_down {
     left: 30px;
     bottom: 30px;
+  }
+
+  .order_note {
+    max-width: 350px;
+    font-size: 12px;
   }
 }
 
