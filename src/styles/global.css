@@ -70,7 +70,7 @@ h6 {
   display: block;
   width: 160px;
   height: 8px;
-  background: #e5dfd6;
+  background: var(--grey-medium-5);
   left: -180px;
   top: 20px;
   position: relative;
@@ -460,6 +460,10 @@ table tr td {
   padding: 1rem 0.5rem 1rem 0.5rem !important;
 }
 
+.table-sm tr td {
+  padding: 0 0.5rem !important;
+}
+
 .row-flex {
   display: flex;
   flex-wrap: wrap;
@@ -599,6 +603,10 @@ p {
   background: var(--grey-light);
 }
 
+.bg_grey_medium_5 {
+  background: var(--grey-medium-5);
+}
+
 .bg_black {
   background: var(--black);
 }
@@ -667,7 +675,7 @@ a.no_underline {
 }
 
 .accordion-button:not(.collapsed) {
-  background: #e5dfd6;
+  background: var(--grey-medium-5);
   color: var(--black);
 }
 
@@ -967,6 +975,13 @@ circle {
 
 .tab-content {
   padding: 50px 0;
+}
+
+.label_order {
+  min-width: 50px;
+  padding-right: 10px;
+  color: var(--grey-medium-4);
+  font-weight: var(--medium);
 }
 
 /********** tablets **********/

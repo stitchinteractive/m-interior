@@ -6,6 +6,7 @@ import { Layout } from "../components/layout"
 import { Link } from "gatsby"
 import BackIcon from "../icons/back"
 import Accordion from "react-bootstrap/Accordion"
+import Table from "react-bootstrap/Table"
 
 // step 2: define component
 const Cart = () => {
@@ -36,18 +37,22 @@ const Cart = () => {
   return (
     <Layout>
       <div className="container">
-        <div className="row row_padding">
-          <div className="col-lg">
+        <div class="row padding_heading">
+          <div class="col-12">
             <h2 className="text-uppercase mb-4">Check Out</h2>
-            <div className="d-flex btn_back mb-80">
+            <div className="d-flex btn_back">
               <BackIcon />
               <Link
-                to="/"
+                to="/shop"
                 className="ms-2 font_yellow text-uppercase font_semibold no_underline"
               >
                 Continue Shopping
               </Link>
             </div>
+          </div>
+        </div>
+        <div className="row row_padding">
+          <div className="col-lg-6">
             <Accordion defaultActiveKey="1">
               <Accordion.Item eventKey="1">
                 <Accordion.Header>
@@ -279,7 +284,131 @@ const Cart = () => {
               </Link>
             </div>
           </div>
-          <div className="col-lg-6">123</div>
+          <div className="col-lg-6">
+            <div class="bg_grey_medium_5">
+              <div className="p-4">
+                <h4 className="text-uppercase py-3">Your Order</h4>
+                <Table className="font_sm">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th width="20%">&nbsp;</th>
+                      <th>Quantity</th>
+                      <th
+                        style={{
+                          textAlign: "right",
+                        }}
+                      >
+                        Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div className="font_medium text-uppercase">
+                          Tall Bookshelf
+                        </div>
+                        <div className="d-flex py-2">
+                          <div className="label_order">Style:</div>
+                          <div className="font_medium text-uppercase">
+                            Style 1
+                          </div>
+                        </div>
+                        <div className="d-flex py-2">
+                          <div className="label_order">Color:</div>
+                          <div>
+                            <img src="icons/color_brown_white.png" alt="" />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <img
+                          src="shop/min_modules/bookshelf_tall_3.png"
+                          alt="Tall Bookshelf"
+                        />
+                      </td>
+                      <td>1</td>
+                      <td
+                        style={{
+                          textAlign: "right",
+                        }}
+                      >
+                        SGD 1,063
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+                <hr className="my-3" />
+                <div class="form-floating mb-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="floatingInput"
+                  />
+                  <label for="floatingInput">Enter Membership Points</label>
+                </div>
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="btn btn-tertiary text-uppercase w-100"
+                  >
+                    Redeem Membership Points
+                  </button>
+                </Link>
+                <hr className="my-3" />
+                <Table size="sm" className="font_sm">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div className="font_medium text-uppercase">
+                          Sub-total
+                        </div>
+                      </td>
+                      <td
+                        style={{
+                          textAlign: "right",
+                        }}
+                      >
+                        SGD 1,063
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div className="font_medium text-uppercase">
+                          Shipping
+                        </div>
+                      </td>
+                      <td
+                        style={{
+                          textAlign: "right",
+                        }}
+                      >
+                        SGD 80
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+                <hr className="my-3" />
+                <Table size="sm" className="font_sm">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div className="font_medium text-uppercase">Total</div>
+                      </td>
+                      <td
+                        style={{
+                          textAlign: "right",
+                        }}
+                      >
+                        SGD 1,143
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
