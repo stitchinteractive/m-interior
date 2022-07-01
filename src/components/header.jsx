@@ -95,7 +95,7 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/">
+                      <Link to="/cart">
                         <CartIcon />
                       </Link>
                     </li>

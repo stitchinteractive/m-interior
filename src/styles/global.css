@@ -393,6 +393,10 @@ h6 {
   text-decoration: none;
 }
 
+.btn_back {
+  line-height: 18px;
+}
+
 .form-label {
   text-transform: uppercase;
   font-size: var(--text-sm);
