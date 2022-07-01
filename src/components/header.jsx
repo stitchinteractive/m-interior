@@ -31,7 +31,9 @@ function OffCanvasExample({ ...props }) {
                   aria-describedby="search"
                 />
                 <button className="btn btn_search" type="button">
-                  <SearchIcon />
+                  <Link to="/search-results">
+                    <SearchIcon />
+                  </Link>
                 </button>
               </div>
               <ul className="nav_link_mobile">
@@ -85,7 +87,7 @@ export function Header() {
                 <div className="col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link_icon}>
                     <li className="d-none d-lg-block">
-                      <Link to="/">
+                      <Link to="/search-results">
                         <SearchIcon />
                       </Link>
                     </li>
