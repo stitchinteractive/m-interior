@@ -24,9 +24,9 @@ const InteriorDesignDetails = () => {
 
   return (
     <Layout>
-      <div class="container">
+      <div className="container">
         <div className="row row_padding animate">
-          <div class="col col-lg-8 offset-lg-2">
+          <div className="col col-lg-8 offset-lg-2">
             <h2 className="text-uppercase heading_line pb-4">Privacy Policy</h2>
             <p>
               We&nbsp;
@@ -37,7 +37,7 @@ const InteriorDesignDetails = () => {
               Please read this Privacy Policy carefully before providing us with
               your personal data.
             </p>
-            <ol class="listing_bullet">
+            <ol className="listing_bullet">
               <li>
                 Your continued use of the Site constitutes your agreement that
                 you have read this Privacy Policy and understand the purposes

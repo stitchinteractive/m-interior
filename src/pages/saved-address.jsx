@@ -40,7 +40,7 @@ const Profile = () => {
             <div className="col-12 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>JS</div>
-                <div class="d-flex flex-column">
+                <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_xl font_semibold text-uppercase">
@@ -54,17 +54,17 @@ const Profile = () => {
             <div className="col-12 col-lg-9">
               <div className={ProfileModule.content}>
                 <form className="g-3">
-                  <div class="row">
+                  <div className="row">
                     <div className="col-12">
-                      <div class="font_grey_medium_3 text-uppercase">
+                      <div className="font_grey_medium_3 text-uppercase">
                         Shipping &amp; Billing /
                       </div>
                       <h3 className="text-uppercase pb-6">Saved Address</h3>
                       <h4 className="text-uppercase pb-3">Shipping Address</h4>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-md-6 pb-5">
+                  <div className="row">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         First Name
                       </label>
@@ -76,7 +76,7 @@ const Profile = () => {
                         onChange={(event) => newFirstName(event.target.value)}
                       />
                     </div>
-                    <div class="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         Last Name
                       </label>
@@ -89,8 +89,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_address_1" className="form-label">
                         Address Line 1
                       </label>
@@ -103,8 +103,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_address_2" className="form-label">
                         Address Line 2 (Apt / Flat No.)
                       </label>
@@ -117,8 +117,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_postal" className="form-label">
                         Postal Code
                       </label>

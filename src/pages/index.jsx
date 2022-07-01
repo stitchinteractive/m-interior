@@ -861,9 +861,9 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div class="row row_padding row-flex">
-            <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div class="content_100 bg_blue text-center" ref={minCta1Ref}>
+          <div className="row row_padding row-flex">
+            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div className="content_100 bg_blue text-center" ref={minCta1Ref}>
                 <h3 className="pb-10">
                   Why compromise when you can customise?
                 </h3>
@@ -876,15 +876,15 @@ const HomePage = () => {
                 </p>
               </div>
             </div>
-            <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div class="content_100 bg_blue" ref={minCta2Ref}>
+            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div className="content_100 bg_blue" ref={minCta2Ref}>
                 <p className="p-5">
                   <img src="/home/1.png" alt="" className="mx-auto" />
                 </p>
               </div>
             </div>
-            <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div class="content_100 bg_blue text-center" ref={minCta3Ref}>
+            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div className="content_100 bg_blue text-center" ref={minCta3Ref}>
                 <h3 className="pb-10">There’s a Min+Module for every space.</h3>
                 <p>
                   <Link to="/">

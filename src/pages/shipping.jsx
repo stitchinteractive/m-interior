@@ -23,9 +23,9 @@ const InteriorDesignDetails = () => {
 
   return (
     <Layout>
-      <div class="container">
+      <div className="container">
         <div className="row row_padding animate">
-          <div class="col col-lg-8 offset-lg-2">
+          <div className="col col-lg-8 offset-lg-2">
             <h2 className="text-uppercase heading_line pb-4">Shipping</h2>
             <p>
               <strong>
@@ -33,7 +33,7 @@ const InteriorDesignDetails = () => {
               </strong>
             </p>
             <h5>Local Delivery</h5>
-            <ul class="listing_bullet">
+            <ul className="listing_bullet">
               <li>
                 For orders within Singapore, delivery fee will be charged at a
                 flat rate of SGD 10.
@@ -51,7 +51,7 @@ const InteriorDesignDetails = () => {
             <br />
 
             <h5>International Shipping</h5>
-            <ul class="listing_bullet">
+            <ul className="listing_bullet">
               <li>
                 We regret to inform that we do not provide delivery to other
                 countries outside of Singapore at the moment.
@@ -61,7 +61,7 @@ const InteriorDesignDetails = () => {
             <br />
 
             <h5>Terms & Conditions</h5>
-            <ul class="listing_bullet">
+            <ul className="listing_bullet">
               <li>
                 If you’re unable to receive the order on the first delivery
                 attempt, we will inform you of the unsuccessful delivery and

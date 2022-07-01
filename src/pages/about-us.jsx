@@ -43,8 +43,10 @@ const AboutUs = () => {
             <div className="row padding_about">
               <div className="d-lg-flex align-items-start">
                 <div className="col col-lg-6">
-                  <h5 class="text-uppercase pb-2 font_light">Brand Story /</h5>
-                  <h2 class="pb-4">More Than Essential</h2>
+                  <h5 className="text-uppercase pb-2 font_light">
+                    Brand Story /
+                  </h5>
+                  <h2 className="pb-4">More Than Essential</h2>
                   <p>
                     Not your regular furniture shop, we design modular furniture
                     pieces and offer one-stop interior design services. All so
@@ -82,12 +84,14 @@ const AboutUs = () => {
 
         {/* what we do */}
         <div className="border_bottom animate">
-          <div class="container">
+          <div className="container">
             <div className="row padding_about">
               <div className="d-lg-flex align-items-start">
                 <div className="order-lg-2 col col-lg-6 offset-lg-1">
-                  <h5 class="text-uppercase pb-2 font_light">What We Do /</h5>
-                  <h2 class="pb-4">More Than Furniture</h2>
+                  <h5 className="text-uppercase pb-2 font_light">
+                    What We Do /
+                  </h5>
+                  <h2 className="pb-4">More Than Furniture</h2>
                   <p>
                     At M.INT, we take it a step further to offer a tailored
                     experience for every customer in every possible space.
@@ -100,7 +104,7 @@ const AboutUs = () => {
                     to meet your needs – get free design and space planning
                     advice from our team of designers.
                   </p>
-                  <p class="pb-5">
+                  <p className="pb-5">
                     <Link to="/" className="link_underline">
                       Speak to us now &gt;
                     </Link>
@@ -138,12 +142,12 @@ const AboutUs = () => {
           <div className="row padding_about">
             <div className="d-lg-flex align-items-start">
               <div className="col col-lg-6">
-                <h5 class="text-uppercase pb-2 font_light">
+                <h5 className="text-uppercase pb-2 font_light">
                   Design Philosophy /
                 </h5>
-                <h2 class="pb-4">More Than Just Design</h2>
+                <h2 className="pb-4">More Than Just Design</h2>
                 <h4>Exclusively Designed In-house</h4>
-                <p class="pb-5">
+                <p className="pb-5">
                   Our designs center around creating a customer-focused solution
                   that allows homeowners to take full control of their spaces
                   creatively and efficiently. Be it through our modular
@@ -151,7 +155,7 @@ const AboutUs = () => {
                   create purposeful designs for every space.
                 </p>
                 <h4>Premium Quality You Can Trust</h4>
-                <p class="pb-5">
+                <p className="pb-5">
                   Every detail, material and concept is meticulously
                   manufactured and crafted to ensure that we deliver only the
                   best to you. All of our modular furniture products are
@@ -159,7 +163,7 @@ const AboutUs = () => {
                   fine craftsmanship from our in-house carpentry team.
                 </p>
                 <h4>Sustainability</h4>
-                <p class="pb-5">
+                <p className="pb-5">
                   We aspire to promote the idea of repurposing furniture and to
                   discourage the throwaway culture. The concept of modularity
                   allows the same modules to be rearranged into multiple

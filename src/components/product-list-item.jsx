@@ -18,7 +18,7 @@ export function ProductListItem(props) {
           <div className="d-flex align-items-center">
             <img src={props.image} alt={props.name} className="mx-auto" />
           </div>
-          <ul class="listing_colors">
+          <ul className="listing_colors">
             {/*
           <li>
             <img

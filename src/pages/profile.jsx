@@ -43,7 +43,7 @@ const Profile = () => {
             <div className="col-12 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>JS</div>
-                <div class="d-flex flex-column">
+                <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_xl font_semibold text-uppercase">
@@ -57,16 +57,16 @@ const Profile = () => {
             <div className="col-12 col-lg-9">
               <div className={ProfileModule.content}>
                 <form className="g-3">
-                  <div class="row">
+                  <div className="row">
                     <div className="col-12">
-                      <div class="font_grey_medium_3 text-uppercase">
+                      <div className="font_grey_medium_3 text-uppercase">
                         My Account /
                       </div>
                       <h3 className="text-uppercase pb-6">My Profile</h3>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-md-6 pb-5">
+                  <div className="row">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         First Name
                       </label>
@@ -78,7 +78,7 @@ const Profile = () => {
                         onChange={(event) => newFirstName(event.target.value)}
                       />
                     </div>
-                    <div class="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         Last Name
                       </label>
@@ -91,8 +91,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_email" className="form-label">
                         Email
                       </label>
@@ -105,8 +105,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_phone" className="form-label">
                         Phone Number
                       </label>
@@ -119,8 +119,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         Birthday
                       </label>
@@ -133,8 +133,8 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-md-6 pb-5">
+                  <div className="row">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
                         Password
                       </label>
@@ -146,7 +146,7 @@ const Profile = () => {
                         onChange={(event) => newPassword(event.target.value)}
                       />
                     </div>
-                    <div class="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
                         New Password
                       </label>
@@ -161,7 +161,7 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <div className="col-12 mt-5 text-center">
                       <Link to="/">
                         <button type="submit" className="btn btn-secondary">

@@ -37,8 +37,8 @@ const Cart = () => {
   return (
     <Layout>
       <div className="container">
-        <div class="row padding_heading">
-          <div class="col-12">
+        <div className="row padding_heading">
+          <div className="col-12">
             <h2 className="text-uppercase mb-4">Check Out</h2>
             <div className="d-flex btn_back">
               <BackIcon />
@@ -60,12 +60,12 @@ const Cart = () => {
                 </Accordion.Header>
                 <Accordion.Body>
                   <div className="row">
-                    <div class="col-12 pb-5">
+                    <div className="col-12 pb-5">
                       Already have an account? <Link to="/login">Login</Link>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 col-md-6 pb-5">
+                  <div className="row">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         First Name
                       </label>
@@ -77,7 +77,7 @@ const Cart = () => {
                         onChange={(event) => newFirstName(event.target.value)}
                       />
                     </div>
-                    <div class="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-md-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         Last Name
                       </label>
@@ -90,8 +90,8 @@ const Cart = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_email" className="form-label">
                         Email
                       </label>
@@ -104,8 +104,8 @@ const Cart = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_phone" className="form-label">
                         Phone Number
                       </label>
@@ -125,8 +125,8 @@ const Cart = () => {
                   <div className="text-uppercase">02. Shipping Address</div>
                 </Accordion.Header>
                 <Accordion.Body>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_address_1" className="form-label">
                         Address Line 1
                       </label>
@@ -139,8 +139,8 @@ const Cart = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_address_2" className="form-label">
                         Address Line 2 (Apt / Flat No.)
                       </label>
@@ -153,8 +153,8 @@ const Cart = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_postal" className="form-label">
                         Postal Code
                       </label>
@@ -174,23 +174,26 @@ const Cart = () => {
                   <div className="text-uppercase">03. Billing Address</div>
                 </Accordion.Header>
                 <Accordion.Body>
-                  <div class="row">
-                    <div class="col-12 pb-5">
-                      <div class="form-check">
+                  <div className="row">
+                    <div className="col-12 pb-5">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="flexCheckDefault"
                         />
-                        <label class="form-check-label" for="flexCheckDefault">
+                        <label
+                          className="form-check-label"
+                          for="flexCheckDefault"
+                        >
                           Same as shipping address
                         </label>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_address_1" className="form-label">
                         Address Line 1
                       </label>
@@ -203,8 +206,8 @@ const Cart = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_address_2" className="form-label">
                         Address Line 2 (Apt / Flat No.)
                       </label>
@@ -217,8 +220,8 @@ const Cart = () => {
                       />
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12 pb-5">
+                  <div className="row">
+                    <div className="col-12 pb-5">
                       <label htmlFor="input_postal" className="form-label">
                         Postal Code
                       </label>
@@ -238,38 +241,38 @@ const Cart = () => {
                   <div className="text-uppercase">04. Payment</div>
                 </Accordion.Header>
                 <Accordion.Body>
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="flexRadioDefault1"
                     />
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <label className="form-check-label" for="flexRadioDefault1">
                       Visa
                     </label>
                   </div>
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="flexRadioDefault2"
                       checked
                     />
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <label className="form-check-label" for="flexRadioDefault2">
                       Mastercard
                     </label>
                   </div>
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="flexRadioDefault2"
                       checked
                     />
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <label className="form-check-label" for="flexRadioDefault2">
                       Paypal
                     </label>
                   </div>
@@ -285,7 +288,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="col-lg-6">
-            <div class="bg_grey_medium_5">
+            <div className="bg_grey_medium_5">
               <div className="p-4">
                 <h4 className="text-uppercase py-3">Your Order</h4>
                 <Table className="font_sm">
@@ -340,10 +343,10 @@ const Cart = () => {
                   </tbody>
                 </Table>
                 <hr className="my-3" />
-                <div class="form-floating mb-3">
+                <div className="form-floating mb-3">
                   <input
                     type="number"
-                    class="form-control"
+                    className="form-control"
                     id="floatingInput"
                   />
                   <label for="floatingInput">Enter Membership Points</label>

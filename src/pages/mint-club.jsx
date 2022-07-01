@@ -45,7 +45,7 @@ const MintClub = () => {
                 <strong>a rewards program</strong>
               </div>
             </p>
-            <p class="pb-9">
+            <p className="pb-9">
               Join our community and be a part of something bigger.
             </p>
             <p>Get a 10% off welcome gift when you join us!</p>
@@ -70,7 +70,7 @@ const MintClub = () => {
           </div>
         </div>
         <div className="bg_black font_white">
-          <div class="container">
+          <div className="container">
             <div className="row padding_heading animate">
               <h2 className="text-uppercase pb-4 d-flex justify-content-center">
                 <div className="pe-5">

@@ -70,7 +70,7 @@ const Shop = () => {
                     There are 3 results found.
                   </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="col-12 col-md-6 col-lg-4 mb-4">
                   <ProductListItem
                     url="/shop-details"
                     image="/shop/min_modules/bedside_table_small_2.png"
@@ -123,7 +123,7 @@ const Shop = () => {
                     }
                   />
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="col-12 col-md-6 col-lg-4 mb-4">
                   <ProductListItem
                     url="/shop-details"
                     image="/shop/min_modules/bookshelf_tall_3.png"
@@ -176,7 +176,7 @@ const Shop = () => {
                     }
                   />
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div className="col-12 col-md-6 col-lg-4 mb-4">
                   <ProductListItem
                     url="/shop-details"
                     image="/shop/min_modules/bedroom_chest_small.png"

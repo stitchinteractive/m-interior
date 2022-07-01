@@ -172,7 +172,7 @@ const ShopDetails = () => {
               </p>
               <hr className="my-3" />
               <p>
-                <ul class="listing_left_align">
+                <ul className="listing_left_align">
                   <li>Colour:</li>
                   <li>
                     <OverlayTrigger
@@ -279,7 +279,7 @@ const ShopDetails = () => {
             </Tab>
             <Tab eventKey="details" title="Details">
               <div className="row">
-                <div class="col-md-6">
+                <div className="col-md-6">
                   <h5>Dimensions:</h5>
                   <p>
                     Width: 83cm
@@ -296,7 +296,7 @@ const ShopDetails = () => {
                     <li>2 x Half divider</li>
                   </ul>
                 </div>
-                <div class="col-md-6">
+                <div className="col-md-6">
                   <h5>MATERIALS:</h5>
                   <p>
                     Modules and external panels: Medium-density fibreboard
@@ -423,7 +423,7 @@ const ShopDetails = () => {
       </div>
       <div className="bg_grey">
         <div className="container">
-          <div class="row row_padding d-flex">
+          <div className="row row_padding d-flex">
             <div className="col-lg-6 p-5 align-self-center">
               <img src="/shop/min_modules/customise.png" alt="Customise" />
             </div>
@@ -433,7 +433,7 @@ const ShopDetails = () => {
                 <br />
                 at your fingertips
               </h2>
-              <p class="mb-50">
+              <p className="mb-50">
                 Customise your very own Min+Modules furniture with our product
                 configurator – right down to details such as sizes, colours and
                 storage compartments.

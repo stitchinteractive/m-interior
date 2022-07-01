@@ -14,10 +14,10 @@ export function TestimonialItem() {
         </div>
         <div className="col-9">
           <div className="row align-items-center">
-            <div class="col-12">
+            <div className="col-12">
               <h6>John D.</h6>
             </div>
-            <div class="col-12 d-flex">
+            <div className="col-12 d-flex">
               <StarIcon />
               <StarIcon />
               <StarIcon />

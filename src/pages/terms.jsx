@@ -24,12 +24,12 @@ const InteriorDesignDetails = () => {
 
   return (
     <Layout>
-      <div class="container">
+      <div className="container">
         <div className="row row_padding animate">
-          <div class="col col-lg-8 offset-lg-2">
+          <div className="col col-lg-8 offset-lg-2">
             <h2 className="text-uppercase heading_line pb-4">Terms of Use</h2>
             <h5>A. General</h5>
-            <ol class="listing_bullet">
+            <ol className="listing_bullet">
               <li>
                 We are&nbsp;
                 <strong>Minthedimensions Pte. Ltd. UEN No. 201928809W</strong>,

@@ -19,8 +19,8 @@ export function Footer() {
             </Link>
           </div>
           <div className="col-md-6 col-xl-3">
-            <h5 class="text-uppercase mb-3 d-none d-md-block">M.INT</h5>
-            <ul class="text-uppercase">
+            <h5 className="text-uppercase mb-3 d-none d-md-block">M.INT</h5>
+            <ul className="text-uppercase">
               <li>
                 <Link to="/">Complimentary design service</Link>
               </li>
@@ -33,8 +33,8 @@ export function Footer() {
             </ul>
           </div>
           <div className="col-md-6 col-xl-3">
-            <h5 class="text-uppercase mb-3">Customer Care</h5>
-            <ul class="text-uppercase">
+            <h5 className="text-uppercase mb-3">Customer Care</h5>
+            <ul className="text-uppercase">
               <li>
                 <Link to="/faqs" activeStyle={{ fontWeight: 700 }}>
                   Faqs
@@ -58,9 +58,9 @@ export function Footer() {
             </ul>
           </div>
           <div className="col-md-12 col-xl-3">
-            <div class="row">
+            <div className="row">
               <div className="col-md-3 col-xl-6">
-                <h5 class="text-uppercase mb-3">We Accept</h5>
+                <h5 className="text-uppercase mb-3">We Accept</h5>
                 <ul className={footerModule.icons}>
                   <li>
                     <Link to="/">
@@ -80,7 +80,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="col-md-3 col-xl-6">
-                <h5 class="text-uppercase mb-3">Socials</h5>
+                <h5 className="text-uppercase mb-3">Socials</h5>
                 <ul className={footerModule.icons}>
                   <li>
                     <Link to="/">
@@ -95,7 +95,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
-                <h5 class="text-uppercase mb-3">Subscribe</h5>
+                <h5 className="text-uppercase mb-3">Subscribe</h5>
                 <div className="font_sm mb-5">
                   <div className="input-group textfield_footer mb-2">
                     <input

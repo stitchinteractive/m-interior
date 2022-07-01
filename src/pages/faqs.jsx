@@ -25,17 +25,17 @@ const InteriorDesignDetails = () => {
 
   return (
     <Layout>
-      <div class="container">
+      <div className="container">
         <div className="row row_padding animate">
-          <div class="col col-lg-8 offset-lg-2">
+          <div className="col col-lg-8 offset-lg-2">
             <h2 className="text-uppercase heading_line pb-4">
               Frequently Asked Questions
             </h2>
-            <h5 class="text-uppercase pb-9">
+            <h5 className="text-uppercase pb-9">
               M.INT, which values customers first, always offers helpful advice.
             </h5>
 
-            <h5 class="text-uppercase pb-5">General Enquiries</h5>
+            <h5 className="text-uppercase pb-5">General Enquiries</h5>
 
             <Accordion defaultActiveKey="1">
               <Accordion.Item eventKey="1">
@@ -71,7 +71,7 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
-              <h5 class="text-uppercase py-5">Orders</h5>
+              <h5 className="text-uppercase py-5">Orders</h5>
 
               <Accordion.Item eventKey="3">
                 <Accordion.Header>
@@ -146,7 +146,7 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
-              <h5 class="text-uppercase py-5">Delivery</h5>
+              <h5 className="text-uppercase py-5">Delivery</h5>
 
               <Accordion.Item eventKey="7">
                 <Accordion.Header>
@@ -255,7 +255,7 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
-              <h5 class="text-uppercase py-5">After Sales</h5>
+              <h5 className="text-uppercase py-5">After Sales</h5>
 
               <Accordion.Item eventKey="15">
                 <Accordion.Header>
@@ -312,7 +312,7 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
-              <h5 class="text-uppercase py-5">M.INT Club Membership</h5>
+              <h5 className="text-uppercase py-5">M.INT Club Membership</h5>
 
               <Accordion.Item eventKey="19">
                 <Accordion.Header>What is M.INT Club?</Accordion.Header>

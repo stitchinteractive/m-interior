@@ -12,7 +12,7 @@ export function ImgCard(props) {
       }}
     >
       <div className="overlay h-100">
-        <div class="text-uppercase">{props.category}</div>
+        <div className="text-uppercase">{props.category}</div>
         <h4 className="text-uppercase">{props.sub_category}</h4>
       </div>
     </div>

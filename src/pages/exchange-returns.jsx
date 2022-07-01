@@ -23,9 +23,9 @@ const InteriorDesignDetails = () => {
 
   return (
     <Layout>
-      <div class="container">
+      <div className="container">
         <div className="row row_padding animate">
-          <div class="col col-lg-8 offset-lg-2">
+          <div className="col col-lg-8 offset-lg-2">
             <h2 className="text-uppercase heading_line pb-4">
               Exchange &amp; Returns
             </h2>
@@ -33,7 +33,7 @@ const InteriorDesignDetails = () => {
               We are happy to offer exchanges within 20 days from date of
               delivery, if the following conditions are met:
             </h5>
-            <ul class="listing_bullet">
+            <ul className="listing_bullet">
               <li>Item purchased has a manufacturing defect</li>
               <li>Item received is incorrect from order</li>
               <li>Item is in its original packing, new condition and unused</li>
@@ -46,7 +46,7 @@ const InteriorDesignDetails = () => {
             <br />
 
             <h5>Terms &amp; conditions:</h5>
-            <ul class="listing_bullet">
+            <ul className="listing_bullet">
               <li>All items are valid for one-time exchange only</li>
               <li>
                 M.INT reserves the right to reject any exchanges if the item

@@ -30,8 +30,8 @@ const Cart = () => {
   return (
     <Layout>
       <div className="container">
-        <div class="row padding_heading">
-          <div class="col-12">
+        <div className="row padding_heading">
+          <div className="col-12">
             <h2 className="text-uppercase mb-4">Shopping Cart</h2>
             <div className="d-flex btn_back">
               <BackIcon />
@@ -89,7 +89,9 @@ const Cart = () => {
                         <div>Light-tone wood &amp; white gloss</div>
                       </div>
                       <div className="order_note my-3">
-                        <div class="text-uppercase font_medium">Order Note</div>
+                        <div className="text-uppercase font_medium">
+                          Order Note
+                        </div>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud

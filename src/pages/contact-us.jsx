@@ -118,12 +118,12 @@ const Login = () => {
                     <div className="col-12 mt-5">
                       <label
                         for="exampleFormControlTextarea1"
-                        class="form-label"
+                        className="form-label"
                       >
                         Your Message
                       </label>
                       <textarea
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
                       ></textarea>
