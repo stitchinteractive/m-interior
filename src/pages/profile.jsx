@@ -40,7 +40,7 @@ const Profile = () => {
       <div className="bg_grey">
         <div className="container">
           <div className="row row_padding">
-            <div className="col-12 col-lg-3 bg_white p-5 mb-5">
+            <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>JS</div>
                 <div className="d-flex flex-column">
@@ -54,7 +54,7 @@ const Profile = () => {
               </div>
               <NavAccount />
             </div>
-            <div className="col-12 col-lg-9">
+            <div className="col-12 col-md-6 col-lg-9 px-md-5">
               <div className={ProfileModule.content}>
                 <form className="g-3">
                   <div className="row">
@@ -66,7 +66,7 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         First Name
                       </label>
@@ -78,7 +78,7 @@ const Profile = () => {
                         onChange={(event) => newFirstName(event.target.value)}
                       />
                     </div>
-                    <div className="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
                         Last Name
                       </label>
@@ -134,7 +134,7 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
                         Password
                       </label>
@@ -146,7 +146,7 @@ const Profile = () => {
                         onChange={(event) => newPassword(event.target.value)}
                       />
                     </div>
-                    <div className="col-12 col-md-6 pb-5">
+                    <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
                         New Password
                       </label>

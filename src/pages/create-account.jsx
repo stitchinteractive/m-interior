@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
+import BackIcon from "../icons/back"
 
 // step 2: define component
 const Account = () => {
@@ -33,6 +34,15 @@ const Account = () => {
                 <form className="row g-3">
                   <div className="col-12">
                     <h2 className="text-uppercase pb-6">Create Account</h2>
+                    <div className="d-flex btn_back mb-80">
+                      <BackIcon />
+                      <Link
+                        to="/login"
+                        className="ms-2 font_yellow text-uppercase font_semibold no_underline"
+                      >
+                        Back
+                      </Link>
+                    </div>
                   </div>
                   <div className="col-lg-6">
                     <div className="row">
