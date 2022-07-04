@@ -36,7 +36,7 @@ const Account = () => {
                   </div>
                   <div className="col-lg-6">
                     <div className="row">
-                      <div className="col">
+                      <div className="col-12 mb-5">
                         <label
                           htmlFor="input_first_name"
                           className="form-label"
@@ -49,7 +49,7 @@ const Account = () => {
                           id="input_first_name"
                         />
                       </div>
-                      <div className="col-12 mt-5">
+                      <div className="col-12 mb-5">
                         <label
                           htmlFor="input_first_name"
                           className="form-label"
@@ -62,7 +62,7 @@ const Account = () => {
                           id="input_last_name"
                         />
                       </div>
-                      <div className="col-12 mt-5">
+                      <div className="col-12 mb-5">
                         <label htmlFor="input_phone" className="form-label">
                           Phone Number
                         </label>
@@ -72,7 +72,7 @@ const Account = () => {
                           id="input_phone"
                         />
                       </div>
-                      <div className="col-12 mt-5">
+                      <div className="col-12 mb-5">
                         <label
                           htmlFor="input_first_name"
                           className="form-label"
@@ -89,7 +89,7 @@ const Account = () => {
                   </div>
                   <div className="col-lg-6">
                     <div className="row">
-                      <div className="col">
+                      <div className="col-12 mb-5">
                         <label htmlFor="input_email" className="form-label">
                           Email
                         </label>
@@ -99,7 +99,7 @@ const Account = () => {
                           id="input_email"
                         />
                       </div>
-                      <div className="col-12 mt-5">
+                      <div className="col-12 mb-5">
                         <label htmlFor="input_password" className="form-label">
                           Password
                         </label>
@@ -109,7 +109,7 @@ const Account = () => {
                           id="input_password"
                         />
                       </div>
-                      <div className="col-12 mt-5">
+                      <div className="col-12 mb-5">
                         <label htmlFor="input_password" className="form-label">
                           Confirm Password
                         </label>
@@ -119,7 +119,7 @@ const Account = () => {
                           id="input_password"
                         />
                       </div>
-                      <div className="col-12 mt-5">
+                      <div className="col-12 mb-5">
                         <label htmlFor="input_referral" className="form-label">
                           Referral Code
                         </label>
@@ -132,7 +132,7 @@ const Account = () => {
                     </div>
                   </div>
 
-                  <div className="col-12 mt-5 text-center">
+                  <div className="col-12 text-center">
                     <Link to="/">
                       <button type="submit" className="btn btn-secondary">
                         Create Account

@@ -277,6 +277,10 @@ h6 {
 }
 
 /********** forms **********/
+input::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 .btn-primary {
   background: var(--yellow);
   border: 0;
