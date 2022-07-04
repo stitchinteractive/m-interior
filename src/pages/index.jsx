@@ -745,38 +745,48 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6" ref={sizes2Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro1Ref}
-                id="intro_sizes"
-              >
-                <source src="/home/intro_sizes.mp4" type="video/mp4" />
-              </video>
+              <div className="d-block d-md-none">
+                <img src="/home/intro_sizes.png" alt="Intro Sizes" />
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro1Ref}
+                  id="intro_sizes"
+                >
+                  <source src="/home/intro_sizes.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={connectors1Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro2Ref}
-                id="intro_connectors"
-              >
-                <source src="/home/intro_connectors.mp4" type="video/mp4" />
-              </video>
+              <div className="d-block d-md-none">
+                <img src="/home/intro_connectors.png" alt="Intro Connectors" />
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro2Ref}
+                  id="intro_connectors"
+                >
+                  <source src="/home/intro_connectors.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
             <div className="col-md-6 order-1 order-md-2" ref={connectors2Ref}>
               <h3 className="text-uppercase">Magnetic</h3>
@@ -801,38 +811,48 @@ const HomePage = () => {
               </div>
             </div>
             <div className="col-md-6" ref={compartments2Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro3Ref}
-                id="intro_storage"
-              >
-                <source src="/home/intro_storage.mp4" type="video/mp4" />
-              </video>
+              <div className="d-block d-md-none">
+                <img src="/home/intro_storage.png" alt="Intro Storage" />
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro3Ref}
+                  id="intro_storage"
+                >
+                  <source src="/home/intro_storage.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </div>
           <div className="row row_padding">
             <div className="col-md-6 order-2 order-md-1" ref={style1Ref}>
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro4Ref}
-                id="intro_colours"
-              >
-                <source src="/home/intro_colours.mp4" type="video/mp4" />
-              </video>
+              <div className="d-block d-md-none">
+                <img src="/home/intro_colours.png" alt="Intro Colours" />
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro4Ref}
+                  id="intro_colours"
+                >
+                  <source src="/home/intro_colours.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
             <div className="col-md-6 order-1 order-md-2" ref={style2Ref}>
               <h3 className="text-uppercase">Your Space.</h3>
