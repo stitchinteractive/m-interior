@@ -116,7 +116,6 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: banner,
           start: "top center",
-          toggleActions: "restart none none none",
         },
       }
     )
@@ -132,7 +131,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "top center",
-          end: "bottom center",
+          end: "center center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -151,8 +150,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "top center",
-          end: "bottom center",
-
+          end: "center center",
           scrub: true,
         },
       }
@@ -170,7 +168,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "top center",
-          end: "bottom center",
+          end: "center center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -189,7 +187,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "top center",
-          end: "bottom center",
+          end: "center center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -208,7 +206,7 @@ const HomePage = () => {
         scrollTrigger: {
           trigger: "#container_min_modules_content",
           start: "top center",
-          end: "bottom center",
+          end: "center center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -225,7 +223,8 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "bottom center",
+          start: "center center",
+          end: "bottom center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -241,7 +240,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "bottom center",
+          start: "center center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -257,7 +256,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "bottom center",
+          start: "center center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -273,7 +272,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "bottom center",
+          start: "center center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -289,7 +288,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "bottom center",
+          start: "center center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -305,7 +304,7 @@ const HomePage = () => {
         delay: 0.8,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "bottom center",
+          start: "center center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -322,7 +321,6 @@ const HomePage = () => {
           trigger: sizes_1,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -338,7 +336,6 @@ const HomePage = () => {
           trigger: sizes_2,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -354,7 +351,6 @@ const HomePage = () => {
           trigger: connectors_1,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -370,7 +366,6 @@ const HomePage = () => {
           trigger: connectors_2,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -386,7 +381,6 @@ const HomePage = () => {
           trigger: compartments_1,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -402,7 +396,6 @@ const HomePage = () => {
           trigger: compartments_2,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -418,7 +411,6 @@ const HomePage = () => {
           trigger: style_1,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -434,7 +426,6 @@ const HomePage = () => {
           trigger: style_2,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -450,7 +441,6 @@ const HomePage = () => {
           trigger: min_cta_1,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -467,7 +457,6 @@ const HomePage = () => {
           trigger: min_cta_2,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -484,7 +473,6 @@ const HomePage = () => {
           trigger: min_cta_3,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -500,7 +488,6 @@ const HomePage = () => {
           trigger: featured_1,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -517,7 +504,6 @@ const HomePage = () => {
           trigger: featured_2,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -533,7 +519,6 @@ const HomePage = () => {
           trigger: testimonials,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )
@@ -550,7 +535,6 @@ const HomePage = () => {
           trigger: member,
           start: "top center",
           end: "bottom center",
-          toggleActions: "restart none reverse reset",
         },
       }
     )

@@ -58,9 +58,7 @@ function OffCanvasExample({ ...props }) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" activeStyle={{ color: "white" }}>
-                    Blog
-                  </Link>
+                  <Link to="/">Blog</Link>
                 </li>
               </ul>
             </div>
@@ -140,9 +138,7 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/" activeStyle={{ color: "white" }}>
-                        Blog
-                      </Link>
+                      <Link to="/">Blog</Link>
                     </li>
                   </ul>
                 </div>
