@@ -27,7 +27,7 @@ const InteriorDesignDetails = () => {
       <div className="container">
         <div className="row row_padding animate">
           <div className="col col-lg-8 offset-lg-2">
-            <h2 className="text-uppercase heading_line pb-4">Terms of Use</h2>
+            <h2 className="text-uppercase heading_line mb-60">Terms of Use</h2>
             <h5>A. General</h5>
             <ol className="listing_bullet">
               <li>

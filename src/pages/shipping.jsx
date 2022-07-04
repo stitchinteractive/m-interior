@@ -26,7 +26,7 @@ const InteriorDesignDetails = () => {
       <div className="container">
         <div className="row row_padding animate">
           <div className="col col-lg-8 offset-lg-2">
-            <h2 className="text-uppercase heading_line pb-4">Shipping</h2>
+            <h2 className="text-uppercase heading_line mb-60">Shipping</h2>
             <p>
               <strong>
                 Enjoy free local delivery for all orders above SGD 150.
@@ -49,6 +49,7 @@ const InteriorDesignDetails = () => {
             </ul>
 
             <br />
+            <br />
 
             <h5>International Shipping</h5>
             <ul className="listing_bullet">
@@ -58,6 +59,7 @@ const InteriorDesignDetails = () => {
               </li>
             </ul>
 
+            <br />
             <br />
 
             <h5>Terms & Conditions</h5>

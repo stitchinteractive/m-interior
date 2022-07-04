@@ -71,6 +71,8 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
+              <br />
+
               <h5 className="text-uppercase py-5">Orders</h5>
 
               <Accordion.Item eventKey="3">
@@ -146,6 +148,8 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
+              <br />
+
               <h5 className="text-uppercase py-5">Delivery</h5>
 
               <Accordion.Item eventKey="7">
@@ -255,6 +259,8 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
+              <br />
+
               <h5 className="text-uppercase py-5">After Sales</h5>
 
               <Accordion.Item eventKey="15">
@@ -312,6 +318,8 @@ const InteriorDesignDetails = () => {
               </Accordion.Item>
 
               <br />
+              <br />
+
               <h5 className="text-uppercase py-5">M.INT Club Membership</h5>
 
               <Accordion.Item eventKey="19">

@@ -27,11 +27,13 @@ const InteriorDesignDetails = () => {
       <div className="container">
         <div className="row row_padding animate">
           <div className="col col-lg-8 offset-lg-2">
-            <h2 className="text-uppercase heading_line pb-4">Privacy Policy</h2>
+            <h2 className="text-uppercase heading_line mb-60">
+              Privacy Policy
+            </h2>
             <p>
               We&nbsp;
               <strong>(Minthedimensions Pte. Ltd. UEN No. 201928809W)</strong>
-              are the operator of{" "}
+              &nbsp;are the operator of&nbsp;
               <Link to="https://www.m-interior.co">www.m-interior.co</Link>
               &nbsp;(&quot;the Site&quot;). Your privacy is important to us.
               Please read this Privacy Policy carefully before providing us with
@@ -149,7 +151,7 @@ const InteriorDesignDetails = () => {
               <li>
                 You may contact our Data Protection Officer at&nbsp;
                 <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
-                or write to us at&nbsp;
+                &nbsp;or write to us at&nbsp;
                 <strong>
                   62 Ubi Road 1 #07-20 Oxley Bizhub 2 Singapore 408734
                 </strong>
@@ -164,7 +166,7 @@ const InteriorDesignDetails = () => {
                 You may withdraw your consent for the collection, use and/or
                 disclosure of your personal data by contacting us at &nbsp;
                 <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
-                or writing to us at&nbsp;
+                &nbsp;or writing to us at&nbsp;
                 <strong>
                   62 Ubi Road 1 #07-20 Oxley Bizhub 2 Singapore 408734
                 </strong>

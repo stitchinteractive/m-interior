@@ -26,7 +26,7 @@ const InteriorDesignDetails = () => {
       <div className="container">
         <div className="row row_padding animate">
           <div className="col col-lg-8 offset-lg-2">
-            <h2 className="text-uppercase heading_line pb-4">
+            <h2 className="text-uppercase heading_line mb-60">
               Exchange &amp; Returns
             </h2>
             <h5>
@@ -43,6 +43,7 @@ const InteriorDesignDetails = () => {
               </li>
             </ul>
 
+            <br />
             <br />
 
             <h5>Terms &amp; conditions:</h5>
@@ -64,7 +65,7 @@ const InteriorDesignDetails = () => {
 
             <hr />
 
-            <h2 className="text-uppercase heading_line pb-4">
+            <h2 className="text-uppercase heading_line mb-60">
               Cancellation of order
             </h2>
             <strong>
