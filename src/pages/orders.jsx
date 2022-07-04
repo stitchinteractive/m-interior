@@ -31,7 +31,7 @@ const Profile = () => {
       <div className="bg_grey">
         <div className="container">
           <div className="row row_padding">
-            <div className="col-12 col-lg-3 bg_white p-5 mb-5">
+            <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>JS</div>
                 <div className="d-flex flex-column">
@@ -45,7 +45,7 @@ const Profile = () => {
               </div>
               <NavAccount />
             </div>
-            <div className="col-12 col-lg-9">
+            <div className="col-12 col-md-6 col-lg-9 px-md-5">
               <div className={ProfileModule.content}>
                 <div className="row">
                   <div className="col-12">

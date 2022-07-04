@@ -1,10 +1,27 @@
 // step 1: import
-import * as React from "react"
+import React, { useLayoutEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { LookBookDetailsItem } from "../components/lookbook-details-item"
 
 // step 2: define component
 const LookBookDetails = () => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  useLayoutEffect(() => {
+    gsap.utils.toArray(".animate").forEach(function (e) {
+      gsap.from(e, {
+        duration: 0.8,
+        ease: "power1.out",
+        opacity: 0,
+        y: 100,
+        scrollTrigger: e,
+        onComplete: () => console.log(e),
+      })
+    })
+  })
+
   return (
     <Layout>
       <div className="container">

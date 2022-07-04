@@ -7,7 +7,7 @@ export function LookBookDetailsItem(props) {
     <div>
       <div className="row row_padding">
         <div className="col-12">
-          <h2 className="text-uppercase pb-7">{props.area}</h2>
+          <h2 className="text-uppercase pb-7 animate">{props.area}</h2>
         </div>
         <div className="col-12 col-md-6">
           <p className="animate">

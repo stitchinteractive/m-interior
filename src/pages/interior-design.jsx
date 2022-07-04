@@ -41,7 +41,7 @@ const InteriorDesignDetails = () => {
               nisi ut aliquip ex ea commodo consequat.
             </p>
           </div>
-          <div className="col-lg-7">
+          <div className="col-lg-7 ps-lg-5">
             <img src="/interior/living_room/floor_plan.jpg" alt="Floor Plan" />
           </div>
         </div>
