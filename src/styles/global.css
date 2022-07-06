@@ -1,3 +1,25 @@
+.swiper_container {
+  position: relative;
+}
+
+#go_prev {
+  position: absolute;
+  z-index: 100;
+  top: calc(50% - 20px);
+  left: 0;
+  width: 40px;
+  height: 40px;
+}
+
+#go_next {
+  position: absolute;
+  z-index: 100;
+  top: calc(50% - 20px);
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-color);
@@ -860,6 +882,10 @@ a.no_underline {
   padding: 80px 0;
 }
 
+.padding_shop {
+  padding: 0 12px;
+}
+
 .text_indent {
   padding-left: 40px;
 }
@@ -1165,6 +1191,14 @@ circle {
     font-size: 10px !important;
     height: 70px;
     padding: 10px;
+  }
+
+  #go_prev {
+    left: -40px;
+  }
+
+  #go_next {
+    right: -40px;
   }
 
   /********** vertical carousel **********/

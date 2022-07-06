@@ -36,8 +36,8 @@ const Shop = () => {
             <NavShop />
           </div>
           <div className="col-md-7 col-lg-9">
-            <div className="row d-flex">
-              <div className="col-lg-7 p-2 p-md-0 d-flex h-100 animate">
+            <div className="row padding_shop d-flex">
+              <div className="col-lg-7 p-0 p-md-0 d-flex h-100 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/min_modules.jpg"
@@ -46,7 +46,7 @@ const Shop = () => {
                   />
                 </Link>
               </div>
-              <div className="col-lg-5 p-2 p-md-0 animate">
+              <div className="col-lg-5 p-0 p-md-0 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/acacia.jpg"
@@ -56,8 +56,8 @@ const Shop = () => {
                 </Link>
               </div>
             </div>
-            <div className="row d-flex">
-              <div className="col-lg-5 p-2 p-md-0 d-flex h-100 animate">
+            <div className="row padding_shop d-flex">
+              <div className="col-lg-5 p-0 p-md-0 d-flex h-100 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/acacia_pets.jpg"
@@ -66,7 +66,7 @@ const Shop = () => {
                   />
                 </Link>
               </div>
-              <div className="col-lg-7 p-2 p-md-0 animate">
+              <div className="col-lg-7 p-0 p-md-0 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/accessories.jpg"

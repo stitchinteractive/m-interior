@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useRef, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -36,6 +36,18 @@ const Shop = () => {
       })
     })
   })
+
+  const swiperRef = useRef(null)
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext()
+    }
+  }
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev()
+    }
+  }
 
   return (
     <Layout>
@@ -327,100 +339,113 @@ const Shop = () => {
               </div>
               <div className="row">
                 <div className="col-12">
-                  <Swiper
-                    className="product_list_swiper d-flex align-items-stretch h-100"
-                    // install Swiper modules
-                    modules={[Navigation, A11y]}
-                    spaceBetween={10}
-                    navigation
-                    breakpoints={{
-                      320: {
-                        slidesPerView: 1,
-                      },
-                      768: {
-                        slidesPerView: 2,
-                      },
-                      1280: {
-                        slidesPerView: 3,
-                      },
-                    }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log("slide change")}
-                  >
-                    <SwiperSlide className="d-flex flex-column h-100">
-                      <ProductListItem
-                        url="/shop-details"
-                        image="/shop/acacia/acacia_block_1.png"
-                        name="Min+Modules Sample Kit"
-                        price="15"
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide className="d-flex flex-column h-100">
-                      <ProductListItem
-                        url="/shop-details"
-                        image="/shop/acacia/acacia_block_bundle_5.png"
-                        name="Big Module"
-                        price="100"
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide className="d-flex flex-column h-100">
-                      <ProductListItem
-                        url="/shop-details"
-                        image="/shop/min_modules/tv_console_small.png"
-                        name="Door"
-                        price="35"
-                        color_1={
-                          <li>
-                            <img src="/icons/color_white.png" alt="" />
-                          </li>
-                        }
-                        color_2={
-                          <li>
-                            <img src="/icons/color_grey_light.png" alt="" />
-                          </li>
-                        }
-                        color_3={
-                          <li>
-                            <img src="/icons/color_black.png" alt="" />
-                          </li>
-                        }
-                        color_4={
-                          <li>
-                            <img src="/icons/color_blue_dark.png" alt="" />
-                          </li>
-                        }
-                        color_5={
-                          <li>
-                            <img src="/icons/color_yellow.png" alt="" />
-                          </li>
-                        }
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <ProductListItem
-                        url="/shop-details"
-                        image="/shop/min_modules/bookshelf_tall_3.png"
-                        name="Small Module"
-                        price="60"
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <ProductListItem
-                        url="/shop-details"
-                        image="/shop/acacia_pets/mewwy_go_round.png"
-                        name="Big Module"
-                        price="100"
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <ProductListItem
-                        url="/shop-details"
-                        image="/shop/acacia_pets/mewwy_go_round.png"
-                        name="Door"
-                        price="35"
-                      />
-                    </SwiperSlide>
-                  </Swiper>
+                  <div className="swiper_container">
+                    <Swiper
+                      className="product_list_swiper d-flex align-items-stretch h-100"
+                      // install Swiper modules
+                      modules={[Navigation, A11y]}
+                      spaceBetween={10}
+                      loop={true}
+                      breakpoints={{
+                        320: {
+                          slidesPerView: 1,
+                        },
+                        768: {
+                          slidesPerView: 2,
+                        },
+                        1280: {
+                          slidesPerView: 3,
+                        },
+                      }}
+                      onSwiper={(swiper) => console.log(swiper)}
+                      onSlideChange={() => console.log("slide change")}
+                      ref={swiperRef}
+                    >
+                      <SwiperSlide className="d-flex flex-column h-100">
+                        <ProductListItem
+                          url="/shop-details"
+                          image="/shop/acacia/acacia_block_1.png"
+                          name="Min+Modules Sample Kit"
+                          price="15"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide className="d-flex flex-column h-100">
+                        <ProductListItem
+                          url="/shop-details"
+                          image="/shop/acacia/acacia_block_bundle_5.png"
+                          name="Big Module"
+                          price="100"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide className="d-flex flex-column h-100">
+                        <ProductListItem
+                          url="/shop-details"
+                          image="/shop/min_modules/tv_console_small.png"
+                          name="Door"
+                          price="35"
+                          color_1={
+                            <li>
+                              <img src="/icons/color_white.png" alt="" />
+                            </li>
+                          }
+                          color_2={
+                            <li>
+                              <img src="/icons/color_grey_light.png" alt="" />
+                            </li>
+                          }
+                          color_3={
+                            <li>
+                              <img src="/icons/color_black.png" alt="" />
+                            </li>
+                          }
+                          color_4={
+                            <li>
+                              <img src="/icons/color_blue_dark.png" alt="" />
+                            </li>
+                          }
+                          color_5={
+                            <li>
+                              <img src="/icons/color_yellow.png" alt="" />
+                            </li>
+                          }
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <ProductListItem
+                          url="/shop-details"
+                          image="/shop/min_modules/bookshelf_tall_3.png"
+                          name="Small Module"
+                          price="60"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <ProductListItem
+                          url="/shop-details"
+                          image="/shop/acacia_pets/mewwy_go_round.png"
+                          name="Big Module"
+                          price="100"
+                        />
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <ProductListItem
+                          url="/shop-details"
+                          image="/shop/acacia_pets/mewwy_go_round.png"
+                          name="Door"
+                          price="35"
+                        />
+                      </SwiperSlide>
+                    </Swiper>
+                    <div id="go_prev">
+                      <button onClick={goPrev}>
+                        <img src="/icons/btn_prev.png" alt="Prev" />
+                      </button>
+                    </div>
+                    <div id="go_next">
+                      <button onClick={goNext}>
+                        <img src="/icons/btn_next.png" alt="Next" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="row">

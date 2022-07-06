@@ -1,5 +1,5 @@
 // step 1: import
-import React from "react"
+import React, { useRef } from "react"
 /*
 import { Link } from "gatsby"
 */
@@ -17,14 +17,26 @@ import "swiper/css/scrollbar"
 
 // step 2: define and export
 export function ProductList() {
+  const swiperRef = useRef(null)
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext()
+    }
+  }
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev()
+    }
+  }
+
   return (
-    <div>
+    <div className="swiper_container">
       <Swiper
         className="product_list_swiper d-flex align-items-stretch h-100"
         // install Swiper modules
         modules={[Navigation, A11y]}
         spaceBetween={10}
-        navigation
+        loop={true}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -38,6 +50,7 @@ export function ProductList() {
         }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
+        ref={swiperRef}
       >
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
@@ -275,6 +288,17 @@ export function ProductList() {
           />
         </SwiperSlide>
       </Swiper>
+
+      <div id="go_prev">
+        <button onClick={goPrev}>
+          <img src="/icons/btn_prev.png" alt="Prev" />
+        </button>
+      </div>
+      <div id="go_next">
+        <button onClick={goNext}>
+          <img src="/icons/btn_next.png" alt="Next" />
+        </button>
+      </div>
     </div>
   )
 }
