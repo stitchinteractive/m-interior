@@ -5,25 +5,11 @@ import * as productListModule from "./product-list-item.module.css"
 
 // step 2: define and export
 export function ProductListItem(props) {
-  const [isHovering, setIsHovering] = useState(false)
-
-  const handleMouseOver = () => {
-    setIsHovering(true)
-  }
-
-  const handleMouseOut = () => {
-    setIsHovering(false)
-  }
-
   return (
     <div className={productListModule.container}>
       <div className={productListModule.item}>
         <Link to={props.url} className="no_underline">
-          <div
-            className="d-flex flex-column"
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-          >
+          <div className="d-flex flex-column">
             <div className={productListModule.info}>
               <h5 className="font_letterspacing_1">{props.name}</h5>
               <div className="font_letterspacing_1 font_grey_medium_3">
@@ -46,21 +32,16 @@ export function ProductListItem(props) {
               {props.color_10}
             </ul>
           </div>
-          {/*
-          {isHovering && (
-            
-          )}
-          */}
         </Link>
-      </div>
-      {isHovering && (
+        {/*
         <div
           className={productListModule.img_hover}
           style={{
             backgroundImage: `url(/shop/acacia/acacia_block_1_hover.jpg)`,
           }}
         ></div>
-      )}
+        */}
+      </div>
     </div>
   )
 }
