@@ -50,7 +50,7 @@ const Shop = () => {
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/acacia.jpg"
-                    category="Modular Furniture //"
+                    category="Modular Furniture /"
                     sub_category="Acacia Blocks "
                   />
                 </Link>
