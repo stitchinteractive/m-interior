@@ -17,6 +17,7 @@ import "swiper/css/scrollbar"
 
 // step 2: define and export
 export function ProductList() {
+  // custom swiper nav
   const swiperRef = useRef(null)
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
