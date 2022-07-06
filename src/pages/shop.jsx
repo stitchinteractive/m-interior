@@ -78,7 +78,7 @@ const Shop = () => {
             </div>
             <div className="row mt-140 animate">
               <div className="col-12">
-                <h3 className="text-uppercase pb-5">Best Sellers</h3>
+                <h3 className="text-uppercase pb-5">Best Sellers1</h3>
                 <ProductList />
                 <BackToTop />
               </div>
