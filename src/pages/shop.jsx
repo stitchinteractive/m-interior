@@ -32,12 +32,12 @@ const Shop = () => {
     <Layout>
       <div className="container">
         <div className="row row_padding">
-          <div className="col-lg-3">
+          <div className="col-md-5 col-lg-3 animate">
             <NavShop />
           </div>
-          <div className="col-lg-9">
-            <div className="row ps-lg-3 d-flex">
-              <div className="col-md-7 p-0 d-flex h-100">
+          <div className="col-md-7 col-lg-9">
+            <div className="row d-flex">
+              <div className="col-lg-7 p-2 p-md-0 d-flex h-100 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/min_modules.jpg"
@@ -46,7 +46,7 @@ const Shop = () => {
                   />
                 </Link>
               </div>
-              <div className="col-md-5 p-0">
+              <div className="col-lg-5 p-2 p-md-0 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/acacia.jpg"
@@ -56,8 +56,8 @@ const Shop = () => {
                 </Link>
               </div>
             </div>
-            <div className="row ps-lg-3 d-flex">
-              <div className="col-md-5 p-0 d-flex h-100">
+            <div className="row d-flex">
+              <div className="col-lg-5 p-2 p-md-0 d-flex h-100 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/acacia_pets.jpg"
@@ -66,7 +66,7 @@ const Shop = () => {
                   />
                 </Link>
               </div>
-              <div className="col-md-7 p-0">
+              <div className="col-lg-7 p-2 p-md-0 animate">
                 <Link to="/" className="d-flex w-100 h-100 no_underline">
                   <ImgCard
                     background="/shop/categories/accessories.jpg"
@@ -76,10 +76,12 @@ const Shop = () => {
                 </Link>
               </div>
             </div>
-            <div className="row">
-              <h3 className="text-uppercase py-5">Best Sellers</h3>
-              <ProductList />
-              <BackToTop />
+            <div className="row mt-140 animate">
+              <div className="col-12">
+                <h3 className="text-uppercase pb-5">Best Sellers</h3>
+                <ProductList />
+                <BackToTop />
+              </div>
             </div>
           </div>
         </div>

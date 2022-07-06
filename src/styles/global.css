@@ -266,6 +266,66 @@ h6 {
   margin-bottom: var(--space-150);
 }
 
+.mt-10 {
+  margin-top: var(--space-10);
+}
+
+.mt-20 {
+  margin-top: var(--space-20);
+}
+
+.mt-30 {
+  margin-top: var(--space-30);
+}
+
+.mt-40 {
+  margin-top: var(--space-40);
+}
+
+.mt-50 {
+  margin-top: var(--space-50);
+}
+
+.mt-60 {
+  margin-top: var(--space-60);
+}
+
+.mt-70 {
+  margin-top: var(--space-70);
+}
+
+.mt-80 {
+  margin-top: var(--space-80);
+}
+
+.mt-90 {
+  margin-top: var(--space-90);
+}
+
+.mt-100 {
+  margin-top: var(--space-100);
+}
+
+.mt-110 {
+  margin-top: var(--space-110);
+}
+
+.mt-120 {
+  margin-top: var(--space-120);
+}
+
+.mt-130 {
+  margin-top: var(--space-130);
+}
+
+.mt-140 {
+  margin-top: var(--space-140);
+}
+
+.mt-150 {
+  margin-top: var(--space-150);
+}
+
 /********** links **********/
 .link_underline {
   border-bottom: 1px solid var(--grey-dark-2);
@@ -846,6 +906,11 @@ circle {
   background: white;
 }
 
+#nav_account,
+#nav_account .accordion-header div {
+  font-size: 15px;
+}
+
 #nav_account a {
   text-decoration: none;
 }
@@ -1202,5 +1267,10 @@ circle {
   .heading_line::before {
     left: -190px;
     top: 32px;
+  }
+
+  #nav_account,
+  #nav_account .accordion-header div {
+    font-size: 18px;
   }
 }
