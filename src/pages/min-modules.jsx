@@ -53,10 +53,10 @@ const Shop = () => {
     <Layout>
       <div className="container">
         <div className="row row_padding">
-          <div className="col-lg-3">
+          <div className="col-md-5 col-lg-3 animate">
             <NavShop />
           </div>
-          <div className="col-lg-9">
+          <div className="col-md-7 col-lg-9">
             <div className="row mb-4">
               <div className="col">
                 <SubBanner
@@ -67,7 +67,7 @@ const Shop = () => {
               </div>
             </div>
             <div className="row mb-100">
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="col-12 col-lg-4 mb-4">
                 <ProductListItem
                   url="/shop-details"
                   image="/shop/min_modules/bedside_table_small_2.png"
@@ -120,7 +120,7 @@ const Shop = () => {
                   }
                 />
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="col-12 col-lg-4 mb-4">
                 <ProductListItem
                   url="/shop-details"
                   image="/shop/min_modules/bookshelf_tall_3.png"
@@ -173,7 +173,7 @@ const Shop = () => {
                   }
                 />
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="col-12 col-lg-4 mb-4">
                 <ProductListItem
                   url="/shop-details"
                   image="/shop/min_modules/bedroom_chest_small.png"
@@ -226,7 +226,7 @@ const Shop = () => {
                   }
                 />
               </div>
-              <div className="col-12 col-md-6 col-lg-4 mb-4">
+              <div className="col-12 col-lg-4 mb-4">
                 <ProductListItem
                   url="/shop-details"
                   image="/shop/min_modules/bookshelf_full.png"
@@ -350,7 +350,7 @@ const Shop = () => {
                         320: {
                           slidesPerView: 1,
                         },
-                        768: {
+                        992: {
                           slidesPerView: 2,
                         },
                         1280: {
