@@ -1,7 +1,3 @@
-.container {
-  position: relative;
-}
-
 .item {
   padding: 25px;
   font-size: var(--text-sm);
@@ -9,22 +5,11 @@
   background: var(--grey-light);
   height: 500px;
   position: relative;
+  display: block;
 }
 
 .item .info {
   height: 70px;
-}
-
-.img_hover {
-  width: 100%;
-  height: 100%;
-  border: 10px solid red;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /********** tablets **********/

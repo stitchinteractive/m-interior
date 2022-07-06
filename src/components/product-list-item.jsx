@@ -6,7 +6,7 @@ import * as productListModule from "./product-list-item.module.css"
 // step 2: define and export
 export function ProductListItem(props) {
   return (
-    <div className={productListModule.container}>
+    <div className="container_overlay">
       <div className={productListModule.item}>
         <Link to={props.url} className="no_underline">
           <div className="d-flex flex-column">
@@ -32,15 +32,13 @@ export function ProductListItem(props) {
               {props.color_10}
             </ul>
           </div>
+          <div
+            className="overlay_img"
+            style={{
+              backgroundImage: `url(/shop/acacia/acacia_block_1_hover.jpg)`,
+            }}
+          ></div>
         </Link>
-        {/*
-        <div
-          className={productListModule.img_hover}
-          style={{
-            backgroundImage: `url(/shop/acacia/acacia_block_1_hover.jpg)`,
-          }}
-        ></div>
-        */}
       </div>
     </div>
   )

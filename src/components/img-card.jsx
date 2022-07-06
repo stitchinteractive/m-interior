@@ -14,6 +14,9 @@ export function ImgCard(props) {
       <div className="overlay h-100">
         <div className="text-uppercase">{props.category}</div>
         <h4 className="text-uppercase">{props.sub_category}</h4>
+        <div className="font_xs font_medium line_height_dense">
+          {props.description}
+        </div>
       </div>
     </div>
   )
