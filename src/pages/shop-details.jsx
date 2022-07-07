@@ -45,11 +45,11 @@ const ShopDetails = () => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
 
   const slides = [
-    "https://picsum.photos/1920/1080",
-    "https://picsum.photos/1920/1081",
-    "https://picsum.photos/1920/1082",
-    "https://picsum.photos/1920/1083",
-    "https://picsum.photos/1920/1084",
+    "./shop/min_modules/bookshelf_tall.png",
+    "./shop/min_modules/bookshelf_tall.png",
+    "./shop/min_modules/bookshelf_tall.png",
+    "./shop/min_modules/bookshelf_tall.png",
+    "./shop/min_modules/bookshelf_tall.png",
   ]
 
   const renderTooltip = (props) => (
@@ -64,9 +64,9 @@ const ShopDetails = () => {
     <Layout>
       <div className="bg_grey">
         <div className="container">
-          <div className="row padding_heading">
-            <div className="text-uppercase font_xs">
-              <ul className="listing_breadcrumbs">
+          <div className="row row_padding">
+            <div className="text-uppercase font_xs mb-90">
+              <ul className="listing_breadcrumbs ">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -84,13 +84,14 @@ const ShopDetails = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className="row row_padding">
+
             <div className="col-12 col-lg-7">
-              <section className="slider">
+              <section className="slider px-md-5">
                 <div className="slider__flex">
                   <div className="slider__col">
-                    <div className="slider__prev">Prev</div>
+                    <div className="slider__prev">
+                      <img src="./icons/btn_prev.png" alt="Prev" />
+                    </div>
 
                     <div className="slider__thumbs">
                       <Swiper
@@ -103,6 +104,14 @@ const ShopDetails = () => {
                           prevEl: ".slider__prev",
                         }}
                         className="swiper-container1"
+                        breakpoints={{
+                          0: {
+                            direction: "horizontal",
+                          },
+                          768: {
+                            direction: "vertical",
+                          },
+                        }}
                         modules={[Navigation, Thumbs]}
                       >
                         {slides.map((slide, index) => {
@@ -117,7 +126,9 @@ const ShopDetails = () => {
                       </Swiper>
                     </div>
 
-                    <div className="slider__next">Next</div>
+                    <div className="slider__next">
+                      <img src="./icons/btn_next.png" alt="Next" />
+                    </div>
                   </div>
 
                   <div className="slider__images">
@@ -130,6 +141,14 @@ const ShopDetails = () => {
                       navigation={{
                         nextEl: ".slider__next",
                         prevEl: ".slider__prev",
+                      }}
+                      breakpoints={{
+                        0: {
+                          direction: "horizontal",
+                        },
+                        768: {
+                          direction: "horizontal",
+                        },
                       }}
                       className="swiper-container2"
                       modules={[Navigation, Thumbs, Mousewheel]}
