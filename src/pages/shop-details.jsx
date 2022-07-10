@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -11,6 +11,8 @@ import { BackToTop } from "../components/back-to-top"
 import { Link } from "gatsby"
 import Tabs from "react-bootstrap/Tabs"
 import Tab from "react-bootstrap/Tab"
+import Overlay from "react-bootstrap/Overlay"
+import Tooltip from "react-bootstrap/Tooltip"
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -51,6 +53,10 @@ const ShopDetails = () => {
   ]
 
   const [quantity, setQuantity] = React.useState(1)
+
+  // init tooltips
+  const [show, setShow] = useState(false)
+  const target = useRef(null)
 
   return (
     <Layout>
@@ -186,7 +192,32 @@ const ShopDetails = () => {
               <hr className="my-3" />
               <p>
                 <ul className="listing_left_align">
-                  <li>Colour:</li>
+                  <li>Colour</li>
+                  <li>
+                    <div
+                      ref={target}
+                      onClick={() => setShow(!show)}
+                      className="d-flex"
+                    >
+                      <img
+                        src="/icons/ico_info.png"
+                        alt="Info"
+                        width="22"
+                        height="22"
+                      />
+                    </div>
+                    <Overlay
+                      target={target.current}
+                      show={show}
+                      placement="top"
+                    >
+                      {(props) => (
+                        <Tooltip id="overlay-1" {...props}>
+                          Lorem ipsum dolor amet.
+                        </Tooltip>
+                      )}
+                    </Overlay>
+                  </li>
                   <li>
                     <img src="/icons/color_white.png" alt="" />
                   </li>
