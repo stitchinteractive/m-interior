@@ -499,13 +499,12 @@ input::-webkit-date-and-time-value {
   color: var(--grey-dark);
   font-size: var(--text-sm);
   padding: 0.25rem 1rem;
-  width: 85%;
+  width: calc(100% - 50px);
 }
 
 .btn_search {
   border-radius: 0;
   background: var(--grey);
-  width: 15%;
 }
 
 .txt_search:focus,
