@@ -1,5 +1,4 @@
 import * as React from "react"
-import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md"
 import { wrap, increment, decrement, input } from "./numeric-input.module.css"
 export function NumericInput({
   onIncrement,
@@ -22,8 +21,9 @@ export function NumericInput({
         aria-label="Increment"
         onClick={onIncrement}
       >
-        <span>+</span>
-        <MdArrowDropUp />
+        <span>
+          <img src="./icons/btn_plus.png" alt="+" />
+        </span>
       </button>
       <button
         disabled={disabled}
@@ -31,8 +31,9 @@ export function NumericInput({
         aria-label="Decrement"
         onClick={onDecrement}
       >
-        <span>-</span>
-        <MdArrowDropDown />
+        <span>
+          <img src="./icons/btn_minus.png" alt="-" />
+        </span>
       </button>
     </div>
   )

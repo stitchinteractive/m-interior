@@ -45,6 +45,10 @@
   background-size: cover;
 }
 
+.table_cart {
+  min-width: 800px;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-color);
@@ -1229,6 +1233,10 @@ circle {
 
   #go_next {
     right: -40px;
+  }
+
+  .table_cart {
+    min-width: 100%;
   }
 
   /********** vertical carousel **********/

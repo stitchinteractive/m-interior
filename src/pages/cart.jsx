@@ -46,14 +46,27 @@ const Cart = () => {
         </div>
         <div className="row row_padding">
           <div className="col-12">
-            <div className="p-4">
+            <div>
               <h4 className="text-uppercase py-3">Your Order</h4>
-              <Table>
+              <Table responsive className="table_cart">
                 <thead>
                   <tr>
                     <th width="20%">Product</th>
                     <th>&nbsp;</th>
-                    <th>Quantity</th>
+                    <th
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      Quantity
+                    </th>
+                    <th
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      Remove
+                    </th>
                     <th
                       style={{
                         textAlign: "right",
@@ -98,13 +111,22 @@ const Cart = () => {
                         exercitation ullamco laboris nisi ut aliquip ex ea
                         commodo consequat.
                       </div>
+                      <Link
+                        to="/"
+                        className="font_blue font_semibold font_xs text-uppercase font_letterspacing_1"
+                      >
+                        Change Options
+                      </Link>
                       <hr className="dashed" />
                       <div className="font_xs font_semibold">
                         Membership Points: 150P to be accumulated
                       </div>
                     </td>
-
-                    <td>
+                    <td
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
                       <NumericInput
                         aria-label="Qu
 a                         ntity"
@@ -121,6 +143,15 @@ a                         ntity"
                         min="1"
                         max="20"
                       />
+                    </td>
+                    <td>
+                      <Link to="/" className="no_underline">
+                        <img
+                          src="./icons/btn_remove.png"
+                          alt="Remove"
+                          className="mx-auto"
+                        />
+                      </Link>
                     </td>
                     <td
                       style={{
