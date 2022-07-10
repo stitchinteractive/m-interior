@@ -1075,7 +1075,7 @@ circle {
 }
 
 .slider__thumbs {
-  height: calc(500px - 96px);
+  height: calc(450px);
 }
 
 .slider__thumbs .slider__image {
@@ -1102,8 +1102,20 @@ circle {
 }
 
 .slider__images {
-  height: 500px;
+  height: 450px;
   width: 80%;
+  display: flex;
+  padding-left: 10%;
+}
+
+.slider__prev,
+.slider__next {
+  height: auto;
+  width: 32px;
+}
+
+.swiper-button-disabled img {
+  opacity: 0.3;
 }
 
 .slider__images .slider__image img {
@@ -1381,11 +1393,12 @@ circle {
   }
   .slider__images {
     width: 100%;
+    padding-left: 0;
   }
   .slider__thumbs {
     height: 100px;
-    width: calc(100% - 96px);
-    margin: 0 16px;
+    width: calc(100%);
+    margin: 0;
   }
   .slider__prev,
   .slider__next {

@@ -9,10 +9,8 @@ import { Testimonials } from "../components/testimonials"
 import { ProductList } from "../components/product-list"
 import { BackToTop } from "../components/back-to-top"
 import { Link } from "gatsby"
-import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tabs from "react-bootstrap/Tabs"
 import Tab from "react-bootstrap/Tab"
-import Tooltip from "react-bootstrap/Tooltip"
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -52,12 +50,6 @@ const ShopDetails = () => {
     "./shop/min_modules/bookshelf_tall.png",
   ]
 
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Mid-tone wood & white gloss
-    </Tooltip>
-  )
-
   const [quantity, setQuantity] = React.useState(1)
 
   return (
@@ -89,10 +81,6 @@ const ShopDetails = () => {
               <section className="slider px-md-5">
                 <div className="slider__flex">
                   <div className="slider__col">
-                    <div className="slider__prev">
-                      <img src="./icons/btn_prev.png" alt="Prev" />
-                    </div>
-
                     <div className="slider__thumbs">
                       <Swiper
                         onSwiper={setImagesNavSlider}
@@ -125,13 +113,13 @@ const ShopDetails = () => {
                         })}
                       </Swiper>
                     </div>
-
-                    <div className="slider__next">
-                      <img src="./icons/btn_next.png" alt="Next" />
-                    </div>
                   </div>
 
                   <div className="slider__images">
+                    <div className="slider__prev">
+                      <img src="./icons/btn_prev.png" alt="Prev" />
+                    </div>
+
                     <Swiper
                       thumbs={{ swiper: imagesNavSlider }}
                       direction="horizontal"
@@ -163,28 +151,34 @@ const ShopDetails = () => {
                         )
                       })}
                     </Swiper>
+
+                    <div className="slider__next">
+                      <img src="./icons/btn_next.png" alt="Next" />
+                    </div>
                   </div>
                 </div>
               </section>
             </div>
             <div className="col-12 col-lg-5">
-              <h3 className="text-uppercase">Tall Bookshelf</h3>
+              <h3 className="text-uppercase mb-10">Tall Bookshelf</h3>
               <h4 className="text-uppercase font_grey_medium_3 mb-40">
                 SGD 1,173
               </h4>
-              <p>
-                Not your regular bookshelf, the Min+Modules is a modular
-                furniture series exclusively designed in-house by M.INT. Each
-                module is connected by magnetic connectors which allows flexible
-                arrangements to suit your needs and spaces.
-              </p>
-              <p>
-                Did you know that you can build a side table, TV console and
-                bedroom chest with the same modules in this bookshelf?
-              </p>
+              <div className="line_height_dense">
+                <p>
+                  Not your regular bookshelf, the Min+Modules is a modular
+                  furniture series exclusively designed in-house by M.INT. Each
+                  module is connected by magnetic connectors which allows
+                  flexible arrangements to suit your needs and spaces.
+                </p>
+                <p>
+                  Did you know that you can build a side table, TV console and
+                  bedroom chest with the same modules in this bookshelf?
+                </p>
+              </div>
               <p>
                 <Link to="/">
-                  <button type="button" className="btn btn-light">
+                  <button type="button" className="btn btn-light w-100">
                     Customise this bookshelf
                   </button>
                 </Link>
@@ -194,13 +188,7 @@ const ShopDetails = () => {
                 <ul className="listing_left_align">
                   <li>Colour:</li>
                   <li>
-                    <OverlayTrigger
-                      placement="top"
-                      delay={{ show: 250, hide: 400 }}
-                      overlay={renderTooltip}
-                    >
-                      <img src="/icons/color_brown_white.png" alt="" />
-                    </OverlayTrigger>
+                    <img src="/icons/color_white.png" alt="" />
                   </li>
                   <li>
                     <img src="/icons/color_dark_brown_white.png" alt="" />
@@ -239,7 +227,7 @@ const ShopDetails = () => {
                     min="1"
                     max="20"
                   />
-                  <Link to="/" className="ps-5">
+                  <Link to="/" className="ps-1 ps-md-5">
                     <button type="button" className="btn btn-tertiary">
                       Add to cart
                     </button>
@@ -248,7 +236,7 @@ const ShopDetails = () => {
               </div>
               <p className="pb-1">
                 <Link to="/">
-                  <button type="button" className="btn btn-light">
+                  <button type="button" className="btn btn-light w-100">
                     Get Complimentary Design Service
                   </button>
                 </Link>
