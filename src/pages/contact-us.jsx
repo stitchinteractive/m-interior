@@ -28,7 +28,7 @@ const Login = () => {
       <div className={`${loginModule.login_bg} d-flex align-items-center`}>
         <div className="container">
           <div className="row">
-            <div className="col col-md-6">
+            <div className="col-12 col-lg-6">
               <div className="animate">
                 <div className={loginModule.login_container}>
                   <div className="row">
@@ -62,8 +62,8 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            <div className="col col-md-6">
-              <div className="animate">
+            <div className="col-12 col-lg-6">
+              <div className="animate d-flex h-100">
                 <div className={loginModule.login_container}>
                   <form className="row g-3">
                     <div className="col-12">
