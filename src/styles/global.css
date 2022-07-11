@@ -380,7 +380,6 @@ input::-webkit-date-and-time-value {
   font-weight: var(--semibold);
   border: 0;
   background: var(--blue);
-  padding: 0.5rem 5rem;
   border-radius: 0;
   color: var(--white);
 }
@@ -396,7 +395,6 @@ input::-webkit-date-and-time-value {
   font-weight: var(--semibold);
   border: 0;
   background: var(--white);
-  padding: 0.5rem 5rem;
   border-radius: 0;
   text-transform: uppercase;
   border: 2px solid var(--black);
@@ -542,6 +540,10 @@ table tr td {
   padding: 0 0.5rem !important;
 }
 
+.pointer:hover {
+  cursor: pointer;
+}
+
 .row-flex {
   display: flex;
   flex-wrap: wrap;
@@ -607,20 +609,15 @@ ul.listing_bullet li {
 }
 
 ul.listing_left_align {
-  margin: 0 0 40px 0;
+  margin: 0;
   padding: 0;
 }
 
 ul.listing_left_align li {
-  margin: 0 5px 0 5px;
+  margin: 5px;
   padding: 0;
   list-style-type: none;
   float: left;
-}
-
-ul.listing_left_align li:first-child {
-  margin: 0;
-  line-height: 31px;
 }
 
 ul.listing_colors {
@@ -1144,16 +1141,14 @@ circle {
 }
 
 /********** tabs **********/
-.nav-item {
-  flex: 1 1 auto !important;
-}
-
 .nav-tabs .nav-link {
   text-transform: uppercase;
-  color: #1d1d1d;
+  color: var(--blue);
   font-weight: var(--medium);
   transition: none;
   border: 0;
+  width: 100%;
+  font-size: var(--text-md);
 }
 
 .nav-tabs .nav-link:focus,
@@ -1163,12 +1158,14 @@ circle {
 
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
+  color: var(--blue);
+  font-weight: var(--semibold);
   border-width: 0 0 3px 0;
   border-bottom: 3px solid #1a3142;
 }
 
 .tab-content {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 .label_order {
@@ -1331,6 +1328,10 @@ circle {
   .order_note {
     max-width: 350px;
     font-size: 12px;
+  }
+
+  .nav-item {
+    flex: 1 1 25% !important;
   }
 }
 

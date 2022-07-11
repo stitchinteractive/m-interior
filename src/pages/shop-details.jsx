@@ -55,8 +55,26 @@ const ShopDetails = () => {
   const [quantity, setQuantity] = React.useState(1)
 
   // init tooltips
-  const [show, setShow] = useState(false)
-  const target = useRef(null)
+  const [show_1, setShow_1] = useState(false)
+  const [show_2, setShow_2] = useState(false)
+  const [show_3, setShow_3] = useState(false)
+  const [show_4, setShow_4] = useState(false)
+  const [show_5, setShow_5] = useState(false)
+  const [show_6, setShow_6] = useState(false)
+  const [show_7, setShow_7] = useState(false)
+  const [show_8, setShow_8] = useState(false)
+  const [show_9, setShow_9] = useState(false)
+  const [show_10, setShow_10] = useState(false)
+  const target_1 = useRef(null)
+  const target_2 = useRef(null)
+  const target_3 = useRef(null)
+  const target_4 = useRef(null)
+  const target_5 = useRef(null)
+  const target_6 = useRef(null)
+  const target_7 = useRef(null)
+  const target_8 = useRef(null)
+  const target_9 = useRef(null)
+  const target_10 = useRef(null)
 
   return (
     <Layout>
@@ -190,14 +208,14 @@ const ShopDetails = () => {
                 </Link>
               </p>
               <hr className="my-3" />
-              <p>
-                <ul className="listing_left_align">
-                  <li>Colour</li>
-                  <li>
+              <div className="row mt-3 mb-4">
+                <div className="col-4 col-md-3">
+                  <div className="d-flex align-items-start">
+                    <div>Colour&nbsp;</div>
                     <div
-                      ref={target}
-                      onClick={() => setShow(!show)}
-                      className="d-flex"
+                      ref={target_1}
+                      onClick={() => setShow_1(!show_1)}
+                      className="d-flex pointer align-self-center"
                     >
                       <img
                         src="/icons/ico_info.png"
@@ -207,8 +225,8 @@ const ShopDetails = () => {
                       />
                     </div>
                     <Overlay
-                      target={target.current}
-                      show={show}
+                      target={target_1.current}
+                      show={show_1}
                       placement="top"
                     >
                       {(props) => (
@@ -217,38 +235,242 @@ const ShopDetails = () => {
                         </Tooltip>
                       )}
                     </Overlay>
-                  </li>
-                  <li>
-                    <img src="/icons/color_white.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_dark_brown_white.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_black.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_white_grey.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_black_white.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_blue_white.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_black_grey.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_blue_yellow.png" alt="" />
-                  </li>
-                  <li>
-                    <img src="/icons/color_brown_black.png" alt="" />
-                  </li>
-                </ul>
-              </p>
-              <div className="d-flex">
-                <p className="pb-3">
+                  </div>
+                </div>
+                <div className="col-8 col-md-9">
+                  <p>
+                    <ul className="listing_left_align">
+                      <li>
+                        <div
+                          ref={target_2}
+                          onClick={() => setShow_2(!show_2)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_white.png"
+                            alt="White"
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_2.current}
+                          show={show_2}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-2" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_3}
+                          onClick={() => setShow_3(!show_3)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_dark_brown_white.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_3.current}
+                          show={show_3}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-3" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_4}
+                          onClick={() => setShow_4(!show_4)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_black.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_4.current}
+                          show={show_4}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-4" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_5}
+                          onClick={() => setShow_5(!show_5)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_white_grey.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_5.current}
+                          show={show_5}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-5" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_6}
+                          onClick={() => setShow_6(!show_6)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_black_white.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_6.current}
+                          show={show_6}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-6" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_7}
+                          onClick={() => setShow_7(!show_7)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_blue_white.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_7.current}
+                          show={show_7}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-7" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_8}
+                          onClick={() => setShow_8(!show_8)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_black_grey.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_8.current}
+                          show={show_8}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-8" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_9}
+                          onClick={() => setShow_9(!show_9)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_blue_yellow.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_9.current}
+                          show={show_9}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-9" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                      <li>
+                        <div
+                          ref={target_10}
+                          onClick={() => setShow_10(!show_10)}
+                          className="d-flex pointer"
+                        >
+                          <img
+                            src="/icons/color_brown_black.png"
+                            alt=""
+                            width="22"
+                            height="22"
+                          />
+                        </div>
+                        <Overlay
+                          target={target_10.current}
+                          show={show_10}
+                          placement="top"
+                        >
+                          {(props) => (
+                            <Tooltip id="overlay-10" {...props}>
+                              Lorem ipsum dolor amet.
+                            </Tooltip>
+                          )}
+                        </Overlay>
+                      </li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+              <div className="row my-3">
+                <div className="col-4 col-md-3">
                   <NumericInput
                     aria-label="Quantity"
                     onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
@@ -258,12 +480,14 @@ const ShopDetails = () => {
                     min="1"
                     max="20"
                   />
-                  <Link to="/" className="ps-1 ps-md-5">
-                    <button type="button" className="btn btn-tertiary">
+                </div>
+                <div className="col-8 col-md-9">
+                  <Link to="/">
+                    <button type="button" className="btn btn-tertiary w-100">
                       Add to cart
                     </button>
                   </Link>
-                </p>
+                </div>
               </div>
               <p className="pb-1">
                 <Link to="/">
@@ -318,7 +542,7 @@ const ShopDetails = () => {
             <Tab eventKey="details" title="Details">
               <div className="row">
                 <div className="col-md-6">
-                  <h5>Dimensions:</h5>
+                  <h5>DIMENSIONS:</h5>
                   <p>
                     Width: 83cm
                     <br />

@@ -18,7 +18,8 @@
   border: none;
   padding: var(--space-sm) var(--space-lg);
   align-self: stretch;
-  width: 6ch;
+  width: 100%;
+  max-width: 60px;
   border-style: solid;
   border-color: var(--input-border);
   border-width: 0 1px 0 0;
