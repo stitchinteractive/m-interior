@@ -183,7 +183,7 @@ const ShopDetails = () => {
                 </div>
               </section>
             </div>
-            <div className="col-12 col-lg-5">
+            <div className="col-12 col-md-8 col-lg-5">
               <h3 className="text-uppercase mb-10">Tall Bookshelf</h3>
               <h4 className="text-uppercase font_grey_medium_3 mb-40">
                 SGD 1,173
@@ -647,8 +647,8 @@ const ShopDetails = () => {
                 It's modular.
               </p>
             </div>
-            <div className="col-lg-4 font_medium text-uppercase">
-              <video width="100%" height="100%" controls>
+            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
+              <video width="100%" height="100%" controls muted>
                 <source
                   src="/shop/min_modules/1_module_sizes.mp4"
                   type="video/mp4"
@@ -658,8 +658,8 @@ const ShopDetails = () => {
                 TWO MODULE SIZES FOR FLEXIBLE CONFIGURATIONS
               </p>
             </div>
-            <div className="col-lg-4 font_medium text-uppercase">
-              <video width="100%" height="100%" controls>
+            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
+              <video width="100%" height="100%" controls muted>
                 <source
                   src="/shop/min_modules/2_magnetic_connectors.mp4"
                   type="video/mp4"
@@ -669,8 +669,8 @@ const ShopDetails = () => {
                 STACK &amp; ARRANGE THE MODULES USING MAGNETIC CONNECTORS
               </p>
             </div>
-            <div className="col-lg-4 font_medium text-uppercase">
-              <video width="100%" height="100%" controls>
+            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
+              <video width="100%" height="100%" controls muted>
                 <source
                   src="/shop/min_modules/3_drawers_dividers.mp4"
                   type="video/mp4"
@@ -686,10 +686,10 @@ const ShopDetails = () => {
       <div className="bg_grey">
         <div className="container">
           <div className="row row_padding d-flex">
-            <div className="col-lg-6 p-5 align-self-center">
+            <div className="col-md-6 p-5 align-self-center">
               <img src="/shop/min_modules/customise.png" alt="Customise" />
             </div>
-            <div className="col-lg-6 align-self-center">
+            <div className="col-md-6 align-self-center">
               <h2 className="text-uppercase mb-5">
                 Customisation
                 <br />
@@ -713,8 +713,8 @@ const ShopDetails = () => {
       </div>
       <div className="bg_black font_white">
         <div className="container">
-          <div className="row d-flex">
-            <div className="col-lg-7 align-self-center">
+          <div className="row row_padding">
+            <div className="col-md-8 offset-md-2 col-lg-7 offset-lg-0 align-self-center">
               <h2 className="text-uppercase mb-5">
                 THERE'S A MIN+MODULE FOR EVERY SPACE
               </h2>
@@ -728,30 +728,27 @@ const ShopDetails = () => {
                 <Link to="/">
                   <button
                     type="button"
-                    className="btn btn-outline-large font_white"
+                    className="btn btn-outline-large font_white mb-50"
                   >
                     Explore lookbook
                   </button>
                 </Link>
               </p>
             </div>
-            <div className="col-lg-5">
-              <div className="vertical_scroller">
-                <p>
-                  <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
-                </p>
-                <p>
-                  <img src="/shop/min_modules/lookbook_2.jpg" alt="" />
-                </p>
-                <p>
-                  <img src="/shop/min_modules/lookbook_3.jpg" alt="" />
-                </p>
-              </div>
+            <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-0">
+              <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
             </div>
           </div>
         </div>
       </div>
-      <MinQuality />
+      <div className="container">
+        <div className="row row_padding">
+          <h2 className="pb-5 text-uppercase text-center">
+            Quality you can trust
+          </h2>
+          <MinQuality />
+        </div>
+      </div>
       <Testimonials />
       <div className="container">
         <div className="row row_padding">
