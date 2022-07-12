@@ -22,7 +22,7 @@ export function NumericInput({
         onClick={onIncrement}
       >
         <span>
-          <img src="./icons/btn_plus.png" alt="+" />
+          <img src="/icons/btn_plus.png" alt="+" />
         </span>
       </button>
       <button
@@ -32,7 +32,7 @@ export function NumericInput({
         onClick={onDecrement}
       >
         <span>
-          <img src="./icons/btn_minus.png" alt="-" />
+          <img src="/icons/btn_minus.png" alt="-" />
         </span>
       </button>
     </div>
