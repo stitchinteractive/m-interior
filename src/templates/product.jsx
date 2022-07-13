@@ -9,6 +9,8 @@ import { Testimonials } from "../components/testimonials"
 import { ProductList } from "../components/product-list"
 import { BackToTop } from "../components/back-to-top"
 import { Link } from "gatsby"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import { formatPrice } from "../utils/format-price"
 import Tabs from "react-bootstrap/Tabs"
 import Tab from "react-bootstrap/Tab"
 import Overlay from "react-bootstrap/Overlay"
@@ -45,13 +47,22 @@ const ShopDetails = ({ pageContext }) => {
   // variables to set swiper
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
 
-  const slides = [
-    "/shop/min_modules/bookshelf_tall.png",
-    "/shop/min_modules/bookshelf_tall.png",
-    "/shop/min_modules/bookshelf_tall.png",
-    "/shop/min_modules/bookshelf_tall.png",
-    "/shop/min_modules/bookshelf_tall.png",
-  ]
+  const hasImages = product.images.length > 0
+  const hasMultipleImages = true || product.images.length > 1
+  const slides = []
+
+  if (hasImages) {
+    product.images.forEach((data) => {
+      slides.push(data.originalSrc)
+      console.log(data.originalSrc)
+    })
+  }
+
+  const price = formatPrice(
+    product.priceRangeV2.maxVariantPrice.currencyCode,
+    product.priceRangeV2.maxVariantPrice.amount
+  )
+  
 
   const [quantity, setQuantity] = React.useState(1)
 
@@ -187,10 +198,10 @@ const ShopDetails = ({ pageContext }) => {
             <div className="col-12 col-md-8 col-lg-5">
               <h3 className="text-uppercase mb-10">{product.title}</h3>
               <h4 className="text-uppercase font_grey_medium_3 mb-40">
-                SGD 1,173
+                {price}
               </h4>
-              <div className="line_height_dense">
-                {product.description}
+              <div className="line_height_dense" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}>
+                
               </div>
               <p>
                 <Link to="/">

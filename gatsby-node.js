@@ -13,16 +13,33 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             shopifyId
             handle
-            description
+            descriptionHtml
             priceRangeV2 {
               maxVariantPrice {
                 amount
+                currencyCode
               }
               minVariantPrice {
                 amount
+                currencyCode
               }
             }
             status
+            variants {
+              availableForSale
+              storefrontId
+              title
+              price
+              selectedOptions {
+                name
+                value
+              }
+            }
+            options {
+              name
+              values
+              id
+            }
           }
         }
       }
