@@ -1,9 +1,10 @@
 // step 1: import
 import React, { useLayoutEffect } from "react"
+import { Link } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
-import { LookBookDetailsItem } from "../components/lookbook-details-item"
+import { InteriorItem } from "../components/interior-item"
 import { Testimonials } from "../components/testimonials"
 
 // step 2: define component
@@ -132,8 +133,74 @@ const InteriorDesignDetails = () => {
       </div>
       <div className="animate">
         <div class="bg_grey">
-          <div className="container">123</div>
+          <div className="container">
+            <div className="row padding_heading animate">
+              <div className="col-12">
+                <h2 className="text-uppercase text-center">Our Works</h2>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <InteriorItem
+          bg="bg_grey"
+          number="01"
+          project_name="Project 1"
+          content="M.INT specialises in modular furniture, with a significant emphasis
+            on space-saving and durability.. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua."
+          url="/interior-design-details"
+          image="/interior/works/1.jpg"
+        />
+
+        <InteriorItem
+          bg="bg_white"
+          number="02"
+          project_name="Project 2"
+          content="M.INT specialises in modular furniture, with a significant emphasis
+            on space-saving and durability.. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua."
+          url="/interior-design-details"
+          image="/interior/works/2.jpg"
+        />
+
+        <InteriorItem
+          bg="bg_grey"
+          number="03"
+          project_name="Project 3"
+          content="M.INT specialises in modular furniture, with a significant emphasis
+            on space-saving and durability.. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua."
+          url="/interior-design-details"
+          image="/interior/works/3.jpg"
+        />
+
+        <InteriorItem
+          bg="bg_white"
+          number="04"
+          project_name="Project 4"
+          content="M.INT specialises in modular furniture, with a significant emphasis
+            on space-saving and durability.. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua."
+          url="/interior-design-details"
+          image="/interior/works/4.jpg"
+        />
+
+        <InteriorItem
+          bg="bg_grey"
+          number="05"
+          project_name="Project 5"
+          content="M.INT specialises in modular furniture, with a significant emphasis
+            on space-saving and durability.. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua."
+          url="/interior-design-details"
+          image="/interior/works/5.jpg"
+        />
       </div>
       <div className="animate">
         <Testimonials />
