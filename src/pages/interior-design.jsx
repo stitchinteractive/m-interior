@@ -27,38 +27,112 @@ const InteriorDesignDetails = () => {
     <Layout>
       <div className="container">
         <div className="row row_padding animate">
-          <div className="col-lg-5">
-            <h2 className="text-uppercase mb-5">Treescape condo, 4-room</h2>
-            <h5 className="text-uppercase mb-3">Modern Contemporary</h5>
-            <p>
-              M.INT missions are Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
+          <div className="d-md-flex align-items-center">
+            <div className="col-12 col-md-6 col-lg-4">
+              <h2 className="text-uppercase mb-5">Interior Design</h2>
+              <p>
+                M.INT missions are Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
 
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
-          <div className="col-lg-7 ps-lg-5">
-            <img src="/interior/living_room/floor_plan.jpg" alt="Floor Plan" />
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-8 ps-md-5">
+              <img src="/interior/banner.jpg" alt="Interior Design" />
+            </div>
           </div>
         </div>
       </div>
-      <div className="bg_grey">
+      <div className="bg_grey animate">
         <div className="container">
-          <div className="row">
-            <LookBookDetailsItem
-              image_1="/interior/living_room/1.jpg"
-              image_2="/interior/living_room/2.jpg"
-              image_3="/interior/living_room/3.jpg"
-              image_4="/interior/living_room/4.jpg"
-              image_5="/interior/living_room/5.jpg"
-              image_6="/interior/living_room/6.jpg"
-              image_7="/interior/living_room/7.jpg"
-            ></LookBookDetailsItem>
+          <div className="row row_padding row-flex">
+            <div className="col-12">
+              <h2 className="text-uppercase mb-5 text-center">Why Us?</h2>
+            </div>
+            <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div className="box_grey_5">
+                <h4 className="text-uppercase mb-5 text-center">Warranty</h4>
+                M.INT specialises in modular furniture, with a significant
+                emphasis on space-saving and durability.. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+            <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div className="box_grey_5">
+                <h4 className="text-uppercase mb-5 text-center">
+                  Best Quality
+                </h4>
+                M.INT specialises in modular furniture, with a significant
+                emphasis on space-saving and durability.. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+            <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
+              <div className="box_grey_5">
+                <h4 className="text-uppercase mb-5 text-center">
+                  Unique Design
+                </h4>
+                M.INT specialises in modular furniture, with a significant
+                emphasis on space-saving and durability.. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="animate">
+        <div className="container">
+          <div className="row row_padding">
+            <div className="col-12 mb-md-5">
+              <h2 className="text-uppercase mb-5 text-center">How it works</h2>
+            </div>
+            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-0">
+              <p>
+                <img src="/interior/how_it_works.jpg" alt="How it works" />
+              </p>
+            </div>
+            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-0 ps-lg-5">
+              <h1 className="heading_boxed mb-3">01</h1>
+              <h3 className="text-uppercase mb-4">A Friendly Conversation</h3>
+              <p>
+                M.INT specialises in modular furniture, with a significant
+                emphasis on space-saving and durability.. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
+              <h1 className="heading_boxed mb-3">02</h1>
+              <h3 className="text-uppercase mb-4">Designing Your Space</h3>
+              <p>
+                M.INT specialises in modular furniture, with a significant
+                emphasis on space-saving and durability.. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
+
+              <h1 className="heading_boxed mb-3">03</h1>
+              <h3 className="text-uppercase mb-4">From Vision To Reality</h3>
+              <p>
+                M.INT specialises in modular furniture, with a significant
+                emphasis on space-saving and durability.. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="animate">
+        <div class="bg_grey">
+          <div className="container">123</div>
         </div>
       </div>
       <div className="animate">

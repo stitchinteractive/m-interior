@@ -28,11 +28,11 @@ h1 {
 
 h1.heading_boxed {
   font-size: var(--text-h1);
-  line-height: var(--dense);
-  width: var(--space-50);
-  height: var(--space-50);
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
   background: var(--grey);
-  padding-left: 32px;
+  padding-left: 30px;
   margin-right: 60px;
 }
 
@@ -663,7 +663,7 @@ ul.listing_colors li img {
 }
 
 p {
-  padding-bottom: 25px;
+  padding-bottom: 40px;
 }
 
 .bg_white {
@@ -797,6 +797,15 @@ a.no_underline {
 }
 
 /********** layout *********/
+.box_grey_5 {
+  text-align: center;
+  background: var(--grey-medium-5);
+  padding: 60px 30px;
+  margin-bottom: 40px;
+  line-height: var(--dense);
+  height: 100%;
+}
+
 .order_note {
   color: var(--grey-medium-4);
   font-size: 11px;
@@ -1269,6 +1278,10 @@ circle {
     min-width: 100%;
   }
 
+  .box_grey_5 {
+    padding: 80px 40px;
+  }
+
   /********** vertical carousel **********/
   .slider__col {
     margin-right: 30px;
@@ -1277,6 +1290,16 @@ circle {
 
 /********** laptops **********/
 @media (min-width: 992px) {
+  h1.heading_boxed {
+    font-size: var(--text-h1);
+    line-height: 80px;
+    width: 80px;
+    height: 80px;
+    background: var(--grey);
+    padding-left: 35px;
+    margin-right: 80px;
+  }
+
   .offcanvas {
     display: none;
   }
@@ -1378,6 +1401,10 @@ circle {
   #nav_account,
   #nav_account .accordion-header div {
     font-size: 18px;
+  }
+
+  .box_grey_5 {
+    padding: 100px 40px;
   }
 }
 
