@@ -1,7 +1,6 @@
 .item {
   font-size: var(--text-sm);
   line-height: 1.5;
-  background: var(--white);
 }
 
 .item .info {

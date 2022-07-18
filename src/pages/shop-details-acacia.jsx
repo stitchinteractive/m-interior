@@ -4,7 +4,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NumericInput } from "../components/numeric-input"
-import { MinQuality } from "../components/min-quality"
+import { AcaciaIntro } from "../components/acacia-intro"
 import { Testimonials } from "../components/testimonials"
 import { ProductList } from "../components/product-list"
 import { BackToTop } from "../components/back-to-top"
@@ -45,11 +45,11 @@ const ShopDetails = () => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
 
   const slides = [
-    "./shop/min_modules/bookshelf_tall.png",
-    "./shop/min_modules/bookshelf_tall.png",
-    "./shop/min_modules/bookshelf_tall.png",
-    "./shop/min_modules/bookshelf_tall.png",
-    "./shop/min_modules/bookshelf_tall.png",
+    "./shop/acacia/acacia_block_blue.png",
+    "./shop/acacia/acacia_block_blue.png",
+    "./shop/acacia/acacia_block_blue.png",
+    "./shop/acacia/acacia_block_blue.png",
+    "./shop/acacia/acacia_block_blue.png",
   ]
 
   const [quantity, setQuantity] = React.useState(1)
@@ -62,9 +62,6 @@ const ShopDetails = () => {
   const [show_5, setShow_5] = useState(false)
   const [show_6, setShow_6] = useState(false)
   const [show_7, setShow_7] = useState(false)
-  const [show_8, setShow_8] = useState(false)
-  const [show_9, setShow_9] = useState(false)
-  const [show_10, setShow_10] = useState(false)
   const target_1 = useRef(null)
   const target_2 = useRef(null)
   const target_3 = useRef(null)
@@ -72,9 +69,6 @@ const ShopDetails = () => {
   const target_5 = useRef(null)
   const target_6 = useRef(null)
   const target_7 = useRef(null)
-  const target_8 = useRef(null)
-  const target_9 = useRef(null)
-  const target_10 = useRef(null)
 
   return (
     <Layout>
@@ -96,11 +90,11 @@ const ShopDetails = () => {
                 </li>
                 <li>/</li>
                 <li>
-                  <Link to="/">Min+Modules</Link>
+                  <Link to="/">Acacia Blocks</Link>
                 </li>
                 <li>/</li>
                 <li>
-                  <Link to="/">Tall Bookshelf</Link>
+                  <Link to="/">Acacia Block</Link>
                 </li>
               </ul>
             </div>
@@ -188,29 +182,23 @@ const ShopDetails = () => {
               </section>
             </div>
             <div className="col-12 col-md-8 col-lg-5">
-              <h3 className="text-uppercase mb-10">Tall Bookshelf</h3>
+              <h3 className="text-uppercase mb-10">Acacia block</h3>
               <h4 className="text-uppercase font_grey_medium_3 mb-40">
-                SGD 1,173
+                SGD 67
               </h4>
               <div className="line_height_dense">
                 <p>
-                  Not your regular bookshelf, the Min+Modules is a modular
-                  furniture series exclusively designed in-house by M.INT. Each
-                  module is connected by magnetic connectors which allows
-                  flexible arrangements to suit your needs and spaces.
+                  Acacia Blocks can be effortlessly connected and stacked using
+                  magnetic connectors – giving you fun and freedom to transform
+                  your spaces however you like, whenever you like. From storage
+                  displays to desk organisers and partitions, it’s all up to
+                  your creativity!
                 </p>
                 <p>
-                  Did you know that you can build a side table, TV console and
-                  bedroom chest with the same modules in this bookshelf?
+                  Exclusively designed in-house by M.INT to suit your every
+                  needs and occasions.
                 </p>
               </div>
-              <p>
-                <Link to="/">
-                  <button type="button" className="btn btn-light w-100">
-                    Customise this bookshelf
-                  </button>
-                </Link>
-              </p>
               <hr className="my-3" />
               <div className="row mt-3 mb-4">
                 <div className="col-4 col-md-3">
@@ -276,7 +264,7 @@ const ShopDetails = () => {
                           className="d-flex pointer"
                         >
                           <img
-                            src="/icons/color_dark_brown_white.png"
+                            src="/icons/color_grey.png"
                             alt=""
                             width="22"
                             height="22"
@@ -326,7 +314,7 @@ const ShopDetails = () => {
                           className="d-flex pointer"
                         >
                           <img
-                            src="/icons/color_white_grey.png"
+                            src="/icons/color_blue.png"
                             alt=""
                             width="22"
                             height="22"
@@ -351,7 +339,7 @@ const ShopDetails = () => {
                           className="d-flex pointer"
                         >
                           <img
-                            src="/icons/color_black_white.png"
+                            src="/icons/color_yellow.png"
                             alt=""
                             width="22"
                             height="22"
@@ -376,7 +364,7 @@ const ShopDetails = () => {
                           className="d-flex pointer"
                         >
                           <img
-                            src="/icons/color_blue_white.png"
+                            src="/icons/color_red.png"
                             alt=""
                             width="22"
                             height="22"
@@ -389,81 +377,6 @@ const ShopDetails = () => {
                         >
                           {(props) => (
                             <Tooltip id="overlay-7" {...props}>
-                              Lorem ipsum dolor amet.
-                            </Tooltip>
-                          )}
-                        </Overlay>
-                      </li>
-                      <li>
-                        <div
-                          ref={target_8}
-                          onClick={() => setShow_8(!show_8)}
-                          className="d-flex pointer"
-                        >
-                          <img
-                            src="/icons/color_black_grey.png"
-                            alt=""
-                            width="22"
-                            height="22"
-                          />
-                        </div>
-                        <Overlay
-                          target={target_8.current}
-                          show={show_8}
-                          placement="top"
-                        >
-                          {(props) => (
-                            <Tooltip id="overlay-8" {...props}>
-                              Lorem ipsum dolor amet.
-                            </Tooltip>
-                          )}
-                        </Overlay>
-                      </li>
-                      <li>
-                        <div
-                          ref={target_9}
-                          onClick={() => setShow_9(!show_9)}
-                          className="d-flex pointer"
-                        >
-                          <img
-                            src="/icons/color_blue_yellow.png"
-                            alt=""
-                            width="22"
-                            height="22"
-                          />
-                        </div>
-                        <Overlay
-                          target={target_9.current}
-                          show={show_9}
-                          placement="top"
-                        >
-                          {(props) => (
-                            <Tooltip id="overlay-9" {...props}>
-                              Lorem ipsum dolor amet.
-                            </Tooltip>
-                          )}
-                        </Overlay>
-                      </li>
-                      <li>
-                        <div
-                          ref={target_10}
-                          onClick={() => setShow_10(!show_10)}
-                          className="d-flex pointer"
-                        >
-                          <img
-                            src="/icons/color_brown_black.png"
-                            alt=""
-                            width="22"
-                            height="22"
-                          />
-                        </div>
-                        <Overlay
-                          target={target_10.current}
-                          show={show_10}
-                          placement="top"
-                        >
-                          {(props) => (
-                            <Tooltip id="overlay-10" {...props}>
                               Lorem ipsum dolor amet.
                             </Tooltip>
                           )}
@@ -514,104 +427,7 @@ const ShopDetails = () => {
             id="uncontrolled-tab-example"
             className="mb-3"
           >
-            <Tab eventKey="about" title="About Min+Modules">
-              <h5>FUN AND FREEDOM IN ARRANGING SPACES</h5>
-              <p>
-                The fun part about Min+Modules is that the modules can be
-                effortlessly separated and rearranged to form side tables, TV
-                consoles, bookshelves, bedroom chests etc. The magnetic
-                connectors between each module allows a smooth and easy
-                transition for your spaces.
-              </p>
-              <h5>ADDS FUNCTIONALITY TO YOUR SPACES</h5>
-              <p>
-                Designed with high quality and durable materials, the internal
-                modules are available in two sizes: 40cm width for compact
-                storage and 80cm width for bigger displays, with standard height
-                and depth of 40cm. Balancing style with function, the
-                Min+Modules is thoughtfully designed with tons of functional
-                add-ons from sleek drawers to doors and even space dividers.
-              </p>
-              <h5>HIGHLY CUSTOMISABLE INSIDE OUT</h5>
-              <p>
-                Why get a custom-made furniture that comes with a high price
-                when you can customise your very own Min+Modules furniture –
-                right down to details such as sizes, colours and storage
-                compartments. The Min+Modules can check all your boxes and even
-                offer more than what you need due to its multi-functional and
-                modular nature. Start building your very own Min+Modules
-                furniture with our product configurator HERE.
-              </p>
-            </Tab>
-            <Tab eventKey="details" title="Details">
-              <div className="row">
-                <div className="col-md-6">
-                  <h5>DIMENSIONS:</h5>
-                  <p>
-                    Width: 83cm
-                    <br />
-                    Height: 170cm
-                    <br />
-                    Depth: 40cm
-                  </p>
-                  <h5>WHAT’S INCLUDED IN THIS TALL BOOKSHELF</h5>
-                  <ul className="listing_bullet">
-                    <li>8 x Small module</li>
-                    <li>2 x Full drawer (small)</li>
-                    <li>2 x Door</li>
-                    <li>2 x Half divider</li>
-                  </ul>
-                </div>
-                <div className="col-md-6">
-                  <h5>MATERIALS:</h5>
-                  <p>
-                    Modules and external panels: Medium-density fibreboard
-                    <br />
-                    Doors and drawers: Medium-density fibreboard, aluminium
-                    handle
-                    <br />
-                    Dividers: Plywood
-                    <br />
-                    Base support: Steel
-                    <br />
-                    Magnetic connector: Low-powered magnets, silicone
-                  </p>
-                  <h5>CARE INSTRUCTIONS</h5>
-                  <ul className="listing_bullet">
-                    <li>Maximum load of 100kg per module </li>
-                    <li>
-                      For daily cleaning, wipe with a soft dry cloth or duster
-                    </li>
-                    <li>
-                      To maintain the furniture condition, wipe the surface
-                      frequently with a damp cloth and lightly wipe clean with a
-                      dry cloth
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </Tab>
-            <Tab eventKey="installation" title="Installation">
-              <h5>LEAVE THE HARD WORK TO US – FOR FREE</h5>
-              <p>
-                We will take care of the installation for you at no additional
-                charges, so you can focus your time and energy on sprucing up
-                your spaces! Our installation team will deliver the product to
-                your place, assemble it right away and position it perfectly at
-                your sweet spot.
-              </p>
-              <p>
-                Do note that for set-ups taller than 1.2m, our installation team
-                will have to secure and affix it to a wall to ensure stability.
-              </p>
-              <h5>TIME TO SWITCH THINGS UP?</h5>
-              <p>
-                If you ever need to rearrange the modules or refresh the
-                colours, simply hit us up and we will be on our way to assist
-                you.
-              </p>
-            </Tab>
-            <Tab eventKey="samples" title="Get Material Samples">
+            <Tab eventKey="about" title="About Acacia Blocks">
               <h5>MODULAR CONNECTION</h5>
               <p>
                 Acacia Blocks are intuitively designed with magnetic connectors
@@ -620,7 +436,7 @@ const ShopDetails = () => {
                 onto the side holes of the Acacia Blocks to build your own
                 configuration, without the need for drills or fasteners.
               </p>
-              <h5>BESPOKE DESIGNS</h5>
+              <h5>BESPOKE DESIGNS </h5>
               <p>
                 Acacia Blocks can be flexibly integrated with carpentry works to
                 create bespoke designs. Be it a TV console, feature wall or
@@ -638,76 +454,90 @@ const ShopDetails = () => {
                 and get a complimentary design consultation HERE.
               </p>
             </Tab>
+            <Tab eventKey="details" title="Details">
+              <div className="row">
+                <div className="col-md-6">
+                  <h5>DIMENSIONS:</h5>
+                  <p>
+                    Width: 40cm
+                    <br />
+                    Height: 35cm
+                    <br />
+                    Depth: 20cm
+                  </p>
+                  <h5>WEIGHT</h5>
+                  <p>Approx. 4kg per unit </p>
+                  <h5>WHAT’S INCLUDED</h5>
+                  <ul className="listing_bullet">
+                    <li>Each Acacia Block comes with one magnetic connector</li>
+                  </ul>
+                </div>
+                <div className="col-md-6">
+                  <h5>MATERIALS:</h5>
+                  <p>
+                    Acacia Block: Medium-density fibreboard
+                    <br />
+                    Magnetic connector: Low-powered magnet, silicone
+                  </p>
+                  <h5>CARE INSTRUCTIONS</h5>
+                  <ul className="listing_bullet">
+                    <li>Maximum load of 100kg per module </li>
+                    <li>
+                      For daily cleaning, wipe with a soft dry cloth or duster
+                    </li>
+                    <li>
+                      To maintain the furniture condition, wipe the surface
+                      frequently with a damp cloth and lightly wipe clean with a
+                      dry cloth
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </Tab>
+            <Tab eventKey="installation" title="Installation">
+              <h5>WALL MOUNTING SERVICES</h5>
+              <p>
+                If you’re looking to take the Acacia Blocks up another level, we
+                are happy to provide installation services at a chargeable fee.
+                We highly recommend that you leave the work to us (don’t sweat
+                it!) as our team will pre-assemble the blocks onto a back panel.
+                This way, there won’t be any visible screws on the Acacia Blocks
+                as we will be drilling through the back panel instead of the
+                blocks.
+              </p>
+              <p>
+                Do note that the Acacia Blocks can only be mounted on solid
+                walls to ensure that the set-up is secured firmly and safely.
+              </p>
+              <h5>CUSTOMISATION SERVICES</h5>
+              <p>
+                For add-on features such as lightings and clear covers, the cost
+                varies depending on the requirements. Speak to us through a
+                complimentary design consultation to find out more!
+              </p>
+            </Tab>
           </Tabs>
         </div>
       </div>
-      <div className="bg_blue font_white">
-        <div className="container text-center">
-          <div className="row row_padding">
-            <div className="col-12">
-              <h2 className="text-uppercase pb-3">Meet the Min+Modules</h2>
-              <p className="mb-80">
-                The Min+Modules is more than just your average furniture piece.
-                It's modular.
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video width="100%" height="100%" controls muted>
-                <source
-                  src="/shop/min_modules/1_module_sizes.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <p className="px-5 pt-3 mb-80">
-                TWO MODULE SIZES FOR FLEXIBLE CONFIGURATIONS
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video width="100%" height="100%" controls muted>
-                <source
-                  src="/shop/min_modules/2_magnetic_connectors.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <p className="px-5 pt-3 mb-80">
-                STACK &amp; ARRANGE THE MODULES USING MAGNETIC CONNECTORS
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video width="100%" height="100%" controls muted>
-                <source
-                  src="/shop/min_modules/3_drawers_dividers.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <p className="px-5 pt-3 mb-80">
-                MIX & MATCH BETWEEN doors, drawers & dividers
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg_grey">
+      <div className="bg_blue">
         <div className="container">
-          <div className="row row_padding d-flex">
-            <div className="col-md-6 p-5 align-self-center">
-              <img src="/shop/min_modules/customise.png" alt="Customise" />
+          <div className="row row_padding font_white">
+            <div className="col-12 col-md-7 order-2 order-md-1">
+              <AcaciaIntro />
             </div>
-            <div className="col-md-6 align-self-center">
-              <h2 className="text-uppercase mb-5">
-                Customisation
-                <br />
-                at your fingertips
-              </h2>
-              <p className="mb-50">
-                Customise your very own Min+Modules furniture with our product
-                configurator – right down to details such as sizes, colours and
-                storage compartments.
+            <div className="col-12 col-md-4 offset-md-1 order-1 order-md-2">
+              <h2 className="text-uppercase mb-5">More than just a block</h2>
+              <p>
+                Want more customisation ideas for the Acacia Blocks? Check out
+                our guide below and see how our customers do it!
               </p>
               <p>
                 <Link to="/">
-                  <button type="button" className="btn btn-light">
-                    Build your own Min+Modules
+                  <button
+                    type="button"
+                    className="btn btn-outline-large font_white mb-50"
+                  >
+                    Acacia Guide
                   </button>
                 </Link>
               </p>
@@ -719,13 +549,11 @@ const ShopDetails = () => {
         <div className="container">
           <div className="row row_padding">
             <div className="col-md-8 offset-md-2 col-lg-7 offset-lg-0 align-self-center">
-              <h2 className="text-uppercase mb-5">
-                THERE'S A MIN+MODULE FOR EVERY SPACE
-              </h2>
+              <h2 className="text-uppercase mb-5">Create your own spaces</h2>
               <p className="mb-50">
-                Get inspirations on how to style your spaces with the
-                Min+Modules. Regardless of your interior style, the Min+Modules
-                can fit into any spaces of yours – meeting all your creative and
+                Get inspirations on how to style your spaces with the Acacia
+                Blocks. Regardless of your interior style, the Acacia Blocks can
+                fit into any spaces of yours – meeting all your creative and
                 functional needs.
               </p>
               <p>
@@ -734,23 +562,15 @@ const ShopDetails = () => {
                     type="button"
                     className="btn btn-outline-large font_white mb-50"
                   >
-                    Explore lookbook
+                    Acacia Guide
                   </button>
                 </Link>
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-0">
-              <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
+              <img src="/shop/acacia/lookbook_1.jpg" alt="" />
             </div>
           </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row row_padding">
-          <h2 className="pb-5 text-uppercase text-center">
-            Quality you can trust
-          </h2>
-          <MinQuality />
         </div>
       </div>
       <Testimonials />
