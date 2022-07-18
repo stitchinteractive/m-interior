@@ -69,6 +69,7 @@ export default function Product({ data: { product, suggestions } }) {
   )
 
   const handleOptionChange = (index, event) => {
+    debugger
     const value = event.target.value
 
     if (value === "") {
