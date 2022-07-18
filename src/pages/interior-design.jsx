@@ -4,8 +4,6 @@ import { Link } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
-import { InteriorItem } from "../components/interior-item"
-import { Testimonials } from "../components/testimonials"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -26,184 +24,175 @@ const InteriorDesignDetails = () => {
 
   return (
     <Layout>
-      <div className="container">
-        <div className="row row_padding animate">
-          <div className="d-md-flex align-items-center">
-            <div className="col-12 col-md-6 col-lg-4">
-              <h2 className="text-uppercase mb-5">Interior Design</h2>
-              <p>
-                M.INT missions are Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
-              </p>
-
-              <p>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-8 ps-md-5">
-              <img src="/interior/banner.jpg" alt="Interior Design" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg_grey animate">
-        <div className="container">
-          <div className="row row_padding row-flex">
-            <div className="col-12">
-              <h2 className="text-uppercase mb-5 text-center">Why Us?</h2>
-            </div>
-            <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div className="box_grey_5">
-                <h4 className="text-uppercase mb-5 text-center">Warranty</h4>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability.. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-            <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div className="box_grey_5">
-                <h4 className="text-uppercase mb-5 text-center">
-                  Best Quality
-                </h4>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability.. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-            <div className="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
-              <div className="box_grey_5">
-                <h4 className="text-uppercase mb-5 text-center">
-                  Unique Design
-                </h4>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability.. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
+      <div>
+        <div
+          className="bg_interior d-flex align-items-center"
+          style={{
+            background: "url(./interior/banner.jpg) center center no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="container">
+            <div className="row">
+              <div className="col-12 col-md-8 offset-md-4 col-lg-6 offset-lg-6">
+                <div className="box_overlay">
+                  <h1 className="mb-150">Make your neighbours jealous.</h1>
+                  <Link to="/profile">
+                    <button type="submit" className="btn btn-outline">
+                      GET A FREE CONSULTATION & QUOTE
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="animate">
         <div className="container">
           <div className="row row_padding">
-            <div className="col-12 mb-md-5">
-              <h2 className="text-uppercase mb-5 text-center">How it works</h2>
+            <div className="col-12 text-center">
+              <h2 className="mb-3">Interior Design Is Our Second Nature</h2>
+              <p>RESIDENTIAL • COMMERCIAL</p>
             </div>
-            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-0">
-              <p>
-                <img src="/interior/how_it_works.jpg" alt="How it works" />
-              </p>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="box_interior">
+                <div className="vertical_divider d-none"></div>
+                <h4 className="mb-3">Creativity at the Core</h4>
+                <p>
+                  Whether your needs are vast or small, we come with big ideas.
+                  We create spaces that are a true reflection of your identity
+                  and style – a space that’s uniquely yours!
+                </p>
+              </div>
             </div>
-            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-0 ps-lg-5">
-              <h1 className="heading_boxed mb-3">01</h1>
-              <h3 className="text-uppercase mb-4">A Friendly Conversation</h3>
-              <p>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability.. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
-              <h1 className="heading_boxed mb-3">02</h1>
-              <h3 className="text-uppercase mb-4">Designing Your Space</h3>
-              <p>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability.. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
-
-              <h1 className="heading_boxed mb-3">03</h1>
-              <h3 className="text-uppercase mb-4">From Vision To Reality</h3>
-              <p>
-                M.INT specialises in modular furniture, with a significant
-                emphasis on space-saving and durability.. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="box_interior">
+                <div className="vertical_divider d-none d-md-block"></div>
+                <h4 className="mb-3">In-house Certified Professionals</h4>
+                <p>
+                  Housing our very own interior designers, carpentry team, wet
+                  works and construction workers – no renovation job is beyond
+                  our capabilities.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="animate">
-        <div class="bg_grey">
-          <div className="container">
-            <div className="row padding_heading animate">
-              <div className="col-12">
-                <h2 className="text-uppercase text-center">Our Works</h2>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="box_interior">
+                <div className="vertical_divider d-none d-lg-block"></div>
+                <h4 className="mb-3">&gt;10 Years Experience</h4>
+                <p>
+                  We work closely with our sister company – Trace Design + Build
+                  who has long-standing experience in architecture and
+                  construction works.
+                </p>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="box_interior">
+                <div className="vertical_divider d-none"></div>
+                <h4 className="mb-3">Excellent Workmanship</h4>
+                <p>
+                  We deliver only the best to you. Our carpenters are
+                  professionally equipped with fine craftsmanship to ensure your
+                  spaces don’t just look good, but stays good inside out.
+                </p>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="box_interior">
+                <div className="vertical_divider d-none d-lg-block"></div>
+                <h4 className="mb-3">Transparency</h4>
+                <p>
+                  We value an open and honest communication. From costings to
+                  renovation works, rest assured that you will be well-informed
+                  of every nook and cranny. We don’t cut corners!
+                </p>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className="box_interior">
+                <div className="vertical_divider d-none d-md-block"></div>
+                <h4 className="mb-3">Dedicated Customer Service</h4>
+                <p>
+                  We treat our customers like family – we listen to your needs
+                  and we promise to be there at every step of the way from
+                  pre-sales to after-sales support.
+                </p>
               </div>
             </div>
           </div>
         </div>
-
-        <InteriorItem
-          bg="bg_grey"
-          number="01"
-          project_name="Project 1"
-          content="M.INT specialises in modular furniture, with a significant emphasis
-            on space-saving and durability.. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua."
-          url="/interior-design-details"
-          image="/interior/works/1.jpg"
-        />
-
-        <InteriorItem
-          bg="bg_white"
-          number="02"
-          project_name="Project 2"
-          content="M.INT specialises in modular furniture, with a significant emphasis
-            on space-saving and durability.. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua."
-          url="/interior-design-details"
-          image="/interior/works/2.jpg"
-        />
-
-        <InteriorItem
-          bg="bg_grey"
-          number="03"
-          project_name="Project 3"
-          content="M.INT specialises in modular furniture, with a significant emphasis
-            on space-saving and durability.. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua."
-          url="/interior-design-details"
-          image="/interior/works/3.jpg"
-        />
-
-        <InteriorItem
-          bg="bg_white"
-          number="04"
-          project_name="Project 4"
-          content="M.INT specialises in modular furniture, with a significant emphasis
-            on space-saving and durability.. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua."
-          url="/interior-design-details"
-          image="/interior/works/4.jpg"
-        />
-
-        <InteriorItem
-          bg="bg_grey"
-          number="05"
-          project_name="Project 5"
-          content="M.INT specialises in modular furniture, with a significant emphasis
-            on space-saving and durability.. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua."
-          url="/interior-design-details"
-          image="/interior/works/5.jpg"
-        />
-      </div>
-      <div className="animate">
-        <Testimonials />
+        <div className="bg_grey">
+          <div className="container">
+            <div className="row row_padding">
+              <div className="col-12 col-lg-6">
+                <div className="row">
+                  <div className="col-12">
+                    <h2 className="mb-3">We’ll Make It Fun And Easy</h2>
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <div className="circle">01</div>
+                  </div>
+                  <div className="col-10 col-md-11 ps-4">
+                    <h4>Let's Chat</h4>
+                    <p>
+                      Tell us about your dream home and everything in between –
+                      from floorplan to concept style, requirements and budget.
+                    </p>
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <div className="circle">02</div>
+                  </div>
+                  <div className="col-10 col-md-11 ps-4">
+                    <h4>Design Development</h4>
+                    <p>
+                      Our team will come up with a design and space planning
+                      proposal, along with a quotation all tailored to your
+                      needs.
+                    </p>
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <div className="circle">03</div>
+                  </div>
+                  <div className="col-10 col-md-11 ps-4">
+                    <h4>Colour &amp; Material Selection</h4>
+                    <p>
+                      Based on the agreed designs, our team will go through the
+                      material samples with you and make the best
+                      recommendations for your spaces – including advices for
+                      fittings and furniture.
+                    </p>
+                  </div>
+                  <div className="col-2 col-md-1">
+                    <div className="circle">04</div>
+                  </div>
+                  <div className="col-10 col-md-11 ps-4">
+                    <h4>Renovation Begin!</h4>
+                    <p>
+                      Let's bring your designs to life. Our designers will
+                      oversee the entire renovation process, conduct frequent
+                      site visits and quality checks to ensure a smooth
+                      execution.
+                    </p>
+                  </div>
+                  <div className="col-2 col-md-1">&nbsp;</div>
+                  <div className="col-10 col-md-11 ps-4">
+                    <Link to="/profile">
+                      <button
+                        type="submit"
+                        className="btn btn-light text-uppercase mb-80"
+                      >
+                        Get Started Now
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-6">
+                <img src="./interior/design_process.jpg" alt="Design Process" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   )

@@ -544,6 +544,30 @@ table tr td {
   cursor: pointer;
 }
 
+.circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  background: var(--yellow);
+  color: var(--white);
+  font-size: var(--text-lg);
+  font-weight: var(--semibold);
+  text-align: center;
+  line-height: 48px;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.circle::after {
+  width: 2px;
+  height: 50px;
+  content: "";
+  position: absolute;
+  background: var(--yellow);
+  top: 68px;
+  left: 24px;
+}
+
 .row-flex {
   display: flex;
   flex-wrap: wrap;
@@ -797,6 +821,32 @@ a.no_underline {
 }
 
 /********** layout *********/
+.bg_interior {
+  width: 100%;
+  height: calc(100vh - 145px);
+}
+
+.box_overlay {
+  background: rgba(14, 50, 68, 0.5);
+  margin: 80px 0 80px 0;
+  padding: 100px 50px;
+  color: var(--white);
+}
+
+.box_interior {
+  position: relative;
+  padding: 0;
+  height: 100%;
+}
+
+.vertical_divider {
+  border-left: 1px solid black;
+  position: absolute;
+  top: 35%;
+  left: -25px;
+  bottom: 35%;
+}
+
 .box_grey_5 {
   text-align: center;
   background: var(--grey-medium-5);
@@ -1280,6 +1330,14 @@ circle {
 
   .box_grey_5 {
     padding: 80px 40px;
+  }
+
+  .box_interior {
+    padding: 50px;
+  }
+
+  .box_interior h4 {
+    height: 60px;
   }
 
   /********** vertical carousel **********/
