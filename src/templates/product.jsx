@@ -127,6 +127,13 @@ const ShopDetails = ({ pageContext }) => {
     variant.price
   )
 
+  var details = "NA"
+  product.metafields.forEach((data) => {
+    if(data.key === "details") {
+      details = data.value
+    }
+  })
+
   return (
     <Layout>
       <div className="bg_grey">
@@ -301,8 +308,6 @@ const ShopDetails = ({ pageContext }) => {
                                     />
                                   </div>
                                 </OverlayTrigger>
-                              
-                             
                               </li>
                             ))}
                             </ul>
@@ -385,51 +390,8 @@ const ShopDetails = ({ pageContext }) => {
               </p>
             </Tab>
             <Tab eventKey="details" title="Details">
-              <div className="row">
-                <div className="col-md-6">
-                  <h5>DIMENSIONS:</h5>
-                  <p>
-                    Width: 83cm
-                    <br />
-                    Height: 170cm
-                    <br />
-                    Depth: 40cm
-                  </p>
-                  <h5>WHAT’S INCLUDED IN THIS TALL BOOKSHELF</h5>
-                  <ul className="listing_bullet">
-                    <li>8 x Small module</li>
-                    <li>2 x Full drawer (small)</li>
-                    <li>2 x Door</li>
-                    <li>2 x Half divider</li>
-                  </ul>
-                </div>
-                <div className="col-md-6">
-                  <h5>MATERIALS:</h5>
-                  <p>
-                    Modules and external panels: Medium-density fibreboard
-                    <br />
-                    Doors and drawers: Medium-density fibreboard, aluminium
-                    handle
-                    <br />
-                    Dividers: Plywood
-                    <br />
-                    Base support: Steel
-                    <br />
-                    Magnetic connector: Low-powered magnets, silicone
-                  </p>
-                  <h5>CARE INSTRUCTIONS</h5>
-                  <ul className="listing_bullet">
-                    <li>Maximum load of 100kg per module </li>
-                    <li>
-                      For daily cleaning, wipe with a soft dry cloth or duster
-                    </li>
-                    <li>
-                      To maintain the furniture condition, wipe the surface
-                      frequently with a damp cloth and lightly wipe clean with a
-                      dry cloth
-                    </li>
-                  </ul>
-                </div>
+              <div className="row" dangerouslySetInnerHTML={{ __html: details }}>
+                  
               </div>
             </Tab>
             <Tab eventKey="installation" title="Installation">

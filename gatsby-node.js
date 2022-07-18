@@ -25,6 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             status
+            storefrontId
             variants {
               availableForSale
               storefrontId
@@ -39,6 +40,10 @@ exports.createPages = async ({ graphql, actions }) => {
               name
               values
               id
+            }
+            metafields {
+              value
+              key
             }
           }
         }
