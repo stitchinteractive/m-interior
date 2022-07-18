@@ -71,6 +71,7 @@ export const StoreProvider = ({ children }) => {
   }, [])
 
   const addVariantToCart = (variantId, quantity) => {
+    debugger
     setLoading(true)
 
     const checkoutID = checkout.id
@@ -134,15 +135,3 @@ export const StoreProvider = ({ children }) => {
     </StoreContext.Provider>
   )
 }
-
-const useStore = () => {
-  const context = React.useContext(StoreContext)
-
-  if (context === undefined) {
-    throw new Error("useStore must be used within StoreContext")
-  }
-
-  return context
-}
-
-export default useStore

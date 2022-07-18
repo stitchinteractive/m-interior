@@ -6,6 +6,7 @@ export function AddToCart({ variantId, quantity, available, ...props }) {
   const { addVariantToCart, loading } = React.useContext(StoreContext)
 
   function addToCart(e) {
+    debugger
     e.preventDefault()
     addVariantToCart(variantId, quantity)
   }

@@ -5,6 +5,7 @@ import { formatPrice } from "../utils/format-price"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getShopifyImage } from "gatsby-source-shopify"
 import DeleteIcon from "../icons/delete"
+import { Link } from "gatsby"
 import { NumericInput } from "./numeric-input"
 import {
   title,
@@ -82,7 +83,7 @@ export function LineItem({ item }) {
   return (
     <tr>
       <td>
-        {image && (
+      {image && (
           <GatsbyImage
             key={variantImage.src}
             image={image}
@@ -91,18 +92,53 @@ export function LineItem({ item }) {
         )}
       </td>
       <td>
-        <h2 className={title}>{item.title}</h2>
-        <div className={variant}>
-          {item.variant.title === "Default Title" ? "" : item.variant.title}
+        <h4 className="text-uppercase mb-4">{item.title}</h4>
+        <div className="d-flex py-2">
+          <div className="label_order">Style:</div>
+          <div className="font_medium">{item.variant.title === "Default Title" ? "" : item.variant.title}</div>
         </div>
-        <div className={remove}>
-          <button onClick={handleRemove}>
-            <DeleteIcon /> Remove
-          </button>
+        <div className="d-flex py-2">
+          <div className="label_order">Color:</div>
+          <div className="pe-2">
+            <img
+              src={"icons/color_"+item.variant.title.toString().toLowerCase().replace(/ /g,"_")+".png"}
+              alt=""
+              className="box_shadow mt-1"
+            />
+          </div>
+          <div className="font_medium">
+            {item.variant.title === "Default Title" ? "" : item.variant.title}
+          </div>
         </div>
+        <div className="order_note my-3">
+          <div className="text-uppercase font_medium">
+            Order Note
+          </div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat.
+        </div>
+        {/*
+        <Link
+          to="/"
+          className="font_blue font_semibold font_xs text-uppercase font_letterspacing_1"
+        >
+          Change Options
+        </Link>
+        <hr className="dashed" />
+        <div className="font_xs font_semibold">
+          Membership Points: 150P to be accumulated
+        </div>
+        */}
+        
       </td>
-      <td className={priceColumn}>{price}</td>
-      <td>
+      <td
+        style={{
+          textAlign: "center",
+        }}
+      >
         <NumericInput
           disabled={loading}
           value={quantity}
@@ -112,7 +148,28 @@ export function LineItem({ item }) {
           onChange={(e) => handleQuantityChange(e.currentTarget.value)}
         />
       </td>
-      <td className={totals}>{subtotal}</td>
+      <td>
+        <button onClick={handleRemove}>
+          <img
+            src="./icons/btn_remove.png"
+            alt="Remove"
+            className="mx-auto"
+          />
+        </button>
+      </td>
+      <td
+        style={{
+          textAlign: "right",
+        }}
+      >
+        {subtotal}
+      </td>
     </tr>
+
+
+
+
+
+    
   )
 }
