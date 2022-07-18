@@ -66,7 +66,7 @@ const ShopDetails = ({ pageContext }) => {
       client.product.fetch(productId).then((fetchedProduct) => {
         const result =
           fetchedProduct?.variants.filter(
-            (variant) => variant.id === productVariant.storefrontId
+            (variant) => variant.id === productVariant.shopifyId
           ) ?? []
 
         if (result.length > 0) {

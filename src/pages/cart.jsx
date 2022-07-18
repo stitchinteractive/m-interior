@@ -7,6 +7,7 @@ import { Link } from "gatsby"
 import { NumericInput } from "../components/numeric-input"
 import BackIcon from "../icons/back"
 import Table from "react-bootstrap/Table"
+import useStore from '../context/store-context'
 
 // step 2: define component
 const Cart = () => {
@@ -27,8 +28,13 @@ const Cart = () => {
 
   const [quantity, setQuantity] = React.useState(1)
 
+  const { cart } = useStore()
+
   return (
     <Layout>
+        {
+          cart.length > 0 ? cart.map((item, index) => <div>{item.title}</div>) : <div>Your cart is empty.</div>
+        }
       <div className="bg_grey_light_2">
         <div className="container">
           <div className="row row_padding">

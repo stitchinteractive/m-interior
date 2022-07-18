@@ -27,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
             status
             storefrontId
             variants {
+              shopifyId
               availableForSale
               storefrontId
               title
