@@ -41,7 +41,7 @@ export function NavShop(props) {
               </li>
               <li>
                 <Link
-                  to="/"
+                  to="/acacia-blocks"
                   activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
                 >
                   Acacia Blocks
