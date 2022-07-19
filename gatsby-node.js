@@ -69,25 +69,59 @@ exports.createPages = async ({ graphql, actions }) => {
       allShopifyCollection (sort: { fields: [title] }) {
         edges {
           node {
-            id
             title
+            id
+            description
+            descriptionHtml
             handle
+            metafields {
+              id
+              value
+            }
+            image {
+              id
+              originalSrc
+            }
             products {
               title
-              images {
-                originalSrc
-              }
-              shopifyId
-              handle
-              description
-              priceRangeV2 {
-                maxVariantPrice {
-                  amount
+                images {
+                  originalSrc
                 }
-                minVariantPrice {
-                  amount
+                shopifyId
+                handle
+                descriptionHtml
+                priceRangeV2 {
+                  maxVariantPrice {
+                    amount
+                    currencyCode
+                  }
+                  minVariantPrice {
+                    amount
+                    currencyCode
+                  }
                 }
-              }
+                status
+                storefrontId
+                variants {
+                  shopifyId
+                  availableForSale
+                  storefrontId
+                  title
+                  price
+                  selectedOptions {
+                    name
+                    value
+                  }
+                }
+                options {
+                  name
+                  values
+                  id
+                }
+                metafields {
+                  value
+                  key
+                }
             }
           }
         }

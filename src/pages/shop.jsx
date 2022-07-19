@@ -2,7 +2,7 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
 import { ProductList } from "../components/product-list"
@@ -11,8 +11,32 @@ import { NavShop } from "../components/nav-shop"
 import { ImgCard } from "../components/img-card"
 import { BackToTop } from "../components/back-to-top"
 
+export const query = graphql`
+  query MyQuery {
+    allShopifyCollection {
+      edges {
+        node {
+          title
+          id
+          description
+          descriptionHtml
+          handle
+          metafields {
+            id
+            value
+          }
+          image{
+            id
+            originalSrc
+          }
+        }
+      }
+    }
+  }
+`
+
 // step 2: define component
-const Shop = () => {
+const Shop = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -28,6 +52,17 @@ const Shop = () => {
     })
   })
 
+  
+  debugger
+
+  console.log(data)
+
+  var node = data.allShopifyCollection.edges[0].node;
+  var node2 = data.allShopifyCollection.edges[1].node;
+  var node3 = data.allShopifyCollection.edges[2].node;
+  var node4 = data.allShopifyCollection.edges[3].node;
+
+
   return (
     <Layout>
       <div className="container">
@@ -39,16 +74,16 @@ const Shop = () => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-7 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to="/" className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/collection/"+node.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
-                      background="/shop/categories/min_modules.jpg"
-                      category="Modular Furniture /"
-                      sub_category="Min+Modules"
+                      background={node.image.originalSrc}
+                      category={node.metafields[0].value}
+                      sub_category={node.title}
                     />
                     <div className="overlay_img">
                       <ImgCard
-                        background="/shop/categories/min_modules.jpg"
-                        description="Customise your own furniture with flexible configurations such as sizes, colours and storage compartments."
+                        background={node.image.originalSrc}
+                        description={node.description}
                       />
                     </div>
                   </Link>
@@ -56,16 +91,16 @@ const Shop = () => {
               </div>
               <div className="col-lg-5 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to="/" className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/collection/"+node2.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
-                      background="/shop/categories/acacia.jpg"
-                      category="Modular Furniture /"
-                      sub_category="Acacia Blocks "
+                      background={node2.image.originalSrc}
+                      category={node2.metafields[0].value}
+                      sub_category={node2.title}
                     />
                     <div className="overlay_img">
                       <ImgCard
-                        background="/shop/categories/acacia.jpg"
-                        description="Connect, stack and mount the blocks to build your creative storage display."
+                        background={node2.image.originalSrc}
+                        description={node2.description}
                       />
                     </div>
                   </Link>
@@ -75,16 +110,16 @@ const Shop = () => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-5 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to="/" className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/collection/"+node3.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
-                      background="/shop/categories/acacia_pets.jpg"
-                      category="Pet Furniture /"
-                      sub_category="Acacia For Pets"
+                      background={node3.image.originalSrc}
+                      category={node3.metafields[0].value}
+                      sub_category={node3.title}
                     />
                     <div className="overlay_img">
                       <ImgCard
-                        background="/shop/categories/acacia_pets.jpg"
-                        description="Discover new ways for your furkids to play with our modern pet furniture that’s built to entertain and last."
+                        background={node3.image.originalSrc}
+                        description={node3.description}
                       />
                     </div>
                   </Link>
@@ -92,22 +127,23 @@ const Shop = () => {
               </div>
               <div className="col-lg-7 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to="/" className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/collection/"+node4.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
-                      background="/shop/categories/accessories.jpg"
-                      category="Home Decor /"
-                      sub_category="Accessories"
+                      background={node4.image.originalSrc}
+                      category={node4.metafields[0].value}
+                      sub_category={node4.title}
                     />
                     <div className="overlay_img">
                       <ImgCard
-                        background="/shop/categories/accessories.jpg"
-                        description="Specially curated display pieces that complement our modular furniture series. "
+                        background={node4.image.originalSrc}
+                        description={node4.description}
                       />
                     </div>
                   </Link>
                 </div>
               </div>
             </div>
+          
             <div className="row mt-140 animate">
               <div className="col-12">
                 <h3 className="text-uppercase pb-5">Best Sellers</h3>

@@ -21,7 +21,9 @@ import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 
 // step 2: define component
-const Shop = () => {
+const Shop = ({ pageContext }) => {
+  const { collection, productCount } = pageContext
+  
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -60,19 +62,20 @@ const Shop = () => {
             <div className="row mb-4">
               <div className="col">
                 <SubBanner
-                  background="/shop/min_modules/banner.jpg"
-                  category="Modular Furniture /"
-                  sub_category="Min+Modules"
+                  background={collection.image.originalSrc}
+                  category={collection.metafields[0].value}
+                  sub_category={collection.title}
                 />
               </div>
             </div>
             <div className="row mb-100">
+            { collection.products.map((product) => (
               <div className="col-12 col-lg-4 mb-4">
                 <ProductListItem
-                  url="/shop-details"
-                  image="/shop/min_modules/bedside_table_small_2.png"
-                  name="Small Side Table"
-                  price="205"
+                  url={"/mint/"+product.handle}
+                  image={product.images[0].originalSrc}
+                  name={product.title}
+                  price={product.priceRangeV2.minVariantPrice.amount}
                   color_1={
                     <li>
                       <img src="/icons/color_brown_white.png" alt="" />
@@ -120,165 +123,9 @@ const Shop = () => {
                   }
                 />
               </div>
-              <div className="col-12 col-lg-4 mb-4">
-                <ProductListItem
-                  url="/shop-details"
-                  image="/shop/min_modules/bookshelf_tall_3.png"
-                  name="Tall Bookshelf"
-                  price="205"
-                  color_1={
-                    <li>
-                      <img src="/icons/color_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_2={
-                    <li>
-                      <img src="/icons/color_black.png" alt="" />
-                    </li>
-                  }
-                  color_3={
-                    <li>
-                      <img src="/icons/color_dark_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_4={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_5={
-                    <li>
-                      <img src="/icons/color_white_grey.png" alt="" />
-                    </li>
-                  }
-                  color_6={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_7={
-                    <li>
-                      <img src="/icons/color_black_grey.png" alt="" />
-                    </li>
-                  }
-                  color_8={
-                    <li>
-                      <img src="/icons/color_blue_yellow.png" alt="" />
-                    </li>
-                  }
-                  color_9={
-                    <li>
-                      <img src="/icons/color_brown_black.png" alt="" />
-                    </li>
-                  }
-                />
-              </div>
-              <div className="col-12 col-lg-4 mb-4">
-                <ProductListItem
-                  url="/shop-details"
-                  image="/shop/min_modules/bedroom_chest_small.png"
-                  name="Small Bedroom Chest"
-                  price="205"
-                  color_1={
-                    <li>
-                      <img src="/icons/color_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_2={
-                    <li>
-                      <img src="/icons/color_black.png" alt="" />
-                    </li>
-                  }
-                  color_3={
-                    <li>
-                      <img src="/icons/color_dark_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_4={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_5={
-                    <li>
-                      <img src="/icons/color_white_grey.png" alt="" />
-                    </li>
-                  }
-                  color_6={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_7={
-                    <li>
-                      <img src="/icons/color_black_grey.png" alt="" />
-                    </li>
-                  }
-                  color_8={
-                    <li>
-                      <img src="/icons/color_blue_yellow.png" alt="" />
-                    </li>
-                  }
-                  color_9={
-                    <li>
-                      <img src="/icons/color_brown_black.png" alt="" />
-                    </li>
-                  }
-                />
-              </div>
-              <div className="col-12 col-lg-4 mb-4">
-                <ProductListItem
-                  url="/shop-details"
-                  image="/shop/min_modules/bookshelf_full.png"
-                  name="Full Bookshelf"
-                  price="205"
-                  color_1={
-                    <li>
-                      <img src="/icons/color_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_2={
-                    <li>
-                      <img src="/icons/color_black.png" alt="" />
-                    </li>
-                  }
-                  color_3={
-                    <li>
-                      <img src="/icons/color_dark_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_4={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_5={
-                    <li>
-                      <img src="/icons/color_white_grey.png" alt="" />
-                    </li>
-                  }
-                  color_6={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_7={
-                    <li>
-                      <img src="/icons/color_black_grey.png" alt="" />
-                    </li>
-                  }
-                  color_8={
-                    <li>
-                      <img src="/icons/color_blue_yellow.png" alt="" />
-                    </li>
-                  }
-                  color_9={
-                    <li>
-                      <img src="/icons/color_brown_black.png" alt="" />
-                    </li>
-                  }
-                />
-              </div>
+              ))}
+
+              {/*
               <div className="col-12 col-lg-8 mb-4">
                 <ProductListItem
                   url="/shop-details"
@@ -332,6 +179,8 @@ const Shop = () => {
                   }
                 />
               </div>
+              */}
+              
             </div>
             <div className="row">
               <div className="col-12">
