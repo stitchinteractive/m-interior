@@ -13,7 +13,7 @@ import { BackToTop } from "../components/back-to-top"
 
 export const query = graphql`
   query MyQuery {
-    allShopifyCollection {
+    collections: allShopifyCollection {
       edges {
         node {
           title
@@ -32,11 +32,59 @@ export const query = graphql`
         }
       }
     }
+    bestselling: allShopifyProduct(
+      filter: {metafields: {elemMatch: {key: {eq: "best_seller"}, value: {eq: "true"}}}}
+      limit: 3
+    ) {
+      edges {
+        node {
+          title
+          images {
+            originalSrc
+          }
+          shopifyId
+          handle
+          descriptionHtml
+          priceRangeV2 {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          status
+          storefrontId
+          variants {
+            shopifyId
+            availableForSale
+            storefrontId
+            title
+            price
+            selectedOptions {
+              name
+              value
+            }
+          }
+          options {
+            name
+            values
+            id
+          }
+          metafields {
+            value
+            key
+          }
+        }
+      }
+    }
   }
 `
 
 // step 2: define component
-const Shop = ({data}) => {
+const Shop = ({data: { collections, bestselling }}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -55,12 +103,13 @@ const Shop = ({data}) => {
   
   debugger
 
-  console.log(data)
+  console.log(collections)
+  console.log(bestselling)
 
-  var node = data.allShopifyCollection.edges[0].node;
-  var node2 = data.allShopifyCollection.edges[1].node;
-  var node3 = data.allShopifyCollection.edges[2].node;
-  var node4 = data.allShopifyCollection.edges[3].node;
+  var node = collections.edges[0].node;
+  var node2 = collections.edges[1].node;
+  var node3 = collections.edges[2].node;
+  var node4 = collections.edges[3].node;
 
 
   return (

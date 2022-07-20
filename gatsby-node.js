@@ -84,44 +84,44 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             products {
               title
-                images {
-                  originalSrc
+              images {
+                originalSrc
+              }
+              shopifyId
+              handle
+              descriptionHtml
+              priceRangeV2 {
+                maxVariantPrice {
+                  amount
+                  currencyCode
                 }
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              status
+              storefrontId
+              variants {
                 shopifyId
-                handle
-                descriptionHtml
-                priceRangeV2 {
-                  maxVariantPrice {
-                    amount
-                    currencyCode
-                  }
-                  minVariantPrice {
-                    amount
-                    currencyCode
-                  }
-                }
-                status
+                availableForSale
                 storefrontId
-                variants {
-                  shopifyId
-                  availableForSale
-                  storefrontId
-                  title
-                  price
-                  selectedOptions {
-                    name
-                    value
-                  }
-                }
-                options {
+                title
+                price
+                selectedOptions {
                   name
-                  values
-                  id
-                }
-                metafields {
                   value
-                  key
                 }
+              }
+              options {
+                name
+                values
+                id
+              }
+              metafields {
+                value
+                key
+              }
             }
           }
         }
