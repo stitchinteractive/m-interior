@@ -193,6 +193,229 @@ const InteriorDesignDetails = () => {
             </div>
           </div>
         </div>
+        <div className="container text-center">
+          <div className="row row_padding">
+            <div className="col-12">
+              <h2 className="mb-80">The Spaces We've Transformed</h2>
+            </div>
+            <div className="col-12 col-md-6 pb-5">
+              <Link to="/interior-design-details" className="no_underline">
+                <p className="pb-3">
+                  <img src="./interior/works/1/1.jpg" alt="" />
+                </p>
+                <h4>139 Pasir Ris, 4RM</h4>
+                <p>Modern Contemporary</p>
+              </Link>
+            </div>
+            <div className="col-12 col-md-6 pb-5">
+              <Link to="/interior-design-details" className="no_underline">
+                <p className="pb-3">
+                  <img src="./interior/works/1/1.jpg" alt="" />
+                </p>
+                <h4>Treescape Condo, 4RM</h4>
+                <p>Modern Contemporary</p>
+              </Link>
+            </div>
+            <div className="col-12 col-md-6 pb-5">
+              <Link to="/interior-design-details" className="no_underline">
+                <p className="pb-3">
+                  <img src="./interior/works/1/1.jpg" alt="" />
+                </p>
+                <h4>139 Pasir Ris, 4RM</h4>
+                <p>Modern Contemporary</p>
+              </Link>
+            </div>
+            <div className="col-12 col-md-6 pb-5">
+              <Link to="/interior-design-details" className="no_underline">
+                <p className="pb-3">
+                  <img src="./interior/works/1/1.jpg" alt="" />
+                </p>
+                <h4>Treescape Condo, 4RM</h4>
+                <p>Modern Contemporary</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="bg_grey">
+          <div className="container">
+            <div className="row row_padding">
+              <div className="col-12">
+                <form className="g-3">
+                  <div className="row">
+                    <div className="col-12">
+                      <h2 className="pb-6 text-center">
+                        Get A Free Consultation & Quote
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12 col-md-4 pb-5">
+                      <label htmlFor="input_name" className="form-label">
+                        Name*
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="input_name"
+                      />
+                    </div>
+                    <div className="col-12 col-md-4 pb-5">
+                      <label htmlFor="input_phone" className="form-label">
+                        Phone Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="input_phone"
+                      />
+                    </div>
+                    <div className="col-12 col-md-4 pb-5">
+                      <label htmlFor="input_email" className="form-label">
+                        Email*
+                      </label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="input_email"
+                      />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12 col-md-4 pb-5">
+                      <label
+                        htmlFor="input_property_type"
+                        className="form-label"
+                      >
+                        Property Type*
+                      </label>
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select an option</option>
+                        <option value="1">HDB</option>
+                        <option value="2">Condominium</option>
+                        <option value="3">Landed</option>
+                        <option value="4">Commercial</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-md-4 pb-5">
+                      <label
+                        htmlFor="input_property_type"
+                        className="form-label"
+                      >
+                        Room Type*
+                      </label>
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select an option</option>
+                        <option value="1">1-Room</option>
+                        <option value="2">2-Room</option>
+                        <option value="3">3-Room</option>
+                        <option value="4">4-Room</option>
+                        <option value="5">5-Room</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-md-4 pb-5">
+                      <label
+                        htmlFor="input_key_collection_date"
+                        className="form-label"
+                      >
+                        Key Collection Date
+                      </label>
+                      <input
+                        type="date"
+                        className="form-control"
+                        id="input_key_collection_date"
+                      />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12 col-md-4 pb-5">
+                      <label htmlFor="input_budget" className="form-label">
+                        Renovation Budget
+                      </label>
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select an option</option>
+                        <option value="1">Below S$10,000</option>
+                        <option value="2">S$10,000 - S$20,000</option>
+                        <option value="3">S$20,001 - S$30,000</option>
+                        <option value="4">S$30,001 - S$40,000</option>
+                        <option value="4">S$40,001 - S$50,000</option>
+                        <option value="4">S$50,001 - S$60,000</option>
+                        <option value="4">S$60,001 - S$70,000</option>
+                        <option value="4">S$70,001 - S$100,000</option>
+                        <option value="4">Above S$100,000</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-md-4 pb-5">
+                      <label htmlFor="input_floorplan" className="form-label">
+                        Floorplan, if any
+                      </label>
+                      <div class="input-group mb-3">
+                        <input
+                          type="file"
+                          class="form-control"
+                          id="input_floorplan"
+                        />
+                        <label class="input-group-text" for="input_floorplan">
+                          Upload
+                        </label>
+                      </div>
+                    </div>
+                    <div className="col-12 col-md-4 pb-5">
+                      <label htmlFor="input_" className="form-label">
+                        How did you find us?
+                      </label>
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select an option</option>
+                        <option value="1">Facebook</option>
+                        <option value="2">Instagram</option>
+                        <option value="3">Google</option>
+                        <option value="4">Friends/family referral</option>
+                        <option value="5">Others</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12 pb-5">
+                      <div class="mb-3">
+                        <label for="input_other_info" class="form-label">
+                          Other Information
+                        </label>
+                        <textarea
+                          class="form-control"
+                          id="input_other_info"
+                          rows="3"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12 text-center">
+                      <Link to="/">
+                        <button
+                          type="submit"
+                          className="btn btn-light text-uppercase mb-80"
+                        >
+                          Submit
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   )

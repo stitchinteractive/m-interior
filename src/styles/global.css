@@ -472,8 +472,9 @@ input::-webkit-date-and-time-value {
   margin-bottom: 0;
 }
 
-.form-control {
-  background: transparent;
+.form-control,
+.form-select {
+  background-color: transparent;
   border-radius: 0;
   border-width: 0 0 1px 0;
   margin-bottom: 5px;
@@ -483,8 +484,9 @@ input::-webkit-date-and-time-value {
   letter-spacing: 1px;
 }
 
-.form-control:focus {
-  background: transparent;
+.form-control:focus,
+.form-select:focus {
+  background-color: transparent;
   box-shadow: none;
   border-color: var(--yellow);
 }
