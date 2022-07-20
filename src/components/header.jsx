@@ -58,7 +58,7 @@ function OffCanvasExample({ ...props }) {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">Blog</Link>
+                  <Link to="/blog">Blog</Link>
                 </li>
               </ul>
             </div>
@@ -138,7 +138,7 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/">Blog</Link>
+                      <Link to="/blog">Blog</Link>
                     </li>
                   </ul>
                 </div>

@@ -530,6 +530,17 @@ hr.dashed {
   opacity: 1;
 }
 
+ul.pagination .page-item a {
+  background-color: transparent !important;
+  border: 0;
+  color: var(--yellow);
+}
+
+ul.pagination .page-item.active a {
+  color: var(--yellow) !important;
+  font-weight: var(--semibold);
+}
+
 table th {
   text-transform: uppercase;
 }
