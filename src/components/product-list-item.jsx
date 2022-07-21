@@ -5,6 +5,8 @@ import * as productListModule from "./product-list-item.module.css"
 
 // step 2: define and export
 export function ProductListItem(props) {
+  //console.log(props.bgimage)
+  const hasVariants = props.variants?.length > 1
   return (
     <div className="container_overlay">
       <div className={productListModule.item}>
@@ -20,22 +22,20 @@ export function ProductListItem(props) {
               <img src={props.image} alt={props.name} className="mx-auto" />
             </div>
             <ul className="listing_colors">
-              {props.color_1}
-              {props.color_2}
-              {props.color_3}
-              {props.color_4}
-              {props.color_5}
-              {props.color_6}
-              {props.color_7}
-              {props.color_8}
-              {props.color_9}
-              {props.color_10}
+              {hasVariants &&
+                props.options.map(({ id, name, values }, index) => (
+                  values.map((value) => (
+                  <li>
+                    <img src={"/icons/color_"+value.toString().toLowerCase().replace(/ /g,"_")+".png"} alt="" />
+                  </li>
+                  ))
+              ))}
             </ul>
           </div>
           <div
             className="overlay_img"
             style={{
-              backgroundImage: `url(/shop/acacia/acacia_block_1_hover.jpg)`,
+              backgroundImage: `url(`+props.bgimage+`)`,
             }}
           ></div>
         </Link>

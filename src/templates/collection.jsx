@@ -74,53 +74,11 @@ const Shop = ({ pageContext }) => {
                 <ProductListItem
                   url={"/mint/"+product.handle}
                   image={product.images[0].originalSrc}
+                  bgimage={product.images[1].originalSrc}
                   name={product.title}
                   price={product.priceRangeV2.minVariantPrice.amount}
-                  color_1={
-                    <li>
-                      <img src="/icons/color_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_2={
-                    <li>
-                      <img src="/icons/color_black.png" alt="" />
-                    </li>
-                  }
-                  color_3={
-                    <li>
-                      <img src="/icons/color_dark_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_4={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_5={
-                    <li>
-                      <img src="/icons/color_white_grey.png" alt="" />
-                    </li>
-                  }
-                  color_6={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_7={
-                    <li>
-                      <img src="/icons/color_black_grey.png" alt="" />
-                    </li>
-                  }
-                  color_8={
-                    <li>
-                      <img src="/icons/color_blue_yellow.png" alt="" />
-                    </li>
-                  }
-                  color_9={
-                    <li>
-                      <img src="/icons/color_brown_black.png" alt="" />
-                    </li>
-                  }
+                  variants={product.variants}
+                  options={product.options}
                 />
               </div>
               ))}

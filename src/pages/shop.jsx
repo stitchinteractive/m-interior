@@ -101,10 +101,9 @@ const Shop = ({data: { collections, bestselling }}) => {
   })
 
   
-  debugger
-
-  console.log(collections)
-  console.log(bestselling)
+  //debugger
+  //console.log(collections)
+  //console.log(bestselling)
 
   var node = collections.edges[0].node;
   var node2 = collections.edges[1].node;
@@ -196,7 +195,8 @@ const Shop = ({data: { collections, bestselling }}) => {
             <div className="row mt-140 animate">
               <div className="col-12">
                 <h3 className="text-uppercase pb-5">Best Sellers</h3>
-                <ProductList />
+                <ProductList 
+                  bsdata={bestselling} />
                 <BackToTop />
               </div>
             </div>
