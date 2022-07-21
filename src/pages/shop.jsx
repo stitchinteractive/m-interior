@@ -13,7 +13,9 @@ import { BackToTop } from "../components/back-to-top"
 
 export const query = graphql`
   query MyQuery {
-    collections: allShopifyCollection {
+    collections: allShopifyCollection(
+      filter: {handle: {ne: "extras"}}
+    ) {
       edges {
         node {
           title
@@ -125,7 +127,7 @@ const Shop = ({data: { collections, bestselling }}) => {
                   <Link to={"/collection/"+node.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node.image.originalSrc}
-                      category={node.metafields[0].value}
+                      category={node.metafields[0]?.value}
                       sub_category={node.title}
                     />
                     <div className="overlay_img">

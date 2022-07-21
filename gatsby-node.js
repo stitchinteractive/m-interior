@@ -135,7 +135,10 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/collection.jsx`),
       context: {
         collection: node,
-        productCount: node.products.length
+        productCount: node.products.length,
+        addons: collections.data.allShopifyCollection.edges.filter(
+          (addon) => addon.node.handle === "extras"
+        ) ?? []
       },
     })
   })

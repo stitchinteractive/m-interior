@@ -31,7 +31,7 @@ export function ProductList(props) {
   }
   const [bestsellers, setBestsellers] = React.useState(props.bsdata)
 
-  console.log(bestsellers)
+  //console.log(bestsellers.edges.length)
 
 
   return (
@@ -41,7 +41,7 @@ export function ProductList(props) {
         // install Swiper modules
         modules={[Navigation, A11y]}
         spaceBetween={10}
-        loop={true}
+        loop={false}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -57,7 +57,7 @@ export function ProductList(props) {
         onSlideChange={() => console.log("slide change")}
         ref={swiperRef}
       >
-        { bestsellers.edges.map((product) => (
+        { bestsellers?.edges?.map((product) => (
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
             url={"/mint/"+product.node.handle}
