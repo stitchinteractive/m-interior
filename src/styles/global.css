@@ -581,6 +581,24 @@ table tr td {
   left: 24px;
 }
 
+#cart_container {
+  position: relative;
+}
+
+#cart_items {
+  width: 16px;
+  height: 16px;
+  background-color: var(--yellow);
+  border-radius: 16px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: var(--bold);
+  line-height: 14px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
 .row-flex {
   display: flex;
   flex-wrap: wrap;
