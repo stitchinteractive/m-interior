@@ -95,9 +95,12 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/cart">
-                        <CartIcon />
-                      </Link>
+                      <div id="cart_container">
+                        <Link to="/cart">
+                          <CartIcon />
+                          <div id="cart_items">99</div>
+                        </Link>
+                      </div>
                     </li>
                     <li className="d-lg-none">
                       {["end"].map((placement, idx) => (
