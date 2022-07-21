@@ -36,7 +36,7 @@ export function NavShop(props) {
                   to="/collection/min-modules"
                   activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
                 >
-                  Min-modules
+                  Min+modules
                 </Link>
               </li>
               <li>
@@ -53,12 +53,18 @@ export function NavShop(props) {
       </Accordion>
       <ul className="listing font_medium">
         <li>
-          <Link to="/collection/acacia-for-pets" activeStyle={{ fontWeight: 600, color: "#FBCB02" }}>
+          <Link
+            to="/collection/acacia-for-pets"
+            activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
+          >
             Acacia For Pets
           </Link>
         </li>
         <li>
-          <Link to="/collection/accessories" activeStyle={{ fontWeight: 600, color: "#FBCB02" }}>
+          <Link
+            to="/collection/accessories"
+            activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
+          >
             Accessories
           </Link>
         </li>
