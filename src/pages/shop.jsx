@@ -124,7 +124,7 @@ const Shop = ({data: { collections, bestselling }}) => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-7 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to={"/collection/"+node.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/modular-furniture/"+node.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node.image.originalSrc}
                       category={node.metafields[0]?.value}
@@ -141,7 +141,7 @@ const Shop = ({data: { collections, bestselling }}) => {
               </div>
               <div className="col-lg-5 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to={"/collection/"+node2.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/modular-furniture/"+node2.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node2.image.originalSrc}
                       category={node2.metafields[0].value}
@@ -160,7 +160,7 @@ const Shop = ({data: { collections, bestselling }}) => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-5 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to={"/collection/"+node3.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/modular-furniture/"+node3.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node3.image.originalSrc}
                       category={node3.metafields[0].value}
@@ -177,7 +177,7 @@ const Shop = ({data: { collections, bestselling }}) => {
               </div>
               <div className="col-lg-7 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to={"/collection/"+node4.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/modular-furniture/"+node4.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node4.image.originalSrc}
                       category={node4.metafields[0].value}
