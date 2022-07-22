@@ -67,7 +67,7 @@ const Shop = ({ pageContext }) => {
               <div className="col">
                 <SubBanner
                   background={collection.image.originalSrc}
-                  category={collection.metafields[0].value}
+                  category={collection.metafields[0]?.value}
                   sub_category={collection.title}
                 />
               </div>
