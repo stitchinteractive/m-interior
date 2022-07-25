@@ -7,12 +7,12 @@ import CartIcon from "../icons/cart"
 import MenuIcon from "../icons/menu"
 import * as headerModule from "./header.module.css"
 import Offcanvas from "react-bootstrap/Offcanvas"
+import { StoreContext } from "../context/store-context"
 
 function OffCanvasExample({ ...props }) {
   const [show, setShow] = useState(false)
 
   const toggleShow = () => setShow((s) => !s)
-
   return (
     <>
       <button onClick={toggleShow}>
@@ -70,6 +70,9 @@ function OffCanvasExample({ ...props }) {
 }
 
 export function Header() {
+  const { checkout, loading } = React.useContext(StoreContext)
+  const emptyCart = checkout.lineItems.length === 0
+  
   return (
     <div className={headerModule.container_header}>
       <header className={headerModule.header}>
@@ -98,7 +101,9 @@ export function Header() {
                       <div id="cart_container">
                         <Link to="/cart">
                           <CartIcon />
-                          <div id="cart_items">99</div>
+                          {!emptyCart && (
+                            <div id="cart_items">{checkout.lineItems.length}</div>
+                          )}
                         </Link>
                       </div>
                     </li>
