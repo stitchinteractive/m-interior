@@ -6,6 +6,23 @@ import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
 import BackIcon from "../icons/back"
+import { gql, useMutation } from '@apollo/client';
+
+const CREATE_CUSTOMER = gql`
+  # create a customer
+  mutation customerCreate($input: CustomerCreateInput!) {
+    customerCreate(input: $input) {
+      customer {
+        firstName
+        lastName,
+        email,
+        phone,
+        acceptsMarketing
+      }
+      customerUserErrors { field, message, code }
+    }
+  }
+`;
 
 // step 2: define component
 const Account = () => {
@@ -23,6 +40,17 @@ const Account = () => {
       })
     })
   })
+
+  const [createCustomer, { data, loading, error }] = useMutation(CREATE_CUSTOMER);
+  createCustomer({ variables: { 
+    "input": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "johnsmith@shopify.com",
+      "phone": "+15146669999",
+      "password": "5hopify",
+      "acceptsMarketing": true
+  }} });
 
   return (
     <Layout>

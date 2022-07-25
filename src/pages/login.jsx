@@ -5,6 +5,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
+import { useQuery, gql } from '@apollo/client';
+
+const GET_PRODUCT = gql`
+  query($handle: String!) {
+    products(first:1, query: $handle) {
+      edges {
+        node {
+          variants(first: 1) {
+            edges {
+              node {
+                availableForSale
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 // step 2: define component
 const Login = () => {
@@ -22,6 +41,17 @@ const Login = () => {
       })
     })
   })
+
+  debugger
+
+  const {loading, error, data} = useQuery(GET_PRODUCT, {
+    variables: {handle: "bedside-table"}
+  });
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+  console.log(data);
 
   return (
     <Layout>

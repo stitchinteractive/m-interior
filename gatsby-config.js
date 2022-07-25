@@ -25,6 +25,17 @@ module.exports = {
         shopifyConnections: ["collections"],
       },
     },
+    {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: `https://${process.env.GATSBY_SHOPIFY_STORE_URL}/api/graphql`,
+        headers: {
+          'X-Shopify-Storefront-Access-Token':
+            process.env.GATSBY_STOREFRONT_ACCESS_TOKEN,
+          'Accept' : 'application/graphql'
+        }
+      }
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
