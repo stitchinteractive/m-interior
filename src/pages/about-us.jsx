@@ -97,7 +97,7 @@ const AboutUs = () => {
                     experience for every customer in every possible space.
                   </p>
 
-                  <h4>Complimentary Design Service</h4>
+                  <h5 className="pb-2">Complimentary Design Service</h5>
                   <p>
                     We are all about creating that perfect fit for your spaces.
                     We offer extensive customisation services for our furniture
@@ -110,7 +110,7 @@ const AboutUs = () => {
                     </Link>
                   </p>
 
-                  <h4>Interior Design Service</h4>
+                  <h5 className="pb-2">Interior Design Service</h5>
                   <p>
                     We don’t just stop at furniture, we are here to transform
                     spaces in every inch of your home. With our in-house
@@ -146,7 +146,7 @@ const AboutUs = () => {
                   Design Philosophy /
                 </h5>
                 <h2 className="pb-4">More Than Just Design</h2>
-                <h4>Exclusively Designed In-house</h4>
+                <h5 className="pb-2">Exclusively Designed In-house</h5>
                 <p className="pb-5">
                   Our designs center around creating a customer-focused solution
                   that allows homeowners to take full control of their spaces
@@ -154,7 +154,7 @@ const AboutUs = () => {
                   furniture series or interior design, we are dedicated to
                   create purposeful designs for every space.
                 </p>
-                <h4>Premium Quality You Can Trust</h4>
+                <h5 className="pb-2">Premium Quality You Can Trust</h5>
                 <p className="pb-5">
                   Every detail, material and concept is meticulously
                   manufactured and crafted to ensure that we deliver only the
@@ -162,7 +162,7 @@ const AboutUs = () => {
                   designed with high quality and durable materials, coupled with
                   fine craftsmanship from our in-house carpentry team.
                 </p>
-                <h4>Sustainability</h4>
+                <h5 className="pb-2">Sustainability</h5>
                 <p className="pb-5">
                   We aspire to promote the idea of repurposing furniture and to
                   discourage the throwaway culture. The concept of modularity

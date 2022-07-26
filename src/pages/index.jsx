@@ -640,7 +640,7 @@ const HomePage = () => {
               <div className="col-12 col-md-8 col-lg-6 box">
                 <h1 className="text-uppercase pb-7">Min+Modules</h1>
                 <div ref={minLeadInRef}>
-                  <p className="font_lg font_grey_light">
+                  <p className="font_lg font_grey_light font_letterspacing_1">
                     Min+Modules is a series of modular furniture exclusively
                     designed in-house by M.INT. Each module is connected by
                     magnetic connectors which allows flexible arrangements to
@@ -741,7 +741,9 @@ const HomePage = () => {
               <h1 className="text-uppercase">Two Sizes.</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Endless Configurations.</h3>
-                <p>Stack and arrange the modules in any way you want.</p>
+                <p className="font_letterspacing_1">
+                  Stack and arrange the modules in any way you want.
+                </p>
               </div>
             </div>
             <div className="col-md-6" ref={sizes2Ref}>
@@ -792,7 +794,7 @@ const HomePage = () => {
               <h3 className="text-uppercase">Magnetic</h3>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Connectors.</h3>
-                <p>
+                <p className="font_letterspacing_1">
                   Each module is connected by magnetic connectors which allows
                   flexible arrangements to suit your needs and spaces.
                 </p>
@@ -804,7 +806,7 @@ const HomePage = () => {
               <h1 className="text-uppercase">Flexible</h1>
               <div className="text_indent">
                 <h3 className="text-uppercase mb-4">Storage Compartments.</h3>
-                <p>
+                <p className="font_letterspacing_1">
                   Choose from a selection of doors, drawers and space dividers
                   to satisfy your storage requirements.
                 </p>
@@ -858,7 +860,7 @@ const HomePage = () => {
               <h3 className="text-uppercase">Your Space.</h3>
               <div className="text_indent">
                 <h1 className="text-uppercase mb-4">Your Style.</h1>
-                <p>
+                <p className="font_letterspacing_1">
                   From wood grains to solid colours and patterns, mix and match
                   to form the perfect combination that suit your interior style.
                 </p>

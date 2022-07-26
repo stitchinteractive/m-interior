@@ -13,7 +13,9 @@ export function ProductListItem(props) {
         <Link to={props.url} className="no_underline">
           <div className="d-flex flex-column">
             <div className={productListModule.info}>
-              <h5 className="font_letterspacing_1">{props.name}</h5>
+              <h5 className="text-uppercase font_letterspacing_1">
+                {props.name}
+              </h5>
               <div className="font_letterspacing_1 font_grey_medium_3">
                 SGD {props.price}
               </div>
@@ -23,19 +25,26 @@ export function ProductListItem(props) {
             </div>
             <ul className="listing_colors">
               {hasVariants &&
-                props.options.map(({ id, name, values }, index) => (
+                props.options.map(({ id, name, values }, index) =>
                   values.map((value) => (
-                  <li>
-                    <img src={"/icons/color_"+value.toString().toLowerCase().replace(/ /g,"_")+".png"} alt="" />
-                  </li>
+                    <li>
+                      <img
+                        src={
+                          "/icons/color_" +
+                          value.toString().toLowerCase().replace(/ /g, "_") +
+                          ".png"
+                        }
+                        alt=""
+                      />
+                    </li>
                   ))
-              ))}
+                )}
             </ul>
           </div>
           <div
             className="overlay_img"
             style={{
-              backgroundImage: `url(`+props.bgimage+`)`,
+              backgroundImage: `url(` + props.bgimage + `)`,
             }}
           ></div>
         </Link>

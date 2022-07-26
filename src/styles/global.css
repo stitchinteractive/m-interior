@@ -3,6 +3,7 @@ body {
   color: var(--text-color);
   font-size: var(--font-default) !important;
   line-height: var(--loose);
+  letter-spacing: 1px;
 }
 
 #content_container {
@@ -11,19 +12,11 @@ body {
 }
 
 /********** fonts **********/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: 3px;
-  font-family: var(--font-headings);
-}
-
 h1 {
   font-size: var(--text-h1);
   line-height: var(--dense);
+  letter-spacing: 5px;
+  font-family: var(--font-headings);
 }
 
 h1.heading_boxed {
@@ -34,35 +27,44 @@ h1.heading_boxed {
   background: var(--grey);
   padding-left: 30px;
   margin-right: 60px;
+  font-family: var(--font-headings);
 }
 
 h1.heading_boxed + h2 {
   line-height: var(--text-50);
+  font-family: var(--font-headings);
 }
 
 h2 {
   font-size: var(--text-h2);
   line-height: var(--dense);
+  letter-spacing: 5px;
+  font-family: var(--font-headings);
 }
 
 h3 {
   font-size: var(--text-h3);
   line-height: var(--dense);
+  letter-spacing: 5px;
+  font-family: var(--font-headings);
 }
 
 h4 {
   font-size: var(--text-h4);
   line-height: var(--dense);
+  font-family: var(--font-headings-medium);
 }
 
 h5 {
   font-size: var(--text-h5);
   line-height: var(--dense);
+  font-family: var(--font-headings-medium);
 }
 
 h6 {
   font-size: var(--text-h6);
   line-height: var(--dense);
+  font-family: var(--font-headings-medium);
 }
 
 .line_height_dense {
@@ -82,6 +84,22 @@ h6 {
 
 .font_letterspacing_1 {
   letter-spacing: 1px;
+}
+
+.font_letterspacing_2 {
+  letter-spacing: 2px;
+}
+
+.font_letterspacing_3 {
+  letter-spacing: 3px;
+}
+
+.font_letterspacing_4 {
+  letter-spacing: 4px;
+}
+
+.font_letterspacing_5 {
+  letter-spacing: 5px;
 }
 
 .font_xs {
@@ -1234,11 +1252,12 @@ circle {
 .nav-tabs .nav-link {
   text-transform: uppercase;
   color: var(--blue);
-  font-weight: var(--medium);
+  font-weight: var(--semibold);
   transition: none;
   border: 0;
   width: 100%;
   font-size: var(--text-md);
+  letter-spacing: 1px;
 }
 
 .nav-tabs .nav-link:focus,
@@ -1249,13 +1268,17 @@ circle {
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   color: var(--blue);
-  font-weight: var(--semibold);
+  font-weight: var(--bold);
   border-width: 0 0 3px 0;
   border-bottom: 3px solid #1a3142;
 }
 
 .tab-content {
   padding: 30px 0;
+}
+
+.tab-content h5 {
+  margin-bottom: 10px;
 }
 
 .label_order {
