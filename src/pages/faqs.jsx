@@ -31,9 +31,6 @@ const InteriorDesignDetails = () => {
             <h2 className="text-uppercase heading_line pb-4">
               Frequently Asked Questions
             </h2>
-            <h5 className="text-uppercase pb-9">
-              M.INT, which values customers first, always offers helpful advice.
-            </h5>
 
             <h5 className="text-uppercase pb-5">General Enquiries</h5>
 
@@ -219,19 +216,6 @@ const InteriorDesignDetails = () => {
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
-              <Accordion.Item eventKey="12">
-                <Accordion.Header>
-                  I need the products urgently. Can you arrange for an express
-                  delivery?
-                </Accordion.Header>
-                <Accordion.Body>
-                  <p>
-                    Please contact us at hello@m-interior.co with your invoice
-                    number and we will try our best to expedite the order for
-                    you. Do note that express fees will be charged accordingly.
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
               <Accordion.Item eventKey="13">
                 <Accordion.Header>
                   I need the products urgently. Can you arrange for an express
@@ -273,19 +257,6 @@ const InteriorDesignDetails = () => {
                     delivery under specified conditions. You may refer to
                     [insert link to exchange and return page] for more
                     information. Do note that all items sold are non-refundable.
-                  </p>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="16">
-                <Accordion.Header>
-                  I received a wrong/defective item(s), what should I do?
-                </Accordion.Header>
-                <Accordion.Body>
-                  <p>
-                    We are sorry! Please contact us at hello@m-interior.co with
-                    your invoice number and photo of your item(s) for
-                    assistance. You may refer to [insert link to exchange and
-                    return page] for more information.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -415,17 +386,6 @@ const InteriorDesignDetails = () => {
                 </Accordion.Header>
                 <Accordion.Body>
                   <p>No, points redemption will not affect your tier status.</p>
-                </Accordion.Body>
-              </Accordion.Item>
-              <Accordion.Item eventKey="27">
-                <Accordion.Header>
-                  Can I transfer/combine points from multiple accounts?
-                </Accordion.Header>
-                <Accordion.Body>
-                  <p>
-                    No, points are non-transferable so please avoid creating
-                    multiple accounts.
-                  </p>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="28">

@@ -129,9 +129,9 @@ const HomePage = () => {
         x: 0,
         delay: 1,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
+          trigger: "#container_min_modules",
           start: "top center",
-          end: "center center",
+          end: "400px center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -148,9 +148,9 @@ const HomePage = () => {
         y: 0,
         delay: 1.2,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
+          trigger: "#container_min_modules",
           start: "top center",
-          end: "center center",
+          end: "400px center",
           scrub: true,
         },
       }
@@ -166,9 +166,9 @@ const HomePage = () => {
         y: 0,
         delay: 1.4,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
+          trigger: "#container_min_modules",
           start: "top center",
-          end: "center center",
+          end: "400px center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -185,9 +185,9 @@ const HomePage = () => {
         y: 0,
         delay: 1.6,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
+          trigger: "#container_min_modules",
           start: "top center",
-          end: "center center",
+          end: "400px center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -204,9 +204,9 @@ const HomePage = () => {
         y: 0,
         delay: 1.8,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
+          trigger: "#container_min_modules",
           start: "top center",
-          end: "center center",
+          end: "400px center",
           toggleActions: "restart none reverse reset",
           scrub: true,
         },
@@ -223,8 +223,8 @@ const HomePage = () => {
         x: 0,
         scrollTrigger: {
           trigger: "#container_min_modules_content",
-          start: "center center",
-          end: "bottom center",
+          start: "top center",
+          end: "center center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -239,8 +239,8 @@ const HomePage = () => {
         ease: "none",
         delay: 0.8,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
-          start: "center center",
+          trigger: "#container_min_modules",
+          start: "450px center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -255,8 +255,8 @@ const HomePage = () => {
         ease: "none",
         delay: 0.8,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
-          start: "center center",
+          trigger: "#container_min_modules",
+          start: "450px center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -271,8 +271,8 @@ const HomePage = () => {
         ease: "none",
         delay: 0.8,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
-          start: "center center",
+          trigger: "#container_min_modules",
+          start: "450px center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -287,8 +287,8 @@ const HomePage = () => {
         ease: "none",
         delay: 0.8,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
-          start: "center center",
+          trigger: "#container_min_modules",
+          start: "450px center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -303,8 +303,8 @@ const HomePage = () => {
         ease: "none",
         delay: 0.8,
         scrollTrigger: {
-          trigger: "#container_min_modules_content",
-          start: "center center",
+          trigger: "#container_min_modules",
+          start: "450px center",
           toggleActions: "restart none reverse reset",
         },
       }
@@ -882,8 +882,12 @@ const HomePage = () => {
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
               <div className="content_100 bg_blue" ref={minCta2Ref}>
-                <p className="p-5">
-                  <img src="/home/1.png" alt="" className="mx-auto" />
+                <p className="p-md-2">
+                  <img
+                    src="/home/rotating_sizes.gif"
+                    alt="Min+Modules"
+                    className="mx-auto"
+                  />
                 </p>
               </div>
             </div>

@@ -5,36 +5,35 @@ import StarIcon from "../icons/star"
 import TickIcon from "../icons/tick"
 
 // step 2: define and export
-export function TestimonialItem() {
+export function TestimonialItem(props) {
   return (
     <div className={testimonalModule.testimonial_item}>
       <div className="row">
+        {/*
         <div className="col-3">
-          <img src="/profile.jpg" className="avatar" alt="Profile" />
+          <img src={props.image} className="avatar" alt="Profile" />
         </div>
-        <div className="col-9">
+        */}
+        <div className="col-12">
           <div className="row align-items-center">
             <div className="col-12">
-              <h6>John D.</h6>
+              <h6>{props.name}</h6>
             </div>
+            {/*
             <div className="col-12 d-flex">
-              <StarIcon />
+              {props.stars}
               <StarIcon />
               <StarIcon />
               <StarIcon />
               <StarIcon />
             </div>
+            */}
           </div>
         </div>
       </div>
       <div className="row">
         <div className="col pt-4">
-          <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
-          </p>
+          <div className={testimonalModule.review}>{props.review}</div>
         </div>
       </div>
       <div className="row">
@@ -46,7 +45,7 @@ export function TestimonialItem() {
           </div>
         </div>
         <div className="col-12 col-md-5 text-md-end pt-3">
-          <div className={testimonalModule.info}>Jan 15, 2022</div>
+          <div className={testimonalModule.info}>{props.date}</div>
         </div>
       </div>
     </div>

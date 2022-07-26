@@ -15,6 +15,10 @@
   font-weight: var(--medium);
 }
 
+.testimonial_item .review {
+  height: 400px;
+}
+
 /********** tablets **********/
 @media (min-width: 768px) {
   .testimonial_item {
@@ -23,5 +27,23 @@
 
   .testimonial_item .info {
     font-size: 14px;
+  }
+
+  .testimonial_item .review {
+    height: 200px;
+  }
+}
+
+/********** laptops **********/
+@media (min-width: 992px) {
+  .testimonial_item .review {
+    height: 350px;
+  }
+}
+
+/********** dekstops **********/
+@media (min-width: 1440px) {
+  .testimonial_item .review {
+    height: 250px;
   }
 }
