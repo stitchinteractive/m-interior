@@ -179,7 +179,7 @@ const InteriorDesignDetails = () => {
                     <Link to="/profile">
                       <button
                         type="submit"
-                        className="btn btn-light text-uppercase mb-80"
+                        className="btn btn-outline btn-black mb-80"
                       >
                         Get Started Now
                       </button>
@@ -402,10 +402,7 @@ const InteriorDesignDetails = () => {
                   <div className="row">
                     <div className="col-12 text-center">
                       <Link to="/">
-                        <button
-                          type="submit"
-                          className="btn btn-light text-uppercase mb-80"
-                        >
+                        <button type="submit" className="btn btn-primary mb-80">
                           Submit
                         </button>
                       </Link>

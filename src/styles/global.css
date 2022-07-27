@@ -363,6 +363,7 @@ input::-webkit-date-and-time-value {
   text-align: left;
 }
 
+/*
 .btn-primary {
   background: var(--yellow);
   border: 0;
@@ -421,6 +422,27 @@ input::-webkit-date-and-time-value {
 .btn-light:hover {
   background: var(--grey);
 }
+*/
+
+.btn-primary {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--semibold);
+  border: 0;
+  background: var(--blue);
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  text-transform: uppercase;
+  border: 1px solid var(--blue);
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+  color: var(--black);
+  border: 1px solid var(--black);
+  background: var(--white);
+}
 
 .btn-outline {
   font-family: var(--font-body);
@@ -440,12 +462,19 @@ input::-webkit-date-and-time-value {
   background: var(--white);
 }
 
+.btn-black {
+  border: 1px solid var(--black);
+  color: var(--black);
+}
+
 .btn-outline-large {
   font-size: 12px;
   padding: 0.5rem 1rem;
   border: 2px solid var(--grey-light-2);
   color: #ffffff;
   border-radius: 0;
+  font-weight: var(--semibold);
+  text-transform: uppercase;
 }
 
 .btn-outline-large:hover {
@@ -453,6 +482,12 @@ input::-webkit-date-and-time-value {
   color: var(--black);
 }
 
+.btn-black-large {
+  border: 2px solid var(--black);
+  color: var(--black);
+}
+
+/*
 .btn-outline-secondary {
   border-radius: 0;
   border: 1px solid var(--yellow);
@@ -471,6 +506,7 @@ input::-webkit-date-and-time-value {
   color: var(--white);
   font-size: var(--text-sm);
 }
+*/
 
 .btn_back_to_top {
   margin-left: 10px;

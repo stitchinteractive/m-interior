@@ -24,7 +24,10 @@ export function Testimonials() {
             <div>
               <p className="pb-10">
                 <Link to="/">
-                  <button type="button" className="btn btn-light">
+                  <button
+                    type="button"
+                    className="btn btn-outline-large btn-black-large"
+                  >
                     Write a review
                   </button>
                 </Link>

@@ -20,7 +20,10 @@ export function LookBookItem(props) {
             <p>{props.content}</p>
             <p>
               <Link to={props.link}>
-                <button type="submit" className="btn btn-light">
+                <button
+                  type="submit"
+                  className="btn btn-outline-large btn-black-large"
+                >
                   Step in
                 </button>
               </Link>

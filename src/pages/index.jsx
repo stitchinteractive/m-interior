@@ -570,10 +570,7 @@ const HomePage = () => {
                 </p>
                 <p>
                   <Link to="/">
-                    <button
-                      type="button"
-                      className="btn btn-outline btn-outline-large"
-                    >
+                    <button type="button" className="btn btn-outline-large">
                       Discover More
                     </button>
                   </Link>

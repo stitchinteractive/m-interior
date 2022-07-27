@@ -131,7 +131,7 @@ const Login = () => {
 
                     <div className="col-12 mt-5 text-center">
                       <Link to="/profile">
-                        <button type="submit" className="btn btn-secondary">
+                        <button type="submit" className="btn btn-primary">
                           Submit
                         </button>
                       </Link>

@@ -1,25 +1,40 @@
 // step 1: import
-import React, { useLayoutEffect, useRef} from "react"
+import React, { useLayoutEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
 import BackIcon from "../icons/back"
-import { gql, useMutation } from '@apollo/client';
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
+import { gql, useMutation } from "@apollo/client"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
 
-const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
-const schema = yup.object({
-  firstName: yup.string().required('First Name is mandatory'),
-  lastName: yup.string().required('Last Name is mandatory'),
-  phone: yup.string().matches(phoneRegExp, { message: '' }).required('Phone is mandatory'),
-  email: yup.string().email('Email is not in the correct format').required('Email is mandatory'),
-  password: yup.string().required('Password is mandatory').min(3, 'Password must be at 3 char long'),
-  confirmPwd: yup.string().required('Password is mandatory').oneOf([yup.ref('password')], 'Passwords does not match')
-}).required();
+const phoneRegExp =
+  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
+const schema = yup
+  .object({
+    firstName: yup.string().required("First Name is mandatory"),
+    lastName: yup.string().required("Last Name is mandatory"),
+    phone: yup
+      .string()
+      .matches(phoneRegExp, { message: "" })
+      .required("Phone is mandatory"),
+    email: yup
+      .string()
+      .email("Email is not in the correct format")
+      .required("Email is mandatory"),
+    password: yup
+      .string()
+      .required("Password is mandatory")
+      .min(3, "Password must be at 3 char long"),
+    confirmPwd: yup
+      .string()
+      .required("Password is mandatory")
+      .oneOf([yup.ref("password")], "Passwords does not match"),
+  })
+  .required()
 
 const CREATE_CUSTOMER = gql`
   # create a customer
@@ -27,42 +42,56 @@ const CREATE_CUSTOMER = gql`
     customerCreate(input: $input) {
       customer {
         firstName
-        lastName,
-        email,
-        phone,
+        lastName
+        email
+        phone
         acceptsMarketing
       }
-      customerUserErrors { field, message, code }
+      customerUserErrors {
+        field
+        message
+        code
+      }
     }
   }
-`;
+`
 
 // step 2: define component
 const Account = () => {
   gsap.registerPlugin(ScrollTrigger)
 
-  const { register, handleSubmit, formState:{ errors }, reset } = useForm({
-    resolver: yupResolver(schema)
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
 
   const [message, setMessage] = React.useState(null)
 
-  const onSubmit = data => {
-    const {confirmPwd, ...customer} = data;
-    customer.acceptsMarketing = true;
-    console.log(customer);
-    errors.message = "Error creating profile. Please ensure you include your country code in the phone number and the email is in the correct format.";
-    customerCreate({variables: {"input": customer},
-    onCompleted: result => {
-      debugger
-      console.log(result);
-      if(result.customerCreate.customerUserErrors.length > 0) {
-        setMessage("Error creating profile. Please ensure you include your country code in the phone number and the email is in the correct format.");
-      } else {
-        reset();
-        setMessage("Profile created successfully");
-      }
-    }})
+  const onSubmit = (data) => {
+    const { confirmPwd, ...customer } = data
+    customer.acceptsMarketing = true
+    console.log(customer)
+    errors.message =
+      "Error creating profile. Please ensure you include your country code in the phone number and the email is in the correct format."
+    customerCreate({
+      variables: { input: customer },
+      onCompleted: (result) => {
+        debugger
+        console.log(result)
+        if (result.customerCreate.customerUserErrors.length > 0) {
+          setMessage(
+            "Error creating profile. Please ensure you include your country code in the phone number and the email is in the correct format."
+          )
+        } else {
+          reset()
+          setMessage("Profile created successfully")
+        }
+      },
+    })
   }
 
   // useLayoutEffect(() => {
@@ -78,7 +107,7 @@ const Account = () => {
   //   })
   // })
 
-  const [customerCreate] = useMutation(CREATE_CUSTOMER);
+  const [customerCreate] = useMutation(CREATE_CUSTOMER)
 
   return (
     <Layout>
@@ -87,7 +116,7 @@ const Account = () => {
           <div className="col col-md-8 offset-md-4 col-lg-10 offset-lg-1">
             <div className="animate">
               <div className={loginModule.login_container}>
-                <form className="row g-3" onSubmit={e => e.preventDefault()}>
+                <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="col-12">
                     <h2 className="text-uppercase pb-6">Create Account</h2>
                     <div className="d-flex btn_back mb-80">
@@ -98,10 +127,9 @@ const Account = () => {
                       >
                         Back
                       </Link>
-                      
                     </div>
                     <div className="d-flex btn_back mb-80">
-                    {message && <label>{message}</label>}
+                      {message && <label>{message}</label>}
                     </div>
                   </div>
                   <div className="col-lg-6">
@@ -204,9 +232,11 @@ const Account = () => {
                           name="confirmPwd"
                           className="form-control"
                           id="input_password"
-                          {...register('confirmPwd')}
+                          {...register("confirmPwd")}
                         />
-                        {errors.confirmPwd && <p>{errors.confirmPwd.message}</p>}
+                        {errors.confirmPwd && (
+                          <p>{errors.confirmPwd.message}</p>
+                        )}
                       </div>
                       <div className="col-12 mb-5">
                         <label htmlFor="input_referral" className="form-label">
@@ -222,9 +252,13 @@ const Account = () => {
                   </div>
 
                   <div className="col-12 text-center">
-                      <button type="submit" className="btn btn-secondary" onClick={handleSubmit(onSubmit)}>
-                        Create Account
-                      </button>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      onClick={handleSubmit(onSubmit)}
+                    >
+                      Create Account
+                    </button>
                   </div>
                 </form>
               </div>

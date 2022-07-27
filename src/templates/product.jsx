@@ -14,7 +14,7 @@ import { formatPrice } from "../utils/format-price"
 import Tabs from "react-bootstrap/Tabs"
 import Tab from "react-bootstrap/Tab"
 import Overlay from "react-bootstrap/Overlay"
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
 import isEqual from "lodash.isequal"
 import { AddToCart } from "../components/add-to-cart"
@@ -48,7 +48,7 @@ const ShopDetails = ({ pageContext }) => {
   })
 
   // set variant
-  const initialVariant = product.variants[0];
+  const initialVariant = product.variants[0]
   const { client } = React.useContext(StoreContext)
 
   const [variant, setVariant] = React.useState({ ...initialVariant })
@@ -106,8 +106,6 @@ const ShopDetails = ({ pageContext }) => {
 
   const hasVariants = product.variants.length > 1
 
-
-
   // variables to set swiper
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
 
@@ -129,7 +127,7 @@ const ShopDetails = ({ pageContext }) => {
 
   var details = "NA"
   product.metafields.forEach((data) => {
-    if(data.key === "details") {
+    if (data.key === "details") {
       details = data.value
     }
   })
@@ -246,12 +244,16 @@ const ShopDetails = ({ pageContext }) => {
               <h4 className="text-uppercase font_grey_medium_3 mb-40">
                 {price}
               </h4>
-              <div className="line_height_dense" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}>
-                
-              </div>
+              <div
+                className="line_height_dense"
+                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+              ></div>
               <p>
                 <Link to="/">
-                  <button type="button" className="btn btn-light w-100">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-black w-100"
+                  >
                     Customise this bookshelf
                   </button>
                 </Link>
@@ -264,18 +266,18 @@ const ShopDetails = ({ pageContext }) => {
                     <OverlayTrigger
                       placement="top"
                       delay={{ show: 250, hide: 400 }}
-                      overlay={<Tooltip id="button-tooltip-2">Color Variants</Tooltip>}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">Color Variants</Tooltip>
+                      }
                     >
-                    <div
-                      className="d-flex pointer align-self-center"
-                    >
-                      <img
-                        src="/icons/ico_info.png"
-                        alt="Info"
-                        width="22"
-                        height="22"
-                      />
-                    </div>
+                      <div className="d-flex pointer align-self-center">
+                        <img
+                          src="/icons/ico_info.png"
+                          alt="Info"
+                          width="22"
+                          height="22"
+                        />
+                      </div>
                     </OverlayTrigger>
                   </div>
                 </div>
@@ -283,37 +285,53 @@ const ShopDetails = ({ pageContext }) => {
                   <p>
                     <ul className="listing_left_align">
                       {hasVariants &&
-                      product.options.map(({ id, name, values }, index) => (
-                        <div className="col-8 col-md-9" key={id}>
-                          <p>
-                            <ul aria-label="Variants" className="listing_left_align">
-                            {values.map((value) => (
-                              <li>
-                                <OverlayTrigger
-                                  placement="top"
-                                  delay={{ show: 250, hide: 400 }}
-                                  overlay={<Tooltip id="button-tooltip-2">{value}</Tooltip>}
-                                >
-                                  <div
-                                    onClick={(event) => handleOptionChange(0, value)}
-                                    className="d-flex pointer"
-                                    value={value}
-                                  >
-                                    <img
-                                      src={"/icons/color_"+value.toString().toLowerCase().replace(/ /g,"_")+".png"}
-                                      alt={value}
-                                      width="22"
-                                      height="22"
-                                      value={value}
-                                    />
-                                  </div>
-                                </OverlayTrigger>
-                              </li>
-                            ))}
-                            </ul>
-                          </p>
-                        </div>
-                      ))}
+                        product.options.map(({ id, name, values }, index) => (
+                          <div className="col-8 col-md-9" key={id}>
+                            <p>
+                              <ul
+                                aria-label="Variants"
+                                className="listing_left_align"
+                              >
+                                {values.map((value) => (
+                                  <li>
+                                    <OverlayTrigger
+                                      placement="top"
+                                      delay={{ show: 250, hide: 400 }}
+                                      overlay={
+                                        <Tooltip id="button-tooltip-2">
+                                          {value}
+                                        </Tooltip>
+                                      }
+                                    >
+                                      <div
+                                        onClick={(event) =>
+                                          handleOptionChange(0, value)
+                                        }
+                                        className="d-flex pointer"
+                                        value={value}
+                                      >
+                                        <img
+                                          src={
+                                            "/icons/color_" +
+                                            value
+                                              .toString()
+                                              .toLowerCase()
+                                              .replace(/ /g, "_") +
+                                            ".png"
+                                          }
+                                          alt={value}
+                                          width="22"
+                                          height="22"
+                                          value={value}
+                                        />
+                                      </div>
+                                    </OverlayTrigger>
+                                  </li>
+                                ))}
+                              </ul>
+                            </p>
+                          </div>
+                        ))}
                     </ul>
                   </p>
                 </div>
@@ -335,13 +353,16 @@ const ShopDetails = ({ pageContext }) => {
                     variantId={productVariant.storefrontId}
                     quantity={quantity}
                     available={available}
-                    className="btn btn-tertiary w-100"
+                    className="btn btn-primary w-100"
                   />
                 </div>
               </div>
               <p className="pb-1">
                 <Link to="/">
-                  <button type="button" className="btn btn-light w-100">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-black w-100"
+                  >
                     Get Complimentary Design Service
                   </button>
                 </Link>
@@ -390,9 +411,10 @@ const ShopDetails = ({ pageContext }) => {
               </p>
             </Tab>
             <Tab eventKey="details" title="Details">
-              <div className="row" dangerouslySetInnerHTML={{ __html: details }}>
-                  
-              </div>
+              <div
+                className="row"
+                dangerouslySetInnerHTML={{ __html: details }}
+              ></div>
             </Tab>
             <Tab eventKey="installation" title="Installation">
               <h5>LEAVE THE HARD WORK TO US – FOR FREE</h5>
@@ -509,7 +531,10 @@ const ShopDetails = ({ pageContext }) => {
               </p>
               <p>
                 <Link to="/">
-                  <button type="button" className="btn btn-light">
+                  <button
+                    type="button"
+                    className="btn btn-outline btn-outline-large btn-black-large"
+                  >
                     Build your own Min+Modules
                   </button>
                 </Link>

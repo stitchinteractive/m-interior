@@ -41,7 +41,7 @@ const InteriorDesignDetails = () => {
                   <Link to="/blog-details">
                     <button
                       type="submit"
-                      className="btn btn-light text-uppercase mb-80"
+                      className="btn btn-outline btn-black mb-80"
                     >
                       Read More
                     </button>
