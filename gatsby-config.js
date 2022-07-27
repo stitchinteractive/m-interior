@@ -28,7 +28,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-apollo',
       options: {
-        uri: `https://${process.env.GATSBY_SHOPIFY_STORE_URL}/api/graphql`,
+        uri: `https://${process.env.GATSBY_SHOPIFY_STORE_URL}/api/2022-07/graphql.json`,
         headers: {
           'X-Shopify-Storefront-Access-Token':
             process.env.GATSBY_STOREFRONT_ACCESS_TOKEN,

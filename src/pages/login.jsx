@@ -5,53 +5,84 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
-import { useQuery, gql } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
 
-const GET_PRODUCT = gql`
-  query ($handle: String!) {
-    products(first: 1, query: $handle) {
-      edges {
-        node {
-          variants(first: 1) {
-            edges {
-              node {
-                availableForSale
-              }
-            }
-          }
-        }
-      }
+const schema = yup
+  .object({
+    email: yup
+      .string()
+      .email("Email is not in the correct format")
+      .required("Email is mandatory"),
+    password: yup
+      .string()
+      .required("Password is mandatory")
+  })
+  .required()
+
+
+const GET_TOKEN = gql`
+mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+  customerAccessTokenCreate(input: $input) {
+    customerAccessToken {
+      accessToken
+      expiresAt
+    }
+    customerUserErrors {
+      field
+      message
+      code
     }
   }
+}
 `
 
 // step 2: define component
 const Login = () => {
   gsap.registerPlugin(ScrollTrigger)
 
-  useLayoutEffect(() => {
-    gsap.utils.toArray(".animate").forEach(function (e) {
-      gsap.from(e, {
-        duration: 0.8,
-        ease: "power1.out",
-        opacity: 0,
-        y: 100,
-        scrollTrigger: e,
-        onComplete: () => console.log(e),
-      })
+  // useLayoutEffect(() => {
+  //   gsap.utils.toArray(".animate").forEach(function (e) {
+  //     gsap.from(e, {
+  //       duration: 0.8,
+  //       ease: "power1.out",
+  //       opacity: 0,
+  //       y: 100,
+  //       scrollTrigger: e,
+  //       onComplete: () => console.log(e),
+  //     })
+  //   })
+  // })
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
+  const onSubmit = (data) => {
+    console.log(data)
+    customerAccessTokenCreate({
+      variables: { input: data },
+      onCompleted: (result) => {
+        debugger
+        console.log(result)
+        if(result.customerAccessTokenCreate.customerUserErrors.length > 0) {
+          alert("Login fail");
+        } else {
+          alert("Login success. Access token: "+result.customerAccessTokenCreate.customerAccessToken.accessToken);
+        }
+        
+      },
     })
-  })
+  }
 
-  debugger
-
-  const { loading, error, data } = useQuery(GET_PRODUCT, {
-    variables: { handle: "bedside-table" },
-  })
-
-  if (loading) return "Loading..."
-  if (error) return `Error! ${error.message}`
-
-  console.log(data)
+  const [customerAccessTokenCreate] = useMutation(GET_TOKEN)
 
   return (
     <Layout>
@@ -60,7 +91,7 @@ const Login = () => {
           <div className="col col-md-8 offset-md-4 col-lg-6 offset-lg-6">
             <div className="animate">
               <div className={loginModule.login_container}>
-                <form className="row g-3">
+                <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="col">
                     <h2 className="text-uppercase pb-6">Log In</h2>
                   </div>
@@ -72,7 +103,9 @@ const Login = () => {
                       type="email"
                       className="form-control"
                       id="inputEmail4"
+                      {...register("email")}
                     />
+                    {errors.email && <p>{errors.email.message}</p>}
                   </div>
                   <div className="col-12 mt-5">
                     <label htmlFor="inputPassword4" className="form-label">
@@ -82,14 +115,15 @@ const Login = () => {
                       type="password"
                       className="form-control"
                       id="inputPassword4"
+                      {...register("password")}
                     />
+                    {errors.password && <p>{errors.password.message}</p>}
                   </div>
                   <div className="col-12 mt-5 text-end">
-                    <Link to="/profile">
-                      <button type="submit" className="btn btn-primary">
-                        Log in
-                      </button>
-                    </Link>
+                    <button type="submit" className="btn btn-primary" onClick={handleSubmit(onSubmit)}>
+                      Log in
+                    </button>
+                    <Link to="/profile"></Link>
                     <div className="mt-3 font_sm">
                       <Link
                         to="/create-account"
