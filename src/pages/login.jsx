@@ -2,13 +2,14 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
 import { gql, useMutation } from "@apollo/client"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { handleLogin, isLoggedIn } from "../services/auth"
 
 const schema = yup
   .object({
@@ -56,6 +57,8 @@ const Login = () => {
   //   })
   // })
 
+  const [message, setMessage] = React.useState(null)
+
   const {
     register,
     handleSubmit,
@@ -73,9 +76,11 @@ const Login = () => {
         debugger
         console.log(result)
         if(result.customerAccessTokenCreate.customerUserErrors.length > 0) {
-          alert("Login fail");
+          setMessage("Invalid credentials. Please try again.")
         } else {
-          alert("Login success. Access token: "+result.customerAccessTokenCreate.customerAccessToken.accessToken);
+          handleLogin(result.customerAccessTokenCreate.customerAccessToken.accessToken, result.customerAccessTokenCreate.customerAccessToken.expiresAt)
+          navigate(`/profile`);
+          //alert("Login success. Access token: "+result.customerAccessTokenCreate.customerAccessToken.accessToken);
         }
         
       },
@@ -83,6 +88,10 @@ const Login = () => {
   }
 
   const [customerAccessTokenCreate] = useMutation(GET_TOKEN)
+
+  if (isLoggedIn()) {
+    navigate(`/profile`)
+  }
 
   return (
     <Layout>
@@ -94,6 +103,9 @@ const Login = () => {
                 <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="col">
                     <h2 className="text-uppercase pb-6">Log In</h2>
+                    <div className="d-flex btn_back mb-80">
+                      {message && <label>{message}</label>}
+                    </div>
                   </div>
                   <div className="col-12">
                     <label htmlFor="inputEmail4" className="form-label">

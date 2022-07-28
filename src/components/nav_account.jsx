@@ -1,6 +1,7 @@
 // step 1: import
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
+import { getUser, isLoggedIn, logout } from "../services/auth"
 
 // step 2: define
 export function NavAccount(props) {
@@ -14,6 +15,14 @@ export function NavAccount(props) {
           </Link>
         </li>
         <li>
+          <Link to="/logout" activeStyle={{ fontWeight: 600 }} onClick={event => {
+              event.preventDefault()
+              logout(() => navigate(`/login`))
+            }}>
+            Logout
+          </Link>
+        </li>
+        {/*<li>
           <Link to="/orders" activeStyle={{ fontWeight: 600 }}>
             My Orders
           </Link>
@@ -22,16 +31,16 @@ export function NavAccount(props) {
           <Link to="/account-activity" activeStyle={{ fontWeight: 600 }}>
             Account Activity
           </Link>
-        </li>
+        </li>*/}
       </ul>
-      <div className="font_grey_medium_3">Shipping &amp; Billing</div>
+      {/*<div className="font_grey_medium_3">Shipping &amp; Billing</div>
       <ul className="listing">
         <li>
           <Link to="/saved-address" activeStyle={{ fontWeight: 600 }}>
             Saved Address
           </Link>
         </li>
-      </ul>
+      </ul>*/}
     </div>
   )
 }

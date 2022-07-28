@@ -75,8 +75,6 @@ const Account = () => {
     const { confirmPwd, ...customer } = data
     customer.acceptsMarketing = true
     console.log(customer)
-    errors.message =
-      "Error creating profile. Please ensure you include your country code in the phone number and the email is in the correct format."
     customerCreate({
       variables: { input: customer },
       onCompleted: (result) => {
