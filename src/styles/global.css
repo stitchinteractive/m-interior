@@ -767,6 +767,10 @@ ul.listing_colors li img {
   border: 15px solid #ffffff;
 }
 
+.img_border_black {
+  border: 1px solid var(--black);
+}
+
 .border_bottom {
   border-bottom: 2px solid var(--grey-medium);
 }

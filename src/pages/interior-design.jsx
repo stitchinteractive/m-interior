@@ -199,39 +199,33 @@ const InteriorDesignDetails = () => {
               <h2 className="mb-80">The Spaces We've Transformed</h2>
             </div>
             <div className="col-12 col-md-6 pb-5">
-              <Link to="/interior-design-details" className="no_underline">
+              <Link
+                to="/interior-design-138-pasir-ris"
+                className="no_underline"
+              >
                 <p className="pb-3">
-                  <img src="./interior/works/1/1.jpg" alt="" />
+                  <img src="./interior/works/138_pasir_ris/1.jpg" alt="" />
                 </p>
-                <h4>139 Pasir Ris, 4RM</h4>
+                <h4>138 Pasir Ris, 4-Room HDB</h4>
+                <p>Dark Contemporary</p>
+              </Link>
+            </div>
+            <div className="col-12 col-md-6 pb-5">
+              <Link to="/interior-design-treescape" className="no_underline">
+                <p className="pb-3">
+                  <img src="./interior/works/treescape/1.jpg" alt="" />
+                </p>
+                <h4>Treescape, 3-Bedroom Condo</h4>
                 <p>Modern Contemporary</p>
               </Link>
             </div>
             <div className="col-12 col-md-6 pb-5">
-              <Link to="/interior-design-details" className="no_underline">
+              <Link to="/interior-design-artistica" className="no_underline">
                 <p className="pb-3">
-                  <img src="./interior/works/1/1.jpg" alt="" />
+                  <img src="./interior/works/artistica/1.jpg" alt="" />
                 </p>
-                <h4>Treescape Condo, 4RM</h4>
-                <p>Modern Contemporary</p>
-              </Link>
-            </div>
-            <div className="col-12 col-md-6 pb-5">
-              <Link to="/interior-design-details" className="no_underline">
-                <p className="pb-3">
-                  <img src="./interior/works/1/1.jpg" alt="" />
-                </p>
-                <h4>139 Pasir Ris, 4RM</h4>
-                <p>Modern Contemporary</p>
-              </Link>
-            </div>
-            <div className="col-12 col-md-6 pb-5">
-              <Link to="/interior-design-details" className="no_underline">
-                <p className="pb-3">
-                  <img src="./interior/works/1/1.jpg" alt="" />
-                </p>
-                <h4>Treescape Condo, 4RM</h4>
-                <p>Modern Contemporary</p>
+                <h4>Artistica Tattoo Studio, Shophouse</h4>
+                <p>Modern Industrial</p>
               </Link>
             </div>
           </div>
