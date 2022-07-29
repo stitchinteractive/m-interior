@@ -20,6 +20,7 @@ const schema = yup
     phone: yup
       .string()
       .matches(phoneRegExp, { message: "" })
+      .min(11, "Phone must be 11 char long")
       .required("Phone is mandatory"),
     email: yup
       .string()
@@ -27,11 +28,9 @@ const schema = yup
       .required("Email is mandatory"),
     password: yup
       .string()
-      .required("Password is mandatory")
       .min(3, "Password must be at 3 char long"),
     confirmPwd: yup
       .string()
-      .required("Password is mandatory")
       .oneOf([yup.ref("password")], "Passwords does not match"),
   })
   .required()
@@ -73,6 +72,7 @@ const Account = () => {
 
   const onSubmit = (data) => {
     const { confirmPwd, ...customer } = data
+    
     customer.acceptsMarketing = true
     console.log(customer)
     customerCreate({
@@ -81,9 +81,11 @@ const Account = () => {
         debugger
         console.log(result)
         if (result.customerCreate.customerUserErrors.length > 0) {
-          setMessage(
-            "Error creating profile. Please ensure you include your country code in the phone number and the email is in the correct format."
-          )
+          var err = "";
+          result.customerCreate.customerUserErrors.forEach((el)=>{
+            err = err + el.message + ". "
+          })
+          setMessage(err)
         } else {
           reset()
           setMessage("Profile created successfully")
@@ -146,7 +148,7 @@ const Account = () => {
                           id="input_first_name"
                           {...register("firstName")}
                         />
-                        {errors.firstName && <p>{errors.firstName.message}</p>}
+                        {errors.firstName && <span>{errors.firstName.message}</span>}
                       </div>
                       <div className="col-12 mb-5">
                         <label
@@ -162,7 +164,7 @@ const Account = () => {
                           id="input_last_name"
                           {...register("lastName")}
                         />
-                        {errors.lastName && <p>{errors.lastName.message}</p>}
+                        {errors.lastName && <span>{errors.lastName.message}</span>}
                       </div>
                       <div className="col-12 mb-5">
                         <label htmlFor="input_phone" className="form-label">
@@ -175,8 +177,9 @@ const Account = () => {
                           id="input_phone"
                           {...register("phone")}
                         />
-                        {errors.phone && <p>{errors.phone.message}</p>}
+                        {errors.phone && <span>{errors.phone.message}</span>}
                       </div>
+                      {/* 
                       <div className="col-12 mb-5">
                         <label
                           htmlFor="input_first_name"
@@ -190,7 +193,7 @@ const Account = () => {
                           className="form-control"
                           id="input_last_name"
                         />
-                      </div>
+                      </div>*/}
                     </div>
                   </div>
                   <div className="col-lg-6">
@@ -206,7 +209,7 @@ const Account = () => {
                           id="input_email"
                           {...register("email")}
                         />
-                        {errors.email && <p>{errors.email.message}</p>}
+                        {errors.email && <span>{errors.email.message}</span>}
                       </div>
                       <div className="col-12 mb-5">
                         <label htmlFor="input_password" className="form-label">
@@ -219,7 +222,7 @@ const Account = () => {
                           id="input_password"
                           {...register("password")}
                         />
-                        {errors.password && <p>{errors.password.message}</p>}
+                        {errors.password && <span>{errors.password.message}</span>}
                       </div>
                       <div className="col-12 mb-5">
                         <label htmlFor="input_password" className="form-label">
@@ -233,9 +236,10 @@ const Account = () => {
                           {...register("confirmPwd")}
                         />
                         {errors.confirmPwd && (
-                          <p>{errors.confirmPwd.message}</p>
+                          <span>{errors.confirmPwd.message}</span>
                         )}
                       </div>
+                      {/* 
                       <div className="col-12 mb-5">
                         <label htmlFor="input_referral" className="form-label">
                           Referral Code
@@ -245,7 +249,7 @@ const Account = () => {
                           className="form-control"
                           id="input_referral"
                         />
-                      </div>
+                      </div>*/}
                     </div>
                   </div>
 
