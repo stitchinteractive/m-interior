@@ -573,6 +573,10 @@ textarea {
 }
 
 /********** global **********/
+video::-webkit-media-controls {
+  display: none;
+}
+
 hr {
   margin: 5rem 0 8rem 0;
 }

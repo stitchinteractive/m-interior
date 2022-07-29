@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useState, useLayoutEffect, useRef } from "react"
+import React, { useState, useLayoutEffect, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -46,6 +46,41 @@ const ShopDetails = ({ pageContext }) => {
       })
     })
   })
+
+  /* autoplay videos */
+  const intro1Ref = useRef()
+  const intro2Ref = useRef()
+  const intro3Ref = useRef()
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_1",
+      onEnter: () => intro1Ref.current.play(),
+      onEnterBack: () => intro1Ref.current.play(),
+      onLeave: () => intro1Ref.current.pause(),
+      onLeaveBack: () => intro1Ref.current.pause(),
+    })
+  }, [])
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_2",
+      onEnter: () => intro2Ref.current.play(),
+      onEnterBack: () => intro2Ref.current.play(),
+      onLeave: () => intro2Ref.current.pause(),
+      onLeaveBack: () => intro2Ref.current.pause(),
+    })
+  }, [])
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#intro_3",
+      onEnter: () => intro3Ref.current.play(),
+      onEnterBack: () => intro3Ref.current.play(),
+      onLeave: () => intro3Ref.current.pause(),
+      onLeaveBack: () => intro3Ref.current.pause(),
+    })
+  }, [])
 
   // set variant
   const initialVariant = product.variants[0]
@@ -477,7 +512,18 @@ const ShopDetails = ({ pageContext }) => {
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video width="100%" height="100%" controls muted>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                defaultmuted
+                muted
+                loop
+                controls="false"
+                ref={intro1Ref}
+                id="intro_1"
+              >
                 <source
                   src="/shop/min_modules/1_module_sizes.mp4"
                   type="video/mp4"
@@ -488,7 +534,18 @@ const ShopDetails = ({ pageContext }) => {
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video width="100%" height="100%" controls muted>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                defaultmuted
+                muted
+                loop
+                controls="false"
+                ref={intro2Ref}
+                id="intro_2"
+              >
                 <source
                   src="/shop/min_modules/2_magnetic_connectors.mp4"
                   type="video/mp4"
@@ -499,7 +556,18 @@ const ShopDetails = ({ pageContext }) => {
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video width="100%" height="100%" controls muted>
+              <video
+                width="100%"
+                height="100%"
+                playsinline
+                autoplay
+                defaultmuted
+                muted
+                loop
+                controls="false"
+                ref={intro3Ref}
+                id="intro_3"
+              >
                 <source
                   src="/shop/min_modules/3_drawers_dividers.mp4"
                   type="video/mp4"
