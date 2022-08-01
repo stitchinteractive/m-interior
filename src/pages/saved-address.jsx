@@ -125,11 +125,12 @@ const Address = () => {
   const [message, setMessage] = React.useState(null)
 
   const onSubmit = (address) => {
+    const { id, ...newAddress } = address
     debugger
-    console.log(address)
+    console.log(newAddress)
     if(address.id) {
       customerAddressUpdate({
-        variables: { address: address, customerAccessToken: token, id: address.id },
+        variables: { address: newAddress, customerAccessToken: token, id: address.id },
         onCompleted: (result) => {
           debugger
           console.log(result)
@@ -146,7 +147,7 @@ const Address = () => {
         },
       })
     } else {
-      const { id, ...newAddress } = address
+      
       customerAddressCreate({
         variables: { address: newAddress, customerAccessToken: token },
         onCompleted: (result) => {
