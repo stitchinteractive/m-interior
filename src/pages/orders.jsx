@@ -42,10 +42,6 @@ query($handle: String!) {
 
 // step 2: define component
 const Orders = () => {
-  if (!isLoggedIn()) {
-    //navigate(`/login`)
-  }
-
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
