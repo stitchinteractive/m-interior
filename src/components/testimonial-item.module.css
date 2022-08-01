@@ -44,6 +44,6 @@
 /********** dekstops **********/
 @media (min-width: 1440px) {
   .testimonial_item .review {
-    height: 250px;
+    height: 300px;
   }
 }
