@@ -892,7 +892,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 mb-5">
               <div className="content_100 bg_blue text-center" ref={minCta3Ref}>
-                <h3 className="pb-10">There’s a Min+Module for every space.</h3>
+                <h3 className="pb-10">There's a Min+Module for every space.</h3>
                 <p>
                   <Link to="/">
                     <button type="button" className="btn btn-outline-large">
