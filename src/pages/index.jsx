@@ -872,7 +872,7 @@ const HomePage = () => {
                 </h3>
                 <p>
                   <Link to="/">
-                    <button type="button" className="btn btn-outline">
+                    <button type="button" className="btn btn-outline-large">
                       Build your own Min+Modules
                     </button>
                   </Link>
@@ -895,7 +895,7 @@ const HomePage = () => {
                 <h3 className="pb-10">There’s a Min+Module for every space.</h3>
                 <p>
                   <Link to="/">
-                    <button type="button" className="btn btn-outline">
+                    <button type="button" className="btn btn-outline-large">
                       Explore Lookbook
                     </button>
                   </Link>
