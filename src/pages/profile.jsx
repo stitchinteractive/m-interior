@@ -80,6 +80,10 @@ const UPDATE_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  if (!isLoggedIn()) {
+    navigate(`/login`)
+  }
+  
   gsap.registerPlugin(ScrollTrigger)
 
   const {

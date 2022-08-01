@@ -2,15 +2,50 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
+import { getUser } from "../services/auth"
+import { useQuery, gql, useMutation } from '@apollo/client';
+import { handleLogin, isLoggedIn } from "../services/auth"
+import { formatPrice } from "../utils/format-price"
 
 // import module.css
 import * as ProfileModule from "./profile.module.css"
 
+const GET_CUSTOMER = gql`
+query($handle: String!) {
+  customer(customerAccessToken: $handle) {
+    id
+    firstName
+    lastName
+    acceptsMarketing
+    email
+    phone
+    orders (first: 100, reverse:true) {
+      edges {
+        node {
+          id
+          processedAt
+          currentTotalPrice{
+            amount
+            currencyCode
+          }
+          orderNumber
+          fulfillmentStatus
+        }
+      }
+    }
+  }
+}
+`
+
 // step 2: define component
-const Profile = () => {
+const Orders = () => {
+  if (!isLoggedIn()) {
+    //navigate(`/login`)
+  }
+
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -26,6 +61,18 @@ const Profile = () => {
     })
   })
 
+  const token = getUser().token
+
+  const {loading, error, data} = useQuery(GET_CUSTOMER, {
+    variables: {handle: token}
+  });
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+  console.log(data);
+  
+
   return (
     <Layout>
       <div className="bg_grey">
@@ -38,7 +85,7 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_xl font_semibold text-uppercase">
-                      James Smith
+                    {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -68,96 +115,19 @@ const Profile = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">#11305</th>
-                          <td>24/04/2022</td>
-                          <td>Completed</td>
-                          <td>$300.65</td>
-                          <td>
-                            <Link to="/">View Order</Link>
-                          </td>
-                        </tr>
+                        {data?.customer?.orders.edges.map((item) => (
+                          <tr>
+                            <th scope="row">#{item.node.orderNumber}</th>
+                            <td>{new Date(item.node.processedAt).toLocaleDateString()}</td>
+                            <td>{item.node.fulfillmentStatus}</td>
+                            <td> {formatPrice(
+                              item.node.currentTotalPrice.currencyCode,
+                              item.node.currentTotalPrice.amount)}</td>
+                            <td>
+                              <Link to="/">View Order</Link>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
@@ -172,4 +142,4 @@ const Profile = () => {
 }
 
 // step 3: export
-export default Profile
+export default Orders

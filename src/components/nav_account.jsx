@@ -15,6 +15,16 @@ export function NavAccount(props) {
           </Link>
         </li>
         <li>
+          <Link to="/orders" activeStyle={{ fontWeight: 600 }}>
+            My Orders
+          </Link>
+        </li>
+        {/*<li>
+          <Link to="/account-activity" activeStyle={{ fontWeight: 600 }}>
+            Account Activity
+          </Link>
+        </li>*/}
+        <li>
           <Link to="/logout" activeStyle={{ fontWeight: 600 }} onClick={event => {
               event.preventDefault()
               logout(() => navigate(`/login`))
@@ -22,25 +32,15 @@ export function NavAccount(props) {
             Logout
           </Link>
         </li>
-        {/*<li>
-          <Link to="/orders" activeStyle={{ fontWeight: 600 }}>
-            My Orders
-          </Link>
-        </li>
-        <li>
-          <Link to="/account-activity" activeStyle={{ fontWeight: 600 }}>
-            Account Activity
-          </Link>
-        </li>*/}
       </ul>
-      {/*<div className="font_grey_medium_3">Shipping &amp; Billing</div>
+      <div className="font_grey_medium_3">Shipping &amp; Billing</div>
       <ul className="listing">
         <li>
           <Link to="/saved-address" activeStyle={{ fontWeight: 600 }}>
             Saved Address
           </Link>
         </li>
-      </ul>*/}
+      </ul>
     </div>
   )
 }
