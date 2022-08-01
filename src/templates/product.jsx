@@ -167,6 +167,19 @@ const ShopDetails = ({ pageContext }) => {
     }
   })
 
+  // custom swiper nav
+  const swiperRef = useRef(null)
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext()
+    }
+  }
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev()
+    }
+  }
+
   return (
     <Layout>
       <div className="bg_grey">
@@ -393,12 +406,30 @@ const ShopDetails = ({ pageContext }) => {
                 </div>
               </div>
               <p className="pb-1">
-                <Link to="/">
+                <Link to="/" className="no_underline">
                   <button
                     type="button"
-                    className="btn btn-outline btn-black w-100"
+                    className="btn btn-outline btn-black w-100 d-flex justify-content-center"
                   >
-                    Get Complimentary Design Service
+                    Get Complimentary Design Service&nbsp;
+                    <OverlayTrigger
+                      placement="top"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">
+                          Complimentary Design Service
+                        </Tooltip>
+                      }
+                    >
+                      <div className="d-flex pointer align-self-center">
+                        <img
+                          src="/icons/ico_info.png"
+                          alt="Info"
+                          width="22"
+                          height="22"
+                        />
+                      </div>
+                    </OverlayTrigger>
                   </button>
                 </Link>
               </p>
@@ -512,67 +543,91 @@ const ShopDetails = ({ pageContext }) => {
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro1Ref}
-                id="intro_1"
-              >
-                <source
-                  src="/shop/min_modules/1_module_sizes.mp4"
-                  type="video/mp4"
+              <div className="d-block d-md-none">
+                <img
+                  src="/shop/min_modules/1_module_sizes.png"
+                  alt="Intro Sizes"
                 />
-              </video>
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro1Ref}
+                  id="intro_1"
+                >
+                  <source
+                    src="/shop/min_modules/1_module_sizes.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
               <p className="px-5 pt-3 mb-80">
                 TWO MODULE SIZES FOR FLEXIBLE CONFIGURATIONS
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro2Ref}
-                id="intro_2"
-              >
-                <source
-                  src="/shop/min_modules/2_magnetic_connectors.mp4"
-                  type="video/mp4"
+              <div className="d-block d-md-none">
+                <img
+                  src="/shop/min_modules/2_magnetic_connectors.png"
+                  alt="Intro Sizes"
                 />
-              </video>
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro2Ref}
+                  id="intro_2"
+                >
+                  <source
+                    src="/shop/min_modules/2_magnetic_connectors.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
               <p className="px-5 pt-3 mb-80">
                 STACK &amp; ARRANGE THE MODULES USING MAGNETIC CONNECTORS
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <video
-                width="100%"
-                height="100%"
-                playsinline
-                autoplay
-                defaultmuted
-                muted
-                loop
-                controls="false"
-                ref={intro3Ref}
-                id="intro_3"
-              >
-                <source
-                  src="/shop/min_modules/3_drawers_dividers.mp4"
-                  type="video/mp4"
+              <div className="d-block d-md-none">
+                <img
+                  src="/shop/min_modules/3_drawers_dividers.png"
+                  alt="Intro Sizes"
                 />
-              </video>
+              </div>
+              <div className="d-none d-md-block">
+                <video
+                  width="100%"
+                  height="100%"
+                  playsinline
+                  autoplay
+                  defaultmuted
+                  muted
+                  loop
+                  controls="false"
+                  ref={intro3Ref}
+                  id="intro_3"
+                >
+                  <source
+                    src="/shop/min_modules/3_drawers_dividers.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
               <p className="px-5 pt-3 mb-80">
                 MIX & MATCH BETWEEN doors, drawers & dividers
               </p>
@@ -614,7 +669,7 @@ const ShopDetails = ({ pageContext }) => {
       <div className="bg_black font_white">
         <div className="container">
           <div className="row row_padding">
-            <div className="col-md-8 offset-md-2 col-lg-7 offset-lg-0 align-self-center">
+            <div className="col-md-8 offset-md-2 col-lg-6 offset-lg-0 align-self-center">
               <h2 className="text-uppercase mb-5">
                 THERE'S A MIN+MODULE FOR EVERY SPACE
               </h2>
@@ -635,8 +690,50 @@ const ShopDetails = ({ pageContext }) => {
                 </Link>
               </p>
             </div>
-            <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-0">
-              <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
+            <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-1 align-self-center">
+              <div className="swiper_container">
+                <Swiper
+                  className="product_list_swiper d-flex align-items-stretch h-100"
+                  // install Swiper modules
+                  modules={[Navigation, Mousewheel]}
+                  spaceBetween={60}
+                  loop={true}
+                  breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                    },
+                    768: {
+                      slidesPerView: 1,
+                    },
+                    1280: {
+                      slidesPerView: 1,
+                    },
+                  }}
+                  onSwiper={(swiper) => console.log(swiper)}
+                  onSlideChange={() => console.log("slide change")}
+                  ref={swiperRef}
+                >
+                  <SwiperSlide>
+                    <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src="/shop/min_modules/lookbook_2.jpg" alt="" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src="/shop/min_modules/lookbook_3.jpg" alt="" />
+                  </SwiperSlide>
+                </Swiper>
+                <div id="go_prev">
+                  <button onClick={goPrev}>
+                    <img src="/icons/btn_prev.png" alt="Prev" />
+                  </button>
+                </div>
+                <div id="go_next">
+                  <button onClick={goNext}>
+                    <img src="/icons/btn_next.png" alt="Next" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
