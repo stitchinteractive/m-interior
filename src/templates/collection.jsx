@@ -23,7 +23,7 @@ import "swiper/css/scrollbar"
 // step 2: define component
 const Shop = ({ pageContext }) => {
   const { collection, productCount, addons } = pageContext
-  
+
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -63,7 +63,7 @@ const Shop = ({ pageContext }) => {
             <NavShop />
           </div>
           <div className="col-md-7 col-lg-9">
-            <div className="row mb-4">
+            <div className="row mb-5">
               <div className="col">
                 <SubBanner
                   background={collection.image.originalSrc}
@@ -72,21 +72,34 @@ const Shop = ({ pageContext }) => {
                 />
               </div>
             </div>
+            <div className="row mb-5">
+              <p>
+                The Min+Modules series designed in-house by M.INT is a custom
+                modular furniture solution that fits into every space. Whether
+                you have a small bedroom, a living room or a large office,
+                Min+Modules enables you to create the perfect working and living
+                environment. With our optional, interchangeable modules, you can
+                design and combine them to create specific seating or storage
+                spaces. Min+Modules come in various configurations, sizes and
+                colours for you to express your own unique and individual style
+                to create furniture ranging from TV consoles, bookshelves to
+                storage cabinets.
+              </p>
+            </div>
             <div className="row mb-100">
-            { collection.products.map((product) => (
-              <div className="col-12 col-lg-4 mb-4">
-                <ProductListItem
-                  url={"/mint/"+product.handle}
-                  image={product.images[0].originalSrc}
-                  bgimage={product.images[1].originalSrc}
-                  name={product.title}
-                  price={product.priceRangeV2.minVariantPrice.amount}
-                  variants={product.variants}
-                  options={product.options}
-                />
-              </div>
+              {collection.products.map((product) => (
+                <div className="col-12 col-lg-4 mb-4">
+                  <ProductListItem
+                    url={"/mint/" + product.handle}
+                    image={product.images[0].originalSrc}
+                    bgimage={product.images[1].originalSrc}
+                    name={product.title}
+                    price={product.priceRangeV2.minVariantPrice.amount}
+                    variants={product.variants}
+                    options={product.options}
+                  />
+                </div>
               ))}
-
               {/*
               <div className="col-12 col-lg-8 mb-4">
                 <ProductListItem
@@ -142,7 +155,6 @@ const Shop = ({ pageContext }) => {
                 />
               </div>
               */}
-              
             </div>
             <div className="row">
               <div className="col-12">
@@ -172,18 +184,18 @@ const Shop = ({ pageContext }) => {
                       onSlideChange={() => console.log("slide change")}
                       ref={swiperRef}
                     >
-                      { addons[0].node.products.map((product) => (
-                      <SwiperSlide className="d-flex flex-column h-100">
-                        <ProductListItem
-                          url={"/mint/"+product.handle}
-                          image={product.images[0].originalSrc}
-                          bgimage={product.images[1].originalSrc}
-                          name={product.title}
-                          price={product.priceRangeV2.minVariantPrice.amount}
-                          variants={product.variants}
-                          options={product.options}
-                        />
-                      </SwiperSlide>
+                      {addons[0].node.products.map((product) => (
+                        <SwiperSlide className="d-flex flex-column h-100">
+                          <ProductListItem
+                            url={"/mint/" + product.handle}
+                            image={product.images[0].originalSrc}
+                            bgimage={product.images[1].originalSrc}
+                            name={product.title}
+                            price={product.priceRangeV2.minVariantPrice.amount}
+                            variants={product.variants}
+                            options={product.options}
+                          />
+                        </SwiperSlide>
                       ))}
                     </Swiper>
                     <div id="go_prev">

@@ -930,6 +930,7 @@ a.no_underline {
   position: relative;
   padding: 0;
   height: 100%;
+  text-align: center;
 }
 
 .vertical_divider {
@@ -1133,6 +1134,7 @@ circle {
   position: relative;
   width: 100%;
   height: 100%;
+  margin: 0 0 25px 0;
 }
 
 .container_overlay:hover .overlay_img {
@@ -1511,6 +1513,10 @@ circle {
 
   .nav-item {
     flex: 1 1 25% !important;
+  }
+
+  .container_overlay {
+    margin: 5px;
   }
 }
 
