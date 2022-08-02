@@ -65,7 +65,7 @@ const Login = () => {
             <div className="col-12 col-lg-6">
               <div className="animate d-flex h-100">
                 <div className={loginModule.login_container}>
-                  <form className="row g-3">
+                  <form method="post" action="https://formspree.io/f/xgeqwzql" className="row g-3">
                     <div className="col-12">
                       <h2 className="text-uppercase text-center pb-4">
                         Talk To Us
@@ -82,6 +82,7 @@ const Login = () => {
                         type="text"
                         className="form-control"
                         id="input_first_name"
+                        name="firstName"
                       />
                     </div>
                     <div className="col-6">
@@ -92,6 +93,7 @@ const Login = () => {
                         type="text"
                         className="form-control"
                         id="input_last_name"
+                        name="lastName"
                       />
                     </div>
                     <div className="col-6 mt-5">
@@ -102,6 +104,7 @@ const Login = () => {
                         type="email"
                         className="form-control"
                         id="input_email"
+                        name="_replyto"
                       />
                     </div>
                     <div className="col-6 mt-5">
@@ -112,6 +115,7 @@ const Login = () => {
                         type="text"
                         className="form-control"
                         id="input_phone"
+                        name="phone"
                       />
                     </div>
 
@@ -126,15 +130,12 @@ const Login = () => {
                         className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
+                        name="message"
                       ></textarea>
                     </div>
 
                     <div className="col-12 mt-5 text-center">
-                      <Link to="/profile">
-                        <button type="submit" className="btn btn-primary">
-                          Submit
-                        </button>
-                      </Link>
+                        <input type="submit" className="btn btn-primary" value="Submit" />
                     </div>
                   </form>
                 </div>

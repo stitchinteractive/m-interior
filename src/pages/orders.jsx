@@ -33,6 +33,29 @@ query($handle: String!) {
           }
           orderNumber
           fulfillmentStatus
+          lineItems (first: 100, reverse:false) {
+            edges {
+              node {
+                currentQuantity
+                title
+                discountedTotalPrice{
+                  amount
+                  currencyCode
+                }
+                originalTotalPrice{
+                  amount
+                  currencyCode
+                }
+                variant{
+                  image{
+                    url
+                    altText
+                  }
+                  title
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -64,7 +87,7 @@ const Orders = () => {
   });
 
   if (loading) return 'Loading...';
-  // if (error) return `Error! ${error.message}`;
+  //if (error) return `Error! ${error.message}`;
   if (error) return `Error! You have no access to this page`;
 
   console.log(data);
@@ -121,7 +144,13 @@ const Orders = () => {
                               item.node.currentTotalPrice.currencyCode,
                               item.node.currentTotalPrice.amount)}</td>
                             <td>
-                              <Link to="/">View Order</Link>
+                            <Link
+                              to={`/view-order`}
+                              state={
+                                {data: item.node.lineItems,
+                                grandTotal: item.node.currentTotalPrice}
+                              }
+                            >View Order</Link>
                             </td>
                           </tr>
                         ))}
