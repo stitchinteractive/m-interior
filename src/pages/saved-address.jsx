@@ -177,7 +177,8 @@ const Address = () => {
   });
 
   if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  // if (error) return `Error! ${error.message}`;
+  if (error) return `Error! You have no access to this page`;
 
   console.log(data);
   //const hasDefaultAddress = !!data?.customer?.defaultAddress
