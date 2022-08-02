@@ -7,8 +7,80 @@ import VisaIcon from "../icons/visa"
 import MasterIcon from "../icons/master"
 import PaypalIcon from "../icons/paypal"
 import * as footerModule from "./footer.module.css"
+import { gql, useMutation } from "@apollo/client"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+
+const schema = yup
+  .object({
+    email: yup
+      .string()
+      .email("Email is not in the correct format")
+      .required("Email is mandatory"),
+  })
+  .required()
+
+const CREATE_CUSTOMER = gql`
+  # create a customer
+  mutation customerCreate($input: CustomerCreateInput!) {
+    customerCreate(input: $input) {
+      customer {
+        firstName
+        lastName
+        email
+        phone
+        acceptsMarketing
+      }
+      customerUserErrors {
+        field
+        message
+        code
+      }
+    }
+  }
+`
 
 export function Footer() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    clearErrors,
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
+  const [message, setMessage] = React.useState(null)
+
+  const onSubmit = (data) => {
+    debugger
+    data.acceptsMarketing = true
+    data.password = "tempPass1"
+    console.log(data)
+    customerCreate({
+      variables: { input: data },
+      onCompleted: (result) => {
+        debugger
+        console.log(result)
+        if (result.customerCreate.customerUserErrors.length > 0) {
+          var err = "";
+          result.customerCreate.customerUserErrors.forEach((el)=>{
+            err = err + el.message + ". "
+          })
+          setMessage(err)
+        } else {
+          reset()
+          setMessage("Thank you for subscribing")
+          clearErrors()
+        }
+      },
+    })
+  }
+
+  const [customerCreate] = useMutation(CREATE_CUSTOMER)
+
   return (
     <footer>
       <div className="container">
@@ -97,6 +169,7 @@ export function Footer() {
               <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
                 <h5 className="text-uppercase mb-3">Subscribe</h5>
                 <div className="font_sm mb-5">
+                <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="input-group textfield_footer mb-2">
                     <input
                       type="text"
@@ -104,16 +177,22 @@ export function Footer() {
                       placeholder="Enter your email"
                       aria-label="Enter your email"
                       aria-describedby="basic-addon2"
+                      {...register("email", {onChange: (e) => {setMessage("")}})}
                     />
                     <div className="input-group-append">
-                      <button className="btn btn-outline" type="button">
+                      <button className="btn btn-outline" type="button" onClick={handleSubmit(onSubmit)}>
                         Subscribe
                       </button>
                     </div>
                   </div>
                   <div className="font_xs">
+                    {errors.email&& <span>{errors.email.message}</span>}
+                    {message && <label>{message}</label>}
+                  </div>
+                  <div className="font_xs">
                     Subscribe to our newsletter and enjoy 10% off!
                   </div>
+                </form>
                 </div>
               </div>
             </div>
