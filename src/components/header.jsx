@@ -72,7 +72,7 @@ function OffCanvasExample({ ...props }) {
 export function Header() {
   const { checkout, loading } = React.useContext(StoreContext)
   const emptyCart = checkout.lineItems.length === 0
-  
+
   return (
     <div className={headerModule.container_header}>
       <header className={headerModule.header}>
@@ -102,7 +102,9 @@ export function Header() {
                         <Link to="/cart">
                           <CartIcon />
                           {!emptyCart && (
-                            <div id="cart_items">{checkout.lineItems.length}</div>
+                            <div id="cart_items">
+                              {checkout.lineItems.length}
+                            </div>
                           )}
                         </Link>
                       </div>

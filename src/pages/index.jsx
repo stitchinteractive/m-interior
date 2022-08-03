@@ -569,7 +569,7 @@ const HomePage = () => {
                   blocks to build your own creative storage display.
                 </p>
                 <p>
-                  <Link to="/">
+                  <Link to="/modular-furniture/acacia-blocks">
                     <button type="button" className="btn btn-outline-large">
                       Discover More
                     </button>
@@ -577,6 +577,7 @@ const HomePage = () => {
                 </p>
               </div>
             </SwiperSlide>
+            {/*
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
@@ -603,6 +604,7 @@ const HomePage = () => {
                 </Link>
               </p>
             </SwiperSlide>
+            */}
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{

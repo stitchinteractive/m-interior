@@ -811,6 +811,7 @@ p {
   background: #0e3244;
   width: 100%;
   color: var(--white);
+  display: none;
 }
 
 .membership_padding {

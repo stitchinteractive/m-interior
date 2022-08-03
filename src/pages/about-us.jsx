@@ -64,7 +64,7 @@ const AboutUs = () => {
                     creating your own spaces with modular concepts!
                   </p>
                   <p>
-                    <Link to="/" className="link_underline">
+                    <Link to="/shop" className="link_underline">
                       Go modular with us &gt;
                     </Link>
                   </p>
@@ -105,7 +105,7 @@ const AboutUs = () => {
                     advice from our team of designers.
                   </p>
                   <p className="pb-5">
-                    <Link to="/" className="link_underline">
+                    <Link to="/contact-us" className="link_underline">
                       Speak to us now &gt;
                     </Link>
                   </p>
@@ -119,7 +119,7 @@ const AboutUs = () => {
                     of the way.
                   </p>
                   <p>
-                    <Link to="/" className="link_underline">
+                    <Link to="/interior-design" className="link_underline">
                       Book a free consultation &gt;
                     </Link>
                   </p>
