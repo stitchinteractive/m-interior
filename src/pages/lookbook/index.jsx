@@ -2,8 +2,8 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Layout } from "../components/layout"
-import { LookBookItem } from "../components/lookbook-item"
+import { Layout } from "../../components/layout"
+import { LookBookItem } from "../../components/lookbook-item"
 
 // step 2: define component
 const LookBook = () => {
@@ -43,7 +43,7 @@ const LookBook = () => {
           content="The living room usually houses the most furniture and it can be
             tricky to coordinate the look and feel of every piece. See how you
             can easily create a cohesive look with our modular furniture."
-          link="/lookbook-living-room"
+          link="/lookbook/living-room"
           image_large="/lookbook/living_room/1.jpg"
           image_small="/lookbook/living_room/2.jpg"
         ></LookBookItem>
@@ -54,7 +54,7 @@ const LookBook = () => {
           area="Bed Room"
           content="Time to kickback and unwind? The key to a better night’s sleep is a clutter-free space and well-ordered furniture arrangements. 
 "
-          link="/lookbook-bed-room"
+          link="/lookbook/bed-room"
           image_large="/lookbook/bed_room/1.jpg"
           image_small="/lookbook/bed_room/2.jpg"
         ></LookBookItem>
@@ -64,7 +64,7 @@ const LookBook = () => {
           bg=""
           area="Study Room"
           content="Say hello to productive days ahead! Keep your spaces organised with the right storage systems, so you can focus on bigger things."
-          link="/lookbook-study-room"
+          link="/lookbook/study-room"
           image_large="/lookbook/study_room/1.jpg"
           image_small="/lookbook/study_room/2.jpg"
         ></LookBookItem>
@@ -74,7 +74,7 @@ const LookBook = () => {
           bg="bg_grey"
           area="Dining Room"
           content="More than just a wine and dine area, the dining room is a place to host warm gatherings with your loved ones – which is why it’s equally important to create spaces that’s a feast for the eyes too!"
-          link="/lookbook-dining-room"
+          link="/lookbook/dining-room"
           image_large="/lookbook/dining_room/1.jpg"
           image_small="/lookbook/dining_room/2.jpg"
         ></LookBookItem>

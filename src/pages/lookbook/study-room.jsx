@@ -2,10 +2,10 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Layout } from "../components/layout"
-import { LookBookDetailsItem } from "../components/lookbook-details-item"
+import { Layout } from "../../components/layout"
+import { LookBookDetailsItem } from "../../components/lookbook-details-item"
 import { Link } from "gatsby"
-import BackIcon from "../icons/back"
+import BackIcon from "../../icons/back"
 
 // step 2: define component
 const LookBookDetails = () => {
@@ -29,59 +29,43 @@ const LookBookDetails = () => {
       <div className="container">
         <div className="row row_padding">
           <div className="col-12">
-            <h2 className="text-uppercase pb-7 animate">Bed Room</h2>
+            <h2 className="text-uppercase pb-7 animate">Study Room</h2>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
-              image="/lookbook/bed_room/1.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/1.jpg"
+              alt="Study Room"
             />
             <LookBookDetailsItem
-              image="/lookbook/bed_room/3.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/3.jpg"
+              alt="Study Room"
             />
             <LookBookDetailsItem
-              image="/lookbook/bed_room/5.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/5.jpg"
+              alt="Study Room"
             />
             <LookBookDetailsItem
-              image="/lookbook/bed_room/7.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/9.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/11.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/7.jpg"
+              alt="Study Room"
             />
           </div>
 
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
-              image="/lookbook/bed_room/2.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/2.jpg"
+              alt="Study Room"
             />
             <LookBookDetailsItem
-              image="/lookbook/bed_room/4.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/4.jpg"
+              alt="Study Room"
             />
             <LookBookDetailsItem
-              image="/lookbook/bed_room/6.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/6.jpg"
+              alt="Study Room"
             />
             <LookBookDetailsItem
-              image="/lookbook/bed_room/8.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/10.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/12.jpg"
-              alt="Bed Room"
+              image="/lookbook/study_room/8.jpg"
+              alt="Study Room"
             />
           </div>
 
