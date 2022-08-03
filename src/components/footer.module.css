@@ -69,6 +69,11 @@ footer .subscribe {
   font-size: var(--text-xs) !important;
   padding: 5px 10px !important;
   margin-bottom: 0 !important;
+  color: var(--white);
+}
+
+footer .subscribe:focus {
+  color: var(--white);
 }
 
 /********** tablets  **********/

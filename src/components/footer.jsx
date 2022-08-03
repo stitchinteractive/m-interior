@@ -16,8 +16,8 @@ const schema = yup
   .object({
     email: yup
       .string()
-      .email("Email is not in the correct format")
-      .required("Email is mandatory"),
+      .email("Please check that your email is in the correct format.")
+      .required("Please enter your email address."),
   })
   .required()
 
@@ -65,14 +65,14 @@ export function Footer() {
         debugger
         console.log(result)
         if (result.customerCreate.customerUserErrors.length > 0) {
-          var err = "";
-          result.customerCreate.customerUserErrors.forEach((el)=>{
+          var err = ""
+          result.customerCreate.customerUserErrors.forEach((el) => {
             err = err + el.message + ". "
           })
           setMessage(err)
         } else {
           reset()
-          setMessage("Thank you for subscribing")
+          setMessage("Thank you for subscribing!")
           clearErrors()
         }
       },
@@ -169,30 +169,41 @@ export function Footer() {
               <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
                 <h5 className="text-uppercase mb-3">Subscribe</h5>
                 <div className="font_sm mb-5">
-                <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
-                  <div className="input-group textfield_footer mb-2">
-                    <input
-                      type="text"
-                      className={`form-control ${footerModule.subscribe}`}
-                      placeholder="Enter your email"
-                      aria-label="Enter your email"
-                      aria-describedby="basic-addon2"
-                      {...register("email", {onChange: (e) => {setMessage("")}})}
-                    />
-                    <div className="input-group-append">
-                      <button className="btn btn-outline" type="button" onClick={handleSubmit(onSubmit)}>
-                        Subscribe
-                      </button>
+                  <form
+                    className="row g-3"
+                    onSubmit={(e) => e.preventDefault()}
+                  >
+                    <div className="input-group textfield_footer">
+                      <input
+                        type="text"
+                        className={`form-control ${footerModule.subscribe}`}
+                        placeholder="Enter your email"
+                        aria-label="Enter your email"
+                        aria-describedby="basic-addon2"
+                        {...register("email", {
+                          onChange: (e) => {
+                            setMessage("")
+                          },
+                        })}
+                      />
+                      <div className="input-group-append">
+                        <button
+                          className="btn btn-outline"
+                          type="button"
+                          onClick={handleSubmit(onSubmit)}
+                        >
+                          Subscribe
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="font_xs">
-                    {errors.email&& <span>{errors.email.message}</span>}
-                    {message && <label>{message}</label>}
-                  </div>
-                  <div className="font_xs">
-                    Subscribe to our newsletter and enjoy 10% off!
-                  </div>
-                </form>
+                    <div className="font_xs font_yellow line_height_dense">
+                      {errors.email && <span>{errors.email.message}</span>}
+                      {message && <label>{message}</label>}
+                    </div>
+                    <div className="font_xs">
+                      Subscribe to our newsletter and enjoy 10% off!
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
