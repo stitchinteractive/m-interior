@@ -135,7 +135,7 @@ export function Header() {
                 <div className="col-12 col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link}>
                     <li>
-                      <Link to="/shop" activeStyle={{ color: "white" }}>
+                      <Link to="/shop" activeStyle={{ color: "white" }} partiallyActive={true}>
                         Shop
                       </Link>
                     </li>
