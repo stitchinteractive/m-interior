@@ -10,6 +10,7 @@ import { Testimonials } from "../components/testimonials"
 import { NavShop } from "../components/nav-shop"
 import { ImgCard } from "../components/img-card"
 import { BackToTop } from "../components/back-to-top"
+import isEqual from "lodash.isequal"
 
 export const query = graphql`
   query MyQuery {
@@ -25,6 +26,7 @@ export const query = graphql`
           handle
           metafields {
             id
+            key
             value
           }
           image{
@@ -103,14 +105,63 @@ const Shop = ({data: { collections, bestselling }}) => {
   })
 
   
-  //debugger
-  //console.log(collections)
-  //console.log(bestselling)
+  debugger
+  console.log(collections)
+  collections.edges.forEach((data) => {
+    var order = 0;
+    if(data.node.metafields) {
+      data.node.metafields.forEach((mf) =>{
+        if(mf.key === "order") {
+          order = parseInt(mf.value)
+        }
+      })
+    }
+    data.node.order = order
+  })
+  const sort = collections.edges.sort((a, b) => a.node.order - b.node.order)
+  console.log(sort)
+  console.log(bestselling)
 
   var node = collections.edges[0].node;
   var node2 = collections.edges[1].node;
   var node3 = collections.edges[2].node;
   var node4 = collections.edges[3].node;
+
+  const selectedCategory1 = node.metafields.find((mf) => {
+    return isEqual("category", mf.key)
+  })
+  const selectedPath1 = node.metafields.find((mf) => {
+    return isEqual("path", mf.key)
+  })
+  var category1 = selectedCategory1?.value ?? "NA"
+  var path1 = selectedPath1?.value ?? "shop"
+
+  const selectedCategory2 = node2.metafields.find((mf) => {
+    return isEqual("category", mf.key)
+  })
+  const selectedPath2 = node2.metafields.find((mf) => {
+    return isEqual("path", mf.key)
+  })
+  var category2 = selectedCategory2?.value ?? "NA"
+  var path2 = selectedPath2?.value ?? "shop"
+
+  const selectedCategory3 = node3.metafields.find((mf) => {
+    return isEqual("category", mf.key)
+  })
+  const selectedPath3 = node3.metafields.find((mf) => {
+    return isEqual("path", mf.key)
+  })
+  var category3 = selectedCategory3?.value ?? "NA"
+  var path3 = selectedPath3?.value ?? "shop"
+
+  const selectedCategory4 = node4.metafields.find((mf) => {
+    return isEqual("category", mf.key)
+  })
+  const selectedPath4 = node4.metafields.find((mf) => {
+    return isEqual("path", mf.key)
+  })
+  var category4 = selectedCategory4?.value ?? "NA"
+  var path4 = selectedPath4?.value ?? "shop"
 
 
   return (
@@ -124,10 +175,10 @@ const Shop = ({data: { collections, bestselling }}) => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-7 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to={"/modular-furniture/"+node.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/"+path1+"/"+node.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node.image.originalSrc}
-                      category={node.metafields[0]?.value}
+                      category={category1}
                       sub_category={node.title}
                     />
                     <div className="overlay_img">
@@ -141,10 +192,10 @@ const Shop = ({data: { collections, bestselling }}) => {
               </div>
               <div className="col-lg-5 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to={"/modular-furniture/"+node2.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/"+path2+"/"+node2.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node2.image.originalSrc}
-                      category={node2.metafields[0].value}
+                      category={category2}
                       sub_category={node2.title}
                     />
                     <div className="overlay_img">
@@ -160,10 +211,10 @@ const Shop = ({data: { collections, bestselling }}) => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-5 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to={"/modular-furniture/"+node3.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/"+path3+"/"+node3.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node3.image.originalSrc}
-                      category={node3.metafields[0].value}
+                      category={category3}
                       sub_category={node3.title}
                     />
                     <div className="overlay_img">
@@ -177,10 +228,10 @@ const Shop = ({data: { collections, bestselling }}) => {
               </div>
               <div className="col-lg-7 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to={"/modular-furniture/"+node4.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={"/"+path4+"/"+node4.handle} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node4.image.originalSrc}
-                      category={node4.metafields[0].value}
+                      category={category4}
                       sub_category={node4.title}
                     />
                     <div className="overlay_img">

@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useRef, useLayoutEffect } from "react"
+import React, { useState, useRef, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -9,6 +9,7 @@ import { NavShop } from "../components/nav-shop"
 import { ProductListItem } from "../components/product-list-item"
 import { SubBanner } from "../components/subpage-banner"
 import { BackToTop } from "../components/back-to-top"
+import isEqual from "lodash.isequal"
 
 // import Swiper core and required modules
 import { Navigation, A11y } from "swiper"
@@ -55,6 +56,18 @@ const Shop = ({ pageContext }) => {
 
   console.log(addons)
 
+  const selectedCategory = collection.metafields.find((mf) => {
+    return isEqual("category", mf.key)
+  })
+
+  var category = selectedCategory?.value ?? "NA"
+
+  const selectedDescription = collection.metafields.find((mf) => {
+    return isEqual("category_description", mf.key)
+  })
+
+  var description = selectedDescription?.value ?? "NA"
+
   return (
     <Layout>
       <div className="container">
@@ -67,23 +80,14 @@ const Shop = ({ pageContext }) => {
               <div className="col">
                 <SubBanner
                   background={collection.image.originalSrc}
-                  category={collection.metafields[0]?.value}
+                  category={category}
                   sub_category={collection.title}
                 />
               </div>
             </div>
             <div className="row mb-5">
               <p>
-                The Min+Modules series designed in-house by M.INT is a custom
-                modular furniture solution that fits into every space. Whether
-                you have a small bedroom, a living room or a large office,
-                Min+Modules enables you to create the perfect working and living
-                environment. With our optional, interchangeable modules, you can
-                design and combine them to create specific seating or storage
-                spaces. Min+Modules come in various configurations, sizes and
-                colours for you to express your own unique and individual style
-                to create furniture ranging from TV consoles, bookshelves to
-                storage cabinets.
+                {description}
               </p>
             </div>
             <div className="row mb-100">

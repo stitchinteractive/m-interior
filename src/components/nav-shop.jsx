@@ -54,7 +54,7 @@ export function NavShop(props) {
       <ul className="listing font_medium">
         <li>
           <Link
-            to="/modular-furniture/acacia-for-pets"
+            to="/shop/acacia-for-pets"
             activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
           >
             Acacia For Pets
@@ -62,7 +62,7 @@ export function NavShop(props) {
         </li>
         <li>
           <Link
-            to="/modular-furniture/accessories"
+            to="/shop/accessories"
             activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
           >
             Accessories

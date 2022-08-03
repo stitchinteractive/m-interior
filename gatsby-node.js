@@ -66,7 +66,9 @@ exports.createPages = async ({ graphql, actions }) => {
   //Query for collections
   const collections = await graphql(`
     query {
-      allShopifyCollection (sort: { fields: [title] }) {
+      allShopifyCollection (sort: { fields: [title] }
+        filter: {metafields: {elemMatch: {key: {eq: "path"}, value: {eq: "modular-furniture"}}}}
+        ) {
         edges {
           node {
             title
@@ -77,6 +79,75 @@ exports.createPages = async ({ graphql, actions }) => {
             metafields {
               id
               value
+              key
+            }
+            image {
+              id
+              originalSrc
+            }
+            products {
+              title
+              images {
+                originalSrc
+              }
+              shopifyId
+              handle
+              descriptionHtml
+              priceRangeV2 {
+                maxVariantPrice {
+                  amount
+                  currencyCode
+                }
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              status
+              storefrontId
+              variants {
+                shopifyId
+                availableForSale
+                storefrontId
+                title
+                price
+                selectedOptions {
+                  name
+                  value
+                }
+              }
+              options {
+                name
+                values
+                id
+              }
+              metafields {
+                value
+                key
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const oth_collections = await graphql(`
+    query {
+      allShopifyCollection (sort: { fields: [title] }
+        filter: {metafields: {elemMatch: {key: {eq: "path"}, value: {ne: "modular-furniture"}}}}
+        ) {
+        edges {
+          node {
+            title
+            id
+            description
+            descriptionHtml
+            handle
+            metafields {
+              id
+              value
+              key
             }
             image {
               id
@@ -136,7 +207,23 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         collection: node,
         productCount: node.products.length,
-        addons: collections.data.allShopifyCollection.edges.filter(
+        addons: oth_collections.data.allShopifyCollection.edges.filter(
+          (addon) => addon.node.handle === "extras"
+        ) ?? []
+      },
+    })
+  })
+
+  
+
+  oth_collections.data.allShopifyCollection.edges.forEach(({ node }) => {
+    createPage({
+      path: `/shop/${node.handle}`,
+      component: path.resolve(`./src/templates/collection.jsx`),
+      context: {
+        collection: node,
+        productCount: node.products.length,
+        addons: oth_collections.data.allShopifyCollection.edges.filter(
           (addon) => addon.node.handle === "extras"
         ) ?? []
       },
