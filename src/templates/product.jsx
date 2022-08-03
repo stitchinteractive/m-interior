@@ -31,7 +31,7 @@ import "swiper/css/thumbs"
 
 // step 2: define component
 const ShopDetails = ({ pageContext }) => {
-  const { product } = pageContext
+  const { product, recommendation } = pageContext
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -750,7 +750,8 @@ const ShopDetails = ({ pageContext }) => {
       <div className="container">
         <div className="row row_padding">
           <h3 className="text-uppercase py-5">You might also like</h3>
-          <ProductList />
+          <ProductList
+            recdata={recommendation} />
           <BackToTop />
         </div>
       </div>

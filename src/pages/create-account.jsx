@@ -19,8 +19,8 @@ const schema = yup
     lastName: yup.string().required("Last Name is mandatory"),
     phone: yup
       .string()
-      .matches(phoneRegExp, { message: "" })
-      .min(11, "Phone must be 11 char long")
+      .matches(phoneRegExp, { message: "Phone must be numbers" })
+      .min(8, "Phone must be 8 char long")
       .required("Phone is mandatory"),
     email: yup
       .string()
@@ -74,6 +74,7 @@ const Account = () => {
     const { confirmPwd, ...customer } = data
     
     customer.acceptsMarketing = true
+    customer.phone = "+65"+customer.phone
     console.log(customer)
     customerCreate({
       variables: { input: customer },
