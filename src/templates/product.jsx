@@ -169,6 +169,8 @@ const ShopDetails = ({ pageContext }) => {
 
   // custom swiper nav
   const swiperRef = useRef(null)
+  const buttonRef = useRef(null)
+
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext()
@@ -355,7 +357,7 @@ const ShopDetails = ({ pageContext }) => {
                                         onClick={(event) =>
                                           handleOptionChange(0, value)
                                         }
-                                        className="d-flex pointer"
+                                        className="d-flex pointer "
                                         value={value}
                                       >
                                         <img
@@ -371,6 +373,7 @@ const ShopDetails = ({ pageContext }) => {
                                           width="22"
                                           height="22"
                                           value={value}
+                                          className="color_selected"
                                         />
                                       </div>
                                     </OverlayTrigger>
@@ -750,8 +753,7 @@ const ShopDetails = ({ pageContext }) => {
       <div className="container">
         <div className="row row_padding">
           <h3 className="text-uppercase py-5">You might also like</h3>
-          <ProductList
-            recdata={recommendation} />
+          <ProductList recdata={recommendation} />
           <BackToTop />
         </div>
       </div>
