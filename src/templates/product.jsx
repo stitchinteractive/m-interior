@@ -112,10 +112,10 @@ const ShopDetails = ({ pageContext }) => {
     [productVariant.storefrontId, client.product]
   )
 
-  const handleOptionChange = (index, value) => {
+  const handleOptionChange = (index, value, event) => {
     debugger
     //const value = event.target.value
-    console.log(value)
+    console.log(event)
 
     if (value === "") {
       return
@@ -133,6 +133,17 @@ const ShopDetails = ({ pageContext }) => {
     })
 
     setVariant({ ...selectedVariant })
+
+    const clickedIndex = altText.indexOf(value)
+    imagesNavSlider.slideTo(clickedIndex)
+
+    const variant_options = Array.from(
+      document.getElementsByClassName('variant_options')
+    );
+    variant_options.map((vo) => {
+      vo.classList.remove('color_selected')
+    })
+    event.currentTarget.classList.toggle('color_selected')
   }
 
   React.useEffect(() => {
@@ -147,11 +158,16 @@ const ShopDetails = ({ pageContext }) => {
   const hasImages = product.images.length > 0
   const hasMultipleImages = true || product.images.length > 1
   const slides = []
+  const altText = []
 
   if (hasImages) {
-    product.images.forEach((data) => {
+    product.images.forEach((data, index) => {
       slides.push(data.originalSrc)
-      console.log(data.originalSrc)
+      if(data.altText)
+        altText.push(data.altText)
+      else 
+        altText.push(index)
+      //console.log(data.originalSrc)
     })
   }
 
@@ -362,9 +378,9 @@ const ShopDetails = ({ pageContext }) => {
                                     >
                                       <div
                                         onClick={(event) =>
-                                          handleOptionChange(0, value)
+                                          handleOptionChange(0, value, event)
                                         }
-                                        className="d-flex pointer "
+                                        className="d-flex pointer variant_options"
                                         value={value}
                                       >
                                         <img
@@ -380,7 +396,7 @@ const ShopDetails = ({ pageContext }) => {
                                           width="22"
                                           height="22"
                                           value={value}
-                                          className="color_selected"
+                                          className=""
                                         />
                                       </div>
                                     </OverlayTrigger>
