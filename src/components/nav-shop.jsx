@@ -89,27 +89,27 @@ export function NavShop(props) {
       </div>
       <ul className="listing font_medium">
         <li>
-          <Link to="/" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=bestselling" activeStyle={{ fontWeight: 600 }}>
             Bestselling
           </Link>
         </li>
         <li>
-          <Link to="/" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=lowtohigh" activeStyle={{ fontWeight: 600 }}>
             Price (low to high)
           </Link>
         </li>
         <li>
-          <Link to="/" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=hightolow" activeStyle={{ fontWeight: 600 }}>
             Price (High to low)
           </Link>
         </li>
         <li>
-          <Link to="/" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=AtoZ" activeStyle={{ fontWeight: 600 }}>
             Alphabetically (A to Z)
           </Link>
         </li>
         <li>
-          <Link to="/" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=ZtoA" activeStyle={{ fontWeight: 600 }}>
             Alphabetically (Z to A)
           </Link>
         </li>

@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useEffect, useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { graphql, Link } from "gatsby"
@@ -84,24 +84,83 @@ export const query = graphql`
         }
       }
     }
+    allProducts: allShopifyProduct {
+      edges {
+        node {
+          title
+          images {
+            originalSrc
+          }
+          shopifyId
+          handle
+          descriptionHtml
+          priceRangeV2 {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          status
+          storefrontId
+          variants {
+            shopifyId
+            availableForSale
+            storefrontId
+            title
+            price
+            selectedOptions {
+              name
+              value
+            }
+          }
+          options {
+            name
+            values
+            id
+          }
+          metafields {
+            value
+            key
+          }
+        }
+      }
+    }
   }
 `
 
 // step 2: define component
-const Shop = ({data: { collections, bestselling }}) => {
+const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
   gsap.registerPlugin(ScrollTrigger)
 
+  const [products, setProducts] = React.useState([])
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const sortby = params.get("sortby");
+    if(sortby === null || sortby === "bestselling") {
+      setProducts(bestselling)
+    } else {
+      setProducts(allProducts)
+    }
+  })
+
   useLayoutEffect(() => {
-    gsap.utils.toArray(".animate").forEach(function (e) {
-      gsap.from(e, {
-        duration: 0.8,
-        ease: "power1.out",
-        opacity: 0,
-        y: 100,
-        scrollTrigger: e,
-        onComplete: () => console.log(e),
-      })
-    })
+    // gsap.utils.toArray(".animate").forEach(function (e) {
+    //   gsap.from(e, {
+    //     duration: 0.8,
+    //     ease: "power1.out",
+    //     opacity: 0,
+    //     y: 100,
+    //     scrollTrigger: e,
+    //     onComplete: () => console.log(e),
+    //   })
+    // })
+
+   
   })
 
   
