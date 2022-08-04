@@ -21,7 +21,7 @@ import { AddToCart } from "../components/add-to-cart"
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Thumbs, Mousewheel } from "swiper"
+import { Navigation, Thumbs, Mousewheel, HashNavigation } from "swiper"
 
 // import Swiper styles
 import "swiper/css"
@@ -214,6 +214,9 @@ const ShopDetails = ({ pageContext }) => {
                     <div className="slider__thumbs">
                       <Swiper
                         onSwiper={setImagesNavSlider}
+                        hashNavigation={{
+                          watchState: true,
+                        }}
                         direction="vertical"
                         spaceBetween={24}
                         slidesPerView={3}
@@ -230,11 +233,11 @@ const ShopDetails = ({ pageContext }) => {
                             direction: "vertical",
                           },
                         }}
-                        modules={[Navigation, Thumbs]}
+                        modules={[Navigation, Thumbs, HashNavigation]}
                       >
                         {slides.map((slide, index) => {
                           return (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index} data-hash={index}>
                               <div className="slider__image">
                                 <img src={slide} alt="" />
                               </div>
@@ -252,10 +255,14 @@ const ShopDetails = ({ pageContext }) => {
 
                     <Swiper
                       thumbs={{ swiper: imagesNavSlider }}
+                      hashNavigation={{
+                        watchState: true,
+                      }}
                       direction="horizontal"
                       slidesPerView={1}
                       spaceBetween={32}
                       mousewheel={true}
+                      HashNavigation={true}
                       navigation={{
                         nextEl: ".slider__next",
                         prevEl: ".slider__prev",
@@ -269,11 +276,11 @@ const ShopDetails = ({ pageContext }) => {
                         },
                       }}
                       className="swiper-container2"
-                      modules={[Navigation, Thumbs, Mousewheel]}
+                      modules={[Navigation, Thumbs, Mousewheel, HashNavigation]}
                     >
                       {slides.map((slide, index) => {
                         return (
-                          <SwiperSlide key={index}>
+                          <SwiperSlide key={index} data-hash={index}>
                             <div className="slider__image">
                               <img src={slide} alt="" />
                             </div>
