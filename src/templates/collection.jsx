@@ -94,7 +94,7 @@ const Shop = ({ pageContext }) => {
               {collection.products.map((product) => (
                 <div className="col-12 col-lg-4 mb-4">
                   <ProductListItem
-                    url={"/mint/" + product.handle}
+                    url={"/shop/detail/" + product.handle}
                     image={product.images[0].originalSrc}
                     bgimage={product.images[1].originalSrc}
                     name={product.title}
@@ -191,7 +191,7 @@ const Shop = ({ pageContext }) => {
                       {addons[0].node.products.map((product) => (
                         <SwiperSlide className="d-flex flex-column h-100">
                           <ProductListItem
-                            url={"/mint/" + product.handle}
+                            url={"/shop/detail/" + product.handle}
                             image={product.images[0].originalSrc}
                             bgimage={product.images[1].originalSrc}
                             name={product.title}

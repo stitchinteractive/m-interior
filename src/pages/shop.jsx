@@ -129,42 +129,237 @@ export const query = graphql`
         }
       }
     }
+    lowtohighProducts: allShopifyProduct(
+      sort: {fields: priceRangeV2___maxVariantPrice___amount, order: DESC}
+    ) {
+      edges {
+        node {
+          title
+          images {
+            originalSrc
+          }
+          shopifyId
+          handle
+          descriptionHtml
+          priceRangeV2 {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          status
+          storefrontId
+          variants {
+            shopifyId
+            availableForSale
+            storefrontId
+            title
+            price
+            selectedOptions {
+              name
+              value
+            }
+          }
+          options {
+            name
+            values
+            id
+          }
+          metafields {
+            value
+            key
+          }
+        }
+      }
+    }
+    hightolowProducts: allShopifyProduct(
+      sort: {fields: priceRangeV2___maxVariantPrice___amount, order: ASC}
+    ) {
+      edges {
+        node {
+          title
+          images {
+            originalSrc
+          }
+          shopifyId
+          handle
+          descriptionHtml
+          priceRangeV2 {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          status
+          storefrontId
+          variants {
+            shopifyId
+            availableForSale
+            storefrontId
+            title
+            price
+            selectedOptions {
+              name
+              value
+            }
+          }
+          options {
+            name
+            values
+            id
+          }
+          metafields {
+            value
+            key
+          }
+        }
+      }
+    }
+    AtoZProducts: allShopifyProduct(
+      sort: {fields: variants___title, order: DESC}
+    ) {
+      edges {
+        node {
+          title
+          images {
+            originalSrc
+          }
+          shopifyId
+          handle
+          descriptionHtml
+          priceRangeV2 {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          status
+          storefrontId
+          variants {
+            shopifyId
+            availableForSale
+            storefrontId
+            title
+            price
+            selectedOptions {
+              name
+              value
+            }
+          }
+          options {
+            name
+            values
+            id
+          }
+          metafields {
+            value
+            key
+          }
+        }
+      }
+    }
+    ZtoAProducts: allShopifyProduct(
+      sort: {fields: variants___title, order: ASC}
+    ) {
+      edges {
+        node {
+          title
+          images {
+            originalSrc
+          }
+          shopifyId
+          handle
+          descriptionHtml
+          priceRangeV2 {
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          status
+          storefrontId
+          variants {
+            shopifyId
+            availableForSale
+            storefrontId
+            title
+            price
+            selectedOptions {
+              name
+              value
+            }
+          }
+          options {
+            name
+            values
+            id
+          }
+          metafields {
+            value
+            key
+          }
+        }
+      }
+    }
   }
 `
 
 // step 2: define component
-const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
+const Shop = ({data: { collections, bestselling, allProducts, lowtohighProducts, hightolowProducts, AtoZProducts, ZtoAProducts }, location}) => {
   gsap.registerPlugin(ScrollTrigger)
 
-  const [products, setProducts] = React.useState([])
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const sortby = params.get("sortby");
-    if(sortby === null || sortby === "bestselling") {
-      setProducts(bestselling)
-    } else {
-      setProducts(allProducts)
-    }
-  })
+  //const [products, setProducts] = React.useState([])
 
   useLayoutEffect(() => {
-    // gsap.utils.toArray(".animate").forEach(function (e) {
-    //   gsap.from(e, {
-    //     duration: 0.8,
-    //     ease: "power1.out",
-    //     opacity: 0,
-    //     y: 100,
-    //     scrollTrigger: e,
-    //     onComplete: () => console.log(e),
-    //   })
-    // })
-
-   
+    gsap.utils.toArray(".animate").forEach(function (e) {
+      gsap.from(e, {
+        duration: 0.8,
+        ease: "power1.out",
+        opacity: 0,
+        y: 100,
+        scrollTrigger: e,
+        onComplete: () => console.log(e),
+      })
+    })
   })
 
-  
   debugger
+
+  var products = []
+  const params = new URLSearchParams(location.search);
+  const sortby = params.get("sortby");
+  if(sortby === null || sortby === "bestselling") {
+    products = bestselling
+  } else {
+    if (sortby === "lowtohigh") {
+      products = lowtohighProducts
+    } else if (sortby === "hightolow") {
+      products = hightolowProducts
+    } else if (sortby === "AtoZ") {
+      products = AtoZProducts
+    } else if (sortby === "ZtoA") {
+      products = ZtoAProducts
+    }
+    //products = allProducts
+  }
+  console.log(products)
+
   console.log(collections)
   collections.edges.forEach((data) => {
     var order = 0;
@@ -179,8 +374,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
   })
   const sort = collections.edges.sort((a, b) => a.node.order - b.node.order)
   console.log(sort)
-  console.log(bestselling)
-
+  
   var node = collections.edges[0].node;
   var node2 = collections.edges[1].node;
   var node3 = collections.edges[2].node;
@@ -193,7 +387,12 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
     return isEqual("path", mf.key)
   })
   var category1 = selectedCategory1?.value ?? "NA"
-  var path1 = selectedPath1?.value ?? "shop"
+  var path1 = selectedPath1?.value ?? ""
+  if(path1 === "shop") {
+    path1 = "/shop/"+node.handle
+  } else {
+    path1 = "/shop/"+path1+"/"+node.handle
+  }
 
   const selectedCategory2 = node2.metafields.find((mf) => {
     return isEqual("category", mf.key)
@@ -202,7 +401,12 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
     return isEqual("path", mf.key)
   })
   var category2 = selectedCategory2?.value ?? "NA"
-  var path2 = selectedPath2?.value ?? "shop"
+  var path2 = selectedPath2?.value ?? ""
+  if(path2 === "shop") {
+    path2 = "/shop/"+node2.handle
+  } else {
+    path2 = "/shop/"+path2+"/"+node2.handle
+  }
 
   const selectedCategory3 = node3.metafields.find((mf) => {
     return isEqual("category", mf.key)
@@ -211,7 +415,12 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
     return isEqual("path", mf.key)
   })
   var category3 = selectedCategory3?.value ?? "NA"
-  var path3 = selectedPath3?.value ?? "shop"
+  var path3 = selectedPath3?.value ?? ""
+  if(path3 === "shop") {
+    path3 = "/shop/"+node3.handle
+  } else {
+    path3 = "/shop/"+path3+"/"+node3.handle
+  }
 
   const selectedCategory4 = node4.metafields.find((mf) => {
     return isEqual("category", mf.key)
@@ -220,7 +429,12 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
     return isEqual("path", mf.key)
   })
   var category4 = selectedCategory4?.value ?? "NA"
-  var path4 = selectedPath4?.value ?? "shop"
+  var path4 = selectedPath4?.value ?? ""
+  if(path4 === "shop") {
+    path4 = "/shop/"+node4.handle
+  } else {
+    path4 = "/shop/"+path4+"/"+node4.handle
+  }
 
 
   return (
@@ -234,7 +448,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-7 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to={"/"+path1+"/"+node.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={path1} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node.image.originalSrc}
                       category={category1}
@@ -251,7 +465,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
               </div>
               <div className="col-lg-5 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to={"/"+path2+"/"+node2.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={path2} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node2.image.originalSrc}
                       category={category2}
@@ -270,7 +484,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
             <div className="row padding_shop d-flex">
               <div className="col-lg-5 p-0 p-md-0 d-flex h-100 animate">
                 <div className="container_overlay">
-                  <Link to={"/"+path3+"/"+node3.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={path3} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node3.image.originalSrc}
                       category={category3}
@@ -287,7 +501,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
               </div>
               <div className="col-lg-7 p-0 p-md-0 animate">
                 <div className="container_overlay">
-                  <Link to={"/"+path4+"/"+node4.handle} className="d-flex w-100 h-100 no_underline">
+                  <Link to={path4} className="d-flex w-100 h-100 no_underline">
                     <ImgCard
                       background={node4.image.originalSrc}
                       category={category4}
@@ -308,7 +522,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
               <div className="col-12">
                 <h3 className="text-uppercase pb-5">Best Sellers</h3>
                 <ProductList 
-                  bsdata={bestselling} />
+                  bsdata={products} />
                 <BackToTop />
               </div>
             </div>

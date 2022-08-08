@@ -29,8 +29,12 @@ export function ProductList(props) {
       swiperRef.current.swiper.slidePrev()
     }
   }
-  const [bestsellers, setBestsellers] = React.useState(props.bsdata)
-  const [recommendation, setRecommendation] = React.useState(props.recdata)
+  debugger
+  //const [bestsellers, setBestsellers] = React.useState(props.bsdata)
+  //const [recommendation, setRecommendation] = React.useState(props.recdata)
+
+  const bestsellers = props.bsdata
+  const recommendation = props.recdata
 
   // if(props.bsdata) {
   //   alert("bestseller")
@@ -67,7 +71,7 @@ export function ProductList(props) {
         { props.bsdata && bestsellers?.edges?.map((product) => (
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
-            url={"/mint/"+product.node.handle}
+            url={"/shop/detail/"+product.node.handle}
             image={product.node.images[0].originalSrc}
             bgimage={product.node.images[1].originalSrc}
             name={product.node.title}
@@ -80,7 +84,7 @@ export function ProductList(props) {
         { props.recdata && recommendation?.map((product) => (
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
-            url={"/mint/"+product.node.handle}
+            url={"/shop/detail/"+product.node.handle}
             image={product.node.images[0].originalSrc}
             bgimage={product.node.images[1].originalSrc}
             name={product.node.title}

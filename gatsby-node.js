@@ -58,7 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // The product "handle" is generated automatically by Shopify
   result.data.allShopifyProduct.edges.forEach(({ node }) => {
     createPage({
-      path: `/mint/${node.handle}`,
+      path: `/shop/detail/${node.handle}`,
       component: path.resolve(`./src/templates/product.jsx`),
       context: {
         product: node,
@@ -208,7 +208,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   collections.data.allShopifyCollection.edges.forEach(({ node }) => {
     createPage({
-      path: `/modular-furniture/${node.handle}`,
+      path: `/shop/modular-furniture/${node.handle}`,
       component: path.resolve(`./src/templates/collection.jsx`),
       context: {
         collection: node,
