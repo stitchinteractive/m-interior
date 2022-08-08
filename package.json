@@ -53,6 +53,7 @@
     "react-icons": "^4.1.0",
     "shopify-buy": "^2.16.1",
     "swiper": "^8.2.2",
+    "uploadcare-widget": "^3.18.0",
     "urql": "^2.0.2",
     "yup": "^0.32.11"
   }

@@ -11,6 +11,7 @@ import { NavShop } from "../components/nav-shop"
 import { ImgCard } from "../components/img-card"
 import { BackToTop } from "../components/back-to-top"
 import isEqual from "lodash.isequal"
+import lodash from "lodash"
 
 export const query = graphql`
   query MyQuery {
@@ -129,199 +130,11 @@ export const query = graphql`
         }
       }
     }
-    lowtohighProducts: allShopifyProduct(
-      sort: {fields: priceRangeV2___maxVariantPrice___amount, order: DESC}
-    ) {
-      edges {
-        node {
-          title
-          images {
-            originalSrc
-          }
-          shopifyId
-          handle
-          descriptionHtml
-          priceRangeV2 {
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          status
-          storefrontId
-          variants {
-            shopifyId
-            availableForSale
-            storefrontId
-            title
-            price
-            selectedOptions {
-              name
-              value
-            }
-          }
-          options {
-            name
-            values
-            id
-          }
-          metafields {
-            value
-            key
-          }
-        }
-      }
-    }
-    hightolowProducts: allShopifyProduct(
-      sort: {fields: priceRangeV2___maxVariantPrice___amount, order: ASC}
-    ) {
-      edges {
-        node {
-          title
-          images {
-            originalSrc
-          }
-          shopifyId
-          handle
-          descriptionHtml
-          priceRangeV2 {
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          status
-          storefrontId
-          variants {
-            shopifyId
-            availableForSale
-            storefrontId
-            title
-            price
-            selectedOptions {
-              name
-              value
-            }
-          }
-          options {
-            name
-            values
-            id
-          }
-          metafields {
-            value
-            key
-          }
-        }
-      }
-    }
-    AtoZProducts: allShopifyProduct(
-      sort: {fields: variants___title, order: DESC}
-    ) {
-      edges {
-        node {
-          title
-          images {
-            originalSrc
-          }
-          shopifyId
-          handle
-          descriptionHtml
-          priceRangeV2 {
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          status
-          storefrontId
-          variants {
-            shopifyId
-            availableForSale
-            storefrontId
-            title
-            price
-            selectedOptions {
-              name
-              value
-            }
-          }
-          options {
-            name
-            values
-            id
-          }
-          metafields {
-            value
-            key
-          }
-        }
-      }
-    }
-    ZtoAProducts: allShopifyProduct(
-      sort: {fields: variants___title, order: ASC}
-    ) {
-      edges {
-        node {
-          title
-          images {
-            originalSrc
-          }
-          shopifyId
-          handle
-          descriptionHtml
-          priceRangeV2 {
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          status
-          storefrontId
-          variants {
-            shopifyId
-            availableForSale
-            storefrontId
-            title
-            price
-            selectedOptions {
-              name
-              value
-            }
-          }
-          options {
-            name
-            values
-            id
-          }
-          metafields {
-            value
-            key
-          }
-        }
-      }
-    }
   }
 `
 
 // step 2: define component
-const Shop = ({data: { collections, bestselling, allProducts, lowtohighProducts, hightolowProducts, AtoZProducts, ZtoAProducts }, location}) => {
+const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   //const [products, setProducts] = React.useState([])
@@ -345,20 +158,28 @@ const Shop = ({data: { collections, bestselling, allProducts, lowtohighProducts,
   const params = new URLSearchParams(location.search);
   const sortby = params.get("sortby");
   if(sortby === null || sortby === "bestselling") {
-    products = bestselling
+    products = bestselling.edges
   } else {
     if (sortby === "lowtohigh") {
-      products = lowtohighProducts
+      products = lodash.orderBy(allProducts.edges, function(o) {
+        return parseFloat(o.node.priceRangeV2.maxVariantPrice.amount);
+      }, ['asc'])
     } else if (sortby === "hightolow") {
-      products = hightolowProducts
+      products = lodash.orderBy(allProducts.edges, function(o) {
+        return parseFloat(o.node.priceRangeV2.maxVariantPrice.amount);
+      }, ['desc'])
     } else if (sortby === "AtoZ") {
-      products = AtoZProducts
+      products = lodash.orderBy(allProducts.edges, 'node.title', ['asc'])
     } else if (sortby === "ZtoA") {
-      products = ZtoAProducts
+      products = lodash.orderBy(allProducts.edges,  'node.title', ['desc'])
     }
     //products = allProducts
   }
   console.log(products)
+  // var a = lodash.orderBy(allProducts.edges, function(o) {
+  //   return parseFloat(o.node.priceRangeV2.maxVariantPrice.amount);
+  // }, ['asc'])
+  // console.log(a)
 
   console.log(collections)
   collections.edges.forEach((data) => {

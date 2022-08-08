@@ -10,6 +10,7 @@ import { ProductListItem } from "../components/product-list-item"
 import { SubBanner } from "../components/subpage-banner"
 import { BackToTop } from "../components/back-to-top"
 import isEqual from "lodash.isequal"
+import lodash from "lodash"
 
 // import Swiper core and required modules
 import { Navigation, A11y } from "swiper"
@@ -22,8 +23,33 @@ import "swiper/css/pagination"
 import "swiper/css/scrollbar"
 
 // step 2: define component
-const Shop = ({ pageContext }) => {
+const Shop = ({ pageContext, location }) => {
   const { collection, productCount, addons } = pageContext
+
+  const params = new URLSearchParams(location.search);
+  const sortby = params.get("sortby");
+  //alert(sortby)
+  debugger
+  var products = []
+  if(sortby === null || sortby === "bestselling") {
+    products = collection.products
+  } else {
+    if (sortby === "lowtohigh") {
+      products = lodash.orderBy(collection.products, function(o) {
+        return parseFloat(o.priceRangeV2.maxVariantPrice.amount);
+      }, ['asc'])
+    } else if (sortby === "hightolow") {
+      products = lodash.orderBy(collection.products, function(o) {
+        return parseFloat(o.priceRangeV2.maxVariantPrice.amount);
+      }, ['desc'])
+    } else if (sortby === "AtoZ") {
+      products = lodash.orderBy(collection.products, 'title', ['asc'])
+    } else if (sortby === "ZtoA") {
+      products = lodash.orderBy(collection.products,  'title', ['desc'])
+    }
+    //products = allProducts
+  }
+  console.log(products)
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -91,7 +117,7 @@ const Shop = ({ pageContext }) => {
               </p>
             </div>
             <div className="row mb-100">
-              {collection.products.map((product) => (
+              {products.map((product) => (
                 <div className="col-12 col-lg-4 mb-4">
                   <ProductListItem
                     url={"/shop/detail/" + product.handle}

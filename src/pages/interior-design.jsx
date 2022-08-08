@@ -1,9 +1,11 @@
 // step 1: import
 import React, { useLayoutEffect } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { useForm, ValidationError } from '@formspree/react';
+import uploadcare from 'uploadcare-widget/uploadcare.lang.en.min.js'
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -21,6 +23,12 @@ const InteriorDesignDetails = () => {
       })
     })
   })
+
+  const [state, handleSubmit] = useForm('mbjbrnlr');
+
+  if (state.succeeded) {
+    navigate('/thank-you')
+  }
 
   return (
     <Layout>
@@ -234,7 +242,7 @@ const InteriorDesignDetails = () => {
           <div className="container">
             <div className="row row_padding">
               <div className="col-12">
-                <form className="g-3">
+                <form method="post" onSubmit={handleSubmit} className="g-3">
                   <div className="row">
                     <div className="col-12">
                       <h2 className="pb-6 text-center">
@@ -251,7 +259,10 @@ const InteriorDesignDetails = () => {
                         type="text"
                         className="form-control"
                         id="input_name"
+                        name="name"
+                        required
                       />
+                      <ValidationError prefix="Name" field="name" errors={state.errors} />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label htmlFor="input_phone" className="form-label">
@@ -261,7 +272,10 @@ const InteriorDesignDetails = () => {
                         type="text"
                         className="form-control"
                         id="input_phone"
+                        name="phone"
+                        required
                       />
+                      <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label htmlFor="input_email" className="form-label">
@@ -271,7 +285,10 @@ const InteriorDesignDetails = () => {
                         type="email"
                         className="form-control"
                         id="input_email"
+                        name="email"
+                        required
                       />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
                   </div>
                   <div className="row">
@@ -285,13 +302,16 @@ const InteriorDesignDetails = () => {
                       <select
                         class="form-select"
                         aria-label="Default select example"
+                        name="propertyType"
+                        required
                       >
-                        <option selected>Select an option</option>
-                        <option value="1">HDB</option>
-                        <option value="2">Condominium</option>
-                        <option value="3">Landed</option>
-                        <option value="4">Commercial</option>
+                        <option value = "" selected>Select an option</option>
+                        <option value="HDB">HDB</option>
+                        <option value="Condominium">Condominium</option>
+                        <option value="Landed">Landed</option>
+                        <option value="Commercial">Commercial</option>
                       </select>
+                      <ValidationError prefix="Property Type" field="propertyType" errors={state.errors} />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label
@@ -303,14 +323,17 @@ const InteriorDesignDetails = () => {
                       <select
                         class="form-select"
                         aria-label="Default select example"
+                        name="roomType"
+                        required
                       >
-                        <option selected>Select an option</option>
-                        <option value="1">1-Room</option>
-                        <option value="2">2-Room</option>
-                        <option value="3">3-Room</option>
-                        <option value="4">4-Room</option>
-                        <option value="5">5-Room</option>
+                        <option value = "" selected>Select an option</option>
+                        <option value="1-Room">1-Room</option>
+                        <option value="2-Room">2-Room</option>
+                        <option value="3-Room">3-Room</option>
+                        <option value="4-Room">4-Room</option>
+                        <option value="5-Room">5-Room</option>
                       </select>
+                      <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label
@@ -323,7 +346,10 @@ const InteriorDesignDetails = () => {
                         type="date"
                         className="form-control"
                         id="input_key_collection_date"
+                        name="keyCollectionDate"
+                        required
                       />
+                      <ValidationError prefix="Key Collection Date" field="keyCollectionDate" errors={state.errors} />
                     </div>
                   </div>
                   <div className="row">
@@ -334,32 +360,43 @@ const InteriorDesignDetails = () => {
                       <select
                         class="form-select"
                         aria-label="Default select example"
+                        name="renovationBudget"
+                        required
                       >
-                        <option selected>Select an option</option>
-                        <option value="1">Below S$10,000</option>
-                        <option value="2">S$10,000 - S$20,000</option>
-                        <option value="3">S$20,001 - S$30,000</option>
-                        <option value="4">S$30,001 - S$40,000</option>
-                        <option value="4">S$40,001 - S$50,000</option>
-                        <option value="4">S$50,001 - S$60,000</option>
-                        <option value="4">S$60,001 - S$70,000</option>
-                        <option value="4">S$70,001 - S$100,000</option>
-                        <option value="4">Above S$100,000</option>
+                        <option value="" selected>Select an option</option>
+                        <option value="Below 10000">Below S$10,000</option>
+                        <option value="10000-20000">S$10,000 - S$20,000</option>
+                        <option value="20001-30000">S$20,001 - S$30,000</option>
+                        <option value="30001-40000">S$30,001 - S$40,000</option>
+                        <option value="40001-50000">S$40,001 - S$50,000</option>
+                        <option value="50001-60000">S$50,001 - S$60,000</option>
+                        <option value="60001-70000">S$60,001 - S$70,000</option>
+                        <option value="70001-100000">S$70,001 - S$100,000</option>
+                        <option value="Above 100000">Above S$100,000</option>
                       </select>
+                      <ValidationError prefix="Renovation Budget" field="renovationBudget" errors={state.errors} />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label htmlFor="input_floorplan" className="form-label">
                         Floorplan, if any
                       </label>
                       <div class="input-group mb-3">
-                        <input
+                      <input
+                          type="hidden"
+                          role="uploadcare-uploader"
+                          data-public-key="b73d7dc0f38191790b2a"
+                          data-tabs="file camera url facebook gdrive gphotos"
+                          name="floorplan"
+                      />
+                        {/* <input
                           type="file"
                           class="form-control"
                           id="input_floorplan"
+                          name="floorplan"
                         />
                         <label class="input-group-text" for="input_floorplan">
                           Upload
-                        </label>
+                        </label> */}
                       </div>
                     </div>
                     <div className="col-12 col-md-4 pb-5">
@@ -369,14 +406,17 @@ const InteriorDesignDetails = () => {
                       <select
                         class="form-select"
                         aria-label="Default select example"
+                        name="howDidYouFindUs"
+                        required
                       >
-                        <option selected>Select an option</option>
-                        <option value="1">Facebook</option>
-                        <option value="2">Instagram</option>
-                        <option value="3">Google</option>
-                        <option value="4">Friends/family referral</option>
-                        <option value="5">Others</option>
+                        <option value = "" selected>Select an option</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Google">Google</option>
+                        <option value="Friends/family referral">Friends/family referral</option>
+                        <option value="Others">Others</option>
                       </select>
+                      <ValidationError prefix="How did you find us" field="howDidYouFindUs" errors={state.errors} />
                     </div>
                   </div>
                   <div className="row">
@@ -389,17 +429,17 @@ const InteriorDesignDetails = () => {
                           class="form-control"
                           id="input_other_info"
                           rows="3"
+                          name="other"
                         ></textarea>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-12 text-center">
-                      <Link to="/">
-                        <button type="submit" className="btn btn-primary mb-80">
+                        <button type="submit" className="btn btn-primary mb-80" disabled={state.submitting}>
                           Submit
                         </button>
-                      </Link>
+                        <ValidationError errors={state.errors} />
                     </div>
                   </div>
                 </form>

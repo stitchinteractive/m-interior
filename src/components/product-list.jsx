@@ -68,7 +68,7 @@ export function ProductList(props) {
         onSlideChange={() => console.log("slide change")}
         ref={swiperRef}
       >
-        { props.bsdata && bestsellers?.edges?.map((product) => (
+        { props.bsdata && bestsellers?.map((product) => (
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
             url={"/shop/detail/"+product.node.handle}
