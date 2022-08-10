@@ -2,11 +2,11 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Layout } from "../components/layout"
-import { LookBookDetailsItem } from "../components/lookbook-details-item"
-import { Testimonials } from "../components/testimonials"
+import { Layout } from "../../components/layout"
+import { LookBookDetailsItem } from "../../components/lookbook-details-item"
+import { Testimonials } from "../../components/testimonials"
 import { Link } from "gatsby"
-import BackIcon from "../icons/back"
+import BackIcon from "../../icons/back"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -28,7 +28,7 @@ const InteriorDesignDetails = () => {
   return (
     <Layout>
       <div className="container">
-        <div className="row row_padding animate">
+        <div className="row padding_interior_lead_in animate">
           <div className="col-lg-6">
             <h2 className="text-uppercase mb-5">Treescape, 3-Bedroom Condo</h2>
             <h5 className="text-uppercase mb-3">Modern Contemporary</h5>
@@ -53,82 +53,51 @@ const InteriorDesignDetails = () => {
             </p>
           </div>
           <div className="col-lg-6 ps-lg-5">
-            <img
-              src="/interior/works/treescape/floorplan.jpg"
-              alt="Floor Plan"
-              className="img_border_black"
-            />
+            <p>
+              <img
+                src="/interior/works/treescape/floorplan.jpg"
+                alt="Floor Plan"
+                className="img_border_black"
+              />
+            </p>
           </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Living Room</h3>
-            </div>
-          </div>
+        </div>
+        <div className="row row_padding">
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/treescape/1.jpg"
-              alt="Living Room"
+              alt="1"
             />
-            <LookBookDetailsItem
-              image="/interior/works/treescape/2.jpg"
-              alt="Living Room"
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/treescape/3.jpg"
-              alt="Living Room"
+              alt="3"
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Kitchen</h3>
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/treescape/4.jpg"
-              alt="Kitchen"
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/treescape/5.jpg"
-              alt="Kitchen"
+              alt="5"
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Bed Room</h3>
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/treescape/6.jpg"
-              alt="Bed Room"
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/treescape/7.jpg"
-              alt="Bed Room"
+              alt="7"
             />
           </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Bath Room</h3>
-            </div>
-          </div>
+
           <div className="col-12 col-md-6">
+            <LookBookDetailsItem
+              image="/interior/works/treescape/2.jpg"
+              alt="2"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/treescape/4.jpg"
+              alt="4"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/treescape/6.jpg"
+              alt="6"
+            />
             <LookBookDetailsItem
               image="/interior/works/treescape/8.jpg"
-              alt="Bath Room"
-            />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/treescape/9.jpg"
-              alt="Bath Room"
+              alt="8"
             />
           </div>
 
