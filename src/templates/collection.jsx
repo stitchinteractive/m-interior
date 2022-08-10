@@ -81,6 +81,8 @@ const Shop = ({ pageContext, location }) => {
   debugger
 
   console.log(addons)
+  const hasAddonProducts = addons[0]?.node.products.length > 0
+  //alert(hasAddonProducts)
 
   const selectedCategory = collection.metafields.find((mf) => {
     return isEqual("category", mf.key)
@@ -131,6 +133,8 @@ const Shop = ({ pageContext, location }) => {
                 </div>
               ))}
             </div>
+            {
+              hasAddonProducts ? (
             <div className="row">
               <div className="col-12">
                 <h3 className="text-uppercase py-5">{collection.title} Extras</h3>
@@ -192,6 +196,14 @@ const Shop = ({ pageContext, location }) => {
                 </div>
               </div>
             </div>
+              ) : (
+              <div className="row">
+                <div className="col-12">
+                  <BackToTop />
+                </div>
+              </div>
+              )
+            }
           </div>
         </div>
       </div>

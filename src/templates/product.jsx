@@ -198,6 +198,20 @@ const ShopDetails = ({ pageContext }) => {
     }
   }
 
+  const selectedCategory1 = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("category", mf.key)
+  })
+  const selectedPath1 = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("path", mf.key)
+  })
+  var category1 = selectedCategory1?.value ?? "NA"
+  var path1 = selectedPath1?.value ?? ""
+  if(path1 === "shop") {
+    path1 = "/shop/"+product.collections[0]?.handle
+  } else {
+    path1 = "/shop/"+path1+"/"+product.collections[0]?.handle
+  }
+
   return (
     <Layout>
       <div className="bg_grey">
@@ -210,11 +224,11 @@ const ShopDetails = ({ pageContext }) => {
                 </li>
                 <li>/</li>
                 <li>
-                  <Link to="/">Shop</Link>
+                  <Link to="/shop">Shop</Link>
                 </li>
                 <li>/</li>
                 <li>
-                  <Link to="/">Min+Modules</Link>
+                  <Link to={path1}>{product.collections[0]?.title}</Link>
                 </li>
                 <li>/</li>
                 <li>

@@ -9,6 +9,15 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             title
+            collections {
+              handle
+              title
+              metafields {
+                id
+                key
+                value
+              }
+            }
             images {
               originalSrc
               altText
