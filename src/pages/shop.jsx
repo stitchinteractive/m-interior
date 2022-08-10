@@ -16,7 +16,7 @@ import lodash from "lodash"
 export const query = graphql`
   query MyQuery {
     collections: allShopifyCollection(
-      filter: {handle: {ne: "extras"}}
+      filter: {metafields: {elemMatch: {key: {eq: "order"}, value: {ne: "0"}}}}
     ) {
       edges {
         node {
@@ -39,7 +39,6 @@ export const query = graphql`
     }
     bestselling: allShopifyProduct(
       filter: {metafields: {elemMatch: {key: {eq: "best_seller"}, value: {eq: "true"}}}}
-      limit: 3
     ) {
       edges {
         node {

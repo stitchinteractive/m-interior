@@ -214,7 +214,7 @@ exports.createPages = async ({ graphql, actions }) => {
         collection: node,
         productCount: node.products.length,
         addons: oth_collections.data.allShopifyCollection.edges.filter(
-          (addon) => addon.node.handle === "extras"
+          (addon) => addon.node.handle === node.handle+"-extras"
         ) ?? []
       },
     })
@@ -230,7 +230,7 @@ exports.createPages = async ({ graphql, actions }) => {
         collection: node,
         productCount: node.products.length,
         addons: oth_collections.data.allShopifyCollection.edges.filter(
-          (addon) => addon.node.handle === "extras"
+          (addon) => addon.node.handle === node.handle+"-extras"
         ) ?? []
       },
     })

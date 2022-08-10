@@ -130,65 +130,10 @@ const Shop = ({ pageContext, location }) => {
                   />
                 </div>
               ))}
-              {/*
-              <div className="col-12 col-lg-8 mb-4">
-                <ProductListItem
-                  url="/shop-details"
-                  image="/shop/min_modules/tv_console_small_2.png"
-                  name="Small Tv Console"
-                  price="205"
-                  color_1={
-                    <li>
-                      <img src="/icons/color_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_2={
-                    <li>
-                      <img src="/icons/color_black.png" alt="" />
-                    </li>
-                  }
-                  color_3={
-                    <li>
-                      <img src="/icons/color_dark_brown_white.png" alt="" />
-                    </li>
-                  }
-                  color_4={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_5={
-                    <li>
-                      <img src="/icons/color_white_grey.png" alt="" />
-                    </li>
-                  }
-                  color_6={
-                    <li>
-                      <img src="/icons/color_black_white.png" alt="" />
-                    </li>
-                  }
-                  color_7={
-                    <li>
-                      <img src="/icons/color_black_grey.png" alt="" />
-                    </li>
-                  }
-                  color_8={
-                    <li>
-                      <img src="/icons/color_blue_yellow.png" alt="" />
-                    </li>
-                  }
-                  color_9={
-                    <li>
-                      <img src="/icons/color_brown_black.png" alt="" />
-                    </li>
-                  }
-                />
-              </div>
-              */}
             </div>
             <div className="row">
               <div className="col-12">
-                <h3 className="text-uppercase py-5">Min+Modules Extras</h3>
+                <h3 className="text-uppercase py-5">{collection.title} Extras</h3>
               </div>
               <div className="row">
                 <div className="col-12">
