@@ -72,8 +72,8 @@ export function ProductList(props) {
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
             url={"/shop/detail/"+product.node.handle}
-            image={product.node.images[0].originalSrc}
-            bgimage={product.node.images[1].originalSrc}
+            image={product.node.images[0]?.originalSrc}
+            bgimage={product.node.images[1]?.originalSrc}
             name={product.node.title}
             price={product.node.priceRangeV2.minVariantPrice.amount}
             variants={product.node.variants}
@@ -85,8 +85,8 @@ export function ProductList(props) {
         <SwiperSlide className="d-flex flex-column h-100">
           <ProductListItem
             url={"/shop/detail/"+product.node.handle}
-            image={product.node.images[0].originalSrc}
-            bgimage={product.node.images[1].originalSrc}
+            image={product.node.images[0]?.originalSrc}
+            bgimage={product.node.images[1]?.originalSrc}
             name={product.node.title}
             price={product.node.priceRangeV2.minVariantPrice.amount}
             variants={product.node.variants}

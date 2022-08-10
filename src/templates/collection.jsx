@@ -105,7 +105,7 @@ const Shop = ({ pageContext, location }) => {
             <div className="row mb-5">
               <div className="col">
                 <SubBanner
-                  background={collection.image.originalSrc}
+                  background={collection.image?.originalSrc}
                   category={category}
                   sub_category={collection.title}
                 />
@@ -121,8 +121,8 @@ const Shop = ({ pageContext, location }) => {
                 <div className="col-12 col-lg-4 mb-4">
                   <ProductListItem
                     url={"/shop/detail/" + product.handle}
-                    image={product.images[0].originalSrc}
-                    bgimage={product.images[1].originalSrc}
+                    image={product.images[0]?.originalSrc}
+                    bgimage={product.images[1]?.originalSrc}
                     name={product.title}
                     price={product.priceRangeV2.minVariantPrice.amount}
                     variants={product.variants}
@@ -218,8 +218,8 @@ const Shop = ({ pageContext, location }) => {
                         <SwiperSlide className="d-flex flex-column h-100">
                           <ProductListItem
                             url={"/shop/detail/" + product.handle}
-                            image={product.images[0].originalSrc}
-                            bgimage={product.images[1].originalSrc}
+                            image={product.images[0]?.originalSrc}
+                            bgimage={product.images[1]?.originalSrc}
                             name={product.title}
                             price={product.priceRangeV2.minVariantPrice.amount}
                             variants={product.variants}
