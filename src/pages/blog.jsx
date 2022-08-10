@@ -4,6 +4,56 @@ import { Link } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { useQuery, gql } from '@apollo/client';
+import { format } from 'date-fns';
+
+const GET_FEATURED_BLOG = gql`
+query {
+  articles(first: 1, reverse: true, query:"tag:featured") {
+    edges {
+      node {
+        title
+        contentHtml
+        excerpt
+        publishedAt
+        image {
+          url
+        }
+        authorV2 {
+          name
+        }
+        handle
+      }
+    }
+  }
+}
+`
+
+const GET_BLOG = gql`
+query ($numProducts: Int!, $cursor: String) {
+  articles(first: $numProducts, after: $cursor, reverse: true, query:"tag_not:featured") {
+    edges {
+      node {
+        title
+        contentHtml
+        excerpt
+        publishedAt
+        image {
+          url
+        }
+        authorV2 {
+          name
+        }
+        handle
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+`
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -22,23 +72,37 @@ const InteriorDesignDetails = () => {
     })
   })
 
+  debugger
+  const { data: featuredData, loading: featuredLoading, error: featuredError } = useQuery(GET_FEATURED_BLOG);
+  const { data: blogData, loading: blogLoading, error: blogError } = useQuery(GET_BLOG, {
+    variables: {numProducts: 100, cursor: null}
+  });
+
+  //console.log(featuredData);
+  //console.log(blogData);
+  //console.log(format(new Date(), 'dd MMM yyyy'))
+
+  const hasFeatured = featuredData?.articles.edges.length > 0
+  const hasBlog = blogData?.articles.edges.length > 0
+
   return (
     <Layout>
       <div>
+        {hasFeatured ? (
         <div className="container">
           <div className="row row_padding d-flex align-items-center">
             <div className="col-12 col-md-6 order-2 order-md-1">
               <div className="row">
-                <h2 className="text-uppercase mb-60">BLOG POST 1</h2>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                <h2 className="text-uppercase mb-60">{featuredData?.articles.edges[0].node.title}</h2>
+                <p className="font_light pb-4">{format(new Date(featuredData?.articles.edges[0].node.publishedAt), 'dd MMM yyyy')}</p>
+                <p dangerouslySetInnerHTML={{ __html: featuredData?.articles.edges[0].node.excerpt }}>
+                  
                 </p>
                 <div className="col-12">
-                  <Link to="/blog-details">
+                  <Link to="/blog-details"
+                    state={
+                      {data: featuredData?.articles.edges[0].node}
+                    }>
                     <button
                       type="submit"
                       className="btn btn-outline btn-black mb-80"
@@ -51,126 +115,55 @@ const InteriorDesignDetails = () => {
             </div>
             <div className="col-12 col-md-6 order-1 order-md-2">
               <p>
-                <img src="lookbook/living_room/2.jpg" alt="Design Process" />
+                <img src={featuredData?.articles.edges[0].node.image?.url} alt={featuredData?.articles.edges[0].node.title} />
               </p>
             </div>
           </div>
         </div>
+        ) : (
+          <div className="container">
+          <div className="row row_padding d-flex align-items-center">
+            <div className="col-12 col-md-6 order-2 order-md-1">
+              <div className="row">
+                <h2 className="text-uppercase mb-60">No featured post.</h2>
+                <p className="font_light pb-4">No featured post.</p>
+                <p>
+                  No featured post.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        )}
+        
+
         <div className="bg_grey">
           <div className="container">
             <div className="row row_padding">
+            {hasBlog &&
+              blogData?.articles.edges.map((blog) => (
               <div className="col-12 col-md-6 col-lg-4">
                 <p>
                   <img
-                    src="./lookbook/living_room/2.jpg"
-                    alt="Design Process"
+                    src={blog.node.image?.url}
+                    alt={blog.node.title}
                   />
                 </p>
-                <h4 className="text-uppercase mb-3">BLOG POST 1</h4>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
+                <h4 className="text-uppercase mb-3">{blog.node.title}</h4>
+                <p className="font_light pb-4">{format(new Date(blog.node.publishedAt), 'dd MMM yyyy')}</p>
+                <p dangerouslySetInnerHTML={{ __html: blog.node.excerpt }}>
                 </p>
                 <p className="mb-100">
-                  <Link to="/blog-details" className="link_underline">
+                  <Link to="/blog-details" className="link_underline"
+                  state={
+                    {data: blog.node}
+                  }>
                     Read more &gt;
                   </Link>
                 </p>
               </div>
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img src="lookbook/living_room/2.jpg" alt="Design Process" />
-                </p>
-                <h4 className="text-uppercase mb-3">BLOG POST 1</h4>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p className="mb-100">
-                  <Link to="/blog-details" className="link_underline">
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img src="lookbook/living_room/2.jpg" alt="Design Process" />
-                </p>
-                <h4 className="text-uppercase mb-3">BLOG POST 1</h4>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p className="mb-100">
-                  <Link to="/blog-details" className="link_underline">
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img src="lookbook/living_room/2.jpg" alt="Design Process" />
-                </p>
-                <h4 className="text-uppercase mb-3">BLOG POST 1</h4>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p className="mb-100">
-                  <Link to="/blog-details" className="link_underline">
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img src="lookbook/living_room/2.jpg" alt="Design Process" />
-                </p>
-                <h4 className="text-uppercase mb-3">BLOG POST 1</h4>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p className="mb-100">
-                  <Link to="/blog-details" className="link_underline">
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img src="lookbook/living_room/2.jpg" alt="Design Process" />
-                </p>
-                <h4 className="text-uppercase mb-3">BLOG POST 1</h4>
-                <p className="font_light pb-4">12 March 2021</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                  <Link to="/blog-details" className="link_underline">
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-              <div className="col-12">
+            ))}
+              {/* <div className="col-12">
                 <nav aria-label="...">
                   <ul className="pagination justify-content-center">
                     <li className="page-item disabled">
@@ -205,7 +198,7 @@ const InteriorDesignDetails = () => {
                     </li>
                   </ul>
                 </nav>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
