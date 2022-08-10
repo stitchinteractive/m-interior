@@ -62,49 +62,42 @@ const InteriorDesignDetails = () => {
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/1.jpg"
-              alt=""
+              alt="1"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/138_pasir_ris/3.jpg"
+              alt="3"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/138_pasir_ris/5.jpg"
+              alt="5"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/138_pasir_ris/7.jpg"
+              alt="7"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/138_pasir_ris/9.jpg"
+              alt="9"
             />
           </div>
+
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/2.jpg"
-              alt=""
+              alt="2"
             />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/138_pasir_ris/3.jpg"
-              alt=""
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/4.jpg"
-              alt=""
+              alt="4"
             />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/138_pasir_ris/5.jpg"
-              alt=""
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/6.jpg"
-              alt=""
+              alt="6"
             />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/138_pasir_ris/7.jpg"
-              alt=""
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/8.jpg"
-              alt=""
+              alt="8"
             />
           </div>
 

@@ -66,38 +66,38 @@ const InteriorDesignDetails = () => {
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/treescape/1.jpg"
-              alt="treescape"
+              alt="1"
             />
             <LookBookDetailsItem
               image="/interior/works/treescape/3.jpg"
-              alt="treescape"
+              alt="3"
             />
             <LookBookDetailsItem
               image="/interior/works/treescape/5.jpg"
-              alt="treescape"
+              alt="5"
             />
             <LookBookDetailsItem
               image="/interior/works/treescape/7.jpg"
-              alt="treescape"
+              alt="7"
             />
           </div>
 
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/treescape/2.jpg"
-              alt="treescape"
+              alt="2"
             />
             <LookBookDetailsItem
               image="/interior/works/treescape/4.jpg"
-              alt="treescape"
+              alt="4"
             />
             <LookBookDetailsItem
               image="/interior/works/treescape/6.jpg"
-              alt="treescape"
+              alt="6"
             />
             <LookBookDetailsItem
               image="/interior/works/treescape/8.jpg"
-              alt="treescape"
+              alt="8"
             />
           </div>
 

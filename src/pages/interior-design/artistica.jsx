@@ -69,31 +69,26 @@ const InteriorDesignDetails = () => {
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/1.jpg"
-              alt="artistica"
+              alt="1"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/artistica/3.jpg"
+              alt="3"
+            />
+            <LookBookDetailsItem
+              image="/interior/works/artistica/5.jpg"
+              alt="5"
             />
           </div>
+
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/2.jpg"
-              alt="artistica"
+              alt="2"
             />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/artistica/3.jpg"
-              alt="artistica"
-            />
-          </div>
-          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/4.jpg"
-              alt="artistica"
-            />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/artistica/5.jpg"
-              alt="artistica"
+              alt="4"
             />
           </div>
 
