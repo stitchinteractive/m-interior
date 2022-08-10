@@ -2,11 +2,11 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Layout } from "../components/layout"
-import { LookBookDetailsItem } from "../components/lookbook-details-item"
-import { Testimonials } from "../components/testimonials"
+import { Layout } from "../../components/layout"
+import { LookBookDetailsItem } from "../../components/lookbook-details-item"
+import { Testimonials } from "../../components/testimonials"
 import { Link } from "gatsby"
-import BackIcon from "../icons/back"
+import BackIcon from "../../icons/back"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -28,7 +28,7 @@ const InteriorDesignDetails = () => {
   return (
     <Layout>
       <div className="container">
-        <div className="row row_padding animate">
+        <div className="row padding_interior_lead_in animate">
           <div className="col-lg-6">
             <h2 className="text-uppercase mb-5">
               Artistica Tattoo Studio, Shophouse
@@ -56,60 +56,44 @@ const InteriorDesignDetails = () => {
             </p>
           </div>
           <div className="col-lg-6 ps-lg-5">
-            <img
-              src="/interior/works/artistica/floorplan.jpg"
-              alt="Floor Plan"
-              className="img_border_black"
-            />
+            <p>
+              <img
+                src="/interior/works/artistica/floorplan.jpg"
+                alt="Floor Plan"
+                className="img_border_black"
+              />
+            </p>
           </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Reception</h3>
-            </div>
-          </div>
+        </div>
+        <div className="row row_padding">
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/1.jpg"
-              alt="Reception"
+              alt="artistica"
             />
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/2.jpg"
-              alt="Reception"
+              alt="artistica"
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Cabinets</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/3.jpg"
-              alt="Cabinets"
+              alt="artistica"
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Collectibles</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/4.jpg"
-              alt="Collectibles"
+              alt="artistica"
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Pantry</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/artistica/5.jpg"
-              alt="Pantry"
+              alt="artistica"
             />
           </div>
 

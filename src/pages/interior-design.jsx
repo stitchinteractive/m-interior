@@ -4,8 +4,8 @@ import { Link, navigate } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
-import { useForm, ValidationError } from '@formspree/react';
-import uploadcare from 'uploadcare-widget/uploadcare.lang.en.min.js'
+import { useForm, ValidationError } from "@formspree/react"
+import uploadcare from "uploadcare-widget/uploadcare.lang.en.min.js"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -24,10 +24,10 @@ const InteriorDesignDetails = () => {
     })
   })
 
-  const [state, handleSubmit] = useForm('mbjbrnlr');
+  const [state, handleSubmit] = useForm("mbjbrnlr")
 
   if (state.succeeded) {
-    navigate('/thank-you')
+    navigate("/thank-you")
   }
 
   return (
@@ -208,7 +208,7 @@ const InteriorDesignDetails = () => {
             </div>
             <div className="col-12 col-md-6 pb-5">
               <Link
-                to="/interior-design-138-pasir-ris"
+                to="/interior-design/138-pasir-ris"
                 className="no_underline"
               >
                 <p className="pb-3">
@@ -219,7 +219,7 @@ const InteriorDesignDetails = () => {
               </Link>
             </div>
             <div className="col-12 col-md-6 pb-5">
-              <Link to="/interior-design-treescape" className="no_underline">
+              <Link to="/interior-design/treescape" className="no_underline">
                 <p className="pb-3">
                   <img src="./interior/works/treescape/1.jpg" alt="" />
                 </p>
@@ -228,7 +228,7 @@ const InteriorDesignDetails = () => {
               </Link>
             </div>
             <div className="col-12 col-md-6 pb-5">
-              <Link to="/interior-design-artistica" className="no_underline">
+              <Link to="/interior-design/artistica" className="no_underline">
                 <p className="pb-3">
                   <img src="./interior/works/artistica/1.jpg" alt="" />
                 </p>
@@ -262,7 +262,11 @@ const InteriorDesignDetails = () => {
                         name="name"
                         required
                       />
-                      <ValidationError prefix="Name" field="name" errors={state.errors} />
+                      <ValidationError
+                        prefix="Name"
+                        field="name"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label htmlFor="input_phone" className="form-label">
@@ -275,7 +279,11 @@ const InteriorDesignDetails = () => {
                         name="phone"
                         required
                       />
-                      <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                      <ValidationError
+                        prefix="Phone"
+                        field="phone"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label htmlFor="input_email" className="form-label">
@@ -288,7 +296,11 @@ const InteriorDesignDetails = () => {
                         name="email"
                         required
                       />
-                      <ValidationError prefix="Email" field="email" errors={state.errors} />
+                      <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                      />
                     </div>
                   </div>
                   <div className="row">
@@ -305,13 +317,19 @@ const InteriorDesignDetails = () => {
                         name="propertyType"
                         required
                       >
-                        <option value = "" selected>Select an option</option>
+                        <option value="" selected>
+                          Select an option
+                        </option>
                         <option value="HDB">HDB</option>
                         <option value="Condominium">Condominium</option>
                         <option value="Landed">Landed</option>
                         <option value="Commercial">Commercial</option>
                       </select>
-                      <ValidationError prefix="Property Type" field="propertyType" errors={state.errors} />
+                      <ValidationError
+                        prefix="Property Type"
+                        field="propertyType"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label
@@ -326,14 +344,20 @@ const InteriorDesignDetails = () => {
                         name="roomType"
                         required
                       >
-                        <option value = "" selected>Select an option</option>
+                        <option value="" selected>
+                          Select an option
+                        </option>
                         <option value="1-Room">1-Room</option>
                         <option value="2-Room">2-Room</option>
                         <option value="3-Room">3-Room</option>
                         <option value="4-Room">4-Room</option>
                         <option value="5-Room">5-Room</option>
                       </select>
-                      <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                      <ValidationError
+                        prefix="Phone"
+                        field="phone"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label
@@ -349,7 +373,11 @@ const InteriorDesignDetails = () => {
                         name="keyCollectionDate"
                         required
                       />
-                      <ValidationError prefix="Key Collection Date" field="keyCollectionDate" errors={state.errors} />
+                      <ValidationError
+                        prefix="Key Collection Date"
+                        field="keyCollectionDate"
+                        errors={state.errors}
+                      />
                     </div>
                   </div>
                   <div className="row">
@@ -363,7 +391,9 @@ const InteriorDesignDetails = () => {
                         name="renovationBudget"
                         required
                       >
-                        <option value="" selected>Select an option</option>
+                        <option value="" selected>
+                          Select an option
+                        </option>
                         <option value="Below 10000">Below S$10,000</option>
                         <option value="10000-20000">S$10,000 - S$20,000</option>
                         <option value="20001-30000">S$20,001 - S$30,000</option>
@@ -371,23 +401,29 @@ const InteriorDesignDetails = () => {
                         <option value="40001-50000">S$40,001 - S$50,000</option>
                         <option value="50001-60000">S$50,001 - S$60,000</option>
                         <option value="60001-70000">S$60,001 - S$70,000</option>
-                        <option value="70001-100000">S$70,001 - S$100,000</option>
+                        <option value="70001-100000">
+                          S$70,001 - S$100,000
+                        </option>
                         <option value="Above 100000">Above S$100,000</option>
                       </select>
-                      <ValidationError prefix="Renovation Budget" field="renovationBudget" errors={state.errors} />
+                      <ValidationError
+                        prefix="Renovation Budget"
+                        field="renovationBudget"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-12 col-md-4 pb-5">
                       <label htmlFor="input_floorplan" className="form-label">
                         Floorplan, if any
                       </label>
                       <div class="input-group mb-3">
-                      <input
+                        <input
                           type="hidden"
                           role="uploadcare-uploader"
                           data-public-key="b73d7dc0f38191790b2a"
                           data-tabs="file camera url facebook gdrive gphotos"
                           name="floorplan"
-                      />
+                        />
                         {/* <input
                           type="file"
                           class="form-control"
@@ -409,14 +445,22 @@ const InteriorDesignDetails = () => {
                         name="howDidYouFindUs"
                         required
                       >
-                        <option value = "" selected>Select an option</option>
+                        <option value="" selected>
+                          Select an option
+                        </option>
                         <option value="Facebook">Facebook</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Google">Google</option>
-                        <option value="Friends/family referral">Friends/family referral</option>
+                        <option value="Friends/family referral">
+                          Friends/family referral
+                        </option>
                         <option value="Others">Others</option>
                       </select>
-                      <ValidationError prefix="How did you find us" field="howDidYouFindUs" errors={state.errors} />
+                      <ValidationError
+                        prefix="How did you find us"
+                        field="howDidYouFindUs"
+                        errors={state.errors}
+                      />
                     </div>
                   </div>
                   <div className="row">
@@ -436,10 +480,14 @@ const InteriorDesignDetails = () => {
                   </div>
                   <div className="row">
                     <div className="col-12 text-center">
-                        <button type="submit" className="btn btn-primary mb-80" disabled={state.submitting}>
-                          Submit
-                        </button>
-                        <ValidationError errors={state.errors} />
+                      <button
+                        type="submit"
+                        className="btn btn-primary mb-80"
+                        disabled={state.submitting}
+                      >
+                        Submit
+                      </button>
+                      <ValidationError errors={state.errors} />
                     </div>
                   </div>
                 </form>

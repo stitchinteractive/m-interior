@@ -2,11 +2,11 @@
 import React, { useLayoutEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Layout } from "../components/layout"
-import { LookBookDetailsItem } from "../components/lookbook-details-item"
-import { Testimonials } from "../components/testimonials"
+import { Layout } from "../../components/layout"
+import { LookBookDetailsItem } from "../../components/lookbook-details-item"
+import { Testimonials } from "../../components/testimonials"
 import { Link } from "gatsby"
-import BackIcon from "../icons/back"
+import BackIcon from "../../icons/back"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -28,7 +28,7 @@ const InteriorDesignDetails = () => {
   return (
     <Layout>
       <div className="container">
-        <div className="row row_padding animate">
+        <div className="row padding_interior_lead_in animate">
           <div className="col-lg-6">
             <h2 className="text-uppercase mb-5">138 Pasir Ris, 4-Room HDB</h2>
             <h5 className="text-uppercase mb-3">Dark Contemporary</h5>
@@ -49,89 +49,62 @@ const InteriorDesignDetails = () => {
             </p>
           </div>
           <div className="col-lg-6 ps-lg-5">
-            <img
-              src="/interior/works/138_pasir_ris/floorplan.jpg"
-              alt="Floor Plan"
-              className="img_border_black"
-            />
+            <p>
+              <img
+                src="/interior/works/138_pasir_ris/floorplan.jpg"
+                alt="Floor Plan"
+                className="img_border_black"
+              />
+            </p>
           </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Kitchen</h3>
-            </div>
-          </div>
+        </div>
+        <div className="row row_padding">
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/1.jpg"
-              alt="Kitchen"
+              alt=""
             />
+          </div>
+          <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/2.jpg"
-              alt="Kitchen"
+              alt=""
             />
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/3.jpg"
-              alt="Kitchen"
+              alt=""
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Living Room</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/4.jpg"
-              alt="Living Room"
+              alt=""
             />
-          </div>
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Bed Room</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/5.jpg"
-              alt="Bed Room"
+              alt=""
             />
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/6.jpg"
-              alt="Bed Room"
+              alt=""
             />
-          </div>
-
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Study Room</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/7.jpg"
-              alt="Bed Room"
+              alt=""
             />
-          </div>
-
-          <div className="col-12">
-            <div className="mt-150">
-              <h3 className="text-uppercase mb-5">Bath Room</h3>
-            </div>
           </div>
           <div className="col-12 col-md-6">
             <LookBookDetailsItem
               image="/interior/works/138_pasir_ris/8.jpg"
-              alt="Bed Room"
-            />
-          </div>
-          <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/interior/works/138_pasir_ris/9.jpg"
-              alt="Bed Room"
+              alt=""
             />
           </div>
 
