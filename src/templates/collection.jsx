@@ -159,7 +159,7 @@ const Shop = ({ pageContext, location }) => {
                       onSlideChange={() => console.log("slide change")}
                       ref={swiperRef}
                     >
-                      {addons[0].node.products.map((product) => (
+                      {addons[0]?.node.products.map((product) => (
                         <SwiperSlide className="d-flex flex-column h-100">
                           <ProductListItem
                             url={"/shop/detail/" + product.handle}
