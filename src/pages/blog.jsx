@@ -29,7 +29,7 @@ query {
 }
 `
 
-const GET_BLOG = gql`
+const GET_NEXT_BLOG = gql`
 query ($numProducts: Int!, $cursor: String) {
   articles(first: $numProducts, after: $cursor, reverse: true, query:"tag_not:featured") {
     edges {
@@ -50,13 +50,47 @@ query ($numProducts: Int!, $cursor: String) {
     pageInfo {
       hasNextPage
       endCursor
+      hasPreviousPage
+      startCursor
+    }
+  }
+}
+`
+
+const GET_PREV_BLOG = gql`
+query ($numProducts: Int!, $cursor: String) {
+  articles(last: $numProducts, before: $cursor, reverse: true, query:"tag_not:featured") {
+    edges {
+      node {
+        title
+        contentHtml
+        excerpt
+        publishedAt
+        image {
+          url
+        }
+        authorV2 {
+          name
+        }
+        handle
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+      hasPreviousPage
+      startCursor
     }
   }
 }
 `
 
 // step 2: define component
-const InteriorDesignDetails = () => {
+const InteriorDesignDetails = ({location}) => {
+  const params = new URLSearchParams(location.search)
+  const action = params.get("action")
+  const cursor = params.get("cursor")
+
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -74,9 +108,19 @@ const InteriorDesignDetails = () => {
 
   debugger
   const { data: featuredData, loading: featuredLoading, error: featuredError } = useQuery(GET_FEATURED_BLOG);
-  const { data: blogData, loading: blogLoading, error: blogError } = useQuery(GET_BLOG, {
-    variables: {numProducts: 100, cursor: null}
+  const { data: blogDataNext, loading: blogLoadingNext, error: blogErrorNext } = useQuery(GET_NEXT_BLOG, {
+    variables: {numProducts: 6, cursor: cursor}
+  })
+  const { data: blogDataPrev, loading: blogLoadingPrev, error: blogErrorPrev } = useQuery(GET_PREV_BLOG, {
+    variables: {numProducts: 6, cursor: cursor}
   });
+  var blogData = []
+  if(action === null || action === "next") {
+    blogData = blogDataNext
+  }
+  if(action === "back") {
+    blogData = blogDataPrev
+  }
 
   //console.log(featuredData);
   //console.log(blogData);
@@ -163,20 +207,20 @@ const InteriorDesignDetails = () => {
                 </p>
               </div>
             ))}
-              {/* <div className="col-12">
+              <div className="col-12">
                 <nav aria-label="...">
                   <ul className="pagination justify-content-center">
-                    <li className="page-item disabled">
+                    <li className={blogData?.articles.pageInfo.hasPreviousPage ? "page-item" : "page-item disabled"}>
                       <Link
                         className="page-link"
-                        href="#"
-                        tabindex="-1"
-                        aria-disabled="true"
+                        href={"?action=back&cursor="+blogData?.articles.pageInfo.startCursor}
+                         //tabindex="-1"
+                        aria-disabled={blogData?.articles.pageInfo.hasPreviousPage ? "true" : "false"}
                       >
                         Previous
                       </Link>
                     </li>
-                    <li className="page-item active">
+                    {/* <li className="page-item active">
                       <Link className="page-link" href="#">
                         1
                       </Link>
@@ -190,15 +234,18 @@ const InteriorDesignDetails = () => {
                       <Link className="page-link" href="#">
                         3
                       </Link>
-                    </li>
-                    <li class="page-item">
-                      <Link className="page-link" href="#">
+                    </li> */}
+                    <li class={blogData?.articles.pageInfo.hasNextPage ? "page-item" : "page-item disabled"}>
+                      <Link 
+                        className="page-link" 
+                        href={"?action=next&cursor="+blogData?.articles.pageInfo.endCursor}
+                        aria-disabled={blogData?.articles.pageInfo.hasNextPage ? "true" : "false"}>
                         Next
                       </Link>
                     </li>
                   </ul>
                 </nav>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
