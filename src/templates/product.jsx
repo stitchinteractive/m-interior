@@ -138,12 +138,12 @@ const ShopDetails = ({ pageContext }) => {
     imagesNavSlider.slideTo(clickedIndex)
 
     const variant_options = Array.from(
-      document.getElementsByClassName('variant_options')
-    );
+      document.getElementsByClassName("variant_options")
+    )
     variant_options.map((vo) => {
-      vo.classList.remove('color_selected')
+      vo.classList.remove("color_selected")
     })
-    event.currentTarget.classList.toggle('color_selected')
+    event.currentTarget.classList.toggle("color_selected")
   }
 
   React.useEffect(() => {
@@ -163,10 +163,8 @@ const ShopDetails = ({ pageContext }) => {
   if (hasImages) {
     product.images.forEach((data, index) => {
       slides.push(data.originalSrc)
-      if(data.altText)
-        altText.push(data.altText)
-      else 
-        altText.push(index)
+      if (data.altText) altText.push(data.altText)
+      else altText.push(index)
       //console.log(data.originalSrc)
     })
   }
@@ -206,10 +204,10 @@ const ShopDetails = ({ pageContext }) => {
   })
   var category1 = selectedCategory1?.value ?? "NA"
   var path1 = selectedPath1?.value ?? ""
-  if(path1 === "shop") {
-    path1 = "/shop/"+product.collections[0]?.handle
+  if (path1 === "shop") {
+    path1 = "/shop/" + product.collections[0]?.handle
   } else {
-    path1 = "/shop/"+path1+"/"+product.collections[0]?.handle
+    path1 = "/shop/" + path1 + "/" + product.collections[0]?.handle
   }
 
   return (
@@ -354,7 +352,10 @@ const ShopDetails = ({ pageContext }) => {
                       placement="top"
                       delay={{ show: 250, hide: 400 }}
                       overlay={
-                        <Tooltip id="button-tooltip-2">Color Variants</Tooltip>
+                        <Tooltip id="button-tooltip-2">
+                          Looking for more? Contact us to customise your colour
+                          combination.
+                        </Tooltip>
                       }
                     >
                       <div className="d-flex pointer align-self-center">
@@ -457,7 +458,7 @@ const ShopDetails = ({ pageContext }) => {
                       delay={{ show: 250, hide: 400 }}
                       overlay={
                         <Tooltip id="button-tooltip-2">
-                          Complimentary Design Service
+                          Need help? Get a free consultation from our designers!
                         </Tooltip>
                       }
                     >
@@ -572,7 +573,7 @@ const ShopDetails = ({ pageContext }) => {
           </Tabs>
         </div>
       </div>
-      <div className="bg_blue font_white">
+      <div className="bg_blue_medium font_white">
         <div className="container text-center">
           <div className="row row_padding">
             <div className="col-12">
