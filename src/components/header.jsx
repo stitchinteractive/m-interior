@@ -22,6 +22,7 @@ function OffCanvasExample({ ...props }) {
         <Offcanvas.Body>
           <div className="row d-lg-none">
             <div className="col-10 offset-1">
+              {/*
               <div className="input-group my-3">
                 <input
                   type="text"
@@ -36,6 +37,7 @@ function OffCanvasExample({ ...props }) {
                   </Link>
                 </button>
               </div>
+              */}
               <ul className="nav_link_mobile">
                 <li>
                   <Link to="/shop" activeStyle={{ color: "white" }}>
@@ -97,11 +99,13 @@ export function Header() {
               <div className="row">
                 <div className="col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link_icon}>
+                    {/*
                     <li className="d-none d-lg-block">
                       <Link to="/search-results">
                         <SearchIcon />
                       </Link>
                     </li>
+                    */}
                     <li>
                       <Link to="/login">
                         <ProfileIcon />
@@ -135,7 +139,11 @@ export function Header() {
                 <div className="col-12 col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link}>
                     <li>
-                      <Link to="/shop" activeStyle={{ color: "white" }} partiallyActive={true}>
+                      <Link
+                        to="/shop"
+                        activeStyle={{ color: "white" }}
+                        partiallyActive={true}
+                      >
                         Shop
                       </Link>
                     </li>

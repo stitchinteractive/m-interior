@@ -91,6 +91,8 @@ export function Footer() {
             </Link>
           </div>
           <div className="col-md-6 col-xl-3">
+            &nbsp;
+            {/*
             <h5 className="text-uppercase mb-3 d-none d-md-block">M.INT</h5>
             <ul className="text-uppercase">
               <li>
@@ -103,6 +105,7 @@ export function Footer() {
                 <Link to="/">Media</Link>
               </li>
             </ul>
+            */}
           </div>
           <div className="col-md-6 col-xl-3">
             <h5 className="text-uppercase mb-3">Customer Care</h5>

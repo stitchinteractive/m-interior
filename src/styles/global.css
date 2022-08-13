@@ -1256,11 +1256,16 @@ circle {
 
 .slider__thumbs .slider__image:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 .slider__thumbs .swiper-slide-thumb-active .slider__image {
-  border: 1px solid var(--grey-medium);
+  border: 3px solid var(--grey-medium);
   /*
+  box-shadow: 8px 8px 5px 0px rgba(172, 172, 172, 0.28);
+  -webkit-box-shadow: 8px 8px 5px 0px rgba(172, 172, 172, 0.28);
+  -moz-box-shadow: 8px 8px 5px 0px rgba(172, 172, 172, 0.28);
+   border: 1px solid var(--grey-medium);
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
   opacity: 1;
