@@ -229,9 +229,7 @@ const ShopDetails = ({ pageContext }) => {
                   <Link to={path1}>{product.collections[0]?.title}</Link>
                 </li>
                 <li>/</li>
-                <li>
-                  <Link to="/">{product.title}</Link>
-                </li>
+                <li>{product.title}</li>
               </ul>
             </div>
 
@@ -334,12 +332,12 @@ const ShopDetails = ({ pageContext }) => {
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
               ></div>
               <p>
-                <Link to="/">
+                <Link to="/contact-us">
                   <button
                     type="button"
                     className="btn btn-outline btn-black w-100"
                   >
-                    Customise this bookshelf
+                    Customise this item
                   </button>
                 </Link>
               </p>
@@ -447,7 +445,7 @@ const ShopDetails = ({ pageContext }) => {
                 </div>
               </div>
               <p className="pb-1">
-                <Link to="/" className="no_underline">
+                <Link to="/contact-us" className="no_underline">
                   <button
                     type="button"
                     className="btn btn-outline btn-black w-100 d-flex justify-content-center"

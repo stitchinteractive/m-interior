@@ -40,12 +40,20 @@ function OffCanvasExample({ ...props }) {
               */}
               <ul className="nav_link_mobile">
                 <li>
-                  <Link to="/shop" activeStyle={{ color: "white" }}>
+                  <Link
+                    to="/shop"
+                    activeStyle={{ color: "white" }}
+                    partiallyActive={true}
+                  >
                     Shop
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about-us" activeStyle={{ color: "white" }}>
+                  <Link
+                    to="/about-us"
+                    activeStyle={{ color: "white" }}
+                    partiallyActive={true}
+                  >
                     About Us
                   </Link>
                 </li>
@@ -152,7 +160,11 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/about-us" activeStyle={{ color: "white" }}>
+                      <Link
+                        to="/about-us"
+                        activeStyle={{ color: "white" }}
+                        partiallyActive={true}
+                      >
                         About Us
                       </Link>
                     </li>

@@ -56,12 +56,11 @@ const Cart = () => {
             <div className="col-12">
               {emptyCart ? (
                 <div>
-                <h4 className="text-uppercase py-3">Your Cart is Empty</h4>
+                  <h4 className="text-uppercase py-3">Your Cart is Empty</h4>
                   <p>
-                    Looks like you haven’t found anything yet. We understand that
-                    sometimes it’s hard to choose — maybe this helps:
+                    Looks like you haven’t found anything yet. Check out our
+                    range of products <Link to="/shop">here</Link>.
                   </p>
-                  
                 </div>
               ) : (
                 <div>
@@ -95,28 +94,27 @@ const Cart = () => {
                       </tr>
                     </thead>
                     <tbody>
-                    {checkout.lineItems.map((item) => (
-                      <LineItem item={item} key={item.id} />
-                    ))}
+                      {checkout.lineItems.map((item) => (
+                        <LineItem item={item} key={item.id} />
+                      ))}
                     </tbody>
                   </Table>
 
-
-
                   <div className="text-end text-uppercase font_semibold">
-                    Total Amount: {formatPrice(
+                    Total Amount:{" "}
+                    {formatPrice(
                       checkout.totalPriceV2.currencyCode,
                       checkout.totalPriceV2.amount
                     )}
                   </div>
                   <div className="text-center py-5">
-                  <button
-                    onClick={handleCheckout}
-                    disabled={loading}
-                    className="btn btn-tertiary text-uppercase"
-                  >
-                    Checkout
-                  </button>
+                    <button
+                      onClick={handleCheckout}
+                      disabled={loading}
+                      className="btn btn-tertiary text-uppercase"
+                    >
+                      Checkout
+                    </button>
                   </div>
                 </div>
               )}
