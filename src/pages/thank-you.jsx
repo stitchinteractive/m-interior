@@ -37,11 +37,14 @@ const Login = () => {
                         Contact Us
                       </h2>
                       <p className="text-uppercase font_xs font_semibold">
-                        62 UBI ROAD 1, OXLEY BIZHUB 2, #07-21 <br />
+                        62 UBI ROAD 1,
+                        <br />
+                        OXLEY BIZHUB 2, #07-21 <br />
                         SINGAPORE 408734
                       </p>
                       <p className="text-uppercase font_xs font_semibold">
-                        +65 9864 2364 (whatsapp)
+                        <Link to="https://wa.me/6598642364">+65 9864 2364</Link>
+                        &nbsp;(whatsapp)
                         <br />
                         <Link to="mailto:hello@m-interior.co">
                           hello@m-interior.co
@@ -65,17 +68,26 @@ const Login = () => {
             <div className="col-12 col-lg-6">
               <div className="animate d-flex h-100">
                 <div className={loginModule.login_container}>
-                    <div className="col-12">
+                  <div className="row">
+                    <div className="col">
                       <h2 className="text-uppercase text-center pb-4">
                         Thank you!
                       </h2>
                       <p className="text-uppercase text-center font_xs font_semibold">
-                        WE HAVE RECEIVED YOUR SUBMISSION.
+                        We have received your submission.
+                      </p>
+                      <p className="text-uppercase text-center font_xs font_semibold">
+                        We will get back to you as soon as possible. If you do
+                        not receive a response from us, please whatsapp us
+                        at&nbsp;
+                        <Link to="https://wa.me/6598642364">+65 9864 2364</Link>
+                        .
                       </p>
                       <p className="text-uppercase text-center font_xs font_semibold">
                         LET’S TALK DESIGN, OVER COFFFEE.
                       </p>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -23,7 +23,7 @@ export function Testimonials() {
             <h2 className="pb-5 text-uppercase">Hear from our customers</h2>
             <div>
               <p className="pb-10">
-                <Link to="/">
+                <Link to="/contact-us">
                   <button
                     type="button"
                     className="btn btn-outline-large btn-black-large"

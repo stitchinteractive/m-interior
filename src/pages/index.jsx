@@ -569,7 +569,7 @@ const HomePage = () => {
                   blocks to build your own creative storage display.
                 </p>
                 <p>
-                  <Link to="/modular-furniture/acacia-blocks">
+                  <Link to="/shop/modular-furniture/acacia-blocks">
                     <button type="button" className="btn btn-outline-large">
                       Discover More
                     </button>
@@ -620,7 +620,7 @@ const HomePage = () => {
                 purchase.
               </p>
               <p>
-                <Link to="/">
+                <Link to="/shop">
                   <button
                     type="button"
                     className="btn btn-outline btn-outline-large"
@@ -657,7 +657,7 @@ const HomePage = () => {
                     </div>
                     <div ref={furniture1TextRef}>
                       <p>
-                        <Link to="/">
+                        <Link to="/shop/detail/bedside-table">
                           <button type="button" className="btn btn-outline">
                             Small side table
                           </button>
@@ -673,7 +673,7 @@ const HomePage = () => {
                     </div>
                     <div ref={furniture2TextRef}>
                       <p>
-                        <Link to="/">
+                        <Link to="/shop/detail/large-side-table">
                           <button type="button" className="btn btn-outline">
                             Large side table
                           </button>
@@ -689,7 +689,7 @@ const HomePage = () => {
                     </div>
                     <div ref={furniture3TextRef}>
                       <p>
-                        <Link to="/">
+                        <Link to="/shop/detail/small-bedroom-chest">
                           <button type="button" className="btn btn-outline">
                             Small bedroom chest
                           </button>
@@ -705,7 +705,7 @@ const HomePage = () => {
                     </div>
                     <div ref={furniture4TextRef}>
                       <p>
-                        <Link to="/">
+                        <Link to="/shop/detail/tall-bookshelf">
                           <button type="button" className="btn btn-outline">
                             Tall bookshelf
                           </button>
@@ -721,7 +721,7 @@ const HomePage = () => {
                     </div>
                     <div ref={furniture5TextRef}>
                       <p>
-                        <Link to="/">
+                        <Link to="/shop/detail/full-bookshelf">
                           <button type="button" className="btn btn-outline">
                             Full bookshelf
                           </button>
@@ -873,7 +873,7 @@ const HomePage = () => {
                   Why compromise when you can customise?
                 </h3>
                 <p>
-                  <Link to="/">
+                  <Link to="/contact-us">
                     <button type="button" className="btn btn-outline-large">
                       Build your own Min+Modules
                     </button>
@@ -896,7 +896,7 @@ const HomePage = () => {
               <div className="content_100 bg_blue text-center" ref={minCta3Ref}>
                 <h3 className="pb-10">There's a Min+Module for every space.</h3>
                 <p>
-                  <Link to="/">
+                  <Link to="/lookbook">
                     <button type="button" className="btn btn-outline-large">
                       Explore Lookbook
                     </button>

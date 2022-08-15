@@ -113,7 +113,7 @@ const ShopDetails = ({ pageContext }) => {
   )
 
   const handleOptionChange = (index, value, event) => {
-    debugger
+    // debugger
     //const value = event.target.value
     console.log(event)
 

@@ -17,27 +17,24 @@ const schema = yup
       .string()
       .email("Email is not in the correct format")
       .required("Email is mandatory"),
-    password: yup
-      .string()
-      .required("Password is mandatory")
+    password: yup.string().required("Password is mandatory"),
   })
   .required()
 
-
 const GET_TOKEN = gql`
-mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
-  customerAccessTokenCreate(input: $input) {
-    customerAccessToken {
-      accessToken
-      expiresAt
-    }
-    customerUserErrors {
-      field
-      message
-      code
+  mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+    customerAccessTokenCreate(input: $input) {
+      customerAccessToken {
+        accessToken
+        expiresAt
+      }
+      customerUserErrors {
+        field
+        message
+        code
+      }
     }
   }
-}
 `
 
 // step 2: define component
@@ -75,14 +72,16 @@ const Login = () => {
       onCompleted: (result) => {
         debugger
         console.log(result)
-        if(result.customerAccessTokenCreate.customerUserErrors.length > 0) {
+        if (result.customerAccessTokenCreate.customerUserErrors.length > 0) {
           setMessage("Invalid credentials. Please try again.")
         } else {
-          handleLogin(result.customerAccessTokenCreate.customerAccessToken.accessToken, result.customerAccessTokenCreate.customerAccessToken.expiresAt)
-          navigate(`/profile`);
+          handleLogin(
+            result.customerAccessTokenCreate.customerAccessToken.accessToken,
+            result.customerAccessTokenCreate.customerAccessToken.expiresAt
+          )
+          navigate(`/profile`)
           //alert("Login success. Access token: "+result.customerAccessTokenCreate.customerAccessToken.accessToken);
         }
-        
       },
     })
   }
@@ -117,7 +116,9 @@ const Login = () => {
                       id="inputEmail4"
                       {...register("email")}
                     />
-                    {errors.email && <p>{errors.email.message}</p>}
+                    {errors.email && (
+                      <p className="font_yellow">{errors.email.message}</p>
+                    )}
                   </div>
                   <div className="col-12 mt-5">
                     <label htmlFor="inputPassword4" className="form-label">
@@ -129,10 +130,16 @@ const Login = () => {
                       id="inputPassword4"
                       {...register("password")}
                     />
-                    {errors.password && <p>{errors.password.message}</p>}
+                    {errors.password && (
+                      <p className="font_yellow">{errors.password.message}</p>
+                    )}
                   </div>
                   <div className="col-12 mt-5 text-end">
-                    <button type="submit" className="btn btn-primary" onClick={handleSubmit(onSubmit)}>
+                    <button
+                      type="                     submit"
+                      className="btn btn-primary"
+                      onClick={handleSubmit(onSubmit)}
+                    >
                       Log in
                     </button>
                     <Link to="/profile"></Link>
