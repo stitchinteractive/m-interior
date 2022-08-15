@@ -110,7 +110,7 @@ export function LineItem({ item }) {
             {item.variant.title === "Default Title" ? "" : item.variant.title}
           </div>
         </div>
-        <div className="order_note my-3">
+        {/*<div className="order_note my-3">
           <div className="text-uppercase font_medium">
             Order Note
           </div>
@@ -120,7 +120,7 @@ export function LineItem({ item }) {
           nostrud exercitation ullamco laboris nisi ut aliquip
           ex ea commodo consequat.
         </div>
-        {/*
+        
         <Link
           to="/"
           className="font_blue font_semibold font_xs text-uppercase font_letterspacing_1"

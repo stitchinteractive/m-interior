@@ -6,6 +6,30 @@ import * as navShopModule from "./nav-shop.module.css"
 
 // step 2: define
 export function NavShop(props) {
+  debugger
+  const sortby = props.sortby
+  console.log(sortby)
+
+  var bestsellingcode = { fontWeight: 600, color:"#202020" }
+  var lowtohighcode = { fontWeight: 600, color:"#202020" }
+  var hightolowcode = { fontWeight: 600, color:"#202020" }
+  var atozcode = { fontWeight: 600, color:"#202020" }
+  var ztoacode = { fontWeight: 600, color:"#202020" }
+
+  if(sortby === null || sortby === "bestselling") {
+    bestsellingcode = { fontWeight: 600, color:"#FBCB02" }
+  } else {
+    if (sortby === "lowtohigh") {
+      lowtohighcode = { fontWeight: 600, color:"#FBCB02" }
+    } else if (sortby === "hightolow") {
+      hightolowcode = { fontWeight: 600, color:"#FBCB02" }
+    } else if (sortby === "AtoZ") {
+      atozcode = { fontWeight: 600, color:"#FBCB02" }
+    } else if (sortby === "ZtoA") {
+      ztoacode = { fontWeight: 600, color:"#FBCB02" }
+    }
+  }
+
   return (
     <div id="nav_account" className="text-uppercase">
       <h2 className="text-uppercase mb-70">Shop</h2>
@@ -89,27 +113,27 @@ export function NavShop(props) {
       </div>
       <ul className="listing font_medium">
         <li>
-          <Link to="?sortby=bestselling" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=bestselling" style={bestsellingcode}>
             Bestselling
           </Link>
         </li>
         <li>
-          <Link to="?sortby=lowtohigh" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=lowtohigh" style={lowtohighcode}>
             Price (low to high)
           </Link>
         </li>
         <li>
-          <Link to="?sortby=hightolow" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=hightolow" style={hightolowcode}>
             Price (High to low)
           </Link>
         </li>
         <li>
-          <Link to="?sortby=AtoZ" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=AtoZ" style={atozcode}>
             Alphabetically (A to Z)
           </Link>
         </li>
         <li>
-          <Link to="?sortby=ZtoA" activeStyle={{ fontWeight: 600 }}>
+          <Link to="?sortby=ZtoA" style={ztoacode}>
             Alphabetically (Z to A)
           </Link>
         </li>

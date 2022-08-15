@@ -262,7 +262,8 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
       <div className="container">
         <div className="row row_padding">
           <div className="col-md-5 col-lg-3 animate">
-            <NavShop />
+            <NavShop
+              sortby={sortby} />
           </div>
           <div className="col-md-7 col-lg-9">
             <div className="row padding_shop d-flex">

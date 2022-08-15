@@ -29,7 +29,7 @@ export function ProductList(props) {
       swiperRef.current.swiper.slidePrev()
     }
   }
-  debugger
+  //debugger
   //const [bestsellers, setBestsellers] = React.useState(props.bsdata)
   //const [recommendation, setRecommendation] = React.useState(props.recdata)
 

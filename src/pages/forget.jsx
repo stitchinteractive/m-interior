@@ -152,7 +152,7 @@ const Login = () => {
                       </Link>
                     </div>
                     <div className="mt-1 font_sm">
-                      <Link to="/forget" className="fst-italic font_grey_medium_2">
+                      <Link to="/" className="fst-italic font_grey_medium_2">
                         Forgot your password?
                       </Link>
                     </div>

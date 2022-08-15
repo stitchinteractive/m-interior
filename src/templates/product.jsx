@@ -134,6 +134,7 @@ const ShopDetails = ({ pageContext }) => {
 
     setVariant({ ...selectedVariant })
 
+    imagesNavSlider.snapGrid = imagesNavSlider.slidesGrid.slice(0);
     const clickedIndex = altText.indexOf(value)
     imagesNavSlider.slideTo(clickedIndex)
 
@@ -161,6 +162,7 @@ const ShopDetails = ({ pageContext }) => {
   const altText = []
 
   if (hasImages) {
+    //debugger
     product.images.forEach((data, index) => {
       slides.push(data.originalSrc)
       if (data.altText) altText.push(data.altText)
@@ -344,6 +346,7 @@ const ShopDetails = ({ pageContext }) => {
               <hr className="my-3" />
               <div className="row mt-3 mb-4">
                 <div className="col-4 col-md-3">
+                {hasVariants ? (
                   <div className="d-flex align-items-start">
                     <div>Colour&nbsp;</div>
                     <OverlayTrigger
@@ -366,6 +369,10 @@ const ShopDetails = ({ pageContext }) => {
                       </div>
                     </OverlayTrigger>
                   </div>
+                ) : (
+                  <div className="d-flex align-items-start">
+                  </div>
+                )}
                 </div>
                 <div className="col-8 col-md-9">
                   <p>
