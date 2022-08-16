@@ -186,7 +186,7 @@ const Profile = () => {
                       </div>
                       <h3 className="text-uppercase pb-6">My Profile</h3>
                     </div>
-                    <div className="d-flex btn_back mb-80">
+                    <div className="d-flex btn_back mb-20">
                       {message && <label>{message}</label>}
                     </div>
                   </div>

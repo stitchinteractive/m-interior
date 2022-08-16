@@ -214,7 +214,7 @@ const Address = () => {
                       <h3 className="text-uppercase pb-6">Saved Address</h3>
                       <h4 className="text-uppercase pb-3">Shipping Address</h4>
                     </div>
-                    <div className="d-flex btn_back mb-80">
+                    <div className="d-flex btn_back mb-20">
                       {message && <label>{message}</label>}
                     </div>
                   </div>
