@@ -118,7 +118,7 @@ const Account = () => {
                 <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="col-12">
                     <h2 className="text-uppercase pb-6">Create Account</h2>
-                    <div className="d-flex btn_back mb-80">
+                    <div className="d-flex btn_back mb-20">
                       <BackIcon />
                       <Link
                         to="/login"
@@ -127,7 +127,7 @@ const Account = () => {
                         Back
                       </Link>
                     </div>
-                    <div className="d-flex btn_back mb-80">
+                    <div className="d-flex btn_back mb-20">
                       {message && <label>{message}</label>}
                     </div>
                   </div>

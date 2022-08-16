@@ -14,27 +14,34 @@ import BackIcon from "../icons/back"
 
 const schema = yup
   .object({
-    email: yup
+    password: yup.string().min(3, "Password must be at 3 char long"),
+    confirmPwd: yup
       .string()
-      .email("Email is not in the correct format")
-      .required("Email is mandatory"),
+      .oneOf([yup.ref("password")], "Passwords does not match"),
   })
   .required()
 
-const CUSTOMER_RECOVER = gql`
-  mutation customerRecover($email: String!) {
-    customerRecover(email: $email) {
-      customerUserErrors {
-        field
-        message
-        code
-      }
+const CUSTOMER_RESET = gql`
+  mutation customerReset($id: ID!, $input: CustomerResetInput!) {
+    customerReset(id: $id, input: $input) {
+        customer {
+            id
+        }
+        customerAccessToken {
+            accessToken
+            expiresAt
+        }
+        customerUserErrors {
+            field
+            message
+            code
+        }
     }
   }
 `
 
 // step 2: define component
-const Login = () => {
+const Login = ({location}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   // useLayoutEffect(() => {
@@ -50,6 +57,12 @@ const Login = () => {
   //   })
   // })
 
+  const params = new URLSearchParams(location.search);
+  const id = "gid://shopify/Customer/"+params.get("id")
+  const token = params.get("token")
+
+  console.log(id)
+  console.log(token)
   const [message, setMessage] = React.useState(null)
 
   const {
@@ -62,22 +75,26 @@ const Login = () => {
   })
 
   const onSubmit = (data) => {
+    debugger
     console.log(data)
-    customerRecover({
-      variables: { email: data.email },
+    const { confirmPwd, ...customer } = data
+    customer.resetToken = token
+    console.log(customer)
+    customerReset({
+      variables: { id: id, input: customer },
       onCompleted: (result) => {
         debugger
         console.log(result)
-        if (result.customerRecover.customerUserErrors.length > 0) {
-          setMessage("Invalid email address.")
+        if (result.customerReset.customerUserErrors.length > 0) {
+          setMessage("Error updating password. "+result.customerReset.customerUserErrors[0].message)
         } else {
-          setMessage("Email sent to recipient.")
+          setMessage("Password changed successfully. Please go back to login.")
         }
       },
     })
   }
 
-  const [customerRecover] = useMutation(CUSTOMER_RECOVER)
+  const [customerReset] = useMutation(CUSTOMER_RESET)
 
   if (isLoggedIn()) {
     navigate(`/profile`)
@@ -92,7 +109,7 @@ const Login = () => {
               <div className={loginModule.login_container}>
                 <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="col">
-                    <h2 className="text-uppercase pb-6">Forget your password?</h2>
+                    <h2 className="text-uppercase pb-6">Reset</h2>
                     <div className="d-flex btn_back mb-20">
                       <BackIcon />
                       <Link
@@ -104,21 +121,35 @@ const Login = () => {
                     </div>
                   </div>
                   <div className="col-12 mt-2">
-                    Please enter your email address to reset your password <br/>
+                    Please enter your new password to change your password <br/>
                     {message && <label>{message}</label>}
                   </div>
-                  <div className="col-12">
-                    <label htmlFor="inputEmail4" className="form-label">
-                      Email
+                  <div className="col-12 mt-5">
+                    <label htmlFor="inputPassword4" className="form-label">
+                      Password
                     </label>
                     <input
-                      type="email"
+                      type="password"
                       className="form-control"
-                      id="inputEmail4"
-                      {...register("email")}
+                      id="inputPassword4"
+                      {...register("password")}
                     />
-                    {errors.email && (
-                      <p className="font_yellow">{errors.email.message}</p>
+                    {errors.password && (
+                      <p className="font_yellow">{errors.password.message}</p>
+                    )}
+                  </div>
+                  <div className="col-12 mt-5">
+                    <label htmlFor="inputPassword4" className="form-label">
+                      Confirm Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="confirmPwd"
+                      {...register("confirmPwd")}
+                    />
+                    {errors.confirmPwd && (
+                      <p className="font_yellow">{errors.confirmPwd.message}</p>
                     )}
                   </div>
                   <div className="col-12 mt-5 text-end">

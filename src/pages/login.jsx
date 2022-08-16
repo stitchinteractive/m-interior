@@ -102,7 +102,7 @@ const Login = () => {
                 <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
                   <div className="col">
                     <h2 className="text-uppercase pb-6">Log In</h2>
-                    <div className="d-flex btn_back mb-80">
+                    <div className="d-flex btn_back mb-20">
                       {message && <label>{message}</label>}
                     </div>
                   </div>
