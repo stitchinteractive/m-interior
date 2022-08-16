@@ -17,7 +17,7 @@ export function ProductListItem(props) {
                 {props.name}
               </h5>
               <div className="font_letterspacing_1 font_grey_medium_3">
-                SGD {props.price}
+                SGD {Math.floor(props.price)}
               </div>
             </div>
             <div className="d-flex align-items-center">

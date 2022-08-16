@@ -47,41 +47,6 @@ const ShopDetails = ({ pageContext }) => {
     })
   })
 
-  /* autoplay videos */
-  const intro1Ref = useRef()
-  const intro2Ref = useRef()
-  const intro3Ref = useRef()
-
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#intro_1",
-      onEnter: () => intro1Ref.current.play(),
-      onEnterBack: () => intro1Ref.current.play(),
-      onLeave: () => intro1Ref.current.pause(),
-      onLeaveBack: () => intro1Ref.current.pause(),
-    })
-  }, [])
-
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#intro_2",
-      onEnter: () => intro2Ref.current.play(),
-      onEnterBack: () => intro2Ref.current.play(),
-      onLeave: () => intro2Ref.current.pause(),
-      onLeaveBack: () => intro2Ref.current.pause(),
-    })
-  }, [])
-
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#intro_3",
-      onEnter: () => intro3Ref.current.play(),
-      onEnterBack: () => intro3Ref.current.play(),
-      onLeave: () => intro3Ref.current.pause(),
-      onLeaveBack: () => intro3Ref.current.pause(),
-    })
-  }, [])
-
   // set variant
   const initialVariant = product.variants[0]
   const { client } = React.useContext(StoreContext)
@@ -204,6 +169,30 @@ const ShopDetails = ({ pageContext }) => {
   const selectedPath1 = product.collections[0]?.metafields.find((mf) => {
     return isEqual("path", mf.key)
   })
+  const showMaterialSamples = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_material_samples", mf.key)
+  })
+  const showCustomizeButton = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_customize_button", mf.key)
+  })
+  const showDetails = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_details", mf.key)
+  })
+  const showInstallation = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_installation", mf.key)
+  })
+  const showAbout = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_about", mf.key)
+  })
+  const showBanner = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_banner", mf.key)
+  })
+  const showComplimentary = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("show_complimentary", mf.key)
+  })
+  const deliveryLeadTime = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("delivery_lead_time", mf.key)
+  })
   var category1 = selectedCategory1?.value ?? "NA"
   var path1 = selectedPath1?.value ?? ""
   if (path1 === "shop") {
@@ -211,6 +200,50 @@ const ShopDetails = ({ pageContext }) => {
   } else {
     path1 = "/shop/" + path1 + "/" + product.collections[0]?.handle
   }
+  //debugger
+  var showSamples = (showMaterialSamples?.value === "true" || showMaterialSamples === undefined) ? true : false
+  var showButton = (showCustomizeButton?.value === "true" || showCustomizeButton === undefined) ? true : false
+  var showDet = (showDetails?.value === "true" || showDetails === undefined) ? true : false
+  var showIns = (showInstallation?.value === "true" || showInstallation === undefined) ? true : false
+  var showAbt = (showAbout?.value === "true" || showAbout === undefined) ? true : false
+  var showBannr = (showBanner?.value === "true" || showBanner === undefined) ? true : false
+  var showComp = (showComplimentary?.value === "true" || showComplimentary === undefined) ? true : false
+  var deliverLT = deliveryLeadTime?.value ?? ""
+  var aboutTitle = "About " + product.collections[0]?.title
+
+  /* autoplay videos */
+  const intro1Ref = useRef()
+  const intro2Ref = useRef()
+  const intro3Ref = useRef()
+
+  useEffect(() => {
+    if(showBannr) {
+      ScrollTrigger.create({
+        trigger: "#intro_1",
+        onEnter: () => intro1Ref.current.play(),
+        onEnterBack: () => intro1Ref.current.play(),
+        onLeave: () => intro1Ref.current.pause(),
+        onLeaveBack: () => intro1Ref.current.pause(),
+      })
+
+      ScrollTrigger.create({
+        trigger: "#intro_2",
+        onEnter: () => intro2Ref.current.play(),
+        onEnterBack: () => intro2Ref.current.play(),
+        onLeave: () => intro2Ref.current.pause(),
+        onLeaveBack: () => intro2Ref.current.pause(),
+      })
+
+      ScrollTrigger.create({
+        trigger: "#intro_3",
+        onEnter: () => intro3Ref.current.play(),
+        onEnterBack: () => intro3Ref.current.play(),
+        onLeave: () => intro3Ref.current.pause(),
+        onLeaveBack: () => intro3Ref.current.pause(),
+      })
+    }
+    
+  }, [])
 
   return (
     <Layout>
@@ -333,7 +366,8 @@ const ShopDetails = ({ pageContext }) => {
                 className="line_height_dense"
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
               ></div>
-              <p>
+              {showButton ? (
+                <p>
                 <Link to="/contact-us">
                   <button
                     type="button"
@@ -343,6 +377,10 @@ const ShopDetails = ({ pageContext }) => {
                   </button>
                 </Link>
               </p>
+              ) : (
+                <p></p>
+              )}
+              
               <hr className="my-3" />
               <div className="row mt-3 mb-4">
                 <div className="col-4 col-md-3">
@@ -451,7 +489,8 @@ const ShopDetails = ({ pageContext }) => {
                   />
                 </div>
               </div>
-              <p className="pb-1">
+              {showComp ? (
+                <p className="pb-1">
                 <Link to="/contact-us" className="no_underline">
                   <button
                     type="button"
@@ -479,8 +518,12 @@ const ShopDetails = ({ pageContext }) => {
                   </button>
                 </Link>
               </p>
+              ) : (
+                <p></p>
+              )}
+              
               <em className="font_xs font_grey_medium_2">
-                *Delivery lead time is around 3-4 weeks
+                {deliverLT}
               </em>
             </div>
           </div>
@@ -493,7 +536,9 @@ const ShopDetails = ({ pageContext }) => {
             id="uncontrolled-tab-example"
             className="mb-3"
           >
-            <Tab eventKey="about" title="About Min+Modules">
+            {
+              showAbt ? (
+              <Tab eventKey="about" title={aboutTitle}>
               <h5>FUN AND FREEDOM IN ARRANGING SPACES</h5>
               <p>
                 The fun part about Min+Modules is that the modules can be
@@ -521,14 +566,26 @@ const ShopDetails = ({ pageContext }) => {
                 modular nature. Start building your very own Min+Modules
                 furniture with our product configurator HERE.
               </p>
-            </Tab>
-            <Tab eventKey="details" title="Details">
+              </Tab>
+              ) : (
+                <div></div>
+              )
+            }
+            {
+              showDet ? (
+              <Tab eventKey="details" title="Details">
               <div
                 className="row"
                 dangerouslySetInnerHTML={{ __html: details }}
               ></div>
-            </Tab>
-            <Tab eventKey="installation" title="Installation">
+              </Tab>
+              ) : (
+                <div></div>
+              )
+            }
+            {
+              showIns ? (
+              <Tab eventKey="installation" title="Installation">
               <h5>LEAVE THE HARD WORK TO US – FOR FREE</h5>
               <p>
                 We will take care of the installation for you at no additional
@@ -548,6 +605,11 @@ const ShopDetails = ({ pageContext }) => {
                 you.
               </p>
             </Tab>
+              ) : (
+                <div></div>
+              )
+            }
+            { showSamples ? (
             <Tab eventKey="samples" title="Get Material Samples">
               <h5>MODULAR CONNECTION</h5>
               <p>
@@ -575,223 +637,234 @@ const ShopDetails = ({ pageContext }) => {
                 and get a complimentary design consultation HERE.
               </p>
             </Tab>
+            ) : (
+            <div></div>
+            )}
           </Tabs>
         </div>
       </div>
-      <div className="bg_blue_medium font_white">
-        <div className="container text-center">
-          <div className="row row_padding">
-            <div className="col-12">
-              <h2 className="text-uppercase pb-3">Meet the Min+Modules</h2>
-              <p className="mb-80">
-                The Min+Modules is more than just your average furniture piece.
-                It's modular.
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <div className="d-block d-md-none">
-                <img
-                  src="/shop/min_modules/1_module_sizes.png"
-                  alt="Intro Sizes"
-                />
+
+      {showBannr ? (
+      <div>
+        <div className="bg_blue_medium font_white">
+          <div className="container text-center">
+            <div className="row row_padding">
+              <div className="col-12">
+                <h2 className="text-uppercase pb-3">Meet the Min+Modules</h2>
+                <p className="mb-80">
+                  The Min+Modules is more than just your average furniture piece.
+                  It's modular.
+                </p>
               </div>
-              <div className="d-none d-md-block">
-                <video
-                  width="100%"
-                  height="100%"
-                  playsinline
-                  autoplay
-                  defaultmuted
-                  muted
-                  loop
-                  controls="false"
-                  ref={intro1Ref}
-                  id="intro_1"
-                >
-                  <source
-                    src="/shop/min_modules/1_module_sizes.mp4"
-                    type="video/mp4"
+              <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
+                <div className="d-block d-md-none">
+                  <img
+                    src="/shop/min_modules/1_module_sizes.png"
+                    alt="Intro Sizes"
                   />
-                </video>
-              </div>
-              <p className="px-5 pt-3 mb-80">
-                TWO MODULE SIZES FOR FLEXIBLE CONFIGURATIONS
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <div className="d-block d-md-none">
-                <img
-                  src="/shop/min_modules/2_magnetic_connectors.png"
-                  alt="Intro Sizes"
-                />
-              </div>
-              <div className="d-none d-md-block">
-                <video
-                  width="100%"
-                  height="100%"
-                  playsinline
-                  autoplay
-                  defaultmuted
-                  muted
-                  loop
-                  controls="false"
-                  ref={intro2Ref}
-                  id="intro_2"
-                >
-                  <source
-                    src="/shop/min_modules/2_magnetic_connectors.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-              <p className="px-5 pt-3 mb-80">
-                STACK &amp; ARRANGE THE MODULES USING MAGNETIC CONNECTORS
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
-              <div className="d-block d-md-none">
-                <img
-                  src="/shop/min_modules/3_drawers_dividers.png"
-                  alt="Intro Sizes"
-                />
-              </div>
-              <div className="d-none d-md-block">
-                <video
-                  width="100%"
-                  height="100%"
-                  playsinline
-                  autoplay
-                  defaultmuted
-                  muted
-                  loop
-                  controls="false"
-                  ref={intro3Ref}
-                  id="intro_3"
-                >
-                  <source
-                    src="/shop/min_modules/3_drawers_dividers.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-              <p className="px-5 pt-3 mb-80">
-                MIX & MATCH BETWEEN doors, drawers & dividers
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg_grey">
-        <div className="container">
-          <div className="row row_padding d-flex">
-            <div className="col-md-6 p-5 align-self-center">
-              <img src="/shop/min_modules/customise.png" alt="Customise" />
-            </div>
-            <div className="col-md-6 align-self-center">
-              <h2 className="text-uppercase mb-5">
-                Customisation
-                <br />
-                at your fingertips
-              </h2>
-              <p className="mb-50">
-                Customise your very own Min+Modules furniture with our product
-                configurator – right down to details such as sizes, colours and
-                storage compartments.
-              </p>
-              <p>
-                <Link to="/">
-                  <button
-                    type="button"
-                    className="btn btn-outline btn-outline-large btn-black-large"
-                  >
-                    Build your own Min+Modules
-                  </button>
-                </Link>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg_black font_white">
-        <div className="container">
-          <div className="row row_padding">
-            <div className="col-md-8 offset-md-2 col-lg-6 offset-lg-0 align-self-center">
-              <h2 className="text-uppercase mb-5">
-                THERE'S A MIN+MODULE FOR EVERY SPACE
-              </h2>
-              <p className="mb-50">
-                Get inspirations on how to style your spaces with the
-                Min+Modules. Regardless of your interior style, the Min+Modules
-                can fit into any spaces of yours – meeting all your creative and
-                functional needs.
-              </p>
-              <p>
-                <Link to="/">
-                  <button
-                    type="button"
-                    className="btn btn-outline-large font_white mb-50"
-                  >
-                    Explore lookbook
-                  </button>
-                </Link>
-              </p>
-            </div>
-            <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-1 align-self-center">
-              <div className="swiper_container">
-                <Swiper
-                  className="product_list_swiper d-flex align-items-stretch h-100"
-                  // install Swiper modules
-                  modules={[Navigation, Mousewheel]}
-                  spaceBetween={60}
-                  loop={true}
-                  breakpoints={{
-                    320: {
-                      slidesPerView: 1,
-                    },
-                    768: {
-                      slidesPerView: 1,
-                    },
-                    1280: {
-                      slidesPerView: 1,
-                    },
-                  }}
-                  onSwiper={(swiper) => console.log(swiper)}
-                  onSlideChange={() => console.log("slide change")}
-                  ref={swiperRef}
-                >
-                  <SwiperSlide>
-                    <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <img src="/shop/min_modules/lookbook_2.jpg" alt="" />
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <img src="/shop/min_modules/lookbook_3.jpg" alt="" />
-                  </SwiperSlide>
-                </Swiper>
-                <div id="go_prev">
-                  <button onClick={goPrev}>
-                    <img src="/icons/btn_prev.png" alt="Prev" />
-                  </button>
                 </div>
-                <div id="go_next">
-                  <button onClick={goNext}>
-                    <img src="/icons/btn_next.png" alt="Next" />
-                  </button>
+                <div className="d-none d-md-block">
+                  <video
+                    width="100%"
+                    height="100%"
+                    playsinline
+                    autoplay
+                    defaultmuted
+                    muted
+                    loop
+                    controls="false"
+                    ref={intro1Ref}
+                    id="intro_1"
+                  >
+                    <source
+                      src="/shop/min_modules/1_module_sizes.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <p className="px-5 pt-3 mb-80">
+                  TWO MODULE SIZES FOR FLEXIBLE CONFIGURATIONS
+                </p>
+              </div>
+              <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
+                <div className="d-block d-md-none">
+                  <img
+                    src="/shop/min_modules/2_magnetic_connectors.png"
+                    alt="Intro Sizes"
+                  />
+                </div>
+                <div className="d-none d-md-block">
+                  <video
+                    width="100%"
+                    height="100%"
+                    playsinline
+                    autoplay
+                    defaultmuted
+                    muted
+                    loop
+                    controls="false"
+                    ref={intro2Ref}
+                    id="intro_2"
+                  >
+                    <source
+                      src="/shop/min_modules/2_magnetic_connectors.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <p className="px-5 pt-3 mb-80">
+                  STACK &amp; ARRANGE THE MODULES USING MAGNETIC CONNECTORS
+                </p>
+              </div>
+              <div className="col-md-8 offset-md-2 col-lg-4 offset-lg-0 font_medium text-uppercase">
+                <div className="d-block d-md-none">
+                  <img
+                    src="/shop/min_modules/3_drawers_dividers.png"
+                    alt="Intro Sizes"
+                  />
+                </div>
+                <div className="d-none d-md-block">
+                  <video
+                    width="100%"
+                    height="100%"
+                    playsinline
+                    autoplay
+                    defaultmuted
+                    muted
+                    loop
+                    controls="false"
+                    ref={intro3Ref}
+                    id="intro_3"
+                  >
+                    <source
+                      src="/shop/min_modules/3_drawers_dividers.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <p className="px-5 pt-3 mb-80">
+                  MIX & MATCH BETWEEN doors, drawers & dividers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg_grey">
+          <div className="container">
+            <div className="row row_padding d-flex">
+              <div className="col-md-6 p-5 align-self-center">
+                <img src="/shop/min_modules/customise.png" alt="Customise" />
+              </div>
+              <div className="col-md-6 align-self-center">
+                <h2 className="text-uppercase mb-5">
+                  Customisation
+                  <br />
+                  at your fingertips
+                </h2>
+                <p className="mb-50">
+                  Customise your very own Min+Modules furniture with our product
+                  configurator – right down to details such as sizes, colours and
+                  storage compartments.
+                </p>
+                <p>
+                  <Link to="/">
+                    <button
+                      type="button"
+                      className="btn btn-outline btn-outline-large btn-black-large"
+                    >
+                      Build your own Min+Modules
+                    </button>
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg_black font_white">
+          <div className="container">
+            <div className="row row_padding">
+              <div className="col-md-8 offset-md-2 col-lg-6 offset-lg-0 align-self-center">
+                <h2 className="text-uppercase mb-5">
+                  THERE'S A MIN+MODULE FOR EVERY SPACE
+                </h2>
+                <p className="mb-50">
+                  Get inspirations on how to style your spaces with the
+                  Min+Modules. Regardless of your interior style, the Min+Modules
+                  can fit into any spaces of yours – meeting all your creative and
+                  functional needs.
+                </p>
+                <p>
+                  <Link to="/">
+                    <button
+                      type="button"
+                      className="btn btn-outline-large font_white mb-50"
+                    >
+                      Explore lookbook
+                    </button>
+                  </Link>
+                </p>
+              </div>
+              <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-1 align-self-center">
+                <div className="swiper_container">
+                  <Swiper
+                    className="product_list_swiper d-flex align-items-stretch h-100"
+                    // install Swiper modules
+                    modules={[Navigation, Mousewheel]}
+                    spaceBetween={60}
+                    loop={true}
+                    breakpoints={{
+                      320: {
+                        slidesPerView: 1,
+                      },
+                      768: {
+                        slidesPerView: 1,
+                      },
+                      1280: {
+                        slidesPerView: 1,
+                      },
+                    }}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    onSlideChange={() => console.log("slide change")}
+                    ref={swiperRef}
+                  >
+                    <SwiperSlide>
+                      <img src="/shop/min_modules/lookbook_1.jpg" alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/shop/min_modules/lookbook_2.jpg" alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src="/shop/min_modules/lookbook_3.jpg" alt="" />
+                    </SwiperSlide>
+                  </Swiper>
+                  <div id="go_prev">
+                    <button onClick={goPrev}>
+                      <img src="/icons/btn_prev.png" alt="Prev" />
+                    </button>
+                  </div>
+                  <div id="go_next">
+                    <button onClick={goNext}>
+                      <img src="/icons/btn_next.png" alt="Next" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="row row_padding">
-          <h2 className="pb-5 text-uppercase text-center">
-            Quality you can trust
-          </h2>
-          <MinQuality />
+        <div className="container">
+          <div className="row row_padding">
+            <h2 className="pb-5 text-uppercase text-center">
+              Quality you can trust
+            </h2>
+            <MinQuality />
+          </div>
         </div>
       </div>
+      ): (
+        <div></div>
+      )}
+
       <Testimonials />
       <div className="container">
         <div className="row row_padding">
