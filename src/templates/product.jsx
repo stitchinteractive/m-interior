@@ -8,7 +8,7 @@ import { MinQuality } from "../components/min-quality"
 import { Testimonials } from "../components/testimonials"
 import { ProductList } from "../components/product-list"
 import { BackToTop } from "../components/back-to-top"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { StoreContext } from "../context/store-context"
 import { formatPrice } from "../utils/format-price"
 import Tabs from "react-bootstrap/Tabs"
@@ -28,6 +28,7 @@ import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/navigation"
 import "swiper/css/thumbs"
+
 
 // step 2: define component
 const ShopDetails = ({ pageContext }) => {

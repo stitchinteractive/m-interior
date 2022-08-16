@@ -1,4 +1,5 @@
 const path = require(`path`)
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // Query for all products in Shopify
