@@ -135,12 +135,13 @@ const InteriorDesignDetails = ({location}) => {
                     <ImgCard
                       background={blog?.node?.image?.url}
                       category="&nbsp;"
-                      sub_category={blog?.node?.title}
+                      description={blog?.node?.title}
                     />
                     <div className="overlay_img">
                       <ImgCard
                         background={blog?.node?.image?.url}
-                        description={blog?.node?.excerpt}
+                        category="&nbsp;"
+                        description={blog?.node?.title}
                       />
                     </div>
                   </Link>

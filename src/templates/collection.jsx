@@ -96,12 +96,19 @@ const Shop = ({ pageContext, location }) => {
 
   var description = selectedDescription?.value ?? "NA"
 
+  const selectedBannerDescription = collection.metafields.find((mf) => {
+    return isEqual("banner_description", mf.key)
+  })
+
+  var bannerDescription = selectedBannerDescription?.value ?? "NA"
+
   return (
     <Layout>
       <div className="container">
         <div className="row row_padding">
           <div className="col-md-5 col-lg-3 animate">
-            <NavShop />
+            <NavShop
+              sortby={sortby} />
           </div>
           <div className="col-md-7 col-lg-9">
             <div className="row mb-5">
@@ -110,6 +117,7 @@ const Shop = ({ pageContext, location }) => {
                   background={collection.image?.originalSrc}
                   category={category}
                   sub_category={collection.title}
+                  banner_description={bannerDescription}
                 />
               </div>
             </div>

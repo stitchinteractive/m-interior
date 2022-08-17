@@ -18,8 +18,7 @@ export function SubBanner(props) {
               <div className="text-uppercase font_sm">{props.category}</div>
               <h2 className="text-uppercase mb-3">{props.sub_category}</h2>
               <p className="font_medium">
-                Customise your own furniture with flexible configurations such
-                as sizes, colours and storage requirements.
+                {props.banner_description}
               </p>
             </div>
           </div>

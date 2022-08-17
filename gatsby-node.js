@@ -72,9 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/product.jsx`),
       context: {
         product: node,
-        recommendation: result.data.allShopifyProduct.edges.filter(
-          (rec) => (rec.node.productType === node.productType && rec.node.id !== node.id)
-        ) ?? []
+        recommendation: result.data.allShopifyProduct.edges
       },
     })
   })

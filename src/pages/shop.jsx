@@ -157,7 +157,13 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
   const params = new URLSearchParams(location.search);
   const sortby = params.get("sortby");
   if(sortby === null || sortby === "bestselling") {
-    products = bestselling.edges
+    //products = bestselling.edges
+    products = lodash.orderBy(bestselling.edges, function(o) {
+      const selectedOrder = o.node.metafields.find((mf) => {
+        return isEqual("best_seller_order", mf.key)
+      })
+      return parseInt(selectedOrder?.value ?? 1000);
+    }, ['asc'])
   } else {
     if (sortby === "lowtohigh") {
       products = lodash.orderBy(allProducts.edges, function(o) {

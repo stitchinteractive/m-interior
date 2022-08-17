@@ -18,6 +18,8 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger"
 import Tooltip from "react-bootstrap/Tooltip"
 import isEqual from "lodash.isequal"
 import { AddToCart } from "../components/add-to-cart"
+import { AcaciaIntro } from "../components/acacia-intro"
+import { useQuery, gql } from '@apollo/client';
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -29,6 +31,13 @@ import "swiper/css/free-mode"
 import "swiper/css/navigation"
 import "swiper/css/thumbs"
 
+const GET_RECOMMENDED = gql`
+query($handle: ID!) {
+  productRecommendations(productId: $handle) {
+    id
+  }
+}
+`
 
 // step 2: define component
 const ShopDetails = ({ pageContext }) => {
@@ -48,7 +57,24 @@ const ShopDetails = ({ pageContext }) => {
     })
   })
 
+  //debugger
+  const {loading, error, data} = useQuery(GET_RECOMMENDED, {
+    variables: {handle: product.shopifyId}
+  });
+  
+  const recommendList = []
+  if(data) {
+    data.productRecommendations.forEach((rc, index) => {
+      recommendList.push(rc.id)
+    })
+  }
+
+  console.log(recommendList)
+  const rc = recommendation.filter((node) => recommendList.some(r => r === node.node.shopifyId)) ?? []
+  console.log(rc)
+
   // set variant
+  //debugger
   const initialVariant = product.variants[0]
   const { client } = React.useContext(StoreContext)
 
@@ -79,7 +105,7 @@ const ShopDetails = ({ pageContext }) => {
   )
 
   const handleOptionChange = (index, value, event) => {
-    // debugger
+    debugger
     //const value = event.target.value
     console.log(event)
 
@@ -100,12 +126,15 @@ const ShopDetails = ({ pageContext }) => {
 
     setVariant({ ...selectedVariant })
 
-    imagesNavSlider.snapGrid = imagesNavSlider.slidesGrid.slice(0);
-    const clickedIndex = altText.indexOf(value)
-    imagesNavSlider.slideTo(clickedIndex)
-
+    if(index == 0) {
+      imagesNavSlider.snapGrid = imagesNavSlider.slidesGrid.slice(0);
+      const clickedIndex = altText.indexOf(value)
+      if(clickedIndex != -1)
+        imagesNavSlider.slideTo(clickedIndex)
+    }
+    
     const variant_options = Array.from(
-      document.getElementsByClassName("variant_options")
+      document.getElementsByClassName("variant_options_"+index)
     )
     variant_options.map((vo) => {
       vo.classList.remove("color_selected")
@@ -194,6 +223,14 @@ const ShopDetails = ({ pageContext }) => {
   const deliveryLeadTime = product.collections[0]?.metafields.find((mf) => {
     return isEqual("delivery_lead_time", mf.key)
   })
+  const aboutContentStr = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("about_content", mf.key)
+  })
+  const installContentStr = product.collections[0]?.metafields.find((mf) => {
+    return isEqual("installation_content", mf.key)
+  })
+
+
   var category1 = selectedCategory1?.value ?? "NA"
   var path1 = selectedPath1?.value ?? ""
   if (path1 === "shop") {
@@ -211,6 +248,9 @@ const ShopDetails = ({ pageContext }) => {
   var showComp = (showComplimentary?.value === "true" || showComplimentary === undefined) ? true : false
   var deliverLT = deliveryLeadTime?.value ?? ""
   var aboutTitle = "About " + product.collections[0]?.title
+  var aboutContent = aboutContentStr?.value ?? ""
+  var installContent = installContentStr?.value ?? ""
+  const handle = product.collections[0]?.handle
 
   /* autoplay videos */
   const intro1Ref = useRef()
@@ -219,29 +259,33 @@ const ShopDetails = ({ pageContext }) => {
 
   useEffect(() => {
     if(showBannr) {
-      ScrollTrigger.create({
-        trigger: "#intro_1",
-        onEnter: () => intro1Ref.current.play(),
-        onEnterBack: () => intro1Ref.current.play(),
-        onLeave: () => intro1Ref.current.pause(),
-        onLeaveBack: () => intro1Ref.current.pause(),
-      })
+      if(handle.includes("acacia")) {
 
-      ScrollTrigger.create({
-        trigger: "#intro_2",
-        onEnter: () => intro2Ref.current.play(),
-        onEnterBack: () => intro2Ref.current.play(),
-        onLeave: () => intro2Ref.current.pause(),
-        onLeaveBack: () => intro2Ref.current.pause(),
-      })
-
-      ScrollTrigger.create({
-        trigger: "#intro_3",
-        onEnter: () => intro3Ref.current.play(),
-        onEnterBack: () => intro3Ref.current.play(),
-        onLeave: () => intro3Ref.current.pause(),
-        onLeaveBack: () => intro3Ref.current.pause(),
-      })
+      } else {
+        ScrollTrigger.create({
+          trigger: "#intro_1",
+          onEnter: () => intro1Ref.current.play(),
+          onEnterBack: () => intro1Ref.current.play(),
+          onLeave: () => intro1Ref.current.pause(),
+          onLeaveBack: () => intro1Ref.current.pause(),
+        })
+  
+        ScrollTrigger.create({
+          trigger: "#intro_2",
+          onEnter: () => intro2Ref.current.play(),
+          onEnterBack: () => intro2Ref.current.play(),
+          onLeave: () => intro2Ref.current.pause(),
+          onLeaveBack: () => intro2Ref.current.pause(),
+        })
+  
+        ScrollTrigger.create({
+          trigger: "#intro_3",
+          onEnter: () => intro3Ref.current.play(),
+          onEnterBack: () => intro3Ref.current.play(),
+          onLeave: () => intro3Ref.current.pause(),
+          onLeaveBack: () => intro3Ref.current.pause(),
+        })
+      }
     }
     
   }, [])
@@ -385,9 +429,10 @@ const ShopDetails = ({ pageContext }) => {
               <hr className="my-3" />
               <div className="row mt-3 mb-4">
                 <div className="col-4 col-md-3">
-                {hasVariants ? (
+                {hasVariants &&
+                        product.options.map(({ id, name, values }, index) => (
                   <div className="d-flex align-items-start">
-                    <div>Colour&nbsp;</div>
+                    <div>{name}&nbsp;</div>
                     <OverlayTrigger
                       placement="top"
                       delay={{ show: 250, hide: 400 }}
@@ -408,10 +453,7 @@ const ShopDetails = ({ pageContext }) => {
                       </div>
                     </OverlayTrigger>
                   </div>
-                ) : (
-                  <div className="d-flex align-items-start">
-                  </div>
-                )}
+                ))}
                 </div>
                 <div className="col-8 col-md-9">
                   <p>
@@ -437,9 +479,9 @@ const ShopDetails = ({ pageContext }) => {
                                     >
                                       <div
                                         onClick={(event) =>
-                                          handleOptionChange(0, value, event)
+                                          handleOptionChange(index, value, event)
                                         }
-                                        className="d-flex pointer variant_options"
+                                        className={"d-flex pointer variant_options_"+index}
                                         value={value}
                                       >
                                         <img
@@ -540,33 +582,9 @@ const ShopDetails = ({ pageContext }) => {
             {
               showAbt ? (
               <Tab eventKey="about" title={aboutTitle}>
-              <h5>FUN AND FREEDOM IN ARRANGING SPACES</h5>
-              <p>
-                The fun part about Min+Modules is that the modules can be
-                effortlessly separated and rearranged to form side tables, TV
-                consoles, bookshelves, bedroom chests etc. The magnetic
-                connectors between each module allows a smooth and easy
-                transition for your spaces.
-              </p>
-              <h5>ADDS FUNCTIONALITY TO YOUR SPACES</h5>
-              <p>
-                Designed with high quality and durable materials, the internal
-                modules are available in two sizes: 40cm width for compact
-                storage and 80cm width for bigger displays, with standard height
-                and depth of 40cm. Balancing style with function, the
-                Min+Modules is thoughtfully designed with tons of functional
-                add-ons from sleek drawers to doors and even space dividers.
-              </p>
-              <h5>HIGHLY CUSTOMISABLE INSIDE OUT</h5>
-              <p>
-                Why get a custom-made furniture that comes with a high price
-                when you can customise your very own Min+Modules furniture –
-                right down to details such as sizes, colours and storage
-                compartments. The Min+Modules can check all your boxes and even
-                offer more than what you need due to its multi-functional and
-                modular nature. Start building your very own Min+Modules
-                furniture with our product configurator HERE.
-              </p>
+                <div
+                dangerouslySetInnerHTML={{ __html: aboutContent }}
+                ></div>
               </Tab>
               ) : (
                 <div></div>
@@ -587,24 +605,9 @@ const ShopDetails = ({ pageContext }) => {
             {
               showIns ? (
               <Tab eventKey="installation" title="Installation">
-              <h5>LEAVE THE HARD WORK TO US – FOR FREE</h5>
-              <p>
-                We will take care of the installation for you at no additional
-                charges, so you can focus your time and energy on sprucing up
-                your spaces! Our installation team will deliver the product to
-                your place, assemble it right away and position it perfectly at
-                your sweet spot.
-              </p>
-              <p>
-                Do note that for set-ups taller than 1.2m, our installation team
-                will have to secure and affix it to a wall to ensure stability.
-              </p>
-              <h5>TIME TO SWITCH THINGS UP?</h5>
-              <p>
-                If you ever need to rearrange the modules or refresh the
-                colours, simply hit us up and we will be on our way to assist
-                you.
-              </p>
+              <div
+                dangerouslySetInnerHTML={{ __html: installContent }}
+                ></div>
             </Tab>
               ) : (
                 <div></div>
@@ -646,6 +649,64 @@ const ShopDetails = ({ pageContext }) => {
       </div>
 
       {showBannr ? (
+        handle.includes('acacia') ? (
+      <div>
+        <div className="bg_blue">
+        <div className="container">
+          <div className="row row_padding font_white">
+            <div className="col-12 col-md-7 order-2 order-md-1">
+              <AcaciaIntro />
+            </div>
+            <div className="col-12 col-md-4 offset-md-1 order-1 order-md-2">
+              <h2 className="text-uppercase mb-5">More than just a block</h2>
+              <p>
+                Want more customisation ideas for the Acacia Blocks? Check out
+                our guide below and see how our customers do it!
+              </p>
+              <p>
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="btn btn-outline-large font_white mb-50"
+                  >
+                    Acacia Guide
+                  </button>
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg_black font_white">
+        <div className="container">
+          <div className="row row_padding">
+            <div className="col-md-8 offset-md-2 col-lg-7 offset-lg-0 align-self-center">
+              <h2 className="text-uppercase mb-5">Create your own spaces</h2>
+              <p className="mb-50">
+                Get inspirations on how to style your spaces with the Acacia
+                Blocks. Regardless of your interior style, the Acacia Blocks can
+                fit into any spaces of yours – meeting all your creative and
+                functional needs.
+              </p>
+              <p>
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="btn btn-outline-large font_white mb-50"
+                  >
+                    Acacia Guide
+                  </button>
+                </Link>
+              </p>
+            </div>
+            <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-0">
+              <img src="/shop/acacia/lookbook_1.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+          ) : (
       <div>
         <div className="bg_blue_medium font_white">
           <div className="container text-center">
@@ -862,6 +923,8 @@ const ShopDetails = ({ pageContext }) => {
           </div>
         </div>
       </div>
+          )
+      
       ): (
         <div></div>
       )}
@@ -870,7 +933,7 @@ const ShopDetails = ({ pageContext }) => {
       <div className="container">
         <div className="row row_padding">
           <h3 className="text-uppercase py-5">You might also like</h3>
-          <ProductList recdata={recommendation} />
+          <ProductList recdata={rc} />
           <BackToTop />
         </div>
       </div>
