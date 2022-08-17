@@ -77,6 +77,13 @@ export function MinQuality() {
             content="Matte aluminium full-length handles for easy grip that minimises your push and pull work."
           />
         </SwiperSlide>
+        <SwiperSlide>
+          <MinQualityItem
+            img_src="/shop/min_modules/quality_5.jpg"
+            heading="Base Support"
+            content="7cm steel legs for substantial stability and ease cleaning under the furniture."
+          />
+        </SwiperSlide>
       </Swiper>
       <div id="go_prev">
         <button onClick={goPrev}>
