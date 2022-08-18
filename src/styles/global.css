@@ -359,6 +359,12 @@ h6 {
 }
 
 /********** forms **********/
+textarea {
+  height: 150px;
+  padding: 5px 10px;
+  font-size: var(--text-sm);
+}
+
 input::-webkit-date-and-time-value {
   text-align: left;
 }
