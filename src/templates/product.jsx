@@ -57,6 +57,14 @@ const ShopDetails = ({ pageContext }) => {
     })
   })
 
+  const [notes, setNotes] = useState('');
+
+  const handleNotesChange = event => {
+    // 👇️ update textarea value
+    setNotes(event.target.value);
+    console.log(event.target.value);
+  };
+
   //debugger
   const {loading, error, data} = useQuery(GET_RECOMMENDED, {
     variables: {handle: product.shopifyId}
@@ -511,6 +519,53 @@ const ShopDetails = ({ pageContext }) => {
                   </p>
                 </div>
               </div>
+              
+              <div className="row mt-3 mb-4">
+                <div className="col-4 col-md-3">
+
+                  <div className="d-flex align-items-start">
+                    <div>Notes&nbsp;</div>
+                    <OverlayTrigger
+                      placement="top"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={
+                        <Tooltip id="button-tooltip-2">
+                          Looking for more? Contact us to customise your colour
+                          combination.
+                        </Tooltip>
+                      }
+                    >
+                      <div className="d-flex pointer align-self-center">
+                        <img
+                          src="/icons/ico_info.png"
+                          alt="Info"
+                          width="22"
+                          height="22"
+                        />
+                      </div>
+                    </OverlayTrigger>
+                  </div>
+                </div>
+                <div className="col-8 col-md-9">
+                  <p>
+                    <ul className="listing_left_align">
+                      <div className="col-8 col-md-9">
+                        <p>
+                          <textarea
+                          id="notes"
+                          name="notes"
+                          value={notes}
+                          onChange={handleNotesChange}>
+
+                          </textarea>
+                        </p>
+                      </div>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+
+
               <div className="row my-3">
                 <div className="col-4 col-md-3">
                   <NumericInput
@@ -528,6 +583,7 @@ const ShopDetails = ({ pageContext }) => {
                     variantId={productVariant.storefrontId}
                     quantity={quantity}
                     available={available}
+                    notes={notes}
                     className="btn btn-primary w-100"
                   />
                 </div>

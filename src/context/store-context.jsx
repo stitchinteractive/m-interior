@@ -70,8 +70,8 @@ export const StoreProvider = ({ children }) => {
     initializeCheckout()
   }, [])
 
-  const addVariantToCart = (variantId, quantity) => {
-    debugger
+  const addVariantToCart = (variantId, quantity, notes) => {
+    //debugger
     setLoading(true)
 
     const checkoutID = checkout.id
@@ -80,6 +80,7 @@ export const StoreProvider = ({ children }) => {
       {
         variantId,
         quantity: parseInt(quantity, 10),
+        customAttributes: [{key: "Notes", value: notes}]
       },
     ]
 

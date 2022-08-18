@@ -16,6 +16,7 @@ import {
 } from "./line-item.module.css"
 
 export function LineItem({ item }) {
+  debugger
   const {
     removeLineItem,
     checkout,
@@ -93,10 +94,10 @@ export function LineItem({ item }) {
       </td>
       <td>
         <h4 className="text-uppercase mb-4">{item.title}</h4>
-        <div className="d-flex py-2">
+        {/* <div className="d-flex py-2">
           <div className="label_order">Style:</div>
           <div className="font_medium">{item.variant.title === "Default Title" ? "" : item.variant.title}</div>
-        </div>
+        </div> */}
         <div className="d-flex py-2">
           <div className="label_order">Color:</div>
           <div className="pe-2">
@@ -107,21 +108,19 @@ export function LineItem({ item }) {
             />
           </div>
           <div className="font_medium">
-            {item.variant.title === "Default Title" ? "" : item.variant.title}
+            {item.variant.title === "Default Title" ? "Default" : item.variant.title}
           </div>
         </div>
-        {/*<div className="order_note my-3">
+        <div className="order_note my-3">
           <div className="text-uppercase font_medium">
             Order Note
           </div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis
-          nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat.
+          {
+            item.customAttributes[0]?.value
+          }
         </div>
         
-        <Link
+        {/*<Link
           to="/"
           className="font_blue font_semibold font_xs text-uppercase font_letterspacing_1"
         >
@@ -151,7 +150,7 @@ export function LineItem({ item }) {
       <td>
         <button onClick={handleRemove}>
           <img
-            src="./icons/btn_remove.png"
+            src="/icons/btn_remove.png"
             alt="Remove"
             className="mx-auto"
           />
