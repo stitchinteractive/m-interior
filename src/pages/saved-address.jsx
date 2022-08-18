@@ -142,6 +142,7 @@ const Address = () => {
             setMessage(err)
           } else {
             //reset()
+            window.location.reload(false)
             setMessage("Address updated successfully")
           }
         },
@@ -191,7 +192,7 @@ const Address = () => {
           <div className="row row_padding">
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>JS</div>
+                <div className={ProfileModule.initials}>{Array.from(data?.customer?.firstName)[0].toUpperCase()}{Array.from(data?.customer?.lastName)[0].toUpperCase()}</div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
