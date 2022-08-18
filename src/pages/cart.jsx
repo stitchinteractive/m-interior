@@ -33,7 +33,8 @@ const Cart = () => {
   const emptyCart = checkout.lineItems.length === 0
 
   const handleCheckout = () => {
-    window.open(checkout.webUrl)
+    //window.open(checkout.webUrl)
+    window.location.assign(checkout.webUrl)
   }
 
   return (

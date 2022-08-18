@@ -15,7 +15,7 @@ const Cart = ({location}) => {
     var lineItems = ""
     var grandTotal = ""
     if(typeof window !== `undefined`) {
-        //debugger
+        debugger
         lineItems = location.state.data
         grandTotal = location.state.grandTotal
         console.log(lineItems)
@@ -100,10 +100,10 @@ const Cart = ({location}) => {
                       </td>
                       <td>
                         <h4 className="text-uppercase mb-4">{item.node.title}</h4>
-                        <div className="d-flex py-2">
+                        {/* <div className="d-flex py-2">
                           <div className="label_order">Style:</div>
                           <div className="font_medium">{item.node.variant.title === "Default Title" ? "" : item.node.variant.title}</div>
-                        </div>
+                        </div> */}
                         <div className="d-flex py-2">
                           <div className="label_order">Color:</div>
                           <div className="pe-2">
@@ -114,18 +114,16 @@ const Cart = ({location}) => {
                             />
                           </div>
                           <div className="font_medium">
-                            {item.node.variant.title === "Default Title" ? "" : item.node.variant.title}
+                            {item.node.variant.title === "Default Title" ? "Default" : item.node.variant.title}
                           </div>
                         </div>
                         <div className="order_note my-3">
                           <div className="text-uppercase font_medium">
                             Order Note
                           </div>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat.
+                          {
+                            item.node.customAttributes == null ? "" : item.node.customAttributes[0]?.value
+                          }
                         </div>
                       </td>
                       <td
