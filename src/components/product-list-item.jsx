@@ -7,6 +7,7 @@ import * as productListModule from "./product-list-item.module.css"
 export function ProductListItem(props) {
   //console.log(props.bgimage)
   const hasVariants = props.variants?.length > 1
+  console.log(props.options)
   return (
     <div className="container_overlay">
       <div className={productListModule.item}>
@@ -25,7 +26,7 @@ export function ProductListItem(props) {
             </div>
             <ul className="listing_colors">
               {hasVariants &&
-                props.options.map(({ id, name, values }, index) =>
+                props.options.map(({ id, name, values }, index) => 
                   values.map((value) => (
                     <li>
                       <img
@@ -38,7 +39,7 @@ export function ProductListItem(props) {
                       />
                     </li>
                   ))
-                )}
+                )[0]}
             </ul>
           </div>
           <div

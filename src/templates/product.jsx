@@ -616,6 +616,8 @@ const ShopDetails = ({ pageContext }) => {
           </div>
         </div>
       </div>
+      {(showAbt || showDet || showIns || showSamples) ? 
+      (
       <div className="container">
         <div className="row row_padding">
           <Tabs
@@ -682,6 +684,11 @@ const ShopDetails = ({ pageContext }) => {
           </Tabs>
         </div>
       </div>
+      ) : 
+      (
+        <div></div>
+      )}
+      
 
       {showBannr ? (
         handle.includes("acacia") ? (
