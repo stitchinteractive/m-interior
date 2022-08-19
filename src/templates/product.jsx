@@ -454,7 +454,7 @@ const ShopDetails = ({ pageContext }) => {
                   <div className="mb-3">
                     {hasVariants &&
                       product.options.map(({ id, name, values }, index) => (
-                        <div className="d-flex align-items-start">
+                        <div className="d-flex align-items-start mb-3">
                           <div className="mb-3">{name}&nbsp;</div>
                           <OverlayTrigger
                             placement="top"
@@ -484,7 +484,7 @@ const ShopDetails = ({ pageContext }) => {
                     {hasVariants &&
                       product.options.map(({ id, name, values }, index) => (
                         <div className="col-8 col-md-9" key={id}>
-                          <p className="mb-2">
+                          <p className="mb-4">
                             <ul
                               aria-label="Variants"
                               className="listing_left_align"
