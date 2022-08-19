@@ -10,23 +10,23 @@ export function NavShop(props) {
   const sortby = props.sortby
   console.log(sortby)
 
-  var bestsellingcode = { fontWeight: 600, color:"#202020" }
-  var lowtohighcode = { fontWeight: 600, color:"#202020" }
-  var hightolowcode = { fontWeight: 600, color:"#202020" }
-  var atozcode = { fontWeight: 600, color:"#202020" }
-  var ztoacode = { fontWeight: 600, color:"#202020" }
+  var bestsellingcode = { color: "#202020" }
+  var lowtohighcode = { color: "#202020" }
+  var hightolowcode = { color: "#202020" }
+  var atozcode = { color: "#202020" }
+  var ztoacode = { color: "#202020" }
 
-  if(sortby === null || sortby === "bestselling") {
-    bestsellingcode = { fontWeight: 600, color:"#FBCB02" }
+  if (sortby === null || sortby === "bestselling") {
+    bestsellingcode = { color: "#FBCB02" }
   } else {
     if (sortby === "lowtohigh") {
-      lowtohighcode = { fontWeight: 600, color:"#FBCB02" }
+      lowtohighcode = { color: "#FBCB02" }
     } else if (sortby === "hightolow") {
-      hightolowcode = { fontWeight: 600, color:"#FBCB02" }
+      hightolowcode = { color: "#FBCB02" }
     } else if (sortby === "AtoZ") {
-      atozcode = { fontWeight: 600, color:"#FBCB02" }
+      atozcode = { color: "#FBCB02" }
     } else if (sortby === "ZtoA") {
-      ztoacode = { fontWeight: 600, color:"#FBCB02" }
+      ztoacode = { color: "#FBCB02" }
     }
   }
 

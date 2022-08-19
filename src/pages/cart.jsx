@@ -112,7 +112,7 @@ const Cart = () => {
                     <button
                       onClick={handleCheckout}
                       disabled={loading}
-                      className="btn btn-tertiary text-uppercase"
+                      className="btn btn-primary mb-80"
                     >
                       Checkout
                     </button>
