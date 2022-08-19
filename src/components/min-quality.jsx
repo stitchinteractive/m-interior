@@ -33,7 +33,7 @@ export function MinQuality() {
         // install Swiper modules
         modules={[Navigation, Mousewheel]}
         spaceBetween={60}
-        loop={true}
+        loop={false}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -81,7 +81,7 @@ export function MinQuality() {
           <MinQualityItem
             img_src="/shop/min_modules/quality_5.jpg"
             heading="Base Support"
-            content="7cm steel legs for substantial stability and ease cleaning under the furniture."
+            content="7cm steel legs for substantial stability and easy cleaning under the furniture."
           />
         </SwiperSlide>
       </Swiper>
