@@ -4,12 +4,12 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteTitle: "gatsby-starter-shopify",
-    siteTitleDefault: "gatsby-starter-shopify by @GatsbyJS",
-    siteUrl: "https://shopify-demo.gatsbyjs.com",
+    siteTitle: "MIN+",
+    siteTitleDefault: "MIN+",
+    siteUrl: "https://m-interior.co/",
     hrefLang: "en",
     siteDescription:
-      "A Gatsby starter using the latest Shopify plugin showcasing a store with product overview, individual product pages, and a cart.",
+      "Find fun and freedom in transforming your spaces with our modular furniture series. Simply connect, stack and mount the blocks to build your own creative storage display.",
     siteImage: "/default-og-image.jpg",
     twitter: "@gatsbyjs",
   },
