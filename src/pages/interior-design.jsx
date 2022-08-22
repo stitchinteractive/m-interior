@@ -45,11 +45,11 @@ const InteriorDesignDetails = () => {
               <div className="col-12 col-md-8 offset-md-4 col-lg-6 offset-lg-6">
                 <div className="box_overlay">
                   <h1 className="mb-150">Make your neighbours jealous.</h1>
-                  <Link to="/profile">
+                  <a href="/interior-design#consultation_form">
                     <button type="submit" className="btn btn-outline">
                       GET A FREE CONSULTATION & QUOTE
                     </button>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -184,14 +184,14 @@ const InteriorDesignDetails = () => {
                   </div>
                   <div className="col-2 col-md-1">&nbsp;</div>
                   <div className="col-10 col-md-11 ps-4">
-                    <Link to="/profile">
+                    <a href="/interior-design#consultation_form">
                       <button
                         type="submit"
                         className="btn btn-outline btn-black mb-80"
                       >
                         Get Started Now
                       </button>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -238,7 +238,7 @@ const InteriorDesignDetails = () => {
             </div>
           </div>
         </div>
-        <div className="bg_grey">
+        <div id="consultation_form" className="bg_grey">
           <div className="container">
             <div className="row row_padding">
               <div className="col-12">
