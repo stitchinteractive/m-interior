@@ -34,7 +34,9 @@ const Cart = () => {
 
   const handleCheckout = () => {
     //window.open(checkout.webUrl)
-    window.location.assign(checkout.webUrl)
+    //debugger
+    var checkoutUrl = checkout.webUrl.replace(process.env.GATSBY_SHOPIFY_STORE_URL, "shopify.m-interior.co");
+    window.location.assign(checkoutUrl)
   }
 
   return (
