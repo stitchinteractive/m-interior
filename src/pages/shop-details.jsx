@@ -705,7 +705,7 @@ const ShopDetails = () => {
                 storage compartments.
               </p>
               <p>
-                <Link to="/">
+                <Link to="/contact-us">
                   <button type="button" className="btn btn-light">
                     Build your own Min+Modules
                   </button>
@@ -729,7 +729,7 @@ const ShopDetails = () => {
                 functional needs.
               </p>
               <p>
-                <Link to="/">
+                <Link to="/lookbook">
                   <button
                     type="button"
                     className="btn btn-outline-large font_white mb-50"

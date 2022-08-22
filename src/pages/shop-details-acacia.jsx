@@ -532,14 +532,14 @@ const ShopDetails = () => {
                 our guide below and see how our customers do it!
               </p>
               <p>
-                <Link to="/">
+                <a href="/shop/acacia/acacia_guide.pdf" target="_blank">
                   <button
                     type="button"
                     className="btn btn-outline-large font_white mb-50"
                   >
                     Acacia Guide
                   </button>
-                </Link>
+                </a>
               </p>
             </div>
           </div>
@@ -557,14 +557,14 @@ const ShopDetails = () => {
                 functional needs.
               </p>
               <p>
-                <Link to="/">
+                <a href="/shop/acacia/acacia_guide.pdf" target="_blank">
                   <button
                     type="button"
                     className="btn btn-outline-large font_white mb-50"
                   >
                     Acacia Guide
                   </button>
-                </Link>
+                </a>
               </p>
             </div>
             <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-0">

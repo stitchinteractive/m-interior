@@ -657,7 +657,7 @@ const HomePage = () => {
                     </div>
                     <div ref={furniture1TextRef}>
                       <p>
-                        <Link to="/shop/detail/bedside-table">
+                        <Link to="/shop/detail/small-side-table-i">
                           <button type="button" className="btn btn-outline">
                             Small side table
                           </button>

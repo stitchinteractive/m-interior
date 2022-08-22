@@ -616,79 +616,78 @@ const ShopDetails = ({ pageContext }) => {
           </div>
         </div>
       </div>
-      {(showAbt || showDet || showIns || showSamples) ? 
-      (
-      <div className="container">
-        <div className="row row_padding">
-          <Tabs
-            defaultActiveKey="about"
-            id="uncontrolled-tab-example"
-            className="mb-3"
-          >
-            {showAbt ? (
-              <Tab eventKey="about" title={aboutTitle}>
-                <div dangerouslySetInnerHTML={{ __html: aboutContent }}></div>
-              </Tab>
-            ) : (
-              <div></div>
-            )}
-            {showDet ? (
-              <Tab eventKey="details" title="Details">
-                <div
-                  className="row"
-                  dangerouslySetInnerHTML={{ __html: details }}
-                ></div>
-              </Tab>
-            ) : (
-              <div></div>
-            )}
-            {showIns ? (
-              <Tab eventKey="installation" title="Installation">
-                <div dangerouslySetInnerHTML={{ __html: installContent }}></div>
-              </Tab>
-            ) : (
-              <div></div>
-            )}
-            {showSamples ? (
-              <Tab eventKey="samples" title="Get Material Samples">
-                <h5>MODULAR CONNECTION</h5>
-                <p>
-                  Acacia Blocks are intuitively designed with magnetic
-                  connectors so that you can easily attach and detach individual
-                  blocks to create your own furniture piece. Simply attach the
-                  connectors onto the side holes of the Acacia Blocks to build
-                  your own configuration, without the need for drills or
-                  fasteners.
-                </p>
-                <h5>BESPOKE DESIGNS</h5>
-                <p>
-                  Acacia Blocks can be flexibly integrated with carpentry works
-                  to create bespoke designs. Be it a TV console, feature wall or
-                  partition, Acacia Blocks can fit in everywhere as your
-                  creative buddy!
-                </p>
-                <h5>CREATIVELY CUSTOMISABLE TO SUIT YOUR SPACE</h5>
-                <p>
-                  There’s a lot more that you can do with the Acacia Blocks.
-                  From add-on lightings to removable clear covers and shelf
-                  dividers, the customisation possibilities are endless.
-                </p>
-                <p>
-                  Check out more customisation ideas for the Acacia Blocks below
-                  and get a complimentary design consultation HERE.
-                </p>
-              </Tab>
-            ) : (
-              <div></div>
-            )}
-          </Tabs>
+      {showAbt || showDet || showIns || showSamples ? (
+        <div className="container">
+          <div className="row row_padding">
+            <Tabs
+              defaultActiveKey="about"
+              id="uncontrolled-tab-example"
+              className="mb-3"
+            >
+              {showAbt ? (
+                <Tab eventKey="about" title={aboutTitle}>
+                  <div dangerouslySetInnerHTML={{ __html: aboutContent }}></div>
+                </Tab>
+              ) : (
+                <div></div>
+              )}
+              {showDet ? (
+                <Tab eventKey="details" title="Details">
+                  <div
+                    className="row"
+                    dangerouslySetInnerHTML={{ __html: details }}
+                  ></div>
+                </Tab>
+              ) : (
+                <div></div>
+              )}
+              {showIns ? (
+                <Tab eventKey="installation" title="Installation">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: installContent }}
+                  ></div>
+                </Tab>
+              ) : (
+                <div></div>
+              )}
+              {showSamples ? (
+                <Tab eventKey="samples" title="Get Material Samples">
+                  <h5>MODULAR CONNECTION</h5>
+                  <p>
+                    Acacia Blocks are intuitively designed with magnetic
+                    connectors so that you can easily attach and detach
+                    individual blocks to create your own furniture piece. Simply
+                    attach the connectors onto the side holes of the Acacia
+                    Blocks to build your own configuration, without the need for
+                    drills or fasteners.
+                  </p>
+                  <h5>BESPOKE DESIGNS</h5>
+                  <p>
+                    Acacia Blocks can be flexibly integrated with carpentry
+                    works to create bespoke designs. Be it a TV console, feature
+                    wall or partition, Acacia Blocks can fit in everywhere as
+                    your creative buddy!
+                  </p>
+                  <h5>CREATIVELY CUSTOMISABLE TO SUIT YOUR SPACE</h5>
+                  <p>
+                    There’s a lot more that you can do with the Acacia Blocks.
+                    From add-on lightings to removable clear covers and shelf
+                    dividers, the customisation possibilities are endless.
+                  </p>
+                  <p>
+                    Check out more customisation ideas for the Acacia Blocks
+                    below and get a complimentary design consultation HERE.
+                  </p>
+                </Tab>
+              ) : (
+                <div></div>
+              )}
+            </Tabs>
+          </div>
         </div>
-      </div>
-      ) : 
-      (
+      ) : (
         <div></div>
       )}
-      
 
       {showBannr ? (
         handle.includes("acacia") ? (
@@ -708,14 +707,14 @@ const ShopDetails = ({ pageContext }) => {
                       out our guide below and see how our customers do it!
                     </p>
                     <p>
-                      <Link to="/">
+                      <a href="/shop/acacia/acacia_guide.pdf" target="_blank">
                         <button
                           type="button"
                           className="btn btn-outline-large font_white mb-50"
                         >
                           Acacia Guide
                         </button>
-                      </Link>
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -735,12 +734,12 @@ const ShopDetails = ({ pageContext }) => {
                       all your creative and functional needs.
                     </p>
                     <p>
-                      <Link to="/">
+                      <Link to="/lookbook">
                         <button
                           type="button"
                           className="btn btn-outline-large font_white mb-50"
                         >
-                          Acacia Guide
+                          Explore Lookbook
                         </button>
                       </Link>
                     </p>
@@ -880,7 +879,7 @@ const ShopDetails = ({ pageContext }) => {
                       sizes, colours and storage compartments.
                     </p>
                     <p>
-                      <Link to="/">
+                      <Link to="/contact-us">
                         <button
                           type="button"
                           className="btn btn-outline btn-outline-large btn-black-large"
@@ -907,7 +906,7 @@ const ShopDetails = ({ pageContext }) => {
                       your creative and functional needs.
                     </p>
                     <p>
-                      <Link to="/">
+                      <Link to="/lookbook">
                         <button
                           type="button"
                           className="btn btn-outline-large font_white mb-50"
