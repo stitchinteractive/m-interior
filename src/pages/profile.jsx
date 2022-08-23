@@ -95,7 +95,7 @@ const Profile = () => {
   const [message, setMessage] = React.useState(null)
 
   const onSubmit = (data) => {
-    debugger
+    //debugger
     const { confirmPwd, ...customer } = data
     customer.acceptsMarketing = true
     customer.phone = "+65"+customer.phone

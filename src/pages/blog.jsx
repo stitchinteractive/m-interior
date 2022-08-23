@@ -4,92 +4,74 @@ import { Link } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
-import { useQuery, gql } from '@apollo/client';
-import { format } from 'date-fns';
+import { ImgCard } from "../components/img-card"
+import BackIcon from "../icons/back"
+import { format } from "date-fns"
+import { useQuery, gql } from "@apollo/client"
 
-const GET_FEATURED_BLOG = gql`
-query {
-  articles(first: 1, reverse: true, query:"tag:featured") {
-    edges {
-      node {
-        title
-        contentHtml
-        excerpt
-        publishedAt
-        image {
-          url
+const GET_MORE_BLOGS = gql`
+  query {
+    articles(first: 3, reverse: false) {
+      edges {
+        node {
+          title
+          contentHtml
+          excerpt
+          publishedAt
+          image {
+            url
+          }
+          authorV2 {
+            name
+          }
+          handle
         }
-        authorV2 {
-          name
-        }
-        handle
       }
     }
   }
-}
 `
 
-const GET_NEXT_BLOG = gql`
-query ($numProducts: Int!, $cursor: String) {
-  articles(first: $numProducts, after: $cursor, reverse: true, query:"tag_not:featured") {
+const GET_ARTICLE = gql`
+query($handle: String!) {
+  blogs(first: 250, reverse: true){
     edges {
-      node {
-        title
-        contentHtml
-        excerpt
-        publishedAt
-        image {
-          url
+        node {
+          title
+          handle
+          articleByHandle(handle:$handle) {
+            title
+            contentHtml
+            excerpt
+            publishedAt
+            image {
+              url
+            }
+            authorV2 {
+              name
+            }
+            handle
+          }
         }
-        authorV2 {
-          name
-        }
-        handle
       }
-    }
-    pageInfo {
-      hasNextPage
-      endCursor
-      hasPreviousPage
-      startCursor
-    }
-  }
-}
-`
-
-const GET_PREV_BLOG = gql`
-query ($numProducts: Int!, $cursor: String) {
-  articles(last: $numProducts, before: $cursor, reverse: true, query:"tag_not:featured") {
-    edges {
-      node {
-        title
-        contentHtml
-        excerpt
-        publishedAt
-        image {
-          url
-        }
-        authorV2 {
-          name
-        }
-        handle
-      }
-    }
-    pageInfo {
-      hasNextPage
-      endCursor
-      hasPreviousPage
-      startCursor
-    }
   }
 }
 `
 
 // step 2: define component
-const InteriorDesignDetails = ({location}) => {
-  const params = new URLSearchParams(location.search)
-  const action = params.get("action")
-  const cursor = params.get("cursor")
+const InteriorDesignDetails = ({ location }) => {
+  const params = new URLSearchParams(location.search);
+  const handle = params.get("h");
+  console.log(handle)
+
+  var emptyBlog = true
+  if (handle==null || handle == "") {
+    //debugger
+    emptyBlog = true
+  } else {
+    emptyBlog = false
+  }
+
+  
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -107,145 +89,114 @@ const InteriorDesignDetails = ({location}) => {
   })
 
   debugger
-  const { data: featuredData, loading: featuredLoading, error: featuredError } = useQuery(GET_FEATURED_BLOG);
-  const { data: blogDataNext, loading: blogLoadingNext, error: blogErrorNext } = useQuery(GET_NEXT_BLOG, {
-    variables: {numProducts: 6, cursor: cursor}
+  const {data: moreData, loading: moreLoading, error: moreError} = useQuery(GET_MORE_BLOGS)
+  const {data: blogData, loading: blogLoading, error: blogError} = useQuery(GET_ARTICLE, {
+    variables: {handle: handle}
   })
-  const { data: blogDataPrev, loading: blogLoadingPrev, error: blogErrorPrev } = useQuery(GET_PREV_BLOG, {
-    variables: {numProducts: 6, cursor: cursor}
-  });
-  var blogData = []
-  if(action === null || action === "next") {
-    blogData = blogDataNext
-  }
-  if(action === "back") {
-    blogData = blogDataPrev
-  }
 
-  //console.log(featuredData);
-  //console.log(blogData);
-  //console.log(format(new Date(), 'dd MMM yyyy'))
-
-  const hasFeatured = featuredData?.articles.edges.length > 0
-  const hasBlog = blogData?.articles.edges.length > 0
+  const hasMore = moreData?.articles.edges.length > 0
+  const blogDetail = blogData?.blogs.edges[0].node.articleByHandle
 
   return (
     <Layout>
       <div>
-        {hasFeatured ? (
         <div className="container">
-          <div className="row row_padding d-flex align-items-center">
-            <div className="col-12 col-md-6 order-2 order-md-1">
-              <div className="row">
-                <h2 className="text-uppercase mb-60">{featuredData?.articles.edges[0].node.title}</h2>
-                <p className="font_light pb-4">{format(new Date(featuredData?.articles.edges[0].node.publishedAt), 'dd MMM yyyy')}</p>
-                <p dangerouslySetInnerHTML={{ __html: featuredData?.articles.edges[0].node.excerpt }}>
-                  
+          {emptyBlog || blogDetail === null ? (
+            <div className="row row_padding">No blog to show</div>
+          ) : (
+            <div className="row row_padding">
+              <div className="col-12 col-lg-8 offset-lg-2">
+                <p>
+                  <img src={blogDetail?.image?.url} alt={blogDetail?.title} />
                 </p>
-                <div className="col-12">
-                  <Link to="/blog-details"
-                    state={
-                      {data: featuredData?.articles.edges[0].node}
-                    }>
-                    <button
-                      type="submit"
-                      className="btn btn-outline btn-black mb-80"
-                    >
-                      Read More
-                    </button>
+              </div>
+              <div className="col-12 col-lg-8 offset-lg-2">
+                <div className="row d-flex align-items-center">
+                  <div className="col-3 col-md-2 col-lg-1">
+                    <p>
+                      <img
+                        src="/profile.jpg"
+                        className="avatar"
+                        alt="Profile"
+                      />
+                    </p>
+                  </div>
+                  <div className="col-9 col-md-6 col-lg-7">
+                    <p>
+                      {blogDetail?.authorV2.name} &nbsp;|&nbsp;{" "}
+                      {blogDetail
+                        ? format(
+                            new Date(blogDetail?.publishedAt),
+                            "dd MMM yyyy"
+                          )
+                        : ""}
+                    </p>
+                  </div>
+                  {/*
+                  <div className="col-12 col-md-4 col-lg-4 d-flex justify-content-md-end">
+                    <p>
+                      <Link to="/">
+                        <img src="/icons/share.png" alt="Share" />
+                      </Link>
+                    </p>
+                  </div>
+                  */}
+                </div>
+
+                <hr className="mt-0 mb-5" />
+
+                <h2 className="text-uppercase mb-60">{blogDetail?.title}</h2>
+                <p className="font_light pb-4">
+                  {blogDetail
+                    ? format(new Date(blogDetail?.publishedAt), "dd MMM yyyy")
+                    : ""}
+                </p>
+                <p
+                  dangerouslySetInnerHTML={{ __html: blogDetail?.contentHtml }}
+                ></p>
+                <div className="d-flex btn_back">
+                  <BackIcon />
+                  <Link
+                    to="/blog"
+                    className="ms-2 font_yellow text-uppercase font_semibold no_underline"
+                  >
+                    Back
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6 order-1 order-md-2">
-              <p>
-                <img src={featuredData?.articles.edges[0].node.image?.url} alt={featuredData?.articles.edges[0].node.title} />
-              </p>
-            </div>
-          </div>
+          )}
         </div>
-        ) : (
-          <div className="container">
-          <div className="row row_padding d-flex align-items-center">
-            <div className="col-12 col-md-6 order-2 order-md-1">
-              <div className="row">
-                <h2 className="text-uppercase mb-60">No featured post.</h2>
-                <p className="font_light pb-4">No featured post.</p>
-                <p>
-                  No featured post.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        )}
-        
-
         <div className="bg_grey">
           <div className="container">
             <div className="row row_padding">
-            {hasBlog &&
-              blogData?.articles.edges.map((blog) => (
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img
-                    src={blog.node.image?.url}
-                    alt={blog.node.title}
-                  />
-                </p>
-                <h4 className="text-uppercase mb-3">{blog.node.title}</h4>
-                <p className="font_light pb-4">{format(new Date(blog.node.publishedAt), 'dd MMM yyyy')}</p>
-                <p dangerouslySetInnerHTML={{ __html: blog.node.excerpt }}>
-                </p>
-                <p className="mb-100">
-                  <Link to="/blog-details" className="link_underline"
-                  state={
-                    {data: blog.node}
-                  }>
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-            ))}
               <div className="col-12">
-                <nav aria-label="...">
-                  <ul className="pagination justify-content-center">
-                    <li className={blogData?.articles.pageInfo.hasPreviousPage ? "page-item" : "page-item disabled"}>
-                      <Link
-                        className="page-link"
-                        href={"?action=back&cursor="+blogData?.articles.pageInfo.startCursor}
-                         //tabindex="-1"
-                        aria-disabled={blogData?.articles.pageInfo.hasPreviousPage ? "true" : "false"}
-                      >
-                        Previous
-                      </Link>
-                    </li>
-                    {/* <li className="page-item active">
-                      <Link className="page-link" href="#">
-                        1
-                      </Link>
-                    </li>
-                    <li className="page-item" aria-current="page">
-                      <Link className="page-link" href="#">
-                        2
-                      </Link>
-                    </li>
-                    <li className="page-item">
-                      <Link className="page-link" href="#">
-                        3
-                      </Link>
-                    </li> */}
-                    <li class={blogData?.articles.pageInfo.hasNextPage ? "page-item" : "page-item disabled"}>
-                      <Link 
-                        className="page-link" 
-                        href={"?action=next&cursor="+blogData?.articles.pageInfo.endCursor}
-                        aria-disabled={blogData?.articles.pageInfo.hasNextPage ? "true" : "false"}>
-                        Next
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
+                <h4 className="text-uppercase mb-5">You Might Also Like</h4>
               </div>
+              {hasMore &&
+                moreData?.articles.edges.map((blog) => (
+                  <div className="col-12 col-md-4 mb-5">
+                    <div className="container_overlay">
+                      <Link
+                        to={"/blog?h="+blog?.node?.handle}
+                        className="d-flex w-100 h-100 no_underline"
+                      >
+                        <ImgCard
+                          background={blog?.node?.image?.url}
+                          category="&nbsp;"
+                          description={blog?.node?.title}
+                        />
+                        <div className="overlay_img">
+                          <ImgCard
+                            background={blog?.node?.image?.url}
+                            category="&nbsp;"
+                            description={blog?.node?.title}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

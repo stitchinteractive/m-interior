@@ -59,7 +59,7 @@ export function Navigation({ className }) {
       <Link
         key="All"
         className={navLink}
-        to="/blog/"
+        to="/blogs/"
         activeClassName={activeLink}
       >
         Blog
