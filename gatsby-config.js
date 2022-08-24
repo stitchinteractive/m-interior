@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteTitle: "MIN+",
-    siteTitleDefault: "MIN+",
+    siteTitle: "M.INT",
+    siteTitleDefault: "M.INT",
     siteUrl: "https://m-interior.co/",
     hrefLang: "en",
     siteDescription:
@@ -26,15 +26,15 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-apollo',
+      resolve: "gatsby-plugin-apollo",
       options: {
         uri: `https://${process.env.GATSBY_SHOPIFY_STORE_URL}/api/2022-07/graphql.json`,
         headers: {
-          'X-Shopify-Storefront-Access-Token':
+          "X-Shopify-Storefront-Access-Token":
             process.env.GATSBY_STOREFRONT_ACCESS_TOKEN,
-          'Accept' : 'application/graphql'
-        }
-      }
+          Accept: "application/graphql",
+        },
+      },
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
