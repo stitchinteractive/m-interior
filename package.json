@@ -29,6 +29,7 @@
     "dotenv": "^10.0.0",
     "gatsby": "^4.0.2",
     "gatsby-plugin-apollo": "^4.0.2",
+    "gatsby-plugin-facebook-pixel": "^1.0.8",
     "gatsby-plugin-gatsby-cloud": "^4.0.0",
     "gatsby-plugin-google-analytics": "^4.0.0",
     "gatsby-plugin-google-gtag": "^4.21.0",
