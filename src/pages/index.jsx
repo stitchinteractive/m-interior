@@ -613,7 +613,7 @@ const HomePage = () => {
               }}
             >
               <h1 className="text-uppercase pb-3">
-                Free delivery to your door
+                Free delivery to your door test
               </h1>
               <p>
                 Enjoy free delivery when you spend over $150 in a single
