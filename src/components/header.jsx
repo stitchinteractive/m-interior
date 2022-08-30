@@ -215,7 +215,7 @@ export function Header() {
               <input
                 type="text"
                 className="form-control-sm txt_search"
-                placeholder="Search"
+                placeholder="Search..."
                 aria-label="Search"
                 aria-describedby="search"
               />
