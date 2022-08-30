@@ -22,7 +22,6 @@ function OffCanvasExample({ ...props }) {
         <Offcanvas.Body>
           <div className="row d-lg-none">
             <div className="col-10 offset-1">
-              {/*
               <div className="input-group my-3">
                 <input
                   type="text"
@@ -37,7 +36,6 @@ function OffCanvasExample({ ...props }) {
                   </Link>
                 </button>
               </div>
-              */}
               <ul className="nav_link_mobile">
                 <li>
                   <Link
@@ -97,6 +95,13 @@ export function Header() {
   const { checkout, loading } = React.useContext(StoreContext)
   const emptyCart = checkout.lineItems.length === 0
 
+  const [isShown, setIsShown] = useState(false)
+
+  const handleClick = (event) => {
+    // 👇️ toggle shown state
+    setIsShown((current) => !current)
+  }
+
   return (
     <div className={headerModule.container_header}>
       <header className={headerModule.header}>
@@ -111,13 +116,11 @@ export function Header() {
               <div className="row">
                 <div className="col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link_icon}>
-                    {/*
                     <li className="d-none d-lg-block">
-                      <Link to="/search-results">
+                      <a href="javascript:void(0);" onClick={handleClick}>
                         <SearchIcon />
-                      </Link>
+                      </a>
                     </li>
-                    */}
                     <li>
                       <Link to="/login">
                         <ProfileIcon />
@@ -202,6 +205,32 @@ export function Header() {
           </div>
         </div>
       </header>
+      {isShown && (
+        <div
+          id="container_search"
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div className="col-3 offset-1">
+            <div className="input-group my-3">
+              <input
+                type="text"
+                className="form-control-sm txt_search"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="search"
+              />
+              <button className="btn btn_search" type="button">
+                <Link to="/search-results">
+                  <SearchIcon />
+                </Link>
+              </button>
+            </div>
+          </div>
+          <a href="javascript:void(0);" onClick={handleClick}>
+            <img src="/icons/btn_close.png" alt="" className="ms-2" />
+          </a>
+        </div>
+      )}
     </div>
   )
 }
