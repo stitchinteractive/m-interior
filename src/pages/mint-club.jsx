@@ -38,22 +38,20 @@ const MintClub = () => {
               backgroundSize: "cover",
             }}
           >
-            <h1 className="text-uppercase pb-3">M.INT club</h1>
-            <p>
-              <div className="font_xxl text-uppercase">
-                <strong>is</strong> <i>more than just </i>
-                <strong>a rewards program</strong>
-              </div>
-            </p>
-            <p className="pb-9">
+            <h1 className="text-uppercase pb-2">M.INT club</h1>
+            <div className="font_xxl text-uppercase pb-2">
+              <strong>is</strong> <i>more than just </i>
+              <strong>a rewards program</strong>
+            </div>
+            <p className="pb-10">
               Join our community and be a part of something bigger.
             </p>
-            <p>Get a 10% off welcome gift when you join us!</p>
+            <p className="pb-3">Get a 10% off welcome gift when you join us!</p>
             <p>
               <Link to="/">
                 <button
                   type="button"
-                  className="btn btn-light btn-outline-large me-2"
+                  className="btn btn-outline-large btn-white me-3"
                 >
                   Join the club
                 </button>
@@ -63,7 +61,7 @@ const MintClub = () => {
                   type="button"
                   className="btn btn-outline btn-outline-large"
                 >
-                  Login
+                  Log In
                 </button>
               </Link>
             </p>

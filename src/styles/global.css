@@ -484,6 +484,12 @@ input::-webkit-date-and-time-value {
   color: var(--black);
 }
 
+.btn-white {
+  border: 1px solid var(--white);
+  background: var(--white);
+  color: var(--blue) !important;
+}
+
 .btn-outline-large {
   font-size: 12px;
   padding: 0.5rem 1rem;

@@ -75,6 +75,15 @@ function OffCanvasExample({ ...props }) {
                 </li>
                 <li>
                   <Link
+                    to="/mint-club"
+                    activeStyle={{ color: "white" }}
+                    partiallyActive={true}
+                  >
+                    M.INT Club
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/blog"
                     activeStyle={{ color: "white" }}
                     partiallyActive={true}
@@ -191,6 +200,15 @@ export function Header() {
                     </li>
                     <li>
                       <Link
+                        to="/mint-club"
+                        activeStyle={{ color: "white" }}
+                        partiallyActive={true}
+                      >
+                        M.INT Club
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
                         to="/blogs"
                         activeStyle={{ color: "white" }}
                         partiallyActive={true}
@@ -215,7 +233,7 @@ export function Header() {
               <input
                 type="text"
                 className="form-control-sm txt_search"
-                placeholder="Search..."
+                placeholder="Search"
                 aria-label="Search"
                 aria-describedby="search"
               />
