@@ -4,7 +4,10 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
+import Table from "react-bootstrap/Table"
 import AsteriskIcon from "../icons/asterisk"
+import AsteriskIconBlack from "../icons/asterisk-black"
+import Accordion from "react-bootstrap/Accordion"
 
 // import module.css
 import * as mintClubModule from "./mint-club.module.css"
@@ -67,18 +70,313 @@ const MintClub = () => {
             </p>
           </div>
         </div>
-        <div className="bg_black font_white">
+        <div className="bg_black font_white line_height_dense">
           <div className="container">
             <div className="row padding_heading animate">
-              <h2 className="text-uppercase pb-4 d-flex justify-content-center">
-                <div className="pe-5">
+              <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
+                <div className="pe-3">
                   <AsteriskIcon />
                 </div>
                 Members Only Benefits
-                <div className="ps-5">
+                <div className="ps-3">
                   <AsteriskIcon />
                 </div>
               </h2>
+              <div className="col-12 col-md-10 offset-md-1 pt-5 animate">
+                <div className="row">
+                  <div className="col-12 col-md-6">
+                    <div className="row pb-5">
+                      <div className="col-2">
+                        <img src="/icons/club_discounts.png" alt="Discounts" />
+                      </div>
+                      <div className="col-10 col-md-9">
+                        <h5 className="text-uppercase pb-3">Discounts</h5>
+                        <p>Gain access to exclusive discounts and deals.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <div className="row pb-5">
+                      <div className="col-2">
+                        <img
+                          src="/icons/club_content.png"
+                          alt="Exclusive content"
+                        />
+                      </div>
+                      <div className="col-10 col-md-9">
+                        <h5 className="text-uppercase pb-3">
+                          Exclusive content
+                        </h5>
+                        <p>
+                          Unlock interior style guides and services for members
+                          only.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <div className="row pb-5">
+                      <div className="col-2">
+                        <img
+                          src="/icons/club_events.png"
+                          alt="Events and workshops"
+                        />
+                      </div>
+                      <div className="col-10 col-md-9">
+                        <h5 className="text-uppercase pb-3">
+                          Events and workshops
+                        </h5>
+                        <p>
+                          Gain access to invite-only experiences and build a
+                          community with us.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6">
+                    <div className="row pb-5">
+                      <div className="col-2">
+                        <img src="/icons/club_dibs.png" alt="First dibs" />
+                      </div>
+                      <div className="col-10 col-md-9">
+                        <h5 className="text-uppercase pb-3">First dibs</h5>
+                        <p>
+                          Be the first to know about deals, product launches and
+                          events from us.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg_grey_medium line_height_dense text-center">
+          <div className="container">
+            <div className="row row_padding">
+              <div className="col-12 col-md-3 d-flex justify-content-center align-items-center">
+                <h2 className="text-uppercase fst-italic pb-5">How it works</h2>
+              </div>
+              <div className="col-12 col-md-3">
+                <p>
+                  <img
+                    src="/icons/club_join.png"
+                    alt="Join"
+                    className="mx-auto"
+                  />
+                </p>
+                <h4 className="text-uppercase pb-3 how_it_works">Join</h4>
+                <p>
+                  Get 10% off your first purchase when you sign up - it’s free!
+                </p>
+              </div>
+              <div className="col-12 col-md-3">
+                <p>
+                  <img
+                    src="/icons/club_earn.png"
+                    alt="Earn"
+                    className="mx-auto"
+                  />
+                </p>
+                <h4 className="text-uppercase pb-3 how_it_works">Earn</h4>
+                <p>Earn points through small goals or purchases</p>
+              </div>
+              <div className="col-12 col-md-3">
+                <p>
+                  <img
+                    src="/icons/club_redeem.png"
+                    alt="Redeem"
+                    className="mx-auto"
+                  />
+                </p>
+                <h4 className="text-uppercase pb-3">Redeem</h4>
+                <p>Redeem exclusive rewards!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg_grey">
+          <div className="container">
+            <div className="row row_padding">
+              <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
+                <div className="pe-3">
+                  <AsteriskIconBlack />
+                </div>
+                Get exclusive with us
+                <div className="ps-3">
+                  <AsteriskIconBlack />
+                </div>
+              </h2>
+              <Table responsive className="table_benefits">
+                <thead>
+                  <tr>
+                    <th width="40%">Benefits</th>
+                    <th>
+                      <div>
+                        <img src="/icons/club_starter.png" alt="Starter" />
+                      </div>
+                      Starter
+                      <div className="font_xs font_grey_medium">
+                        Free to Join
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        <img src="/icons/club_insider.png" alt="Insider" />
+                      </div>
+                      Insider
+                      <div className="font_xs font_grey_medium">
+                        Earn 1,200 Points
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        <img src="/icons/club_creator.png" alt="Creator" />
+                      </div>
+                      Creator
+                      <div className="font_xs font_grey_medium">
+                        Earn 5,000 Points
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Welcome Gift (10% off first purchase)</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Member-Only Sales</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>15% OFF Storewide on Birthday Month</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Exclusive Preview for Launches</td>
+                    <td>&nbsp;</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Exclusive Content and Interior Styling Tips</td>
+                    <td>&nbsp;</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Special Birthday Gift</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Invitation to M.INT Events and Workshops</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                      <img src="icons/color_blue_dark.png" alt="Yes" />
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+              <div className="text-center pt-5">
+                <button className="btn btn-primary-large mb-80">
+                  Join the club
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg_white">
+          <div className="container">
+            <div className="row row_padding">
+              <h2 className="text-uppercase heading_line pb-5">
+                Frequently Asked Questions
+              </h2>
+              <Accordion defaultActiveKey="1">
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>
+                    What are the payment methods?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    We accept payment via Visa, Mastercard, PayNow, Paypal and
+                    bank transfers.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>
+                    What are the payment methods?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    We accept payment via Visa, Mastercard, PayNow, Paypal and
+                    bank transfers.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>
+                    What are the payment methods?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    We accept payment via Visa, Mastercard, PayNow, Paypal and
+                    bank transfers.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header>
+                    What are the payment methods?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    We accept payment via Visa, Mastercard, PayNow, Paypal and
+                    bank transfers.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="5">
+                  <Accordion.Header>
+                    What are the payment methods?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    We accept payment via Visa, Mastercard, PayNow, Paypal and
+                    bank transfers.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </div>
           </div>
         </div>
