@@ -352,6 +352,7 @@ const InteriorDesignDetails = () => {
                         <option value="3-Room">3-Room</option>
                         <option value="4-Room">4-Room</option>
                         <option value="5-Room">5-Room</option>
+                        <option value="Others">Others</option>
                       </select>
                       <ValidationError
                         prefix="Phone"

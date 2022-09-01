@@ -32,13 +32,13 @@ const GET_MORE_BLOGS = gql`
 `
 
 const GET_ARTICLE = gql`
-query($handle: String!) {
-  blogs(first: 250, reverse: true){
-    edges {
+  query ($handle: String!) {
+    blogs(first: 250, reverse: true) {
+      edges {
         node {
           title
           handle
-          articleByHandle(handle:$handle) {
+          articleByHandle(handle: $handle) {
             title
             contentHtml
             excerpt
@@ -53,25 +53,23 @@ query($handle: String!) {
           }
         }
       }
+    }
   }
-}
 `
 
 // step 2: define component
 const InteriorDesignDetails = ({ location }) => {
-  const params = new URLSearchParams(location.search);
-  const handle = params.get("h");
+  const params = new URLSearchParams(location.search)
+  const handle = params.get("h")
   console.log(handle)
 
   var emptyBlog = true
-  if (handle==null || handle == "") {
+  if (handle == null || handle == "") {
     //debugger
     emptyBlog = true
   } else {
     emptyBlog = false
   }
-
-  
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -89,9 +87,17 @@ const InteriorDesignDetails = ({ location }) => {
   })
 
   debugger
-  const {data: moreData, loading: moreLoading, error: moreError} = useQuery(GET_MORE_BLOGS)
-  const {data: blogData, loading: blogLoading, error: blogError} = useQuery(GET_ARTICLE, {
-    variables: {handle: handle}
+  const {
+    data: moreData,
+    loading: moreLoading,
+    error: moreError,
+  } = useQuery(GET_MORE_BLOGS)
+  const {
+    data: blogData,
+    loading: blogLoading,
+    error: blogError,
+  } = useQuery(GET_ARTICLE, {
+    variables: { handle: handle },
   })
 
   const hasMore = moreData?.articles.edges.length > 0
@@ -157,7 +163,7 @@ const InteriorDesignDetails = ({ location }) => {
                 <div className="d-flex btn_back">
                   <BackIcon />
                   <Link
-                    to="/blog"
+                    to="/blogs"
                     className="ms-2 font_yellow text-uppercase font_semibold no_underline"
                   >
                     Back
@@ -178,7 +184,7 @@ const InteriorDesignDetails = ({ location }) => {
                   <div className="col-12 col-md-4 mb-5">
                     <div className="container_overlay">
                       <Link
-                        to={"/blog?h="+blog?.node?.handle}
+                        to={"/blog?h=" + blog?.node?.handle}
                         className="d-flex w-100 h-100 no_underline"
                       >
                         <ImgCard
