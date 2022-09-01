@@ -93,20 +93,7 @@ function OffCanvasExample({ ...props }) {
                 </li>
                 <li>
                   <Link
-<<<<<<< HEAD
-                    to="/mint-club"
-                    activeStyle={{ color: "white" }}
-                    partiallyActive={true}
-                  >
-                    M.INT Club
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/blog"
-=======
-                    to="/blogs"
->>>>>>> 0829d76... changes
                     activeStyle={{ color: "white" }}
                     partiallyActive={true}
                   >
