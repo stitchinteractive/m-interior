@@ -1,5 +1,7 @@
 import React, { useState } from "react"
+import { Helmet } from "react-helmet"
 import { Link } from "gatsby"
+import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
 import SearchIcon from "../icons/search"
 import ProfileIcon from "../icons/profile"
@@ -7,7 +9,6 @@ import CartIcon from "../icons/cart"
 import MenuIcon from "../icons/menu"
 import * as headerModule from "./header.module.css"
 import Offcanvas from "react-bootstrap/Offcanvas"
-import { StoreContext } from "../context/store-context"
 
 function OffCanvasExample({ ...props }) {
   const [show, setShow] = useState(false)
@@ -15,6 +16,23 @@ function OffCanvasExample({ ...props }) {
   const toggleShow = () => setShow((s) => !s)
   return (
     <>
+      <div className="application">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <meta
+            name="google-site-verification"
+            content="wD2FdFRN2IIZQIEwGo__bIMLWj_VGj1nb3NWS9RST4g"
+          />
+          <meta
+            name="facebook-domain-verification"
+            content="7zu0801qaj0d5oxnqzaq19adkhxm2a"
+          />
+          {/*
+          <title>My Title</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+          */}
+        </Helmet>
+      </div>
       <button onClick={toggleShow}>
         <MenuIcon />
       </button>
