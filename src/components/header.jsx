@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Helmet } from "react-helmet"
 import { Link } from "gatsby"
-import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
 import SearchIcon from "../icons/search"
 import ProfileIcon from "../icons/profile"
@@ -9,6 +8,7 @@ import CartIcon from "../icons/cart"
 import MenuIcon from "../icons/menu"
 import * as headerModule from "./header.module.css"
 import Offcanvas from "react-bootstrap/Offcanvas"
+import { StoreContext } from "../context/store-context"
 
 function OffCanvasExample({ ...props }) {
   const [show, setShow] = useState(false)
@@ -93,7 +93,16 @@ function OffCanvasExample({ ...props }) {
                 </li>
                 <li>
                   <Link
-                    to="/blog"
+                    to="/mint-club"
+                    activeStyle={{ color: "white" }}
+                    partiallyActive={true}
+                  >
+                    M.INT Club
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/blogs"
                     activeStyle={{ color: "white" }}
                     partiallyActive={true}
                   >
@@ -237,7 +246,7 @@ export function Header() {
           id="container_search"
           className="d-flex justify-content-center align-items-center"
         >
-          <div className="col-3 offset-1">
+          <div className="col-3">
             <div className="input-group my-3">
               <input
                 type="text"
