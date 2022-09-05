@@ -272,6 +272,7 @@ const ShopDetails = ({ pageContext }) => {
       : false
   var deliverLT = deliveryLeadTime?.value ?? ""
   var aboutTitle = "About " + product.collections[0]?.title
+  aboutTitle = aboutTitle.replace(/extras/gi, '')
   var aboutContent = aboutContentStr?.value ?? ""
   var installContent = installContentStr?.value ?? ""
   const handle = product.collections[0]?.handle
