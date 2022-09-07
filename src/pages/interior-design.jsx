@@ -36,7 +36,7 @@ const InteriorDesignDetails = () => {
         <div
           className="bg_interior d-flex align-items-center"
           style={{
-            background: "url(./interior/banner.jpg) center center no-repeat",
+            background: "url(/interior/banner.jpg) center center no-repeat",
             backgroundSize: "cover",
           }}
         >
@@ -196,7 +196,7 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
               <div className="col-12 col-lg-6">
-                <img src="./interior/design_process.jpg" alt="Design Process" />
+                <img src="/interior/design_process.jpg" alt="Design Process" />
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@ const InteriorDesignDetails = () => {
                 className="no_underline"
               >
                 <p className="pb-3">
-                  <img src="./interior/works/138_pasir_ris/1.jpg" alt="" />
+                  <img src="/interior/works/138_pasir_ris/1.jpg" alt="" />
                 </p>
                 <h4>138 Pasir Ris, 4-Room HDB</h4>
                 <p>Dark Contemporary</p>
@@ -221,7 +221,7 @@ const InteriorDesignDetails = () => {
             <div className="col-12 col-md-6 pb-5">
               <Link to="/interior-design/treescape" className="no_underline">
                 <p className="pb-3">
-                  <img src="./interior/works/treescape/1.jpg" alt="" />
+                  <img src="/interior/works/treescape/1.jpg" alt="" />
                 </p>
                 <h4>Treescape, 3-Bedroom Condo</h4>
                 <p>Modern Contemporary</p>
@@ -230,7 +230,7 @@ const InteriorDesignDetails = () => {
             <div className="col-12 col-md-6 pb-5">
               <Link to="/interior-design/artistica" className="no_underline">
                 <p className="pb-3">
-                  <img src="./interior/works/artistica/1.jpg" alt="" />
+                  <img src="/interior/works/artistica/1.jpg" alt="" />
                 </p>
                 <h4>Artistica Tattoo Studio, Shophouse</h4>
                 <p>Modern Industrial</p>
