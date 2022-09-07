@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import Logo from "../icons/logo"
+import WhatsappIcon from "../icons/wa"
 import FacebookIcon from "../icons/fb"
 import InstagramIcon from "../icons/ig"
 import VisaIcon from "../icons/visa"
@@ -83,6 +84,11 @@ export function Footer() {
 
   return (
     <footer>
+      <div className={footerModule.whatsapp}>
+        <a href="https://wa.me/+6598642364" target="_blank">
+          <WhatsappIcon />
+        </a>
+      </div>
       <div className="container">
         <div className="row">
           <div className="col-4 offset-4 col-xl-3 offset-xl-0">
@@ -91,12 +97,10 @@ export function Footer() {
             </Link>
           </div>
           <div className="col-md-6 col-xl-3">
-            &nbsp;
-            {/*
             <h5 className="text-uppercase mb-3 d-none d-md-block">M.INT</h5>
             <ul className="text-uppercase">
               <li>
-                <Link to="/">Complimentary design service</Link>
+                <Link to="/design-service">Complimentary design service</Link>
               </li>
               <li>
                 <Link to="/">Min+modules configurator</Link>
@@ -105,7 +109,6 @@ export function Footer() {
                 <Link to="/">Media</Link>
               </li>
             </ul>
-            */}
           </div>
           <div className="col-md-6 col-xl-3">
             <h5 className="text-uppercase mb-3">Customer Care</h5>

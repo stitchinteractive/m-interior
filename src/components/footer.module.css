@@ -76,6 +76,15 @@ footer .subscribe:focus {
   color: var(--white);
 }
 
+footer .whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+}
+
 /********** tablets  **********/
 @media (min-width: 768px) {
   footer {
@@ -95,6 +104,13 @@ footer .subscribe:focus {
 
   footer .terms a {
     font-size: 14px;
+  }
+
+  footer .whatsapp {
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
   }
 }
 
