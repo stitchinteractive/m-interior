@@ -711,6 +711,17 @@ table tr td {
   left: 15px;
 }
 
+.bg_progress {
+  height: 6px;
+  background: var(--grey-medium-6);
+}
+
+.progress {
+  width: 50%;
+  height: 6px;
+  background: var(--yellow);
+}
+
 .row-flex {
   display: flex;
   flex-wrap: wrap;
@@ -863,6 +874,10 @@ p {
 
 .bg_grey_medium_5 {
   background: var(--grey-medium-5);
+}
+
+.bg_grey_medium_6 {
+  background: var(--grey-medium-6);
 }
 
 .bg_black {
@@ -1188,6 +1203,22 @@ circle {
   color: #ffffff;
 }
 
+.sub_banner_dashboard {
+  width: 100%;
+  height: 320px;
+  line-height: 1.5rem;
+  color: #ffffff;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(29, 29, 29, 0.67);
+}
+
+.sub_banner_dashboard .overlay {
+  padding: 220px 50px 50px 50px;
+  margin-left: -12px;
+  margin-right: -12px;
+  background-image: linear-gradient(transparent, transparent, #1d1d1d);
+}
+
 .swiper_container {
   position: relative;
 }
@@ -1376,10 +1407,15 @@ circle {
   padding-left: 10%;
 }
 
+.slider__default {
+  display: flex;
+  width: 100%;
+}
+
 .slider__prev,
 .slider__next {
   height: auto;
-  width: 32px;
+  width: 100px;
 }
 
 .swiper-button-disabled img {
