@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import { Link } from "gatsby"
+import { Reward } from "../components/reward"
 import { MembershipTable } from "../components/membership-table"
 import AsteriskIcon from "../icons/asterisk"
 import AsteriskIconBlack from "../icons/asterisk-black"
@@ -12,7 +13,7 @@ import * as ProfileModule from "./profile.module.css"
 
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Thumbs, Mousewheel, HashNavigation } from "swiper"
+import { Navigation, Mousewheel, HashNavigation } from "swiper"
 
 // import Swiper styles
 import "swiper/css"
@@ -41,8 +42,8 @@ const Profile = () => {
     <Layout>
       <div className="bg_grey">
         <div className="container">
-          <div className="row row_padding">
-            <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
+          <div className="row padding_heading">
+            <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>JS</div>
                 <div className="d-flex flex-column">
@@ -56,7 +57,7 @@ const Profile = () => {
               </div>
               <NavAccount />
             </div>
-            <div className="col-12 col-md-6 col-lg-9 px-md-5">
+            <div className="col-12 col-md-7 col-lg-9 ps-md-5">
               <div className="row mb-4">
                 <div
                   className="col-12 sub_banner_dashboard"
@@ -75,17 +76,17 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row mb-60">
-                <div className="col-md-7 line_height_dense text-uppercase d-flex justify-content-start p-3">
+                <div className="col-12 col-lg-7 line_height_dense text-uppercase d-flex justify-content-start p-3">
                   <div className="row">
-                    <div className="col-2 align-self-end">
+                    <div className="col-3 col-md-2 align-self-end pb-3 pb-md-0">
                       <img src="/icons/club_insider.png" alt="My Tier" />
                     </div>
-                    <div className="col-2 align-self-end">
+                    <div className="col-3 col-md-2 align-self-end pb-3 pb-md-0">
                       My
                       <br />
                       Tier
                     </div>
-                    <div className="col-8">
+                    <div className="col-12 col-md-8">
                       <div className="d-flex flex-column">
                         <div className="d-flex align-self-center">
                           <h4 className="mb-0 me-5">Insider</h4>
@@ -102,7 +103,7 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex justify-content-between p-3">
+                <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex justify-content-between p-3 mt-4 mt-lg-0">
                   <div className="align-self-end">
                     My
                     <br />
@@ -126,9 +127,6 @@ const Profile = () => {
                   </div>
 
                   <Swiper
-                    hashNavigation={{
-                      watchState: true,
-                    }}
                     direction="horizontal"
                     slidesPerView={3}
                     spaceBetween={10}
@@ -139,11 +137,14 @@ const Profile = () => {
                       prevEl: ".slider__prev",
                     }}
                     breakpoints={{
-                      0: {
-                        direction: "horizontal",
+                      320: {
+                        slidesPerView: 1,
                       },
-                      768: {
-                        direction: "horizontal",
+                      1024: {
+                        slidesPerView: 2,
+                      },
+                      1440: {
+                        slidesPerView: 3,
                       },
                     }}
                     className="swiper-container2"
@@ -151,27 +152,47 @@ const Profile = () => {
                   >
                     <SwiperSlide key="1" data-hash="1">
                       <div className="slider__image">
-                        <img src="/profile.jpg" alt="" />
+                        <Reward
+                          image_url="account/bg_reward.jpg"
+                          discount="$2"
+                          points="100"
+                        />
                       </div>
                     </SwiperSlide>
                     <SwiperSlide key="2" data-hash="2">
                       <div className="slider__image">
-                        <img src="/profile.jpg" alt="" />
+                        <Reward
+                          image_url="account/bg_reward.jpg"
+                          discount="$5"
+                          points="250"
+                        />
                       </div>
                     </SwiperSlide>
                     <SwiperSlide key="3" data-hash="3">
                       <div className="slider__image">
-                        <img src="/profile.jpg" alt="" />
+                        <Reward
+                          image_url="account/bg_reward.jpg"
+                          discount="$10"
+                          points="500"
+                        />
                       </div>
                     </SwiperSlide>
                     <SwiperSlide key="4" data-hash="4">
                       <div className="slider__image">
-                        <img src="/profile.jpg" alt="" />
+                        <Reward
+                          image_url="account/bg_reward.jpg"
+                          discount="$20"
+                          points="1000"
+                        />
                       </div>
                     </SwiperSlide>
                     <SwiperSlide key="5" data-hash="5">
                       <div className="slider__image">
-                        <img src="/profile.jpg" alt="" />
+                        <Reward
+                          image_url="account/bg_reward.jpg"
+                          discount="$30"
+                          points="1500"
+                        />
                       </div>
                     </SwiperSlide>
                   </Swiper>
@@ -185,6 +206,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      {/*
       <div className="bg_blue">
         <div className="container">
           <div className="row row_padding">
@@ -200,6 +222,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      */}
       <div className="bg_grey">
         <div className="container">
           <div className="row row_padding">
