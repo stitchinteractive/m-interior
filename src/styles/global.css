@@ -1328,6 +1328,35 @@ circle {
   margin: auto;
 }
 
+.voucher_container {
+  display: table;
+}
+
+.voucher {
+  border: 2px solid var(--blue-medium);
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+  display: table-cell;
+}
+
+.voucher a {
+  text-decoration: none;
+}
+
+.voucher_redeemed {
+  border: 2px solid var(--grey-medium-6) !important;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--grey-medium-6);
+}
+
+.voucher_redeemed a {
+  text-decoration: none;
+  color: var(--grey-medium-6);
+}
+
 /********** vertical carousel **********/
 .slider {
   padding: 0;
