@@ -1357,6 +1357,27 @@ circle {
   color: var(--grey-medium-6);
 }
 
+.textfield_refer input {
+  font-style: italic;
+  font-size: var(--text-xs) !important;
+  padding: 5px 10px !important;
+  margin-bottom: 0 !important;
+  color: var(--white);
+}
+
+.textfield_refer input:focus {
+  color: var(--white);
+}
+
+.textfield_refer button {
+  background: var(--yellow);
+}
+
+.textfield_refer button:hover {
+  color: var(--white);
+  background: var(--black);
+}
+
 /********** vertical carousel **********/
 .slider {
   padding: 0;

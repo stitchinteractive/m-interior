@@ -85,7 +85,7 @@ export function Footer() {
   return (
     <footer>
       <div className={footerModule.whatsapp}>
-        <a href="https://wa.me/+6598642364" target="_blank">
+        <a href="https://wa.me/+6598642364" target="_blank" rel="noreferrer">
           <WhatsappIcon />
         </a>
       </div>
@@ -102,11 +102,13 @@ export function Footer() {
               <li>
                 <Link to="/design-service">Complimentary design service</Link>
               </li>
+              {/*
               <li>
                 <Link to="/">Min+modules configurator</Link>
               </li>
+              */}
               <li>
-                <Link to="/">Media</Link>
+                <Link to="/media">Media</Link>
               </li>
             </ul>
           </div>

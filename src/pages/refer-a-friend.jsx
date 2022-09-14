@@ -4,10 +4,6 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
-import { Voucher } from "../components/voucher"
-import { VoucherRedeemed } from "../components/voucher-redeemed"
-import { MembershipTable } from "../components/membership-table"
-import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
 
 // step 2: define component
@@ -52,7 +48,7 @@ const Profile = () => {
                   <div className="font_grey_medium_3 text-uppercase">
                     M.INT Club /
                   </div>
-                  <h3 className="text-uppercase pb-6">Earn Points</h3>
+                  <h3 className="text-uppercase pb-6">Refer A Friend</h3>
                 </div>
               </div>
               <div className="row mb-60">
@@ -82,97 +78,75 @@ const Profile = () => {
                     <div className="row p-5">
                       <div className="col-12 col-md-12 d-flex justify-content-center align-items-center">
                         <h4 className="text-uppercase fst-italic pb-5">
-                          How it works
+                          Share the good stuff with your friends. The more you
+                          refer, the more you earn!
                         </h4>
                       </div>
-                      <div className="col-12 col-md-4">
+                      <div className="col-12 col-md-6">
                         <p>
                           <img
-                            src="/icons/club_join.png"
-                            alt="Join"
+                            src="/icons/club_share.png"
+                            alt="Share"
                             className="mx-auto"
                           />
                         </p>
                         <h4 className="text-uppercase pb-3 how_it_works">
-                          Join
+                          Share
                         </h4>
                         <p>
-                          Get 10% off your first purchase when you sign up -
-                          it's free!
+                          Share your referral code with your friends and they
+                          get to enjoy&nbsp;
+                          <strong>15% off their first purchase</strong>.
                         </p>
                       </div>
-                      <div className="col-12 col-md-4">
+                      <div className="col-12 col-md-6">
                         <p>
                           <img
-                            src="/icons/club_earn.png"
-                            alt="Earn"
+                            src="/icons/club_earn_points.png"
+                            alt="Earn Points"
                             className="mx-auto"
                           />
                         </p>
-                        <h4 className="text-uppercase pb-3 how_it_works">
-                          Earn
-                        </h4>
-                        <p>Earn points through small goals or purchases</p>
-                      </div>
-                      <div className="col-12 col-md-4">
+                        <h4 className="text-uppercase pb-3">Earn Points</h4>
                         <p>
-                          <img
-                            src="/icons/club_redeem.png"
-                            alt="Redeem"
-                            className="mx-auto"
-                          />
+                          You will earn <strong>200 points</strong> after each
+                          friend has completed their first order.
                         </p>
-                        <h4 className="text-uppercase pb-3">Redeem</h4>
-                        <p>Redeem exclusive rewards!</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row bg_white pt-4 ps-3 pe-3 d-flex align-items-stretch">
-                <VoucherRedeemed
-                  heading="Create an account"
-                  points="100 points"
-                />
-                <Voucher
-                  heading="Make a purchase"
-                  points="2 points per $1 spent"
-                />
-                <Voucher heading="Leave a product review" points="100 Points" />
-                <Voucher heading="Leave a google review" points="100 Points" />
-                <Voucher
-                  heading="Leave a facebook review"
-                  points="100 Points"
-                />
-                <Voucher heading="Refer a friend" points="100 Points" />
-                <Voucher heading="Follow us on instagram" points="100 Points" />
-                <Voucher heading="Like us on faceboook" points="100 Points" />
-                <Voucher
-                  heading="Share our facebook posts"
-                  points="50 Points per share"
-                />
+              <div className="row bg_white row_padding mb-100 text-center">
+                <div className="col-12 col-md-8 offset-md-2">
+                  <p>
+                    <img
+                      src="/icons/club_share_code.png"
+                      alt="Share Code"
+                      className="mx-auto"
+                    />
+                  </p>
+                  <p>Share this code with your friends and earn points!</p>
+                  <div className="font_sm mb-5">
+                    <form className="row g-3">
+                      <div className="input-group textfield_refer">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="123456"
+                          aria-label="Refer code"
+                          aria-describedby="basic-addon2"
+                        />
+                        <div className="input-group-append">
+                          <button className="btn btn-outline" type="button">
+                            Copy Code
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg_grey">
-        <div className="container">
-          <div className="row row_padding">
-            <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
-              <div className="pe-3">
-                <AsteriskIconBlack />
-              </div>
-              Get exclusive with us
-              <div className="ps-3">
-                <AsteriskIconBlack />
-              </div>
-            </h2>
-            <MembershipTable />
-            <div className="text-center pt-5">
-              <button className="btn btn-primary-large mb-80">
-                Join the club
-              </button>
             </div>
           </div>
         </div>
