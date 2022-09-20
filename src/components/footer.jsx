@@ -158,14 +158,22 @@ export function Footer() {
                 <h5 className="text-uppercase mb-3">Socials</h5>
                 <ul className={footerModule.icons}>
                   <li>
-                    <Link to="/">
+                    <a
+                      href="https://www.facebook.com/m.intfurnitureSG"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <FacebookIcon />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to="/">
+                    <a
+                      href="https://www.instagram.com/m.intsg"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <InstagramIcon />
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
