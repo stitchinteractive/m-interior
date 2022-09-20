@@ -36,8 +36,9 @@ const InteriorDesignDetails = () => {
         <div className="container">
           <div className="row row_padding">
             <div className="col-12 text-center">
-              <h2 className="mb-3 text-uppercase">
-                EVERYONE IS DIFFERENT, AND SO IS YOUR HOME.
+              <h2 className="mb-4 text-uppercase">
+                EVERYONE IS DIFFERENT, AND SO IS&nbsp;
+                <span className="highlight">YOUR HOME.</span>
               </h2>
               <p>
                 Looking to customise a modular furniture but not sure where to
@@ -50,55 +51,48 @@ const InteriorDesignDetails = () => {
                 fit and look for your space.
               </p>
             </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="box_interior">
-                <p>
-                  <img
-                    src="/design_service/personal_designer.png"
-                    alt="Your personal designer"
-                    className="mx-auto"
-                  />
-                </p>
-                <h4 className="mb-3 text-uppercase">Your personal designer</h4>
-                <p>
-                  A design consultant will be dedicated to you to answer all
-                  your queries and assist you in co-creating your furniture
-                  design,
-                </p>
-              </div>
+            <div className="col-12 col-md-6 col-lg-4 text-center">
+              <p>
+                <img
+                  src="/design_service/personal_designer.png"
+                  alt="Your personal designer"
+                  className="mx-auto"
+                />
+              </p>
+              <h4 className="mb-3 text-uppercase">Your personal designer</h4>
+              <p>
+                A design consultant will be dedicated to you to answer all your
+                queries and assist you in co-creating your furniture design,
+              </p>
             </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="box_interior">
-                <p>
-                  <img
-                    src="/design_service/styling_advice.png"
-                    alt="Styling advice"
-                    className="mx-auto"
-                  />
-                </p>
-                <h4 className="mb-3 text-uppercase">Styling advice</h4>
-                <p>
-                  Get professional recommendations for furniture configurations,
-                  colour combinations, storage options and more.
-                </p>
-              </div>
+            <div className="col-12 col-md-6 col-lg-4 text-center">
+              <p>
+                <img
+                  src="/design_service/styling_advice.png"
+                  alt="Styling advice"
+                  className="mx-auto"
+                />
+              </p>
+              <h4 className="mb-3 text-uppercase">Styling advice</h4>
+              <p>
+                Get professional recommendations for furniture configurations,
+                colour combinations, storage options and more.
+              </p>
             </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <div className="box_interior">
-                <p>
-                  <img
-                    src="/design_service/3d_design_sketch.png"
-                    alt="3D design sketch"
-                    className="mx-auto"
-                  />
-                </p>
-                <h4 className="mb-3 text-uppercase">3D design sketch</h4>
-                <p>
-                  Complimentary 3D sketch to help you visualise the design
-                  perfectly in your space, so you can place your order with a
-                  peace of mind.
-                </p>
-              </div>
+            <div className="col-12 col-md-6 col-lg-4 text-center">
+              <p>
+                <img
+                  src="/design_service/3d_design_sketch.png"
+                  alt="3D design sketch"
+                  className="mx-auto"
+                />
+              </p>
+              <h4 className="mb-3 text-uppercase">3D design sketch</h4>
+              <p>
+                Complimentary 3D sketch to help you visualise the design
+                perfectly in your space, so you can place your order with a
+                peace of mind.
+              </p>
             </div>
           </div>
         </div>
@@ -108,7 +102,7 @@ const InteriorDesignDetails = () => {
               <div className="col-12 col-lg-6">
                 <div className="row">
                   <div className="col-12">
-                    <h2 className="mb-3 text-uppercase">Here's how it goes</h2>
+                    <h2 className="mb-60 text-uppercase">Here's how it goes</h2>
                   </div>
                   <div className="col-2 col-md-1">
                     <div className="circle">01</div>

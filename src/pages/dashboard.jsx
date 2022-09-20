@@ -113,7 +113,7 @@ const Profile = () => {
                     <h2 className="mb-0">1,305</h2>
                   </div>
                   <div className="align-self-end font_xs">
-                    <Link to="/" className="no_underline">
+                    <Link to="/earn-points" className="no_underline">
                       Earn more &gt;
                     </Link>
                   </div>

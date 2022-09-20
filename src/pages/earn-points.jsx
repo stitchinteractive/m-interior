@@ -129,7 +129,7 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div className="row bg_white pt-4 ps-3 pe-3 d-flex align-items-stretch">
+              <div className="row bg_white pt-4 ps-3 pe-3 d-flex ">
                 <VoucherRedeemed
                   heading="Create an account"
                   points="100 points"

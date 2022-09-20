@@ -220,8 +220,8 @@ const MintClub = () => {
         <div className="bg_white">
           <div className="container">
             <div className="row row_padding">
-              <h2 className="text-uppercase heading_line pb-5">
-                Frequently Asked Questions
+              <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
+                Frequently asked questions
               </h2>
               <Accordion defaultActiveKey="1">
                 <Accordion.Item eventKey="1">

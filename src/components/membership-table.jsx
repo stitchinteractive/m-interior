@@ -14,21 +14,27 @@ export function MembershipTable() {
               <img src="/icons/club_starter.png" alt="Starter" />
             </div>
             Starter
-            <div className="font_xs font_grey_medium">Free to Join</div>
+            <div className="font_xs font_grey_medium font_transform_none">
+              Free to Join
+            </div>
           </th>
           <th width="20%">
             <div>
               <img src="/icons/club_insider.png" alt="Insider" />
             </div>
             Insider
-            <div className="font_xs font_grey_medium">Earn 1,200 Points</div>
+            <div className="font_xs font_grey_medium font_transform_none">
+              Earn 1,200 Points
+            </div>
           </th>
           <th width="20%">
             <div>
               <img src="/icons/club_creator.png" alt="Creator" />
             </div>
             Creator
-            <div className="font_xs font_grey_medium">Earn 5,000 Points</div>
+            <div className="font_xs font_grey_medium font_transform_none">
+              Earn 5,000 Points
+            </div>
           </th>
         </tr>
       </thead>

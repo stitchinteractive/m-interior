@@ -69,10 +69,10 @@ const Profile = () => {
               <div className="row mb-60">
                 <div className="col-12 col-lg-5 line_height_dense text-uppercase d-flex p-3 bg_white">
                   <div className="row">
-                    <div className="col-3 col-md-3 align-self-end pb-3 pb-md-0">
+                    <div className="col-3 align-self-end pb-3 pb-md-0">
                       <img src="/icons/club_insider.png" alt="My Tier" />
                     </div>
-                    <div className="col-12 col-md-9 d-flex flex-column align-items-center">
+                    <div className="col-9 d-flex flex-column align-items-center">
                       <div className="align-self-center">My Tier</div>
                       <div className="align-self-center">
                         <h2 className="mb-0">Insider</h2>
@@ -80,15 +80,22 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex flex-column p-3 mt-4 mt-lg-0">
-                  <div className="align-self-center">My Points</div>
-                  <div className="align-self-center">
-                    <h2 className="mb-0">1,305</h2>
+                <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex justify-content-between p-3 mt-4 mt-lg-0">
+                  <div className="d-flex flex-column align-items-center w-60">
+                    <div className="align-self-center">My Points</div>
+                    <div className="align-self-center">
+                      <h2 className="mb-0">1,305</h2>
+                    </div>
+                  </div>
+                  <div className="align-self-end font_xs">
+                    <Link to="/earn-points" className="no_underline">
+                      Earn more &gt;
+                    </Link>
                   </div>
                 </div>
               </div>
               <div className="row">
-                <h3 className="text-uppercase pb-6">Vouchers</h3>
+                <h4 className="text-uppercase pb-6">Vouchers</h4>
                 <div className="slider__default">
                   <div className="slider__prev">
                     <img src="/icons/btn_prev.png" alt="Prev" />
@@ -170,44 +177,6 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*
-      <div className="bg_blue">
-        <div className="container">
-          <div className="row row_padding">
-            <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center font_white">
-              <div className="pe-3">
-                <AsteriskIcon />
-              </div>
-              Creator Stories
-              <div className="ps-3">
-                <AsteriskIcon />
-              </div>
-            </h2>
-          </div>
-        </div>
-      </div>
-      */}
-      <div className="bg_grey">
-        <div className="container">
-          <div className="row row_padding">
-            <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
-              <div className="pe-3">
-                <AsteriskIconBlack />
-              </div>
-              Get exclusive with us
-              <div className="ps-3">
-                <AsteriskIconBlack />
-              </div>
-            </h2>
-            <MembershipTable />
-            <div className="text-center pt-5">
-              <button className="btn btn-primary-large mb-80">
-                Join the club
-              </button>
             </div>
           </div>
         </div>
