@@ -90,6 +90,10 @@ h6 {
   position: relative;
 }
 
+.font_montserrat_medium {
+  font-family: var(--font-headings-medium);
+}
+
 .font_letterspacing_1 {
   letter-spacing: 1px;
 }
@@ -1026,7 +1030,7 @@ a.no_underline {
 .box_overlay {
   background: rgba(14, 50, 68, 0.5);
   margin: 80px 0 80px 0;
-  padding: 100px 50px;
+  padding: 50px;
   color: var(--white);
 }
 

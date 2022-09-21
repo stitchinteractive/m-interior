@@ -280,7 +280,7 @@ const InteriorDesignDetails = () => {
             <div className="row">
               <div className="col-12 col-md-8 offset-md-4 col-lg-6 offset-lg-6">
                 <div className="box_overlay">
-                  <h1 className="mb-50">Looking for interior design?</h1>
+                  <h1 className="mb-80">Looking for interior design?</h1>
                   <a href="/interior-design">
                     <button className="btn btn-outline">
                       SEE WHAT WE CAN DO

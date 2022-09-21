@@ -44,7 +44,7 @@ const InteriorDesignDetails = () => {
             <div className="row">
               <div className="col-12 col-md-8 offset-md-4 col-lg-6 offset-lg-6">
                 <div className="box_overlay">
-                  <h1 className="mb-150">Make your neighbours jealous.</h1>
+                  <h1 className="mb-80">Make your neighbours jealous.</h1>
                   <a href="/interior-design#consultation_form">
                     <button type="submit" className="btn btn-outline">
                       GET A FREE CONSULTATION & QUOTE

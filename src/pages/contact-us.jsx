@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link, navigate } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from "@formspree/react"
 
 // step 2: define component
 const Login = () => {
@@ -24,10 +24,10 @@ const Login = () => {
     })
   })
 
-  const [state, handleSubmit] = useForm('mdojkgkg');
+  const [state, handleSubmit] = useForm("mdojkgkg")
 
   if (state.succeeded) {
-    navigate('/thank-you')
+    navigate("/thank-you")
   }
 
   return (
@@ -39,15 +39,15 @@ const Login = () => {
               <div className="animate">
                 <div className={loginModule.login_container}>
                   <div className="row">
-                    <div className="col">
+                    <div className="col font_montserrat_medium">
                       <h2 className="text-uppercase text-center pb-4">
                         Contact Us
                       </h2>
-                      <p className="text-uppercase font_xs font_semibold">
+                      <p className="text-uppercase font_xs">
                         62 UBI ROAD 1, OXLEY BIZHUB 2, #07-21 <br />
                         SINGAPORE 408734
                       </p>
-                      <p className="text-uppercase font_xs font_semibold">
+                      <p className="text-uppercase font_xs">
                         +65 9864 2364 (whatsapp)
                         <br />
                         <Link to="mailto:hello@m-interior.co">
@@ -72,7 +72,11 @@ const Login = () => {
             <div className="col-12 col-lg-6">
               <div className="animate d-flex h-100">
                 <div className={loginModule.login_container}>
-                  <form method="post" onSubmit={handleSubmit} className="row g-3">
+                  <form
+                    method="post"
+                    onSubmit={handleSubmit}
+                    className="row g-3"
+                  >
                     <div className="col-12">
                       <h2 className="text-uppercase text-center pb-4">
                         Talk To Us
@@ -92,7 +96,11 @@ const Login = () => {
                         name="firstName"
                         required
                       />
-                      <ValidationError prefix="First Name" field="firstName" errors={state.errors} />
+                      <ValidationError
+                        prefix="First Name"
+                        field="firstName"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-6">
                       <label htmlFor="input_first_name" className="form-label">
@@ -105,7 +113,11 @@ const Login = () => {
                         name="lastName"
                         required
                       />
-                      <ValidationError prefix="Last Name" field="lastName" errors={state.errors} />
+                      <ValidationError
+                        prefix="Last Name"
+                        field="lastName"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-6 mt-5">
                       <label htmlFor="input_email" className="form-label">
@@ -118,7 +130,11 @@ const Login = () => {
                         name="email"
                         required
                       />
-                      <ValidationError prefix="Email" field="email" errors={state.errors} />
+                      <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                      />
                     </div>
                     <div className="col-6 mt-5">
                       <label htmlFor="input_phone" className="form-label">
@@ -131,7 +147,11 @@ const Login = () => {
                         name="phone"
                         required
                       />
-                      <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                      <ValidationError
+                        prefix="Phone"
+                        field="phone"
+                        errors={state.errors}
+                      />
                     </div>
 
                     <div className="col-12 mt-5">
@@ -145,16 +165,25 @@ const Login = () => {
                         className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3"
-                        name="message" required
+                        name="message"
+                        required
                       ></textarea>
-                      <ValidationError prefix="Message" field="message" errors={state.errors} />
+                      <ValidationError
+                        prefix="Message"
+                        field="message"
+                        errors={state.errors}
+                      />
                     </div>
 
                     <div className="col-12 mt-5 text-center">
-                        <button  type="submit" className="btn btn-primary" disabled={state.submitting}>
-                          Submit
-                        </button>
-                        <ValidationError errors={state.errors} />
+                      <button
+                        type="submit"
+                        className="btn btn-primary"
+                        disabled={state.submitting}
+                      >
+                        Submit
+                      </button>
+                      <ValidationError errors={state.errors} />
                     </div>
                   </form>
                 </div>

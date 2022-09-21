@@ -1,6 +1,7 @@
 // step 1: import
 import React, { useRef } from "react"
 import { MinQualityItem } from "./min-quality-item"
+import { Link } from "gatsby"
 
 // import Swiper core and required modules
 import { Navigation, Mousewheel } from "swiper"
@@ -52,6 +53,14 @@ export function AcaciaIntro() {
             heading="Shelf Dividers"
             content="Get organised with these shelf dividers that can be slotted perfectly into the Acacia Blocks."
           />
+          <p>
+            <Link
+              to="/shop/detail/acacia-block-shelf-dividers"
+              className="no_underline font_white text-uppercase font_xs font_medium"
+            >
+              Get them here &gt;
+            </Link>
+          </p>
         </SwiperSlide>
         <SwiperSlide>
           <MinQualityItem
