@@ -272,7 +272,7 @@ const ShopDetails = ({ pageContext }) => {
       : false
   var deliverLT = deliveryLeadTime?.value ?? ""
   var aboutTitle = "About " + product.collections[0]?.title
-  aboutTitle = aboutTitle.replace(/extras/gi, '')
+  aboutTitle = aboutTitle.replace(/extras/gi, "")
   var aboutContent = aboutContentStr?.value ?? ""
   var installContent = installContentStr?.value ?? ""
   const handle = product.collections[0]?.handle
@@ -746,7 +746,49 @@ const ShopDetails = ({ pageContext }) => {
                     </p>
                   </div>
                   <div className="col-md-8 offset-md-2 col-lg-5 offset-lg-0">
-                    <img src="/shop/acacia/lookbook_1.jpg" alt="" />
+                    <div className="swiper_container">
+                      <Swiper
+                        className="product_list_swiper d-flex align-items-stretch h-100"
+                        // install Swiper modules
+                        modules={[Navigation, Mousewheel]}
+                        spaceBetween={60}
+                        loop={true}
+                        breakpoints={{
+                          320: {
+                            slidesPerView: 1,
+                          },
+                          768: {
+                            slidesPerView: 1,
+                          },
+                          1280: {
+                            slidesPerView: 1,
+                          },
+                        }}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        onSlideChange={() => console.log("slide change")}
+                        ref={swiperRef}
+                      >
+                        <SwiperSlide>
+                          <img src="/shop/acacia/lookbook_1.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                          <img src="/shop/acacia/lookbook_2.jpg" alt="" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                          <img src="/shop/acacia/lookbook_3.jpg" alt="" />
+                        </SwiperSlide>
+                      </Swiper>
+                      <div id="go_prev">
+                        <button onClick={goPrev}>
+                          <img src="/icons/btn_prev.png" alt="Prev" />
+                        </button>
+                      </div>
+                      <div id="go_next">
+                        <button onClick={goNext}>
+                          <img src="/icons/btn_next.png" alt="Next" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
