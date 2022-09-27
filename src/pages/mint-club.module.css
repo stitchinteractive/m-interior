@@ -2,11 +2,14 @@
   width: 100%;
   height: calc(100vh - 200px);
   color: var(--white);
-  padding: 0 10% 0 40%;
+  padding: 0 15% 0 15%;
 }
 
 /********** tablets **********/
 @media (min-width: 768px) {
+  #banner {
+    padding: 0 10% 0 40%;
+  }
 }
 
 /********** laptops **********/

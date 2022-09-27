@@ -35,14 +35,14 @@ const MintClub = () => {
         <div className="bg_blue animate">
           <div
             id={mintClubModule.banner}
-            className="d-flex flex-column justify-content-center align-items-center"
+            className="d-flex flex-column justify-content-center align-items-center text-center"
             style={{
               background: "url(/home/banner_2.jpg) center center no-repeat",
               backgroundSize: "cover",
             }}
           >
             <h1 className="text-uppercase pb-2">M.INT club</h1>
-            <div className="font_xxl text-uppercase pb-2">
+            <div className="font_xxl text-uppercase pb-2 font_montserrat">
               <strong>is</strong> <i>more than just </i>
               <strong>a rewards program</strong>
             </div>
@@ -51,7 +51,7 @@ const MintClub = () => {
             </p>
             <p className="pb-3">Get a 10% off welcome gift when you join us!</p>
             <p>
-              <Link to="/">
+              <Link to="/create-account">
                 <button
                   type="button"
                   className="btn btn-outline-large btn-white me-3"
@@ -59,7 +59,7 @@ const MintClub = () => {
                   Join the club
                 </button>
               </Link>
-              <Link to="/">
+              <Link to="/login">
                 <button
                   type="button"
                   className="btn btn-outline btn-outline-large"
@@ -77,7 +77,7 @@ const MintClub = () => {
                 <div className="pe-3">
                   <AsteriskIcon />
                 </div>
-                Members Only Benefits
+                Members-Only Benefits
                 <div className="ps-3">
                   <AsteriskIcon />
                 </div>
@@ -197,9 +197,9 @@ const MintClub = () => {
           </div>
         </div>
         <div className="bg_grey">
-          <div className="container">
-            <div className="row row_padding">
-              <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
+          <div className="container-fluid">
+            <div className="row pt-5">
+              <h2 className="text-uppercase p-5 d-flex justify-content-center align-items-center text-center">
                 <div className="pe-3">
                   <AsteriskIconBlack />
                 </div>
@@ -208,13 +208,17 @@ const MintClub = () => {
                   <AsteriskIconBlack />
                 </div>
               </h2>
-              <MembershipTable />
-              <div className="text-center pt-5">
-                <button className="btn btn-primary-large mb-80">
-                  Join the club
-                </button>
-              </div>
             </div>
+          </div>
+          <div className="container-membership">
+            <MembershipTable />
+          </div>
+          <div className="text-center pt-5">
+            <a href="/create-account">
+              <button className="btn btn-primary-large mb-120">
+                Join the club
+              </button>
+            </a>
           </div>
         </div>
         <div className="bg_white">

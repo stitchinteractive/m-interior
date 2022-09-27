@@ -8,33 +8,27 @@ export function MembershipTable() {
     <Table responsive className="table_benefits">
       <thead>
         <tr>
-          <th width="40%">Benefits</th>
-          <th width="20%">
+          <th width="25%">Benefits</th>
+          <th width="25%">
             <div>
               <img src="/icons/club_starter.png" alt="Starter" />
             </div>
             Starter
-            <div className="font_xs font_grey_medium font_transform_none">
-              Free to Join
-            </div>
+            <div className="font_membership">Free to Join</div>
           </th>
-          <th width="20%">
+          <th width="25%">
             <div>
               <img src="/icons/club_insider.png" alt="Insider" />
             </div>
             Insider
-            <div className="font_xs font_grey_medium font_transform_none">
-              Earn 1,200 Points
-            </div>
+            <div className="font_membership">Earn 1,200 Points</div>
           </th>
-          <th width="20%">
+          <th width="25%">
             <div>
               <img src="/icons/club_creator.png" alt="Creator" />
             </div>
             Creator
-            <div className="font_xs font_grey_medium font_transform_none">
-              Earn 5,000 Points
-            </div>
+            <div className="font_membership">Earn 5,000 Points</div>
           </th>
         </tr>
       </thead>
@@ -42,57 +36,57 @@ export function MembershipTable() {
         <tr>
           <td>Welcome Gift (10% off first purchase)</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>Member-Only Sales</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>15% OFF Storewide on Birthday Month</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>Exclusive Preview for Launches</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>Exclusive Content and Interior Styling Tips</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
@@ -100,7 +94,7 @@ export function MembershipTable() {
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
@@ -108,7 +102,7 @@ export function MembershipTable() {
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_dark.png" alt="Yes" />
+            <img src="icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
       </tbody>

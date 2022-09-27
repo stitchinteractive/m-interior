@@ -90,8 +90,20 @@ h6 {
   position: relative;
 }
 
+.font_montserrat {
+  font-family: var(--font-headings-regular);
+}
+
 .font_montserrat_medium {
   font-family: var(--font-headings-medium);
+}
+
+.font_membership {
+  font-family: var(--font-body);
+  color: var(--grey-medium-7);
+  text-transform: none;
+  margin: 5px 0;
+  font-weight: normal;
 }
 
 .font_letterspacing_1 {
@@ -1324,22 +1336,47 @@ circle {
 }
 
 .table_benefits {
-  min-width: 1000px;
+  overflow-x: hidden;
+  line-height: var(--dense);
+  font-family: var(--font-headings-medium);
 }
 
 .table_benefits tr th,
 .table_benefits tr td {
-  padding: 2rem 0.5rem 2rem 0.5rem !important;
+  padding: 0.5 !important;
   text-align: center;
-  border-right: 20px solid var(--grey-light);
+  border-right: 1px solid var(--grey);
   border-bottom: 1px solid var(--grey);
   background: var(--white);
+  vertical-align: top;
+}
+
+.table_benefits tr th img {
+  max-width: 50px;
+}
+
+.table_benefits tr td img {
+  max-width: 12px;
+}
+
+.table_benefits tr th:first-child {
+  vertical-align: middle;
+}
+
+.table_benefits tr th {
+  font-size: 12px;
 }
 
 .table_benefits tr th:first-child,
 .table_benefits tr td:first-child {
   font-weight: bold;
   background: #fafafa;
+  font-size: 12px;
+}
+
+.table_benefits tr th:last-child,
+.table_benefits tr td:last-child {
+  border-right: 0;
 }
 
 .table_benefits tr th img {
@@ -1800,6 +1837,41 @@ circle {
 
   .container_overlay {
     margin: 5px;
+  }
+
+  .container-membership {
+    max-width: 1320px;
+    margin: auto;
+  }
+
+  .table_benefits tr th img {
+    max-width: 100%;
+  }
+
+  .table_benefits tr td img {
+    max-width: 100%;
+  }
+
+  .table_benefits tr th:first-child {
+    vertical-align: middle;
+  }
+
+  .table_benefits tr th {
+    font-size: 18px;
+  }
+
+  .table_benefits tr th:first-child,
+  .table_benefits tr td:first-child {
+    font-size: 18px;
+  }
+
+  .table_benefits tr th,
+  .table_benefits tr td {
+    padding: 2rem 0.5rem 2rem 0.5rem !important;
+    text-align: center;
+    border-right: 20px solid var(--grey-light);
+    border-bottom: 1px solid var(--grey);
+    background: var(--white);
   }
 }
 
