@@ -34,7 +34,7 @@ const Profile = () => {
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
-                    <div className="font_xl font_semibold text-uppercase">
+                    <div className="font_lg font_semibold text-uppercase">
                       James Smith
                     </div>
                   </div>
@@ -73,37 +73,50 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="bg_grey_medium line_height_dense text-center">
+                <div className="bg_grey_medium_6 line_height_dense text-center">
                   <div className="container">
                     <div className="row p-5">
                       <div className="col-12 col-md-12 d-flex justify-content-center align-items-center">
-                        <h4 className="text-uppercase fst-italic pb-5">
-                          Share the good stuff with your friends. The more you
-                          refer, the more you earn!
+                        <h4 className="text-uppercase pb-5">
+                          Share the good stuff with your friends.
+                          <br />
+                          The more you refer, the more you earn!
                         </h4>
                       </div>
-                      <div className="col-12 col-md-6">
-                        <p>
+                      <div className="col-12 col-lg-6">
+                        <p className="refer_a_friend">
                           <img
                             src="/icons/club_share.png"
                             alt="Share"
                             className="mx-auto"
                           />
                         </p>
-                        <h4 className="text-uppercase pb-3 how_it_works">
-                          Share
-                        </h4>
+                        <p className="pb-3">
+                          <img
+                            src="/icons/1.png"
+                            alt="Share"
+                            className="mx-auto"
+                          />
+                        </p>
+                        <h4 className="text-uppercase pb-3">Share</h4>
                         <p>
                           Share your referral code with your friends and they
                           get to enjoy&nbsp;
                           <strong>15% off their first purchase</strong>.
                         </p>
                       </div>
-                      <div className="col-12 col-md-6">
+                      <div className="col-12 col-lg-6">
                         <p>
                           <img
                             src="/icons/club_earn_points.png"
                             alt="Earn Points"
+                            className="mx-auto"
+                          />
+                        </p>
+                        <p className="pb-3">
+                          <img
+                            src="/icons/2.png"
+                            alt="Share"
                             className="mx-auto"
                           />
                         </p>
@@ -128,7 +141,7 @@ const Profile = () => {
                   </p>
                   <p>Share this code with your friends and earn points!</p>
                   <div className="font_sm mb-5">
-                    <form className="row g-3">
+                    <form className="row g-3 px-lg-5">
                       <div className="input-group textfield_refer">
                         <input
                           type="text"

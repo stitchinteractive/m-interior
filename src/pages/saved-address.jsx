@@ -6,7 +6,7 @@ import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import { Link, navigate } from "gatsby"
 import { getUser } from "../services/auth"
-import { useQuery, gql, useMutation } from '@apollo/client';
+import { useQuery, gql, useMutation } from "@apollo/client"
 import { handleLogin, isLoggedIn } from "../services/auth"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -26,30 +26,38 @@ const schema = yup
   .required()
 
 const GET_CUSTOMER = gql`
-query($handle: String!) {
-  customer(customerAccessToken: $handle) {
-    id
-    firstName
-    lastName
-    acceptsMarketing
-    email
-    phone
-    defaultAddress {
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
       id
       firstName
       lastName
-      address1
-      address2
-      zip
+      acceptsMarketing
+      email
+      phone
+      defaultAddress {
+        id
+        firstName
+        lastName
+        address1
+        address2
+        zip
+      }
     }
   }
-}
 `
 
 const UPDATE_CUSTOMER_ADDRESS = gql`
   # update a customer address
-  mutation customerAddressUpdate($address: MailingAddressInput!, $customerAccessToken: String!, $id: ID!) {
-    customerAddressUpdate(address: $address, customerAccessToken: $customerAccessToken, id: $id) {
+  mutation customerAddressUpdate(
+    $address: MailingAddressInput!
+    $customerAccessToken: String!
+    $id: ID!
+  ) {
+    customerAddressUpdate(
+      address: $address
+      customerAccessToken: $customerAccessToken
+      id: $id
+    ) {
       customerAddress {
         # MailingAddress fields
         firstName
@@ -69,8 +77,14 @@ const UPDATE_CUSTOMER_ADDRESS = gql`
 
 const CREATE_CUSTOMER_ADDRESS = gql`
   # update a customer address
-  mutation customerAddressCreate($address: MailingAddressInput!, $customerAccessToken: String!) {
-    customerAddressCreate(address: $address, customerAccessToken: $customerAccessToken) {
+  mutation customerAddressCreate(
+    $address: MailingAddressInput!
+    $customerAccessToken: String!
+  ) {
+    customerAddressCreate(
+      address: $address
+      customerAccessToken: $customerAccessToken
+    ) {
       customerAddress {
         # MailingAddress fields
         firstName
@@ -128,15 +142,19 @@ const Address = () => {
     const { id, ...newAddress } = address
     debugger
     console.log(newAddress)
-    if(address.id) {
+    if (address.id) {
       customerAddressUpdate({
-        variables: { address: newAddress, customerAccessToken: token, id: address.id },
+        variables: {
+          address: newAddress,
+          customerAccessToken: token,
+          id: address.id,
+        },
         onCompleted: (result) => {
           debugger
           console.log(result)
           if (result.customerAddressUpdate.customerUserErrors.length > 0) {
-            var err = "";
-            result.customerAddressUpdate.customerUserErrors.forEach((el)=>{
+            var err = ""
+            result.customerAddressUpdate.customerUserErrors.forEach((el) => {
               err = err + el.message + ". "
             })
             setMessage(err)
@@ -148,15 +166,14 @@ const Address = () => {
         },
       })
     } else {
-      
       customerAddressCreate({
         variables: { address: newAddress, customerAccessToken: token },
         onCompleted: (result) => {
           debugger
           console.log(result)
           if (result.customerAddressCreate.customerUserErrors.length > 0) {
-            var err = "";
-            result.customerAddressCreate.customerUserErrors.forEach((el)=>{
+            var err = ""
+            result.customerAddressCreate.customerUserErrors.forEach((el) => {
               err = err + el.message + ". "
             })
             setMessage(err)
@@ -167,23 +184,21 @@ const Address = () => {
         },
       })
     }
-    
   }
 
   const [customerAddressCreate] = useMutation(CREATE_CUSTOMER_ADDRESS)
   const [customerAddressUpdate] = useMutation(UPDATE_CUSTOMER_ADDRESS)
 
-  const {loading, error, data} = useQuery(GET_CUSTOMER, {
-    variables: {handle: token}
-  });
+  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+  })
 
-  if (loading) return 'Loading...';
+  if (loading) return "Loading..."
   // if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`;
+  if (error) return `Error! You have no access to this page`
 
-  console.log(data);
+  console.log(data)
   //const hasDefaultAddress = !!data?.customer?.defaultAddress
-  
 
   return (
     <Layout>
@@ -192,12 +207,19 @@ const Address = () => {
           <div className="row row_padding">
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>{data?.customer?.firstName != undefined ? Array.from(data?.customer?.firstName)[0].toUpperCase() : "M"}{data?.customer?.lastName != undefined ? Array.from(data?.customer?.lastName)[0].toUpperCase() : "T"}</div>
+                <div className={ProfileModule.initials}>
+                  {data?.customer?.firstName != undefined
+                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                    : "M"}
+                  {data?.customer?.lastName != undefined
+                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                    : "T"}
+                </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
-                    <div className="font_xl font_semibold text-uppercase">
-                    {data?.customer?.firstName} {data?.customer?.lastName}
+                    <div className="font_lg font_semibold text-uppercase">
+                      {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -233,8 +255,8 @@ const Address = () => {
                         {...register("firstName")}
                       />
                       {errors.firstName && (
-                          <span>{errors.firstName.message}</span>
-                        )}
+                        <span>{errors.firstName.message}</span>
+                      )}
                     </div>
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
@@ -249,8 +271,8 @@ const Address = () => {
                         {...register("lastName")}
                       />
                       {errors.lastName && (
-                          <span>{errors.lastName.message}</span>
-                        )}
+                        <span>{errors.lastName.message}</span>
+                      )}
                     </div>
                   </div>
                   <div className="row">
@@ -267,8 +289,8 @@ const Address = () => {
                         {...register("address1")}
                       />
                       {errors.address1 && (
-                          <span>{errors.address1.message}</span>
-                        )}
+                        <span>{errors.address1.message}</span>
+                      )}
                     </div>
                   </div>
                   <div className="row">
@@ -285,8 +307,8 @@ const Address = () => {
                         {...register("address2")}
                       />
                       {errors.address2 && (
-                          <span>{errors.address2.message}</span>
-                        )}
+                        <span>{errors.address2.message}</span>
+                      )}
                     </div>
                   </div>
                   <div className="row">
@@ -302,9 +324,7 @@ const Address = () => {
                         defaultValue={data?.customer?.defaultAddress?.zip}
                         {...register("zip")}
                       />
-                      {errors.zip && (
-                          <span>{errors.zip.message}</span>
-                        )}
+                      {errors.zip && <span>{errors.zip.message}</span>}
                     </div>
                   </div>
                   <div className="row">
@@ -316,7 +336,11 @@ const Address = () => {
                         defaultValue={data?.customer?.defaultAddress?.id}
                         {...register("id")}
                       />
-                      <button type="submit" className="btn btn-primary" onClick={handleSubmit(onSubmit)}>
+                      <button
+                        type="submit"
+                        className="btn btn-primary"
+                        onClick={handleSubmit(onSubmit)}
+                      >
                         Update
                       </button>
                     </div>

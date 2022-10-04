@@ -1,10 +1,10 @@
 .initials {
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
   background: var(--black);
   text-align: center;
-  line-height: 80px;
+  line-height: 50px;
   color: var(--white);
   font-size: var(--text-xxl);
   font-weight: var(--semibold);
@@ -21,12 +21,15 @@
 
 /********** tablets **********/
 @media (min-width: 768px) {
+  .initials {
+    margin: 0 30px 0 -70px;
+  }
 }
 
 /********** laptops **********/
 @media (min-width: 992px) {
   .initials {
-    margin: 0 30px 0 -80px;
+    margin: 0 30px 0 -70px;
   }
 
   .content {
@@ -36,4 +39,11 @@
 
 /********** desktops **********/
 @media (min-width: 1440px) {
+  .initials {
+    border-radius: 80px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 20px 0 -90px;
+  }
 }

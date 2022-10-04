@@ -50,7 +50,7 @@ const Profile = () => {
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
-                    <div className="font_xl font_semibold text-uppercase">
+                    <div className="font_lg font_semibold text-uppercase">
                       James Smith
                     </div>
                   </div>

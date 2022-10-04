@@ -6,7 +6,7 @@ import { Link, navigate } from "gatsby"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import { getUser } from "../services/auth"
-import { useQuery, gql, useMutation } from '@apollo/client';
+import { useQuery, gql, useMutation } from "@apollo/client"
 import { handleLogin, isLoggedIn } from "../services/auth"
 import { formatPrice } from "../utils/format-price"
 
@@ -14,48 +14,49 @@ import { formatPrice } from "../utils/format-price"
 import * as ProfileModule from "./profile.module.css"
 
 const GET_CUSTOMER = gql`
-query($handle: String!) {
-  customer(customerAccessToken: $handle) {
-    id
-    firstName
-    lastName
-    acceptsMarketing
-    email
-    phone
-    orders (first: 100, reverse:true) {
-      edges {
-        node {
-          id
-          processedAt
-          currentTotalPrice{
-            amount
-            currencyCode
-          }
-          orderNumber
-          fulfillmentStatus
-          lineItems (first: 100, reverse:false) {
-            edges {
-              node {
-                currentQuantity
-                title
-                customAttributes {
-                  key
-                  value
-                }
-                discountedTotalPrice{
-                  amount
-                  currencyCode
-                }
-                originalTotalPrice{
-                  amount
-                  currencyCode
-                }
-                variant{
-                  image{
-                    url
-                    altText
-                  }
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
+      id
+      firstName
+      lastName
+      acceptsMarketing
+      email
+      phone
+      orders(first: 100, reverse: true) {
+        edges {
+          node {
+            id
+            processedAt
+            currentTotalPrice {
+              amount
+              currencyCode
+            }
+            orderNumber
+            fulfillmentStatus
+            lineItems(first: 100, reverse: false) {
+              edges {
+                node {
+                  currentQuantity
                   title
+                  customAttributes {
+                    key
+                    value
+                  }
+                  discountedTotalPrice {
+                    amount
+                    currencyCode
+                  }
+                  originalTotalPrice {
+                    amount
+                    currencyCode
+                  }
+                  variant {
+                    image {
+                      url
+                      altText
+                    }
+                    title
+                  }
                 }
               }
             }
@@ -64,7 +65,6 @@ query($handle: String!) {
       }
     }
   }
-}
 `
 
 // step 2: define component
@@ -86,16 +86,15 @@ const Orders = () => {
 
   const token = getUser().token
 
-  const {loading, error, data} = useQuery(GET_CUSTOMER, {
-    variables: {handle: token}
-  });
+  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+  })
 
-  if (loading) return 'Loading...';
+  if (loading) return "Loading..."
   //if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`;
+  if (error) return `Error! You have no access to this page`
 
-  console.log(data);
-  
+  console.log(data)
 
   return (
     <Layout>
@@ -104,12 +103,19 @@ const Orders = () => {
           <div className="row row_padding">
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>{data?.customer?.firstName != undefined ? Array.from(data?.customer?.firstName)[0].toUpperCase() : "M"}{data?.customer?.lastName != undefined ? Array.from(data?.customer?.lastName)[0].toUpperCase() : "T"}</div>
+                <div className={ProfileModule.initials}>
+                  {data?.customer?.firstName != undefined
+                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                    : "M"}
+                  {data?.customer?.lastName != undefined
+                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                    : "T"}
+                </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
-                    <div className="font_xl font_semibold text-uppercase">
-                    {data?.customer?.firstName} {data?.customer?.lastName}
+                    <div className="font_lg font_semibold text-uppercase">
+                      {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -142,19 +148,29 @@ const Orders = () => {
                         {data?.customer?.orders.edges.map((item) => (
                           <tr>
                             <th scope="row">#{item.node.orderNumber}</th>
-                            <td>{new Date(item.node.processedAt).toLocaleDateString()}</td>
-                            <td>{item.node.fulfillmentStatus}</td>
-                            <td> {formatPrice(
-                              item.node.currentTotalPrice.currencyCode,
-                              item.node.currentTotalPrice.amount)}</td>
                             <td>
-                            <Link
-                              to={`/view-order`}
-                              state={
-                                {data: item.node.lineItems,
-                                grandTotal: item.node.currentTotalPrice}
-                              }
-                            >View Order</Link>
+                              {new Date(
+                                item.node.processedAt
+                              ).toLocaleDateString()}
+                            </td>
+                            <td>{item.node.fulfillmentStatus}</td>
+                            <td>
+                              {" "}
+                              {formatPrice(
+                                item.node.currentTotalPrice.currencyCode,
+                                item.node.currentTotalPrice.amount
+                              )}
+                            </td>
+                            <td>
+                              <Link
+                                to={`/view-order`}
+                                state={{
+                                  data: item.node.lineItems,
+                                  grandTotal: item.node.currentTotalPrice,
+                                }}
+                              >
+                                View Order
+                              </Link>
                             </td>
                           </tr>
                         ))}

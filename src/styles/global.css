@@ -721,7 +721,8 @@ table tr td {
   left: 24px;
 }
 
-.how_it_works {
+.how_it_works,
+.refer_a_friend {
   position: relative;
 }
 
@@ -1886,6 +1887,16 @@ circle {
     background: var(--black);
     top: 15px;
     left: 75%;
+  }
+
+  .refer_a_friend::after {
+    width: 40%;
+    height: 8px;
+    content: "";
+    position: absolute;
+    background: url(/icons/arrow_right.png) center center no-repeat;
+    top: 40%;
+    left: 85%;
   }
 }
 

@@ -6,7 +6,7 @@ import { Link, navigate } from "gatsby"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import { getUser } from "../services/auth"
-import { useQuery, gql, useMutation } from '@apollo/client';
+import { useQuery, gql, useMutation } from "@apollo/client"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -30,10 +30,9 @@ const schema = yup
       .string()
       .email("Email is not in the correct format")
       .required("Email is mandatory"),
-    password: yup
-      .string(),
-      //.required("Password is mandatory")
-      //.min(3, "Password must be at 3 char long"),
+    password: yup.string(),
+    //.required("Password is mandatory")
+    //.min(3, "Password must be at 3 char long"),
     confirmPwd: yup
       .string()
       //.required("Password is mandatory")
@@ -42,22 +41,28 @@ const schema = yup
   .required()
 
 const GET_CUSTOMER = gql`
-query($handle: String!) {
-  customer(customerAccessToken: $handle) {
-    id
-    firstName
-    lastName
-    acceptsMarketing
-    email
-    phone
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
+      id
+      firstName
+      lastName
+      acceptsMarketing
+      email
+      phone
+    }
   }
-}
 `
 
 const UPDATE_CUSTOMER = gql`
   # create a customer
-  mutation customerUpdate($customer: CustomerUpdateInput!, $customerAccessToken: String!) {
-    customerUpdate(customer: $customer, customerAccessToken: $customerAccessToken) {
+  mutation customerUpdate(
+    $customer: CustomerUpdateInput!
+    $customerAccessToken: String!
+  ) {
+    customerUpdate(
+      customer: $customer
+      customerAccessToken: $customerAccessToken
+    ) {
       customer {
         firstName
         lastName
@@ -98,7 +103,7 @@ const Profile = () => {
     //debugger
     const { confirmPwd, ...customer } = data
     customer.acceptsMarketing = true
-    customer.phone = "+65"+customer.phone
+    customer.phone = "+65" + customer.phone
     console.log(customer)
     customerUpdate({
       variables: { customer: customer, customerAccessToken: token },
@@ -106,14 +111,17 @@ const Profile = () => {
         debugger
         console.log(result)
         if (result.customerUpdate.customerUserErrors.length > 0) {
-          var err = "";
-          result.customerUpdate.customerUserErrors.forEach((el)=>{
+          var err = ""
+          result.customerUpdate.customerUserErrors.forEach((el) => {
             err = err + el.message + ". "
           })
           setMessage(err)
         } else {
           //reset()
-          handleLogin(result.customerUpdate.customerAccessToken.accessToken, result.customerUpdate.customerAccessToken.expiresAt)
+          handleLogin(
+            result.customerUpdate.customerAccessToken.accessToken,
+            result.customerUpdate.customerAccessToken.expiresAt
+          )
           window.location.reload(false)
           setMessage("Profile updated successfully")
         }
@@ -122,7 +130,6 @@ const Profile = () => {
   }
 
   const [customerUpdate] = useMutation(UPDATE_CUSTOMER)
-
 
   // useLayoutEffect(() => {
   //   gsap.utils.toArray(".animate").forEach(function (e) {
@@ -136,27 +143,26 @@ const Profile = () => {
   //     })
   //   })
   // })
- 
+
   // set default values for textfields
   // const [oldFirstName, newFirstName] = useState("James")
   // const [oldLastName, newLastName] = useState("Smith")
   // const [oldEmail, newEmail] = useState("jamessmith@gmail.com")
   // const [oldPhone, newPhone] = useState("+65 9123 4567")
-  // const [oldBirthday, newBirthday] = useState("2000-01-01")
+  const [oldBirthday, newBirthday] = useState("2000-01-01")
   // const [oldPassword, newPassword] = useState("12345678")
   // const [oldChangePassword, newChangePassword] = useState("")
 
   //debugger
-  const {loading, error, data} = useQuery(GET_CUSTOMER, {
-    variables: {handle: token}
-  });
+  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+  })
 
-  if (loading) return 'Loading...';
+  if (loading) return "Loading..."
   // if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`;
+  if (error) return `Error! You have no access to this page`
 
-  console.log(data);
-  
+  console.log(data)
 
   return (
     <Layout>
@@ -165,11 +171,18 @@ const Profile = () => {
           <div className="row row_padding">
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>{data?.customer?.firstName != undefined ? Array.from(data?.customer?.firstName)[0].toUpperCase() : "M"}{data?.customer?.lastName != undefined ? Array.from(data?.customer?.lastName)[0].toUpperCase() : "T"}</div>
+                <div className={ProfileModule.initials}>
+                  {data?.customer?.firstName != undefined
+                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                    : "M"}
+                  {data?.customer?.lastName != undefined
+                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                    : "T"}
+                </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
-                    <div className="font_xl font_semibold text-uppercase">
+                    <div className="font_lg font_semibold text-uppercase">
                       {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
@@ -205,8 +218,8 @@ const Profile = () => {
                         {...register("firstName")}
                       />
                       {errors.firstName && (
-                          <span>{errors.firstName.message}</span>
-                        )}
+                        <span>{errors.firstName.message}</span>
+                      )}
                     </div>
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
@@ -221,8 +234,8 @@ const Profile = () => {
                         {...register("lastName")}
                       />
                       {errors.lastName && (
-                          <span>{errors.lastName.message}</span>
-                        )}
+                        <span>{errors.lastName.message}</span>
+                      )}
                     </div>
                   </div>
                   <div className="row">
@@ -238,9 +251,7 @@ const Profile = () => {
                         defaultValue={data?.customer?.email}
                         {...register("email")}
                       />
-                      {errors.email && (
-                          <span>{errors.email.message}</span>
-                        )}
+                      {errors.email && <span>{errors.email.message}</span>}
                     </div>
                   </div>
                   <div className="row">
@@ -256,12 +267,9 @@ const Profile = () => {
                         defaultValue={data?.customer?.phone?.slice(3)}
                         {...register("phone")}
                       />
-                      {errors.phone && (
-                          <span>{errors.phone.message}</span>
-                        )}
+                      {errors.phone && <span>{errors.phone.message}</span>}
                     </div>
                   </div>
-                  {/* 
                   <div className="row">
                     <div className="col-12 pb-5">
                       <label htmlFor="input_first_name" className="form-label">
@@ -276,7 +284,6 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  */}
                   <div className="row">
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
@@ -290,8 +297,8 @@ const Profile = () => {
                         {...register("password")}
                       />
                       {errors.password && (
-                          <span>{errors.password.message}</span>
-                        )}
+                        <span>{errors.password.message}</span>
+                      )}
                     </div>
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
@@ -305,13 +312,17 @@ const Profile = () => {
                         {...register("confirmPwd")}
                       />
                       {errors.confirmPwd && (
-                          <span>{errors.confirmPwd.message}</span>
-                        )}
+                        <span>{errors.confirmPwd.message}</span>
+                      )}
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-12 mt-5 text-center">
-                      <button type="submit" className="btn btn-primary" onClick={handleSubmit(onSubmit)}>
+                      <button
+                        type="submit"
+                        className="btn btn-primary"
+                        onClick={handleSubmit(onSubmit)}
+                      >
                         Update
                       </button>
                     </div>
