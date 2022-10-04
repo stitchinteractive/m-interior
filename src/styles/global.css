@@ -1338,7 +1338,7 @@ circle {
 .table_benefits {
   overflow-x: hidden;
   line-height: var(--dense);
-  font-family: var(--font-headings-medium);
+  font-family: var(--font-headings-light);
 }
 
 .table_benefits tr th,
@@ -1369,8 +1369,7 @@ circle {
 
 .table_benefits tr th:first-child,
 .table_benefits tr td:first-child {
-  font-weight: bold;
-  background: #fafafa;
+  background: var(--grey-medium-6);
   font-size: 12px;
 }
 
@@ -1387,6 +1386,11 @@ circle {
   margin: auto;
 }
 
+.table_benefits tr th:nth-child(3),
+.table_benefits tr td:nth-child(3) {
+  background: var(--yellow-light);
+}
+
 .voucher_container {
   display: table;
 }
@@ -1399,6 +1403,15 @@ circle {
   color: var(--blue);
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.voucher .note,
+.voucher_redeemed .note {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  font-size: 12px;
 }
 
 .voucher_redeemed {
@@ -1742,16 +1755,6 @@ circle {
     height: 60px;
   }
 
-  .how_it_works::after {
-    width: 50%;
-    height: 2px;
-    content: "";
-    position: absolute;
-    background: var(--black);
-    top: 15px;
-    left: 75%;
-  }
-
   .sub_banner_dashboard {
     height: 240px;
   }
@@ -1863,15 +1866,26 @@ circle {
   .table_benefits tr th:first-child,
   .table_benefits tr td:first-child {
     font-size: 18px;
+    color: #4d4340;
   }
 
   .table_benefits tr th,
   .table_benefits tr td {
-    padding: 2rem 0.5rem 2rem 0.5rem !important;
+    padding: 2rem !important;
     text-align: center;
     border-right: 20px solid var(--grey-light);
-    border-bottom: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey-medium-4);
     background: var(--white);
+  }
+
+  .how_it_works::after {
+    width: 50%;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background: var(--black);
+    top: 15px;
+    left: 75%;
   }
 }
 

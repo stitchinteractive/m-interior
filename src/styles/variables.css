@@ -7,6 +7,7 @@
   --font-default: 16px;
   --font-headings: "Montserrat Semibold", sans-serif;
   --font-headings-regular: "Montserrat", sans-serif;
+  --font-headings-light: "Montserrat Light", sans-serif;
   --font-headings-medium: "Montserrat Medium", sans-serif;
 
   /* palette */
@@ -70,8 +71,8 @@
   --body: 400;
   --light: 300;
   --medium: 500;
-  --semibold: 600;
-  --bold: 700;
+  --semibold: 700;
+  --bold: 800;
   --extrabold: 1000;
 
   /* font-size */
@@ -140,8 +141,8 @@
     --text-lg: 18px;
     --text-xl: 23px;
     --text-xxl: 26px;
-    --text-h1: 32px;
-    --text-h2: 28px;
+    --text-h1: 27px;
+    --text-h2: 24px;
     --text-h3: 21px;
     --text-h4: 18px;
     --text-h5: 16px;
@@ -162,9 +163,9 @@
     --text-xl: 26px;
     --text-xxl: 30px;
     --text-h1: 70px;
-    --text-h2: 45px;
+    --text-h2: 38px;
     --text-h3: 32px;
-    --text-h4: 25px;
+    --text-h4: 21px;
     --text-h5: 18px;
     --text-h6: 16px;
 

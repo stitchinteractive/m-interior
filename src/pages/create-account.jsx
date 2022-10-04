@@ -15,18 +15,18 @@ const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
 const schema = yup
   .object({
-    firstName: yup.string().required("First Name is mandatory"),
-    lastName: yup.string().required("Last Name is mandatory"),
+    firstName: yup.string().required("First name is mandatory"),
+    lastName: yup.string().required("Last name is mandatory"),
     phone: yup
       .string()
       .matches(phoneRegExp, { message: "Phone must be numbers" })
-      .min(8, "Phone must be 8 char long")
+      .min(8, "Phone must be at least 8 characters")
       .required("Phone is mandatory"),
     email: yup
       .string()
       .email("Email is not in the correct format")
       .required("Email is mandatory"),
-    password: yup.string().min(3, "Password must be at 3 char long"),
+    password: yup.string().min(3, "Password must be at least 3 characters"),
     confirmPwd: yup
       .string()
       .oneOf([yup.ref("password")], "Passwords does not match"),
@@ -190,7 +190,6 @@ const Account = () => {
                           </span>
                         )}
                       </div>
-                      {/* 
                       <div className="col-12 mb-5">
                         <label
                           htmlFor="input_first_name"
@@ -204,7 +203,7 @@ const Account = () => {
                           className="form-control"
                           id="input_last_name"
                         />
-                      </div>*/}
+                      </div>
                     </div>
                   </div>
                   <div className="col-lg-6">
@@ -260,7 +259,6 @@ const Account = () => {
                           </span>
                         )}
                       </div>
-                      {/* 
                       <div className="col-12 mb-5">
                         <label htmlFor="input_referral" className="form-label">
                           Referral Code
@@ -270,7 +268,7 @@ const Account = () => {
                           className="form-control"
                           id="input_referral"
                         />
-                      </div>*/}
+                      </div>
                     </div>
                   </div>
 

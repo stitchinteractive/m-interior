@@ -229,48 +229,153 @@ const MintClub = () => {
               </h2>
               <Accordion defaultActiveKey="1">
                 <Accordion.Item eventKey="1">
-                  <Accordion.Header>
-                    What are the payment methods?
-                  </Accordion.Header>
+                  <Accordion.Header>What is M.INT Club?</Accordion.Header>
                   <Accordion.Body>
-                    We accept payment via Visa, Mastercard, PayNow, Paypal and
-                    bank transfers.
+                    M.INT Club is more than just a rewards program, it’s a
+                    community to empower you to get creative with your spaces
+                    and celebrate modularity with us. As a member, you get to
+                    earn points to redeem exclusive content and rewards, plus
+                    enjoy member-only experiences. You may refer to [insert link
+                    to M.INT Club main page] for more information.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>
-                    What are the payment methods?
+                    How do I sign up for M.INT Club?
                   </Accordion.Header>
                   <Accordion.Body>
-                    We accept payment via Visa, Mastercard, PayNow, Paypal and
-                    bank transfers.
+                    <p>
+                      If you have placed any order from us before or have
+                      subscribed to our newsletter as of 30 September 2022, you
+                      will be automatically registered as a member. You should
+                      have received an email notification with the membership
+                      details. If not, please contact us at&nbsp;
+                      <a href="mailto:hello@m-interior.co">
+                        hello@m-interior.co
+                      </a>
+                      &nbsp;for assistance.
+                    </p>
+                    <p>
+                      If you’re new here, we welcome you to create an account
+                      for free <a href="/create-account">here</a>.
+                    </p>
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
                   <Accordion.Header>
-                    What are the payment methods?
+                    Do I need to pay any membership fees?
                   </Accordion.Header>
                   <Accordion.Body>
-                    We accept payment via Visa, Mastercard, PayNow, Paypal and
-                    bank transfers.
+                    Not at all, M.INT Club is free for all to join!
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="4">
-                  <Accordion.Header>
-                    What are the payment methods?
-                  </Accordion.Header>
+                  <Accordion.Header>How do I earn points?</Accordion.Header>
                   <Accordion.Body>
-                    We accept payment via Visa, Mastercard, PayNow, Paypal and
-                    bank transfers.
+                    There are many ways you can earn points – create an account,
+                    leave a review, refer a friend etc. For every $1 spent, you
+                    will also earn 2 points. You may log in to your account to
+                    view the activities available.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="5">
                   <Accordion.Header>
-                    What are the payment methods?
+                    What can I do with my points?
                   </Accordion.Header>
                   <Accordion.Body>
-                    We accept payment via Visa, Mastercard, PayNow, Paypal and
-                    bank transfers.
+                    You can redeem them for exciting rewards! Apart from
+                    discount vouchers, we have exclusive content and services
+                    that you can unlock with your points. You may log in to your
+                    account to view the list of rewards available. We are
+                    constantly refreshing the rewards to offer better perks for
+                    you, so do check in regularly!
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="6">
+                  <Accordion.Header>Will my points expire?</Accordion.Header>
+                  <Accordion.Body>
+                    Yes, any unused points will expire after 365 days from the
+                    date it is earned. For example, if you earned 100 points on
+                    1 August 2022, your points will expire on 1 August 2023.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="7">
+                  <Accordion.Header>
+                    Will my tier status be downgraded?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    No, your tier status will not be downgraded even if you’re
+                    inactive. The only way is up!
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="8">
+                  <Accordion.Header>
+                    Will redeeming rewards affect my tier status?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    No, points redemption will not affect your tier status.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="9">
+                  <Accordion.Header>
+                    Can I transfer/combine points from multiple accounts?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    No, points are non-transferable so please avoid creating
+                    multiple accounts.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="10">
+                  <Accordion.Header>
+                    I have made a purchase and/or completed an activity, but I
+                    don’t see the earned points in my account. What should I do?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    Please allow up to 3 working days for the points to be
+                    reflected in your account. If you have placed an order, the
+                    points will only be processed upon successful delivery of
+                    your item(s). If you still have issues viewing your earned
+                    points, please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp; for assistance.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="11">
+                  <Accordion.Header>
+                    I have engaged your interior design services, do I also get
+                    to earn points based on my spending?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    We regret to inform that points accumulation does not apply
+                    for interior design services. Points can only be earned from
+                    product purchases. If you have engaged our interior design
+                    service and purchased our products, you will earn points
+                    based on your product spending.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="12">
+                  <Accordion.Header>
+                    How does the referral program work?
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    <p>
+                      Simply log in to your account, go to ‘refer a friend’ page
+                      and share your referral code with your friends. The
+                      referee must be a new customer with no purchase record and
+                      does not have an existing account with us. Kindly note
+                      that you cannot share the same billing and shipping
+                      information as the referee.
+                    </p>
+                    <p>
+                      Each referee will get to enjoy 15% off their first
+                      purchase with a minimum spend of $50. You will earn the
+                      referral reward of 200 points only when the referee has
+                      completed his/her first order.
+                    </p>
+                    <p>
+                      There is no limit to the number of referrals, so go ahead
+                      and invite all your friends and relatives!
+                    </p>
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>

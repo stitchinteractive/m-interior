@@ -6,7 +6,7 @@ import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import { Voucher } from "../components/voucher"
 import { VoucherRedeemed } from "../components/voucher-redeemed"
-import { MembershipTable } from "../components/membership-table"
+import { MembershipTableCurrent } from "../components/membership-table-current"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
 
@@ -81,11 +81,9 @@ const Profile = () => {
                   <div className="container">
                     <div className="row p-5">
                       <div className="col-12 col-md-12 d-flex justify-content-center align-items-center">
-                        <h4 className="text-uppercase fst-italic pb-5">
-                          How it works
-                        </h4>
+                        <h4 className="text-uppercase pb-5">How it works</h4>
                       </div>
-                      <div className="col-12 col-md-4">
+                      <div className="col-12 col-lg-4">
                         <p>
                           <img
                             src="/icons/club_join.png"
@@ -93,15 +91,15 @@ const Profile = () => {
                             className="mx-auto"
                           />
                         </p>
-                        <h4 className="text-uppercase pb-3 how_it_works">
+                        <h5 className="text-uppercase pb-3 how_it_works">
                           Join
-                        </h4>
-                        <p>
+                        </h5>
+                        <p className="font_sm">
                           Get 10% off your first purchase when you sign up -
                           it's free!
                         </p>
                       </div>
-                      <div className="col-12 col-md-4">
+                      <div className="col-12 col-lg-4">
                         <p>
                           <img
                             src="/icons/club_earn.png"
@@ -109,12 +107,14 @@ const Profile = () => {
                             className="mx-auto"
                           />
                         </p>
-                        <h4 className="text-uppercase pb-3 how_it_works">
+                        <h5 className="text-uppercase pb-3 how_it_works">
                           Earn
-                        </h4>
-                        <p>Earn points through small goals or purchases</p>
+                        </h5>
+                        <p className="font_sm">
+                          Earn points through small goals or purchases
+                        </p>
                       </div>
-                      <div className="col-12 col-md-4">
+                      <div className="col-12 col-lg-4">
                         <p>
                           <img
                             src="/icons/club_redeem.png"
@@ -122,8 +122,8 @@ const Profile = () => {
                             className="mx-auto"
                           />
                         </p>
-                        <h4 className="text-uppercase pb-3">Redeem</h4>
-                        <p>Redeem exclusive rewards!</p>
+                        <h5 className="text-uppercase pb-3">Redeem</h5>
+                        <p className="font_sm">Redeem exclusive rewards!</p>
                       </div>
                     </div>
                   </div>
@@ -144,37 +144,43 @@ const Profile = () => {
                   heading="Leave a facebook review"
                   points="100 Points"
                 />
-                <Voucher heading="Refer a friend" points="100 Points" />
-                <Voucher heading="Follow us on instagram" points="100 Points" />
-                <Voucher heading="Like us on faceboook" points="100 Points" />
+                <Voucher heading="Refer a friend" points="200 Points" />
+                <Voucher heading="Follow us on instagram" points="20 Points" />
+                <Voucher heading="Like us on faceboook" points="20 Points" />
                 <Voucher
                   heading="Share our facebook posts"
-                  points="50 Points per share"
+                  points="50 Points per share*"
+                  note="* Capped at 5 shares"
                 />
               </div>
+              <div className="py-3">^ Points expire within one year</div>
             </div>
           </div>
         </div>
       </div>
       <div className="bg_grey">
-        <div className="container">
-          <div className="row row_padding">
-            <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
+        <div className="container-fluid">
+          <div className="row pt-5">
+            <h2 className="text-uppercase p-5 d-flex justify-content-center align-items-center text-center">
               <div className="pe-3">
                 <AsteriskIconBlack />
               </div>
-              Get exclusive with us
+              M.INT club tiers
               <div className="ps-3">
                 <AsteriskIconBlack />
               </div>
             </h2>
-            <MembershipTable />
-            <div className="text-center pt-5">
-              <button className="btn btn-primary-large mb-80">
-                Join the club
-              </button>
-            </div>
           </div>
+        </div>
+        <div className="container-membership">
+          <MembershipTableCurrent />
+        </div>
+        <div className="text-center pt-5">
+          <a href="/create-account">
+            <button className="btn btn-primary-large mb-120">
+              Earn Points
+            </button>
+          </a>
         </div>
       </div>
     </Layout>

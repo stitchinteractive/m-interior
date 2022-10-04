@@ -7,6 +7,7 @@ import { NavAccount } from "../components/nav_account"
 import { Link } from "gatsby"
 import { Reward } from "../components/reward"
 import { MembershipTable } from "../components/membership-table"
+import { MembershipTableCurrent } from "../components/membership-table-current"
 import AsteriskIcon from "../icons/asterisk"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
@@ -70,7 +71,7 @@ const Profile = () => {
                   <div className="overlay h-100">
                     <div className="text-uppercase">
                       <h5 className="mb-0">Welcome Back</h5>
-                      <h3 className="mb-0">James Smith</h3>
+                      <h3 className="mb-0 font_semibold">James Smith</h3>
                     </div>
                   </div>
                 </div>
@@ -89,7 +90,7 @@ const Profile = () => {
                     <div className="col-12 col-md-8">
                       <div className="d-flex flex-column">
                         <div className="d-flex align-self-center">
-                          <h4 className="mb-0 me-5">Insider</h4>
+                          <h4 className="mb-0 me-5 font_semibold">Insider</h4>
                           <div className="font_xs text-end">
                             2,456 Points to next tier
                           </div>
@@ -120,7 +121,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row">
-                <h3 className="text-uppercase pb-6">Featured Rewards</h3>
+                <h4 className="text-uppercase pb-6">Featured Rewards</h4>
                 <div className="slider__default">
                   <div className="slider__prev">
                     <img src="/icons/btn_prev.png" alt="Prev" />
@@ -224,24 +225,28 @@ const Profile = () => {
       </div>
       */}
       <div className="bg_grey">
-        <div className="container">
-          <div className="row row_padding">
-            <h2 className="text-uppercase pb-5 d-flex justify-content-center align-items-center">
+        <div className="container-fluid">
+          <div className="row pt-5">
+            <h2 className="text-uppercase p-5 d-flex justify-content-center align-items-center text-center">
               <div className="pe-3">
                 <AsteriskIconBlack />
               </div>
-              Get exclusive with us
+              M.INT club tiers
               <div className="ps-3">
                 <AsteriskIconBlack />
               </div>
             </h2>
-            <MembershipTable />
-            <div className="text-center pt-5">
-              <button className="btn btn-primary-large mb-80">
-                Join the club
-              </button>
-            </div>
           </div>
+        </div>
+        <div className="container-membership">
+          <MembershipTableCurrent />
+        </div>
+        <div className="text-center pt-5">
+          <a href="/create-account">
+            <button className="btn btn-primary-large mb-120">
+              Earn Points
+            </button>
+          </a>
         </div>
       </div>
     </Layout>
