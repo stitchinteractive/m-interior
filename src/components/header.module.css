@@ -43,7 +43,7 @@
 /********** tablets **********/
 @media (min-width: 768px) {
   .container_header {
-    padding: 20px 0;
+    padding: 15px 0;
   }
 }
 
@@ -72,10 +72,6 @@
 
 /********** desktops **********/
 @media (min-width: 1440px) {
-  .container_header {
-    padding: 30px 0 30px 0;
-  }
-
   .nav_link_icon li {
     display: block;
     padding: 0.5rem 0.8rem 1.3rem 0.5rem;

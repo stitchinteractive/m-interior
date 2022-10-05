@@ -30,169 +30,218 @@ const InteriorDesignDetails = () => {
             <h2 className="text-uppercase heading_line mb-60">Media</h2>
           </div>
           <div className="container animate">
-            <div className="row row_padding">
-              <div className="d-flex align-items-center">
-                <div className="col-6">
-                  <img src="/media/straits_times.jpg" alt="The Straits Times" />
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-6">
+                  <p>
+                    <img src="/media/today.jpg" alt="Today Online" />
+                  </p>
                 </div>
-                <div className="col-5 offset-lg-1">
+                <div className="col-12 col-md-5 offset-md-1">
+                  <p>
+                    <img src="/media/logo_today.png" alt="Today Online" />
+                  </p>
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    19 November 2021
+                  </p>
+                  <p>
+                    We are proud to be mentioned as part of a SG Cares Giving
+                    Week article. M.INT is listed under the Collaborate for Good
+                    directory as one of the brands committed to making a social
+                    impact. Our initiative to donate 10% of proceeds from Acacia
+                    for Pets products to the Cat Welfare Society was highlighted
+                    to encourage consumers to shop for good.
+                  </p>
+                  <p>
+                    <a
+                      href="https://www.todayonline.com/brand-spotlight/support-local-help-others-benefit-all"
+                      className="link_underline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Read more &gt;
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-5">
+                  <p>
+                    <img
+                      src="/media/logo_home_decor.png"
+                      alt="Home &amp; Decor"
+                    />
+                  </p>
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    9 July 2021
+                  </p>
+                  <p>
+                    Acacia for Pets was featured in Home & Decor's top picks for
+                    chic pet furniture. We are honoured to be listed as one of
+                    the stylish and practical pet furniture in Singapore,
+                    alongside other esteemed brands.
+                  </p>
+                  <p>
+                    <a
+                      href="https://www.homeanddecor.com.sg/gallery/10-chic-pet-furniture-pieces-that-blend-into-any-home/"
+                      className="link_underline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Read more &gt;
+                    </a>
+                  </p>
+                </div>
+                <div className="col-12 col-md-6 offset-md-1">
+                  <img src="/media/home_decor.jpg" alt="Home &amp; Decor" />
+                </div>
+              </div>
+            </div>
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-6">
+                  <p>
+                    <img src="/media/square_rooms.jpg" alt="SquareRooms" />
+                  </p>
+                </div>
+                <div className="col-12 col-md-5 offset-md-1">
+                  <p>
+                    <img src="/media/logo_square_rooms.png" alt="SquareRooms" />
+                  </p>
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    June 2021
+                  </p>
+                  <p>
+                    Acacia for Pets was featured in SquareRooms magazine for
+                    June 2021 issue, which highlighted our pet furniture as the
+                    perfect builds for pets ergonomically and aesthetically.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-5">
+                  <p>
+                    <img
+                      src="/media/logo_pets_magazine.png"
+                      alt="Pets Magazine"
+                    />
+                  </p>
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    June 2021
+                  </p>
+                  <p>
+                    Our very first media event for the launch of Acacia for Pets
+                    was a huge success, thanks to the attendance of media
+                    representatives and influencers. The Pets Magazine team had
+                    joined us for an afternoon of fun at Neko No Niwa cat cafe –
+                    exploring our pet furniture with the resident cats.
+                  </p>
+                </div>
+                <div className="col-12 col-md-6 offset-md-1">
+                  <img src="/media/pets_magazine.jpg" alt="Pets Magazine" />
+                </div>
+              </div>
+            </div>
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-6">
+                  <p>
+                    <img
+                      src="/media/straits_times.jpg"
+                      alt="The Straits Times"
+                    />
+                  </p>
+                </div>
+                <div className="col-12 col-md-5 offset-md-1">
                   <p>
                     <img
                       src="/media/logo_straits_times.png"
                       alt="The Straits Times"
                     />
                   </p>
-                  <h4 className="mb-3">The Straits Times</h4>
-                  <p>
-                    Featured in mother's day special segment, the Acacia M.I.N.T
-                    Blocks are highlighted as space management system good for
-                    small home owners. Able to stack, mount and flip, the
-                    hexagon shape is efficient and looks great!
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    8 May 2021
                   </p>
                   <p>
-                    <Link to="/" className="link_underline">
-                      Read more &gt;
-                    </Link>
+                    Featured in Mother’s Day 2021 segment, the Acacia Blocks was
+                    introduced as a space management system perfect for
+                    homeowners to organise their stuff. The article also
+                    highlighted our hexagon design inspired by honeycombs, which
+                    is the most efficient shape in nature.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="row row_padding">
-              <div className="d-flex align-items-center">
-                <div className="col-5">
-                  <p>
-                    <img src="/media/logo_square_rooms.png" alt="SquareRooms" />
-                  </p>
-                  <h4 className="mb-3">SquareRooms</h4>
-                  <p>
-                    The M.I.N.T Blocks Pet Series was featured in SquareRooms,
-                    which aggregates hottest trends for home makeovers,
-                    inspirations and design ideas for aesthetic homes. Furniture
-                    trends are fast becoming multi-functional yet beautiful, we
-                    can do the same for pets at home too!
-                  </p>
-                  <p>
-                    <Link to="/" className="link_underline">
-                      Read more &gt;
-                    </Link>
-                  </p>
-                </div>
-                <div className="col-6 offset-lg-1">
-                  <img src="/media/square_rooms.jpg" alt="SquareRooms" />
-                </div>
-              </div>
-            </div>
-            <div className="row row_padding">
-              <div className="d-flex align-items-center">
-                <div className="col-6">
-                  <p>
-                    <img src="/media/pets_magazine.jpg" alt="Pets Magazine" />
-                  </p>
-                </div>
-                <div className="col-5 offset-lg-1">
-                  <p>
-                    <img
-                      src="/media/logo_pets_magazine.png"
-                      alt="Pets Magazine"
-                    />
-                  </p>
-                  <h4 className="mb-3">Pets Magazine</h4>
-                  <p>
-                    Featuring our launch event for M.I.N.T Blocks Pet Series at
-                    Neko No Niwa. Raymond from Pets Magazine joined us for an
-                    afternoon of fun learning cat language via play and how pet
-                    towers are beneficial for cats and their owners.
-                  </p>
-                  <p>
-                    <Link to="/" className="link_underline">
-                      Read more &gt;
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row row_padding">
-              <div className="d-flex align-items-center">
-                <div className="col-5">
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-5">
                   <p>
                     <img
                       src="/media/logo_home_decor.png"
-                      alt="Home and Decor"
+                      alt="Home &amp; Decor"
                     />
                   </p>
-                  <h4 className="mb-3">Home and Decor</h4>
-                  <p>
-                    M.I.N.T Blocks Pet Series featured in Home and Decor’s
-                    e-shopping guide for chic pet furniture. Listed as one of
-                    the more aesthetic looking pet furniture you can get in
-                    Singapore, Minthe(d) is being mentioned together with other
-                    esteemed designer brands for pets interior needs.
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    1 May 2021
                   </p>
                   <p>
-                    <Link to="/" className="link_underline">
+                    We are proud that the Acacia Blocks have made its way into
+                    NOC's shophouse office/Sylvia's home. We love how the blocks
+                    were cleverly configured as space dividers and storage
+                    display – perfectly integrated into the bright and airy
+                    interior.
+                  </p>
+                  <p>
+                    <a
+                      href="https://www.homeanddecor.com.sg/gallery/night-owl-cinematics-ceo-sylvia-recreates-her-childhood-kampung-home-with-a-glass-roofed-kitchen-and-over-50-plants/"
+                      className="link_underline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Read more &gt;
-                    </Link>
+                    </a>
                   </p>
                 </div>
-                <div className="col-6 offset-lg-1">
-                  <p>
-                    <img src="/media/home_decor.jpg" alt="Home and Decor" />
-                  </p>
+                <div className="col-12 col-md-6 offset-md-1">
+                  <img src="/media/home_decor_2.jpg" alt="Home &amp; Decor" />
                 </div>
               </div>
             </div>
-            <div className="row row_padding">
-              <div className="d-flex align-items-center">
-                <div className="col-6">
+            <div className="row mb-100">
+              <div className="d-md-flex align-items-center">
+                <div className="col-12 col-md-6">
                   <p>
-                    <img src="/media/noc.jpg" alt="Night Owl Cinematics" />
+                    <img src="/media/pets_magazine_2.jpg" alt="Pets Magazine" />
                   </p>
                 </div>
-                <div className="col-5 offset-lg-1">
-                  <p>
-                    <img src="/media/logo_noc.png" alt="Night Owl Cinematics" />
-                  </p>
-                  <h4 className="mb-3">Night Owl Cinematics</h4>
-                  <p>
-                    Proud to be part of the new office/Sylvia’s crib, the Acacia
-                    M.I.N.T Blocks made its way into the lovely space, cleverly
-                    as room dividers and storage for Sylvia’s favourites, Porky
-                    (‘stuff) and books! Clean, modular, multi-functional, there
-                    are many ways to utilise the blocks, but this is a fresh new
-                    take!
-                  </p>
-                  <p>
-                    <Link to="/" className="link_underline">
-                      Read more &gt;
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row row_padding">
-              <div className="d-flex align-items-center">
-                <div className="col-5">
+                <div className="col-12 col-md-5 offset-md-1">
                   <p>
                     <img
                       src="/media/logo_pets_magazine.png"
                       alt="Pets Magazine"
                     />
                   </p>
-                  <h4 className="mb-3">Pets Magazine</h4>
-                  <p>
-                    M.I.N.T Blocks Pet Series were shortlisted to be part of the
-                    shopping guide for pet owners on Pets Magazine article
-                    online, amongst other trendy brands of the season.
+                  <p className="font_xs font_montserrat_medium pb-2">
+                    March 2021
                   </p>
                   <p>
-                    <Link to="/" className="link_underline">
+                    Acacia for Pets was featured in the Pets Magazine shopping
+                    guide, and recommended as a great shopping deal for all pet
+                    owners to grab for their furkids.
+                  </p>
+                  <p>
+                    <a
+                      href="https://www.petsmagazine.com.sg/a/gift-guide/1459/march-2021-for-pets"
+                      className="link_underline"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Read more &gt;
-                    </Link>
-                  </p>
-                </div>
-                <div className="col-6 offset-lg-1">
-                  <p>
-                    <img src="/media/pets_magazine_2.jpg" alt="Pets Magazine" />
+                    </a>
                   </p>
                 </div>
               </div>

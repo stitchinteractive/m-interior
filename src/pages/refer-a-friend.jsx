@@ -28,7 +28,7 @@ const Profile = () => {
       <div className="bg_grey">
         <div className="container">
           <div className="row padding_heading">
-            <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
+            <div className="col-12 col-md-5 col-lg-3 bg_white p-4 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>JS</div>
                 <div className="d-flex flex-column">
