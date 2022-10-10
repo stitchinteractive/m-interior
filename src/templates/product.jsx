@@ -580,7 +580,7 @@ const ShopDetails = ({ pageContext }) => {
               </div>
               {showComp ? (
                 <p className="pb-1">
-                  <Link to="/contact-us" className="no_underline">
+                  <Link to="/design-service" className="no_underline">
                     <button
                       type="button"
                       className="btn btn-outline btn-black w-100 d-flex justify-content-center"

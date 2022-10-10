@@ -79,7 +79,7 @@ const Login = () => {
             result.customerAccessTokenCreate.customerAccessToken.accessToken,
             result.customerAccessTokenCreate.customerAccessToken.expiresAt
           )
-          navigate(`/profile`)
+          navigate(`/dashboard`)
           //alert("Login success. Access token: "+result.customerAccessTokenCreate.customerAccessToken.accessToken);
         }
       },

@@ -14,7 +14,10 @@ import BackIcon from "../icons/back"
 
 const schema = yup
   .object({
-    password: yup.string().min(3, "Password must be at 3 char long"),
+    password: yup.string().matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
+    ),
     confirmPwd: yup
       .string()
       .oneOf([yup.ref("password")], "Passwords does not match"),

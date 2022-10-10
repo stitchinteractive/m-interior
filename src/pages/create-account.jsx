@@ -26,7 +26,10 @@ const schema = yup
       .string()
       .email("Email is not in the correct format")
       .required("Email is mandatory"),
-    password: yup.string().min(3, "Password must be at least 3 characters"),
+    password: yup.string().matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
+    ),
     confirmPwd: yup
       .string()
       .oneOf([yup.ref("password")], "Passwords does not match"),

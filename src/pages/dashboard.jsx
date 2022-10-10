@@ -12,6 +12,10 @@ import AsteriskIcon from "../icons/asterisk"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
 
+// for user info
+import { getUser } from "../services/auth"
+import { useQuery, gql, useMutation } from "@apollo/client"
+
 // import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Mousewheel, HashNavigation } from "swiper"
@@ -21,6 +25,19 @@ import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/navigation"
 import "swiper/css/thumbs"
+
+const GET_CUSTOMER = gql`
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
+      id
+      firstName
+      lastName
+      acceptsMarketing
+      email
+      phone
+    }
+  }
+`
 
 // step 2: define component
 const Profile = () => {
@@ -39,6 +56,17 @@ const Profile = () => {
     })
   })
 
+  const token = getUser().token
+  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+  })
+
+  if (loading) return "Loading..."
+  // if (error) return `Error! ${error.message}`;
+  if (error) return `Error! You have no access to this page`
+
+  console.log(data)
+
   return (
     <Layout>
       <div className="bg_grey">
@@ -46,12 +74,19 @@ const Profile = () => {
           <div className="row padding_heading">
             <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>JS</div>
+                <div className={ProfileModule.initials}>
+                {data?.customer?.firstName != undefined
+                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                    : "M"}
+                  {data?.customer?.lastName != undefined
+                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                    : "T"}
+                </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      James Smith
+                    {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -71,7 +106,7 @@ const Profile = () => {
                   <div className="overlay h-100">
                     <div className="text-uppercase">
                       <h5 className="mb-0">Welcome Back</h5>
-                      <h3 className="mb-0 font_semibold">James Smith</h3>
+                      <h3 className="mb-0 font_semibold">{data?.customer?.firstName} {data?.customer?.lastName}</h3>
                     </div>
                   </div>
                 </div>
