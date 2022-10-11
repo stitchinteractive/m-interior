@@ -67,8 +67,19 @@ const Profile = () => {
 
   console.log(data)
 
+  //var customerDetails = swellAPI.getCustomerDetails();
+  //console.log(customerDetails)
+
   return (
     <Layout>
+    <div 
+        id="swell-customer-identification"
+        data-authenticated="true"
+        data-email={data?.customer?.email}
+        data-id={data?.customer?.id}
+        data-tags="json"
+        style={{display:'none'}}>
+    </div>
       <div className="bg_grey">
         <div className="container">
           <div className="row padding_heading">
@@ -146,7 +157,7 @@ const Profile = () => {
                     Points
                   </div>
                   <div className="align-self-end">
-                    <h2 className="mb-0">1,305</h2>
+                    <h2 className="mb-0"><span class="swell-point-balance">0</span></h2>
                   </div>
                   <div className="align-self-end font_xs">
                     <Link to="/earn-points" className="no_underline">
