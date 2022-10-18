@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -41,6 +41,9 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  const [yotpoData, setData] = useState(null);
+  const [yotpoRedemptionData, setRedemptData] = useState(null);
+
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -54,7 +57,58 @@ const Profile = () => {
         onComplete: () => console.log(e),
       })
     })
+
+    //get yotpo data
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json'
+      }
+    };
+
+    if(data) {
+      fetch('https://loyalty.yotpo.com/api/v2/customers?customer_email='+data?.customer?.email+'&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+        .then(async response => {
+          const isJson = response.headers.get('content-type')?.includes('application/json');
+          const data2 = isJson && await response.json();
+
+          // check for error response
+          if (!response.ok) {
+              // get error message from body or default to response status
+              const error = (data2 && data2.message) || response.status;
+              return Promise.reject(error);
+          }
+
+          setData(data2)
+      })
+      .catch(error => {
+          console.error('There was an error!', error);
+      });
+    }
+
+    console.log(yotpoData)
+
+    fetch('https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+      .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const rData = isJson && await response.json();
+
+        // check for error response
+        if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (rData && rData.message) || response.status;
+            return Promise.reject(error);
+        }
+
+        setRedemptData(rData)
+    })
+    .catch(error => {
+        this.setState({ errorMessage: error.toString() });
+        console.error('There was an error!', error);
+    });
+    console.log(yotpoRedemptionData)
   })
+
 
   const token = getUser().token
   const { loading, error, data } = useQuery(GET_CUSTOMER, {
@@ -66,20 +120,10 @@ const Profile = () => {
   if (error) return `Error! You have no access to this page`
 
   console.log(data)
-
-  //var customerDetails = swellAPI.getCustomerDetails();
-  //console.log(customerDetails)
+  
 
   return (
     <Layout>
-    <div 
-        id="swell-customer-identification"
-        data-authenticated="true"
-        data-email={data?.customer?.email}
-        data-id={data?.customer?.id}
-        data-tags="json"
-        style={{display:'none'}}>
-    </div>
       <div className="bg_grey">
         <div className="container">
           <div className="row padding_heading">
@@ -157,7 +201,7 @@ const Profile = () => {
                     Points
                   </div>
                   <div className="align-self-end">
-                    <h2 className="mb-0"><span class="swell-point-balance">0</span></h2>
+                    <h2 className="mb-0">{yotpoData?.points_balance}</h2>
                   </div>
                   <div className="align-self-end font_xs">
                     <Link to="/earn-points" className="no_underline">

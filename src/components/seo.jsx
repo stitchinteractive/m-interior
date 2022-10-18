@@ -88,7 +88,7 @@ export function Seo({
         <meta name="robots" content="noindex, nofollow" />
       )}
       {children}
-      <script type="text/javascript" async src="https://cdn-loyalty.yotpo.com/loader/jx9X-MCEhx-re9u7YIbChg.js"></script>
+      {/* <script type="text/javascript" async src="https://cdn-loyalty.yotpo.com/loader/jx9X-MCEhx-re9u7YIbChg.js"></script> */}
     </Helmet>
   )
 }

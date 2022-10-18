@@ -89,7 +89,7 @@ const Login = () => {
   const [customerAccessTokenCreate] = useMutation(GET_TOKEN)
 
   if (isLoggedIn()) {
-    navigate(`/profile`)
+    navigate(`/dashboard`)
   }
 
   return (
