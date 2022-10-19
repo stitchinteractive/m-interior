@@ -241,51 +241,17 @@ const Profile = () => {
                     className="swiper-container2"
                     modules={[Navigation, Mousewheel, HashNavigation]}
                   >
-                    <SwiperSlide key="1" data-hash="1">
+                    { yotpoRedemptionData && yotpoRedemptionData?.map((r) => (
+                    <SwiperSlide key={r.id} data-hash={r.id}>
                       <div className="slider__image">
                         <Reward
                           image_url="account/bg_reward.jpg"
-                          discount="$2"
-                          points="100"
+                          discount={r.name}
+                          points={r.amount}
                         />
                       </div>
                     </SwiperSlide>
-                    <SwiperSlide key="2" data-hash="2">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$5"
-                          points="250"
-                        />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide key="3" data-hash="3">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$10"
-                          points="500"
-                        />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide key="4" data-hash="4">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$20"
-                          points="1000"
-                        />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide key="5" data-hash="5">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$30"
-                          points="1500"
-                        />
-                      </div>
-                    </SwiperSlide>
+                    ))}
                   </Swiper>
 
                   <div className="slider__next">

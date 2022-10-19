@@ -16,7 +16,7 @@ export function Reward(props) {
     >
       <div className="d-flex align-items-end">
         <div className="me-auto">
-          {props.discount} off
+          {props.discount}
           <br />
           {props.points} Points
         </div>
