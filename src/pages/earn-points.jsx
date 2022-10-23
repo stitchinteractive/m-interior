@@ -138,19 +138,15 @@ const Profile = () => {
                   heading="Make a purchase"
                   points="2 points per $1 spent"
                 />
-                <Voucher heading="Leave a product review" points="100 Points" />
-                <Voucher heading="Leave a google review" points="100 Points" />
-                <Voucher
-                  heading="Leave a facebook review"
-                  points="100 Points"
-                />
+                <Voucher heading="Leave a review" points="100 Points" />
+                <Voucher heading="Leave a photo review" points="150 Points" />
                 <Voucher heading="Refer a friend" points="200 Points" />
-                <Voucher heading="Follow us on instagram" points="20 Points" />
-                <Voucher heading="Like us on faceboook" points="20 Points" />
+                <Voucher heading="Birthday reward" points="200 Points" />
+                <Voucher heading="Facebook share" points="100 Points" />
                 <Voucher
-                  heading="Share our facebook posts"
-                  points="50 Points per share*"
-                  note="* Capped at 5 shares"
+                  heading="Page visit"
+                  points="100 Points"
+                  note="Drive traffic to Facebook, Instagram"
                 />
               </div>
               <div className="py-3">^ Points expire within one year</div>
