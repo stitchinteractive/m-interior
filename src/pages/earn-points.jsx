@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -10,8 +10,28 @@ import { MembershipTableCurrent } from "../components/membership-table-current"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
 
+// for user info
+import { getUser } from "../services/auth"
+import { useQuery, gql, useMutation } from "@apollo/client"
+
+const GET_CUSTOMER = gql`
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
+      id
+      firstName
+      lastName
+      acceptsMarketing
+      email
+      phone
+    }
+  }
+`
+
 // step 2: define component
 const Profile = () => {
+  const [yotpoData, setData] = useState(null);
+  const [yotpoCampaign, setCampaignData] = useState(null);
+
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -25,7 +45,68 @@ const Profile = () => {
         onComplete: () => console.log(e),
       })
     })
+
+    //get yotpo data
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json'
+      }
+    };
+
+    if(data) {
+      fetch('https://loyalty.yotpo.com/api/v2/customers?customer_email='+data?.customer?.email+'&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+        .then(async response => {
+          const isJson = response.headers.get('content-type')?.includes('application/json');
+          const data2 = isJson && await response.json();
+
+          // check for error response
+          if (!response.ok) {
+              // get error message from body or default to response status
+              const error = (data2 && data2.message) || response.status;
+              return Promise.reject(error);
+          }
+
+          setData(data2)
+      })
+      .catch(error => {
+          console.error('There was an error!', error);
+      });
+    }
+
+    //console.log(yotpoData)
+
+    fetch('https://loyalty.yotpo.com/api/v2/campaigns?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&with_status=true&customer_email='+data?.customer?.email, options)
+      .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const rData = isJson && await response.json();
+
+        // check for error response
+        if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (rData && rData.message) || response.status;
+            return Promise.reject(error);
+        }
+
+        setCampaignData(rData)
+    })
+    .catch(error => {
+        //this.setState({ errorMessage: error.toString() });
+        console.error('There was an error!', error);
+    });
+    console.log(yotpoCampaign)
   })
+
+  const token = getUser().token
+  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+  })
+
+  if (loading) return "Loading..."
+  // if (error) return `Error! ${error.message}`;
+  if (error) return `Error! You have no access to this page`
+
+  //console.log(data)
 
   return (
     <Layout>
@@ -39,7 +120,7 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      James Smith
+                    {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -72,7 +153,7 @@ const Profile = () => {
                 <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex flex-column p-3 mt-4 mt-lg-0">
                   <div className="align-self-center">My Points</div>
                   <div className="align-self-center">
-                    <h2 className="mb-0">1,305</h2>
+                    <h2 className="mb-0">{yotpoData?.points_balance}</h2>
                   </div>
                 </div>
               </div>
@@ -130,7 +211,22 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row bg_white pt-4 ps-3 pe-3 d-flex ">
-                <VoucherRedeemed
+                { yotpoCampaign && yotpoCampaign?.map((r) => (
+                  r.status.customer_times_completed > 0 ? 
+                  (
+                    <VoucherRedeemed
+                      heading={r.unrendered_title}
+                      points={r.reward_text}
+                    />
+                  ) : (
+                    <Voucher
+                      heading={r.unrendered_title}
+                      points={r.reward_text}
+                    />
+                  )
+                  
+                ))}
+                {/* <VoucherRedeemed
                   heading="Create an account"
                   points="100 points"
                 />
@@ -147,7 +243,7 @@ const Profile = () => {
                   heading="Page visit"
                   points="100 Points"
                   note="Drive traffic to Facebook, Instagram"
-                />
+                /> */}
               </div>
               <div className="py-3">^ Points expire within one year</div>
             </div>

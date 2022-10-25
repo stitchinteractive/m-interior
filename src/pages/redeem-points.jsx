@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -15,14 +15,34 @@ import * as ProfileModule from "./profile.module.css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Mousewheel, HashNavigation } from "swiper"
 
+// for user info
+import { getUser } from "../services/auth"
+import { useQuery, gql, useMutation } from "@apollo/client"
+
 // import Swiper styles
 import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/navigation"
 import "swiper/css/thumbs"
 
+const GET_CUSTOMER = gql`
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
+      id
+      firstName
+      lastName
+      acceptsMarketing
+      email
+      phone
+    }
+  }
+`
+
 // step 2: define component
 const Profile = () => {
+  const [yotpoData, setData] = useState(null);
+  const [yotpoRedemptionData, setRedemptData] = useState(null);
+
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -36,7 +56,68 @@ const Profile = () => {
         onComplete: () => console.log(e),
       })
     })
+
+    //get yotpo data
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json'
+      }
+    };
+
+    if(data) {
+      fetch('https://loyalty.yotpo.com/api/v2/customers?customer_email='+data?.customer?.email+'&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+        .then(async response => {
+          const isJson = response.headers.get('content-type')?.includes('application/json');
+          const data2 = isJson && await response.json();
+
+          // check for error response
+          if (!response.ok) {
+              // get error message from body or default to response status
+              const error = (data2 && data2.message) || response.status;
+              return Promise.reject(error);
+          }
+
+          setData(data2)
+      })
+      .catch(error => {
+          console.error('There was an error!', error);
+      });
+    }
+
+    //console.log(yotpoData)
+
+    fetch('https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+      .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const rData = isJson && await response.json();
+
+        // check for error response
+        if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (rData && rData.message) || response.status;
+            return Promise.reject(error);
+        }
+
+        setRedemptData(rData)
+    })
+    .catch(error => {
+        //this.setState({ errorMessage: error.toString() });
+        console.error('There was an error!', error);
+    });
+    //console.log(yotpoRedemptionData)
   })
+
+  const token = getUser().token
+  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+  })
+
+  if (loading) return "Loading..."
+  // if (error) return `Error! ${error.message}`;
+  if (error) return `Error! You have no access to this page`
+
+  //console.log(data)
 
   return (
     <Layout>
@@ -50,7 +131,7 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      James Smith
+                    {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -84,7 +165,7 @@ const Profile = () => {
                   <div className="d-flex flex-column align-items-center w-60">
                     <div className="align-self-center">My Points</div>
                     <div className="align-self-center">
-                      <h2 className="mb-0">1,305</h2>
+                      <h2 className="mb-0">{yotpoData?.points_balance}</h2>
                     </div>
                   </div>
                   <div className="align-self-end font_xs">
@@ -125,51 +206,17 @@ const Profile = () => {
                     className="swiper-container2"
                     modules={[Navigation, Mousewheel, HashNavigation]}
                   >
-                    <SwiperSlide key="1" data-hash="1">
+                    { yotpoRedemptionData && yotpoRedemptionData?.map((r) => (
+                    <SwiperSlide key={r.id} data-hash={r.id}>
                       <div className="slider__image">
                         <Reward
                           image_url="account/bg_reward.jpg"
-                          discount="$2"
-                          points="100"
+                          discount={r.name}
+                          points={r.amount}
                         />
                       </div>
                     </SwiperSlide>
-                    <SwiperSlide key="2" data-hash="2">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$5"
-                          points="250"
-                        />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide key="3" data-hash="3">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$10"
-                          points="500"
-                        />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide key="4" data-hash="4">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$20"
-                          points="1000"
-                        />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide key="5" data-hash="5">
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount="$30"
-                          points="1500"
-                        />
-                      </div>
-                    </SwiperSlide>
+                    ))}
                   </Swiper>
 
                   <div className="slider__next">

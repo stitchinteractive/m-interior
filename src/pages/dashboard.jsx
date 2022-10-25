@@ -86,7 +86,7 @@ const Profile = () => {
       });
     }
 
-    console.log(yotpoData)
+    //console.log(yotpoData)
 
     fetch('https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
       .then(async response => {
@@ -103,10 +103,10 @@ const Profile = () => {
         setRedemptData(rData)
     })
     .catch(error => {
-        this.setState({ errorMessage: error.toString() });
+        //this.setState({ errorMessage: error.toString() });
         console.error('There was an error!', error);
     });
-    console.log(yotpoRedemptionData)
+    //console.log(yotpoRedemptionData)
   })
 
 
@@ -119,7 +119,7 @@ const Profile = () => {
   // if (error) return `Error! ${error.message}`;
   if (error) return `Error! You have no access to this page`
 
-  console.log(data)
+  //console.log(data)
   
 
   return (
