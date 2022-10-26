@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect, useState } from "react"
+import React, { useLayoutEffect, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -29,6 +29,7 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   const [yotpoCampaign, setCampaignData] = useState(null)
 
@@ -45,7 +46,9 @@ const Profile = () => {
         onComplete: () => console.log(e),
       })
     })
+  })
 
+  useEffect(() => {
     //get yotpo data
     const options = {
       method: "GET",
@@ -54,38 +57,34 @@ const Profile = () => {
       },
     }
 
-    if (data) {
-      fetch(
-        "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
-          data?.customer?.email +
-          "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
-        options
-      )
-        .then(async (response) => {
-          const isJson = response.headers
-            .get("content-type")
-            ?.includes("application/json")
-          const data2 = isJson && (await response.json())
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
+      cusdata?.customer?.email +
+        "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const data2 = isJson && (await response.json())
 
-          // check for error response
-          if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (data2 && data2.message) || response.status
-            return Promise.reject(error)
-          }
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data2 && data2.message) || response.status
+          return Promise.reject(error)
+        }
 
-          setData(data2)
-        })
-        .catch((error) => {
-          console.error("There was an error!", error)
-        })
-    }
-
-    //console.log(yotpoData)
-
+        setData(data2)
+        console.log(data2)
+      })
+      .catch((error) => {
+        console.error("There was an error!", error)
+      })
     fetch(
       "https://loyalty.yotpo.com/api/v2/campaigns?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&with_status=true&customer_email=" +
-        data?.customer?.email,
+      cusdata?.customer?.email,
       options
     )
       .then(async (response) => {
@@ -102,24 +101,25 @@ const Profile = () => {
         }
 
         setCampaignData(rData)
+        console.log(rData)
       })
       .catch((error) => {
         //this.setState({ errorMessage: error.toString() });
         console.error("There was an error!", error)
       })
-    console.log(yotpoCampaign)
-  })
+  }, [cusdata]);
 
   const token = getUser().token
-  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+  useQuery(GET_CUSTOMER, {
     variables: { handle: token },
+    onCompleted: (data) => {
+      setCustomerData(data)
+      console.log(data)
+    },
+    onError: (error)=> {
+      return `Error! You have no access to this page: ${error.message}`
+    }
   })
-
-  if (loading) return "Loading..."
-  // if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`
-
-  //console.log(data)
 
   return (
     <Layout>
@@ -128,12 +128,19 @@ const Profile = () => {
           <div className="row padding_heading">
             <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>JS</div>
+                <div className={ProfileModule.initials}>
+                  {cusdata?.customer?.firstName != undefined
+                    ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
+                    : "M"}
+                  {cusdata?.customer?.lastName != undefined
+                    ? Array.from(cusdata?.customer?.lastName)[0].toUpperCase()
+                    : "T"}
+                </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {data?.customer?.firstName} {data?.customer?.lastName}
+                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>

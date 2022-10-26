@@ -1,13 +1,33 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import * as ProfileModule from "./profile.module.css"
 
+// for user info
+import { getUser } from "../services/auth"
+import { useQuery, gql, useMutation } from "@apollo/client"
+
+const GET_CUSTOMER = gql`
+  query ($handle: String!) {
+    customer(customerAccessToken: $handle) {
+      id
+      firstName
+      lastName
+      acceptsMarketing
+      email
+      phone
+    }
+  }
+`
+
 // step 2: define component
 const Profile = () => {
+  const [cusdata, setCustomerData] = useState(null)
+  const [yotpoData, setData] = useState(null)
+  const [referralData, setReferral] = useState(null)
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -22,6 +42,83 @@ const Profile = () => {
       })
     })
   })
+  useEffect(() => {
+    //get yotpo data
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
+    }
+
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
+      cusdata?.customer?.email +
+        "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const data2 = isJson && (await response.json())
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data2 && data2.message) || response.status
+          return Promise.reject(error)
+        }
+
+        setData(data2)
+        console.log(data2)
+      })
+      .catch((error) => {
+        console.error("There was an error!", error)
+      })
+
+      const option2 = {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({email: cusdata?.customer?.email})
+      };
+
+      fetch('https://loyalty.yotpo.com/api/v2/referral/referrer?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', option2)
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const data2 = isJson && (await response.json())
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data2 && data2.message) || response.status
+          return Promise.reject(error)
+        }
+
+        setReferral(data2)
+        console.log(data2)
+      })
+      .catch((error) => {
+        console.error("There was an error!", error)
+      })
+  }, [cusdata]);
+
+  const token = getUser().token
+  useQuery(GET_CUSTOMER, {
+    variables: { handle: token },
+    onCompleted: (data) => {
+      setCustomerData(data)
+      console.log(data)
+    },
+    onError: (error)=> {
+      return `Error! You have no access to this page: ${error.message}`
+    }
+  })
 
   return (
     <Layout>
@@ -30,12 +127,19 @@ const Profile = () => {
           <div className="row padding_heading">
             <div className="col-12 col-md-5 col-lg-3 bg_white p-4 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>JS</div>
+                <div className={ProfileModule.initials}>
+                {cusdata?.customer?.firstName != undefined
+                    ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
+                    : "M"}
+                  {cusdata?.customer?.lastName != undefined
+                    ? Array.from(cusdata?.customer?.lastName)[0].toUpperCase()
+                    : "T"}
+                </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      James Smith
+                    {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -70,7 +174,7 @@ const Profile = () => {
                 <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex flex-column p-3 mt-4 mt-lg-0">
                   <div className="align-self-center">My Points</div>
                   <div className="align-self-center">
-                    <h2 className="mb-0">1,305</h2>
+                    <h2 className="mb-0">{yotpoData?.points_balance}</h2>
                   </div>
                 </div>
               </div>
@@ -148,7 +252,7 @@ const Profile = () => {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="123456"
+                          placeholder={referralData?.referral_link}
                           aria-label="Refer code"
                           aria-describedby="basic-addon2"
                         />

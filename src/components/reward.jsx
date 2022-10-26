@@ -1,40 +1,34 @@
 // step 1: import
-import * as React from "react"
+import React, { useState } from 'react';
 import { Link } from "gatsby"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
 
 // step 2: define
-function MyVerticallyCenteredModal(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Redeem Voucher
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button>Redeem</Button>
-        <Button onClick={props.onHide}>Cancel</Button>
-      </Modal.Footer>
-    </Modal>
-  )
-}
-
 export function Reward(props) {
-  const [modalShow, setModalShow] = React.useState(false)
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
+  const handleClick = async () => {
+    console.log("handle clicked")
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({customer_email: props.email, redemption_option_id: props.id})
+    };
+    
+    fetch('https://loyalty.yotpo.com/api/v2/redemptions?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .then(response => window.location.reload(false))
+      .catch(err => console.error(err));
+  }
+  
 
   return (
     <div
@@ -54,16 +48,40 @@ export function Reward(props) {
         </div>
 
         <div className="text-uppercase">
-          <a href="javascript:void(0);" onClick={() => setModalShow(true)}>
+          <a href="javascript:void(0);" onClick={handleShow}>
             Redeem &gt;
           </a>
         </div>
       </div>
 
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Redemption</Modal.Title>
+        </Modal.Header>
+        {
+          props.customer_points >= props.points ? (
+            <Modal.Body>You are about to redeem {props.points} points for {props.discount}. An email with the redemption code will be sent to you after you confirm your redemption. Press Redeem button now to continue.</Modal.Body>
+          ) : (
+            <Modal.Body>Sorry. You do not have enough points to do this redemption.</Modal.Body>
+          )
+        }
+       
+        <Modal.Footer>
+          <Button onClick={handleClose}>
+            Close
+          </Button>
+          {
+          props.customer_points >= props.points ? (
+            <Button onClick={handleClick}>
+              Redeem
+            </Button>
+          ) : (
+            <div></div>
+          )
+        }
+          
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }

@@ -41,6 +41,7 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   const [yotpoRedemptionData, setRedemptData] = useState(null)
 
@@ -57,7 +58,9 @@ const Profile = () => {
         onComplete: () => console.log(e),
       })
     })
+  })
 
+  useEffect(() => {
     //get yotpo data
     const options = {
       method: "GET",
@@ -66,34 +69,31 @@ const Profile = () => {
       },
     }
 
-    if (data) {
-      fetch(
-        "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
-          data?.customer?.email +
-          "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
-        options
-      )
-        .then(async (response) => {
-          const isJson = response.headers
-            .get("content-type")
-            ?.includes("application/json")
-          const data2 = isJson && (await response.json())
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
+      cusdata?.customer?.email +
+        "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const data2 = isJson && (await response.json())
 
-          // check for error response
-          if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (data2 && data2.message) || response.status
-            return Promise.reject(error)
-          }
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data2 && data2.message) || response.status
+          return Promise.reject(error)
+        }
 
-          setData(data2)
-        })
-        .catch((error) => {
-          console.error("There was an error!", error)
-        })
-    }
-
-    //console.log(yotpoData)
+        setData(data2)
+        console.log(data2)
+      })
+      .catch((error) => {
+        console.error("There was an error!", error)
+      })
 
     fetch(
       "https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
@@ -113,24 +113,25 @@ const Profile = () => {
         }
 
         setRedemptData(rData)
+        console.log(rData)
       })
       .catch((error) => {
         //this.setState({ errorMessage: error.toString() });
         console.error("There was an error!", error)
       })
-    //console.log(yotpoRedemptionData)
-  })
+  }, [cusdata]);
 
   const token = getUser().token
-  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+  useQuery(GET_CUSTOMER, {
     variables: { handle: token },
+    onCompleted: (data) => {
+      setCustomerData(data)
+      console.log(data)
+    },
+    onError: (error)=> {
+      return `Error! You have no access to this page: ${error.message}`
+    }
   })
-
-  if (loading) return "Loading..."
-  // if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`
-
-  //console.log(data)
 
   return (
     <Layout>
@@ -140,18 +141,18 @@ const Profile = () => {
             <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>
-                  {data?.customer?.firstName != undefined
-                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                  {cusdata?.customer?.firstName != undefined
+                    ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
                     : "M"}
-                  {data?.customer?.lastName != undefined
-                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                  {cusdata?.customer?.lastName != undefined
+                    ? Array.from(cusdata?.customer?.lastName)[0].toUpperCase()
                     : "T"}
                 </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {data?.customer?.firstName} {data?.customer?.lastName}
+                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -172,7 +173,7 @@ const Profile = () => {
                     <div className="text-uppercase">
                       <h5 className="mb-0">Welcome Back</h5>
                       <h3 className="mb-0 font_semibold">
-                        {data?.customer?.firstName} {data?.customer?.lastName}
+                        {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
                       </h3>
                     </div>
                   </div>
@@ -265,6 +266,9 @@ const Profile = () => {
                               image_url="account/bg_reward.jpg"
                               discount={r.name}
                               points={r.amount}
+                              id={r.id}
+                              email={cusdata?.customer?.email}
+                              customer_points={yotpoData?.points_balance}
                             />
                           </div>
                         </SwiperSlide>

@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link, navigate } from "gatsby"
@@ -88,6 +88,8 @@ const UPDATE_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  const [cusdata, setCustomerData] = useState(null)
+  const [yotpoData, setData] = useState(null)
   gsap.registerPlugin(ScrollTrigger)
 
   const {
@@ -103,8 +105,25 @@ const Profile = () => {
   const [message, setMessage] = React.useState(null)
 
   const onSubmit = (data) => {
-    //debugger
+    debugger
     const { confirmPwd, ...customer } = data
+    // save birthday first to yotpo
+    const [year, month, day] = oldBirthday.split('-')
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({customer_email: cusdata?.customer?.email, day: day, month: month, year: year})
+    };
+    
+    fetch('https://loyalty.yotpo.com/api/v2/customer_birthdays?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
+
+    // save other form data
     customer.acceptsMarketing = true
     customer.phone = "+65" + customer.phone
     console.log(customer)
@@ -156,16 +175,54 @@ const Profile = () => {
   // const [oldPassword, newPassword] = useState("12345678")
   // const [oldChangePassword, newChangePassword] = useState("")
 
+  useEffect(() => {
+    //get yotpo data
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
+    }
+
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
+      cusdata?.customer?.email +
+        "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const data2 = isJson && (await response.json())
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data2 && data2.message) || response.status
+          return Promise.reject(error)
+        }
+
+        setData(data2)
+        newBirthday(`${data2.birthday_year}-${String(data2.birthday_month).padStart(2, '0')}-${String(data2.birth_day).padStart(2, '0')}`)
+        console.log(data2)
+      })
+      .catch((error) => {
+        console.error("There was an error!", error)
+      })
+  }, [cusdata]);
+
   //debugger
-  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+  useQuery(GET_CUSTOMER, {
     variables: { handle: token },
+    onCompleted: (data) => {
+      setCustomerData(data)
+      console.log(data)
+    },
+    onError: (error)=> {
+      return `Error! You have no access to this page: ${error.message}`
+    }
   })
-
-  if (loading) return "Loading..."
-  // if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`
-
-  console.log(data)
 
   return (
     <Layout>
@@ -175,18 +232,18 @@ const Profile = () => {
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>
-                  {data?.customer?.firstName != undefined
-                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                  {cusdata?.customer?.firstName != undefined
+                    ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
                     : "M"}
-                  {data?.customer?.lastName != undefined
-                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                  {cusdata?.customer?.lastName != undefined
+                    ? Array.from(cusdata?.customer?.lastName)[0].toUpperCase()
                     : "T"}
                 </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {data?.customer?.firstName} {data?.customer?.lastName}
+                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -217,7 +274,7 @@ const Profile = () => {
                         className="form-control"
                         name="firstName"
                         id="input_first_name"
-                        defaultValue={data?.customer?.firstName}
+                        defaultValue={cusdata?.customer?.firstName}
                         {...register("firstName")}
                       />
                       {errors.firstName && (
@@ -233,7 +290,7 @@ const Profile = () => {
                         className="form-control"
                         name="lastName"
                         id="input_last_name"
-                        defaultValue={data?.customer?.lastName}
+                        defaultValue={cusdata?.customer?.lastName}
                         {...register("lastName")}
                       />
                       {errors.lastName && (
@@ -251,7 +308,7 @@ const Profile = () => {
                         className="form-control"
                         name="email"
                         id="input_email"
-                        defaultValue={data?.customer?.email}
+                        defaultValue={cusdata?.customer?.email}
                         {...register("email")}
                       />
                       {errors.email && <span>{errors.email.message}</span>}
@@ -267,7 +324,7 @@ const Profile = () => {
                         className="form-control"
                         name="phone"
                         id="input_phone"
-                        defaultValue={data?.customer?.phone?.slice(3)}
+                        defaultValue={cusdata?.customer?.phone?.slice(3)}
                         {...register("phone")}
                       />
                       {errors.phone && <span>{errors.phone.message}</span>}
@@ -281,7 +338,7 @@ const Profile = () => {
                       <input
                         type="date"
                         className="form-control"
-                        id="input_last_name"
+                        id="input_birthday"
                         value={oldBirthday}
                         onChange={(event) => newBirthday(event.target.value)}
                       />
