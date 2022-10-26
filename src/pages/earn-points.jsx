@@ -29,8 +29,8 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
-  const [yotpoData, setData] = useState(null);
-  const [yotpoCampaign, setCampaignData] = useState(null);
+  const [yotpoData, setData] = useState(null)
+  const [yotpoCampaign, setCampaignData] = useState(null)
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -48,52 +48,65 @@ const Profile = () => {
 
     //get yotpo data
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        accept: 'application/json'
-      }
-    };
+        accept: "application/json",
+      },
+    }
 
-    if(data) {
-      fetch('https://loyalty.yotpo.com/api/v2/customers?customer_email='+data?.customer?.email+'&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
-        .then(async response => {
-          const isJson = response.headers.get('content-type')?.includes('application/json');
-          const data2 = isJson && await response.json();
+    if (data) {
+      fetch(
+        "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
+          data?.customer?.email +
+          "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+        options
+      )
+        .then(async (response) => {
+          const isJson = response.headers
+            .get("content-type")
+            ?.includes("application/json")
+          const data2 = isJson && (await response.json())
 
           // check for error response
           if (!response.ok) {
-              // get error message from body or default to response status
-              const error = (data2 && data2.message) || response.status;
-              return Promise.reject(error);
+            // get error message from body or default to response status
+            const error = (data2 && data2.message) || response.status
+            return Promise.reject(error)
           }
 
           setData(data2)
-      })
-      .catch(error => {
-          console.error('There was an error!', error);
-      });
+        })
+        .catch((error) => {
+          console.error("There was an error!", error)
+        })
     }
 
     //console.log(yotpoData)
 
-    fetch('https://loyalty.yotpo.com/api/v2/campaigns?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&with_status=true&customer_email='+data?.customer?.email, options)
-      .then(async response => {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const rData = isJson && await response.json();
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/campaigns?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&with_status=true&customer_email=" +
+        data?.customer?.email,
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const rData = isJson && (await response.json())
 
         // check for error response
         if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (rData && rData.message) || response.status;
-            return Promise.reject(error);
+          // get error message from body or default to response status
+          const error = (rData && rData.message) || response.status
+          return Promise.reject(error)
         }
 
         setCampaignData(rData)
-    })
-    .catch(error => {
+      })
+      .catch((error) => {
         //this.setState({ errorMessage: error.toString() });
-        console.error('There was an error!', error);
-    });
+        console.error("There was an error!", error)
+      })
     console.log(yotpoCampaign)
   })
 
@@ -120,7 +133,7 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                    {data?.customer?.firstName} {data?.customer?.lastName}
+                      {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -137,6 +150,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row mb-60">
+                {/*
                 <div className="col-12 col-lg-5 line_height_dense text-uppercase d-flex p-3 bg_white">
                   <div className="row">
                     <div className="col-3 col-md-3 align-self-end pb-3 pb-md-0">
@@ -150,6 +164,7 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+                */}
                 <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex flex-column p-3 mt-4 mt-lg-0">
                   <div className="align-self-center">My Points</div>
                   <div className="align-self-center">
@@ -211,21 +226,20 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row bg_white pt-4 ps-3 pe-3 d-flex ">
-                { yotpoCampaign && yotpoCampaign?.map((r) => (
-                  r.status.customer_times_completed > 0 ? 
-                  (
-                    <VoucherRedeemed
-                      heading={r.unrendered_title}
-                      points={r.reward_text}
-                    />
-                  ) : (
-                    <Voucher
-                      heading={r.unrendered_title}
-                      points={r.reward_text}
-                    />
-                  )
-                  
-                ))}
+                {yotpoCampaign &&
+                  yotpoCampaign?.map((r) =>
+                    r.status.customer_times_completed > 0 ? (
+                      <VoucherRedeemed
+                        heading={r.unrendered_title}
+                        points={r.reward_text}
+                      />
+                    ) : (
+                      <Voucher
+                        heading={r.unrendered_title}
+                        points={r.reward_text}
+                      />
+                    )
+                  )}
                 {/* <VoucherRedeemed
                   heading="Create an account"
                   points="100 points"
@@ -246,10 +260,18 @@ const Profile = () => {
                 /> */}
               </div>
               <div className="py-3">^ Points expire within one year</div>
+              <div className="text-center pt-5">
+                <a href="/create-account">
+                  <button className="btn btn-primary-large mb-120">
+                    Earn Points
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {/*
       <div className="bg_grey">
         <div className="container-fluid">
           <div className="row pt-5">
@@ -275,6 +297,7 @@ const Profile = () => {
           </a>
         </div>
       </div>
+      */}
     </Layout>
   )
 }

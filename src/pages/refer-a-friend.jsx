@@ -52,6 +52,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="row mb-60">
+                {/*
                 <div className="col-12 col-lg-5 line_height_dense text-uppercase d-flex p-3 bg_white">
                   <div className="row">
                     <div className="col-3 col-md-3 align-self-end pb-3 pb-md-0">
@@ -65,6 +66,7 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+                */}
                 <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex flex-column p-3 mt-4 mt-lg-0">
                   <div className="align-self-center">My Points</div>
                   <div className="align-self-center">

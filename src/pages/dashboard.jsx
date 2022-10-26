@@ -41,8 +41,8 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
-  const [yotpoData, setData] = useState(null);
-  const [yotpoRedemptionData, setRedemptData] = useState(null);
+  const [yotpoData, setData] = useState(null)
+  const [yotpoRedemptionData, setRedemptData] = useState(null)
 
   gsap.registerPlugin(ScrollTrigger)
 
@@ -60,55 +60,66 @@ const Profile = () => {
 
     //get yotpo data
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        accept: 'application/json'
-      }
-    };
+        accept: "application/json",
+      },
+    }
 
-    if(data) {
-      fetch('https://loyalty.yotpo.com/api/v2/customers?customer_email='+data?.customer?.email+'&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
-        .then(async response => {
-          const isJson = response.headers.get('content-type')?.includes('application/json');
-          const data2 = isJson && await response.json();
+    if (data) {
+      fetch(
+        "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
+          data?.customer?.email +
+          "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+        options
+      )
+        .then(async (response) => {
+          const isJson = response.headers
+            .get("content-type")
+            ?.includes("application/json")
+          const data2 = isJson && (await response.json())
 
           // check for error response
           if (!response.ok) {
-              // get error message from body or default to response status
-              const error = (data2 && data2.message) || response.status;
-              return Promise.reject(error);
+            // get error message from body or default to response status
+            const error = (data2 && data2.message) || response.status
+            return Promise.reject(error)
           }
 
           setData(data2)
-      })
-      .catch(error => {
-          console.error('There was an error!', error);
-      });
+        })
+        .catch((error) => {
+          console.error("There was an error!", error)
+        })
     }
 
     //console.log(yotpoData)
 
-    fetch('https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
-      .then(async response => {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const rData = isJson && await response.json();
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const rData = isJson && (await response.json())
 
         // check for error response
         if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (rData && rData.message) || response.status;
-            return Promise.reject(error);
+          // get error message from body or default to response status
+          const error = (rData && rData.message) || response.status
+          return Promise.reject(error)
         }
 
         setRedemptData(rData)
-    })
-    .catch(error => {
+      })
+      .catch((error) => {
         //this.setState({ errorMessage: error.toString() });
-        console.error('There was an error!', error);
-    });
+        console.error("There was an error!", error)
+      })
     //console.log(yotpoRedemptionData)
   })
-
 
   const token = getUser().token
   const { loading, error, data } = useQuery(GET_CUSTOMER, {
@@ -120,7 +131,6 @@ const Profile = () => {
   if (error) return `Error! You have no access to this page`
 
   //console.log(data)
-  
 
   return (
     <Layout>
@@ -130,7 +140,7 @@ const Profile = () => {
             <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>
-                {data?.customer?.firstName != undefined
+                  {data?.customer?.firstName != undefined
                     ? Array.from(data?.customer?.firstName)[0].toUpperCase()
                     : "M"}
                   {data?.customer?.lastName != undefined
@@ -141,7 +151,7 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                    {data?.customer?.firstName} {data?.customer?.lastName}
+                      {data?.customer?.firstName} {data?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -161,13 +171,17 @@ const Profile = () => {
                   <div className="overlay h-100">
                     <div className="text-uppercase">
                       <h5 className="mb-0">Welcome Back</h5>
-                      <h3 className="mb-0 font_semibold">{data?.customer?.firstName} {data?.customer?.lastName}</h3>
+                      <h3 className="mb-0 font_semibold">
+                        {data?.customer?.firstName} {data?.customer?.lastName}
+                      </h3>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="row mb-60">
+                {/*
                 <div className="col-12 col-lg-7 line_height_dense text-uppercase d-flex justify-content-start p-3">
+                  
                   <div className="row">
                     <div className="col-3 col-md-2 align-self-end pb-3 pb-md-0">
                       <img src="/icons/club_insider.png" alt="My Tier" />
@@ -193,7 +207,9 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
+                  
                 </div>
+                */}
                 <div className="col-12 col-lg-5 bg_grey_medium_6 line_height_dense text-uppercase d-flex justify-content-between p-3 mt-4 mt-lg-0">
                   <div className="align-self-end">
                     My
@@ -241,22 +257,32 @@ const Profile = () => {
                     className="swiper-container2"
                     modules={[Navigation, Mousewheel, HashNavigation]}
                   >
-                    { yotpoRedemptionData && yotpoRedemptionData?.map((r) => (
-                    <SwiperSlide key={r.id} data-hash={r.id}>
-                      <div className="slider__image">
-                        <Reward
-                          image_url="account/bg_reward.jpg"
-                          discount={r.name}
-                          points={r.amount}
-                        />
-                      </div>
-                    </SwiperSlide>
-                    ))}
+                    {yotpoRedemptionData &&
+                      yotpoRedemptionData?.map((r) => (
+                        <SwiperSlide key={r.id} data-hash={r.id}>
+                          <div className="slider__image">
+                            <Reward
+                              image_url="account/bg_reward.jpg"
+                              discount={r.name}
+                              points={r.amount}
+                            />
+                          </div>
+                        </SwiperSlide>
+                      ))}
                   </Swiper>
 
                   <div className="slider__next">
                     <img src="/icons/btn_next.png" alt="Next" />
                   </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="text-center pt-5">
+                  <a href="/create-account">
+                    <button className="btn btn-primary-large mb-120">
+                      Earn Points
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -279,7 +305,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      */}
       <div className="bg_grey">
         <div className="container-fluid">
           <div className="row pt-5">
@@ -305,6 +330,7 @@ const Profile = () => {
           </a>
         </div>
       </div>
+      */}
     </Layout>
   )
 }
