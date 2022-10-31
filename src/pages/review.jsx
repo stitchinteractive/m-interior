@@ -185,7 +185,7 @@ const Profile = () => {
                   data-price="67"
                   data-currency="SGD"
                   data-name="ACACIA BLOCK"
-                  data-url="https://minteriormain.gtsb.io/"
+                  data-url="https://minteriormain.gtsb.io/shop/detail/acacia-block"
                   data-image-url="https://cdn.shopify.com/s/files/1/0638/4851/3785/products/Thumbnail-White---Front-_1.png?v=1660030341">
               </div>
             </div>
