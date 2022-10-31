@@ -89,6 +89,7 @@ export function Seo({
       )}
       {children}
       {/* <script type="text/javascript" async src="https://cdn-loyalty.yotpo.com/loader/jx9X-MCEhx-re9u7YIbChg.js"></script> */}
+      <script type="text/javascript" async src="https://staticw2.yotpo.com/0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT/widget.js"></script>
     </Helmet>
   )
 }

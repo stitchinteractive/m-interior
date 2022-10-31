@@ -15,33 +15,9 @@ import { handleLogin, isLoggedIn } from "../services/auth"
 // import module.css
 import * as ProfileModule from "./profile.module.css"
 
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
 const schema = yup
   .object({
-    firstName: yup.string().required("First Name is mandatory"),
-    lastName: yup.string().required("Last Name is mandatory"),
-    phone: yup
-      .string()
-      .matches(phoneRegExp, { message: "Phone must be numbers" })
-      .min(8, "Phone must be 8 char long")
-      .required("Phone is mandatory"),
-    email: yup
-      .string()
-      .email("Email is not in the correct format")
-      .required("Email is mandatory"),
-    password: yup
-      .string()
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
-      ),
-    //.required("Password is mandatory")
-    //.min(3, "Password must be at 3 char long"),
-    confirmPwd: yup
-      .string()
-      //.required("Password is mandatory")
-      .oneOf([yup.ref("password")], "Passwords does not match"),
+    review: yup.string().required("Review cannot be empty"),
   })
   .required()
 
@@ -54,36 +30,6 @@ const GET_CUSTOMER = gql`
       acceptsMarketing
       email
       phone
-    }
-  }
-`
-
-const UPDATE_CUSTOMER = gql`
-  # create a customer
-  mutation customerUpdate(
-    $customer: CustomerUpdateInput!
-    $customerAccessToken: String!
-  ) {
-    customerUpdate(
-      customer: $customer
-      customerAccessToken: $customerAccessToken
-    ) {
-      customer {
-        firstName
-        lastName
-        email
-        phone
-        acceptsMarketing
-      }
-      customerAccessToken {
-        accessToken
-        expiresAt
-      }
-      customerUserErrors {
-        field
-        message
-        code
-      }
     }
   }
 `
@@ -105,36 +51,35 @@ const Profile = () => {
   const [message, setMessage] = React.useState(null)
 
   const onSubmit = (data) => {
+    //save review
     //debugger
-    const { confirmPwd, ...customer } = data
-    customer.acceptsMarketing = true
-    customer.phone = "+65" + customer.phone
-    console.log(customer)
-    customerUpdate({
-      variables: { customer: customer, customerAccessToken: token },
-      onCompleted: (result) => {
-        debugger
-        console.log(result)
-        if (result.customerUpdate.customerUserErrors.length > 0) {
-          var err = ""
-          result.customerUpdate.customerUserErrors.forEach((el) => {
-            err = err + el.message + ". "
-          })
-          setMessage(err)
-        } else {
-          //reset()
-          handleLogin(
-            result.customerUpdate.customerAccessToken.accessToken,
-            result.customerUpdate.customerAccessToken.expiresAt
-          )
-          window.location.reload(false)
-          setMessage("Profile updated successfully")
-        }
-      },
-    })
+    const options = {
+      method: 'POST',
+      headers: {accept: 'application/json', 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        appkey: '0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT',
+        domain: 'https://m-interior.co/',
+        sku: 'yotpo_site_reviews',
+        product_title: 'Site Review',
+        product_description: 'Site Review',
+        product_url: 'https://m-interior.co/',
+        product_image_url: 'https://servmask.com/img/products/url-extension-128x128.png',
+        display_name: 'alex',
+        email: 'asjtan@gmail.com',
+        is_incentivized: true,
+        review_content: 'Wonderful site',
+        review_title: 'Great Portal',
+        review_score: 5
+      })
+    };
+    
+    fetch('https://api.yotpo.com/v1/widget/reviews', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
   }
 
-  const [customerUpdate] = useMutation(UPDATE_CUSTOMER)
+
 
   // useLayoutEffect(() => {
   //   gsap.utils.toArray(".animate").forEach(function (e) {
@@ -148,15 +93,6 @@ const Profile = () => {
   //     })
   //   })
   // })
-
-  // set default values for textfields
-  // const [oldFirstName, newFirstName] = useState("James")
-  // const [oldLastName, newLastName] = useState("Smith")
-  // const [oldEmail, newEmail] = useState("jamessmith@gmail.com")
-  // const [oldPhone, newPhone] = useState("+65 9123 4567")
-  const [oldBirthday, newBirthday] = useState("2000-01-01")
-  // const [oldPassword, newPassword] = useState("12345678")
-  // const [oldChangePassword, newChangePassword] = useState("")
 
   //debugger
   const { loading, error, data } = useQuery(GET_CUSTOMER, {
@@ -209,7 +145,13 @@ const Profile = () => {
                       {message && <label>{message}</label>}
                     </div>
                   </div>
-                  <div className="row">
+                  <div class="yotpo yotpo-main-widget"
+                    data-product-id="yotpo_site_reviews"
+                    data-name="Site Review"
+                    data-url="https://m-interior.co/"
+                    data-image-url="https://m-interior.co/">
+                  </div>
+                  {/* <div className="row">
                     <div className="col-12">
                       <div class="mb-5">
                         <label
@@ -222,7 +164,12 @@ const Profile = () => {
                           class="form-control"
                           id="exampleFormControlTextarea1"
                           rows="3"
+                          name="review"
+                          {...register("review")}
                         ></textarea>
+                        {errors.review && (
+                        <span>{errors.review.message}</span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -236,7 +183,7 @@ const Profile = () => {
                         Submit
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </form>
               </div>
             </div>
