@@ -145,14 +145,6 @@ const Profile = () => {
                       {message && <label>{message}</label>}
                     </div>
                   </div>
-                  <div class="yotpo yotpo-main-widget"
-                  data-product-id="10001"
-                  data-price="100"
-                  data-currency="SGD"
-                  data-name="Product Super"
-                  data-url="The url of your product page"
-                  data-image-url="https://www.rd.com/wp-content/uploads/2019/09/Cute-cat-lying-on-his-back-on-the-carpet.-Breed-British-mackerel-with-yellow-eyes-and-a-bushy-mustache.-Close-up-e1573490045672.jpg">
-                  </div>
                   {/* <div className="row">
                     <div className="col-12">
                       <div class="mb-5">
@@ -188,6 +180,14 @@ const Profile = () => {
                   </div> */}
                 </form>
               </div>
+              <div class="yotpo yotpo-main-widget"
+                  data-product-id="10001"
+                  data-price="100"
+                  data-currency="SGD"
+                  data-name="Product Super"
+                  data-url="https://minteriormain.gtsb.io/"
+                  data-image-url="https://www.rd.com/wp-content/uploads/2019/09/Cute-cat-lying-on-his-back-on-the-carpet.-Breed-British-mackerel-with-yellow-eyes-and-a-bushy-mustache.-Close-up-e1573490045672.jpg">
+                  </div>
             </div>
           </div>
         </div>
