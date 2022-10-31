@@ -181,7 +181,7 @@ const Profile = () => {
                 </form>
               </div>
               <div class="yotpo yotpo-main-widget"
-                  data-product-id="468c1107-38b2-510b-969e-22807dbe36cb"
+                  data-product-id="423166174"
                   data-price="67"
                   data-currency="SGD"
                   data-name="ACACIA BLOCK"
