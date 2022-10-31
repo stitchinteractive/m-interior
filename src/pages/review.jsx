@@ -63,7 +63,7 @@ const Profile = () => {
         product_title: 'Site Review',
         product_description: 'Site Review',
         product_url: 'https://m-interior.co/',
-        product_image_url: 'https://servmask.com/img/products/url-extension-128x128.png',
+        product_image_url: 'https://m-interior.co/',
         display_name: 'alex',
         email: 'asjtan@gmail.com',
         is_incentivized: true,
@@ -146,7 +146,7 @@ const Profile = () => {
                     </div>
                   </div>
                   <div class="yotpo yotpo-main-widget"
-                    data-product-id="yotpo_site_reviews"
+                    data-product-id="1"
                     data-name="Site Review"
                     data-url="https://m-interior.co/"
                     data-image-url="https://m-interior.co/">
