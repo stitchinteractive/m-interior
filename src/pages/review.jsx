@@ -181,13 +181,13 @@ const Profile = () => {
                 </form>
               </div>
               <div class="yotpo yotpo-main-widget"
-                  data-product-id="10001"
-                  data-price="100"
+                  data-product-id="468c1107-38b2-510b-969e-22807dbe36cb"
+                  data-price="67"
                   data-currency="SGD"
-                  data-name="Product Super"
+                  data-name="ACACIA BLOCK"
                   data-url="https://minteriormain.gtsb.io/"
-                  data-image-url="https://www.rd.com/wp-content/uploads/2019/09/Cute-cat-lying-on-his-back-on-the-carpet.-Breed-British-mackerel-with-yellow-eyes-and-a-bushy-mustache.-Close-up-e1573490045672.jpg">
-                  </div>
+                  data-image-url="https://cdn.shopify.com/s/files/1/0638/4851/3785/products/Thumbnail-White---Front-_1.png?v=1660030341">
+              </div>
             </div>
           </div>
         </div>
