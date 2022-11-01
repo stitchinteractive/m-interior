@@ -123,6 +123,14 @@ const Profile = () => {
 
   return (
     <Layout>
+      <div 
+      id="swell-customer-identification"
+      data-authenticated="true"
+      data-email={cusdata?.customer?.email}
+      data-id="##customer-id##"
+      data-tags="##customer-tags##"
+      style={{display: "none"}}>
+      </div>
       <div className="bg_grey">
         <div className="container">
           <div className="row padding_heading">
@@ -237,11 +245,15 @@ const Profile = () => {
                   yotpoCampaign?.map((r) =>
                     r.status.customer_times_completed > 0 ? (
                       <VoucherRedeemed
+                        type={r.type}
+                        id={r.id}
                         heading={r.unrendered_title}
                         points={r.reward_text}
                       />
                     ) : (
                       <Voucher
+                        type={r.type}
+                        id={r.id}
                         heading={r.unrendered_title}
                         points={r.reward_text}
                       />

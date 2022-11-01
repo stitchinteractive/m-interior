@@ -15,6 +15,9 @@ import { handleLogin, isLoggedIn } from "../services/auth"
 // import module.css
 import * as ProfileModule from "./profile.module.css"
 
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
+
 const schema = yup
   .object({
     review: yup.string().required("Review cannot be empty"),
@@ -36,6 +39,15 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  const [cusdata, setCustomerData] = useState(null)
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false)
+    navigate(`/earn-points`)
+  };
+  const handleShow = () => setShow(true);
+
   gsap.registerPlugin(ScrollTrigger)
 
   const {
@@ -52,23 +64,23 @@ const Profile = () => {
 
   const onSubmit = (data) => {
     //save review
-    //debugger
+    debugger
     const options = {
       method: 'POST',
       headers: {accept: 'application/json', 'Content-Type': 'application/json'},
       body: JSON.stringify({
         appkey: '0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT',
         domain: 'https://m-interior.co/',
-        sku: 'yotpo_site_reviews',
-        product_title: 'Site Review',
-        product_description: 'Site Review',
+        sku: 'SiteReview',
+        product_title: 'our product',
+        product_description: 'our product',
         product_url: 'https://m-interior.co/',
-        product_image_url: 'https://m-interior.co/',
-        display_name: 'alex',
-        email: 'asjtan@gmail.com',
+        product_image_url: 'https://m-interior.co/logo.png',
+        display_name: cusdata?.customer?.firstName+' '+cusdata?.customer?.lastName,
+        email: cusdata?.customer?.email,
         is_incentivized: true,
-        review_content: 'Wonderful site',
-        review_title: 'Great Portal',
+        review_content: data.review,
+        review_title: 'Site Review',
         review_score: 5
       })
     };
@@ -76,6 +88,10 @@ const Profile = () => {
     fetch('https://api.yotpo.com/v1/widget/reviews', options)
       .then(response => response.json())
       .then(response => console.log(response))
+      .then(response => {
+        handleShow()
+        reset()
+      })
       .catch(err => console.error(err));
   }
 
@@ -95,36 +111,48 @@ const Profile = () => {
   // })
 
   //debugger
-  const { loading, error, data } = useQuery(GET_CUSTOMER, {
+  useQuery(GET_CUSTOMER, {
     variables: { handle: token },
+    onCompleted: (data) => {
+      setCustomerData(data)
+      console.log(data)
+    },
+    onError: (error)=> {
+      return `Error! You have no access to this page: ${error.message}`
+    }
   })
-
-  if (loading) return "Loading..."
-  // if (error) return `Error! ${error.message}`;
-  if (error) return `Error! You have no access to this page`
-
-  console.log(data)
 
   return (
     <Layout>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Review</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Your review has been submitted successfully.</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <div className="bg_grey">
         <div className="container">
           <div className="row row_padding">
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>
-                  {data?.customer?.firstName != undefined
-                    ? Array.from(data?.customer?.firstName)[0].toUpperCase()
+                  {cusdata?.customer?.firstName != undefined
+                    ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
                     : "M"}
-                  {data?.customer?.lastName != undefined
-                    ? Array.from(data?.customer?.lastName)[0].toUpperCase()
+                  {cusdata?.customer?.lastName != undefined
+                    ? Array.from(cusdata?.customer?.lastName)[0].toUpperCase()
                     : "T"}
                 </div>
                 <div className="d-flex flex-column">
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {data?.customer?.firstName} {data?.customer?.lastName}
+                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -145,7 +173,7 @@ const Profile = () => {
                       {message && <label>{message}</label>}
                     </div>
                   </div>
-                  {/* <div className="row">
+                  <div className="row">
                     <div className="col-12">
                       <div class="mb-5">
                         <label
@@ -177,16 +205,8 @@ const Profile = () => {
                         Submit
                       </button>
                     </div>
-                  </div> */}
+                  </div>
                 </form>
-              </div>
-              <div class="yotpo yotpo-main-widget"
-                  data-product-id="423166174"
-                  data-price="67"
-                  data-currency="SGD"
-                  data-name="ACACIA BLOCK"
-                  data-url="https://minteriormain.gtsb.io/shop/detail/acacia-block"
-                  data-image-url="https://cdn.shopify.com/s/files/1/0638/4851/3785/products/Thumbnail-White---Front-_1.png?v=1660030341">
               </div>
             </div>
           </div>

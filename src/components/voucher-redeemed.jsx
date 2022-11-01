@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 export function VoucherRedeemed(props) {
   return (
     <div className="col-12 col-lg-4 mb-4">
-      <Link to="/" className="no_underline">
+      <Link to="/earn-points" className="no_underline">
         <div className="voucher_redeemed">
           <h5 className="mb-3 text-uppercase">{props.heading}</h5>
           <div className="mb-0">{props.points}</div>
