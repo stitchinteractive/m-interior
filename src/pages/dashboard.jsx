@@ -8,6 +8,7 @@ import { Link } from "gatsby"
 import { Reward } from "../components/reward"
 import { MembershipTable } from "../components/membership-table"
 import { MembershipTableCurrent } from "../components/membership-table-current"
+import { Stories } from "../components/stories"
 import AsteriskIcon from "../icons/asterisk"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
@@ -71,7 +72,7 @@ const Profile = () => {
 
     fetch(
       "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
-      cusdata?.customer?.email +
+        cusdata?.customer?.email +
         "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
       options
     )
@@ -119,7 +120,7 @@ const Profile = () => {
         //this.setState({ errorMessage: error.toString() });
         console.error("There was an error!", error)
       })
-  }, [cusdata]);
+  }, [cusdata])
 
   const token = getUser().token
   useQuery(GET_CUSTOMER, {
@@ -128,9 +129,9 @@ const Profile = () => {
       setCustomerData(data)
       console.log(data)
     },
-    onError: (error)=> {
+    onError: (error) => {
       return `Error! You have no access to this page: ${error.message}`
-    }
+    },
   })
 
   return (
@@ -152,7 +153,8 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
+                      {cusdata?.customer?.firstName}{" "}
+                      {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -173,7 +175,8 @@ const Profile = () => {
                     <div className="text-uppercase">
                       <h5 className="mb-0">Welcome Back</h5>
                       <h3 className="mb-0 font_semibold">
-                        {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
+                        {cusdata?.customer?.firstName}{" "}
+                        {cusdata?.customer?.lastName}
                       </h3>
                     </div>
                   </div>
@@ -293,7 +296,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/*
       <div className="bg_blue">
         <div className="container">
           <div className="row row_padding">
@@ -306,6 +308,7 @@ const Profile = () => {
                 <AsteriskIcon />
               </div>
             </h2>
+            <Stories />
           </div>
         </div>
       </div>
@@ -334,7 +337,6 @@ const Profile = () => {
           </a>
         </div>
       </div>
-      */}
     </Layout>
   )
 }
