@@ -2,6 +2,7 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
+import { useYotpoLoyalty } from '@frontend-sdk/yotpo'
 
 export function Seo({
   title = "",
@@ -46,6 +47,8 @@ export function Seo({
     image: `${siteUrl}${image || siteImage}`,
   }
 
+  useYotpoLoyalty('jx9X-MCEhx-re9u7YIbChg')
+
   return (
     <Helmet
       title={title}
@@ -88,7 +91,6 @@ export function Seo({
         <meta name="robots" content="noindex, nofollow" />
       )}
       {children}
-      <script type="text/javascript" async src="https://cdn-loyalty.yotpo.com/loader/jx9X-MCEhx-re9u7YIbChg.js"></script>
     </Helmet>
   )
 }
