@@ -1,5 +1,5 @@
 // step 1: import
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { Link } from "gatsby"
 import { TestimonialItem } from "../components/testimonial-item"
 
@@ -15,6 +15,39 @@ import "swiper/css/scrollbar"
 
 // step 2: define and export
 export function Testimonials() {
+  const [testimonials, setTestimonials] = useState(null)
+
+  useEffect(() => {
+    //get yotpo utoken
+  const options = {
+    method: 'POST',
+    headers: {accept: 'application/json', 'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      grant_type: 'client_credentials',
+      client_secret: 'UhhaZTngLG8Qf8MhrfDU9e86D8lvcjNxDS0c7w3a',
+      client_id: '0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT'
+    })
+  };
+  
+  fetch('https://api.yotpo.com/oauth/token', options)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response.access_token)
+      const options = {
+        method: 'GET',
+        headers: {accept: 'application/json', 'Content-Type': 'application/json'}
+      };
+      
+      fetch('https://api.yotpo.com/v1/apps/0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT/reviews?count=100&deleted=false&utoken='+response.access_token, options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+    })
+    .catch(err => console.error(err));
+  }, []);
+
+  
+
   return (
     <div className="bg_grey">
       <div className="container-fluid">
