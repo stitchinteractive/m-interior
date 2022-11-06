@@ -22,9 +22,7 @@ export function NavAccount(props) {
                 </Link>
               </li>
               <li>
-                <Link to="/earn-points" activeStyle={{ fontWeight: 600 }}>
-                  Earn Points
-                </Link>
+                <a href="/earn-points" activeStyle={{ fontWeight: 600 }}>Earn Points</a>
               </li>
               <li>
                 <Link to="/redeem-points" activeStyle={{ fontWeight: 600 }}>

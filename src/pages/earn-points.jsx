@@ -244,7 +244,7 @@ const Profile = () => {
                 {yotpoCampaign &&
                   yotpoCampaign?.map((r) =>
                     r.status.customer_times_completed > 0 ? (
-                      <VoucherRedeemed
+                      <Voucher
                         type={r.type}
                         id={r.id}
                         heading={r.unrendered_title}
