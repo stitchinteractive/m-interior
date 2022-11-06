@@ -28,14 +28,16 @@ export function StoryItem(props) {
         </div>
         <div className="row">
           <div className="col pt-4">
-            <div className={storyModule.review}>{props.review}</div>
+            <div className={storyModule.review}>
+              <p dangerouslySetInnerHTML={{ __html: props.review }}></p>
+            </div>
           </div>
         </div>
         <div className="row">
           <div className="col-12">
             <div className={storyModule.info}>
               <div className="d-flex pt-3">
-                <a href="" className="link_underline" rel="noreferrer">
+                <a href={"/stories?h="+props.handle} className="link_underline" rel="noreferrer">
                   Read more &gt;
                 </a>
               </div>

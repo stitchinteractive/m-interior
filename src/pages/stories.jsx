@@ -11,7 +11,7 @@ import { useQuery, gql } from "@apollo/client"
 
 const GET_MORE_BLOGS = gql`
   query {
-    blog(handle: "news") {
+    blog(handle: "stories") {
       articles(first: 3, reverse: false) {
         edges {
           node {
@@ -35,7 +35,7 @@ const GET_MORE_BLOGS = gql`
 
 const GET_ARTICLE = gql`
   query ($handle: String!) {
-    blogs(first: 250, reverse: true, query:"handle:news") {
+    blogs(first: 250, reverse: true, query:"handle:stories") {
       edges {
         node {
           title
@@ -186,7 +186,7 @@ const InteriorDesignDetails = ({ location }) => {
                   <div className="col-12 col-md-4 mb-5">
                     <div className="container_overlay">
                       <Link
-                        to={"/blog?h=" + blog?.node?.handle}
+                        to={"/stories?h=" + blog?.node?.handle}
                         className="d-flex w-100 h-100 no_underline"
                       >
                         <ImgCard
