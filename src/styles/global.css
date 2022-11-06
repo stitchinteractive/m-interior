@@ -970,7 +970,8 @@ a.no_underline {
 }
 
 .nav_accordion .accordion-button::after {
-  margin-left: 20px;
+  position: relative;
+  right: 0;
 }
 
 .nav_accordion .accordion-button::after {
@@ -979,6 +980,10 @@ a.no_underline {
 
 .nav_accordion .accordion-button:not(.collapsed)::after {
   background-image: url(/icons/arrow_less.png);
+}
+
+#nav_account .nav_accordion .accordion-body {
+  padding: 0 0 0 50px;
 }
 
 .accordion-item {
@@ -1391,10 +1396,12 @@ circle {
   margin: auto;
 }
 
+/*
 .table_benefits tr th:nth-child(3),
 .table_benefits tr td:nth-child(3) {
   background: var(--yellow-light);
 }
+*/
 
 .voucher_container {
   display: table;

@@ -182,6 +182,7 @@ export function Footer() {
                   </li>
                 </ul>
               </div>
+              {/*
               <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
                 <h5 className="text-uppercase mb-3">Subscribe</h5>
                 <div className="font_sm mb-5">
@@ -220,6 +221,22 @@ export function Footer() {
                       Subscribe to our newsletter and enjoy 10% off!
                     </div>
                   </form>
+                </div>
+              </div>
+              */}
+              <div className="col-8 col-md-6 col-xl-12 offset-2 offset-md-0">
+                <h5 className="text-uppercase mb-3">M.INT Club</h5>
+                <div className="font_sm mb-5">
+                  <div className="input-group-append mb-2">
+                    <Link to="/create-account">
+                      <button className="btn btn-outline" type="button">
+                        Create Account
+                      </button>
+                    </Link>
+                  </div>
+                  <div className="font_xs">
+                    Join M.INT club and enjoy 10% off!
+                  </div>
                 </div>
               </div>
             </div>

@@ -7,7 +7,6 @@ import { NavAccount } from "../components/nav_account"
 import { Link } from "gatsby"
 import { Reward } from "../components/reward"
 import { MembershipTable } from "../components/membership-table"
-import { MembershipTableCurrent } from "../components/membership-table-current"
 import { Stories } from "../components/stories"
 import AsteriskIcon from "../icons/asterisk"
 import AsteriskIconBlack from "../icons/asterisk-black"
@@ -139,7 +138,7 @@ const Profile = () => {
       <div className="bg_grey">
         <div className="container">
           <div className="row padding_heading">
-            <div className="col-12 col-md-5 col-lg-3 bg_white p-5 mb-5">
+            <div className="col-12 col-md-5 col-lg-3 bg_white pt-5 ps-5 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>
                   {cusdata?.customer?.firstName != undefined
@@ -327,7 +326,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="container-membership">
-          <MembershipTableCurrent />
+          <MembershipTable />
         </div>
         <div className="text-center pt-5">
           <a href="/create-account">

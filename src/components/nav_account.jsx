@@ -3,18 +3,19 @@ import * as React from "react"
 import { Link, navigate } from "gatsby"
 import { getUser, isLoggedIn, logout } from "../services/auth"
 import Accordion from "react-bootstrap/Accordion"
+import * as navShopModule from "./nav-shop.module.css"
 
 // step 2: define
 export function NavAccount(props) {
   return (
     <div id="nav_account" className="text-uppercase">
-      <Accordion defaultActiveKey="0">
+      <Accordion defaultActiveKey="0" className="nav_accordion">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             <div className="text-uppercase">M.INT Club</div>
           </Accordion.Header>
           <Accordion.Body>
-            <ul className="listing">
+            <ul className={navShopModule.listing}>
               <li>
                 <Link to="/dashboard" activeStyle={{ fontWeight: 600 }}>
                   Dashboard
@@ -43,7 +44,7 @@ export function NavAccount(props) {
             <div className="text-uppercase">My Account</div>
           </Accordion.Header>
           <Accordion.Body>
-            <ul className="listing">
+            <ul className={navShopModule.listing}>
               <li>
                 <Link to="/profile" activeStyle={{ fontWeight: 600 }}>
                   My Profile
@@ -79,7 +80,7 @@ export function NavAccount(props) {
             <div className="text-uppercase">Shipping &amp; Billing</div>
           </Accordion.Header>
           <Accordion.Body>
-            <ul className="listing">
+            <ul className={navShopModule.listing}>
               <li>
                 <Link to="/saved-address" activeStyle={{ fontWeight: 600 }}>
                   Saved Address

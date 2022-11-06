@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
 import * as ProfileModule from "./profile.module.css"
+import Button from "react-bootstrap/Button"
+import Modal from "react-bootstrap/Modal"
 
 // for user info
 import { getUser } from "../services/auth"
@@ -30,6 +32,10 @@ const Profile = () => {
   const [referralData, setReferral] = useState(null)
   gsap.registerPlugin(ScrollTrigger)
 
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
   useLayoutEffect(() => {
     gsap.utils.toArray(".animate").forEach(function (e) {
       gsap.from(e, {
@@ -53,7 +59,7 @@ const Profile = () => {
 
     fetch(
       "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
-      cusdata?.customer?.email +
+        cusdata?.customer?.email +
         "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
       options
     )
@@ -77,16 +83,19 @@ const Profile = () => {
         console.error("There was an error!", error)
       })
 
-      const option2 = {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({email: cusdata?.customer?.email})
-      };
+    const option2 = {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email: cusdata?.customer?.email }),
+    }
 
-      fetch('https://loyalty.yotpo.com/api/v2/referral/referrer?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', option2)
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/referral/referrer?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+      option2
+    )
       .then(async (response) => {
         const isJson = response.headers
           .get("content-type")
@@ -106,7 +115,7 @@ const Profile = () => {
       .catch((error) => {
         console.error("There was an error!", error)
       })
-  }, [cusdata]);
+  }, [cusdata])
 
   const token = getUser().token
   useQuery(GET_CUSTOMER, {
@@ -115,9 +124,9 @@ const Profile = () => {
       setCustomerData(data)
       console.log(data)
     },
-    onError: (error)=> {
+    onError: (error) => {
       return `Error! You have no access to this page: ${error.message}`
-    }
+    },
   })
 
   return (
@@ -128,7 +137,7 @@ const Profile = () => {
             <div className="col-12 col-md-5 col-lg-3 bg_white p-4 mb-5">
               <div className="d-flex align-items-center mb-5">
                 <div className={ProfileModule.initials}>
-                {cusdata?.customer?.firstName != undefined
+                  {cusdata?.customer?.firstName != undefined
                     ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
                     : "M"}
                   {cusdata?.customer?.lastName != undefined
@@ -139,7 +148,8 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                    {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
+                      {cusdata?.customer?.firstName}{" "}
+                      {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -257,7 +267,16 @@ const Profile = () => {
                           aria-describedby="basic-addon2"
                         />
                         <div className="input-group-append">
-                          <button className="btn btn-outline" type="button">
+                          <button
+                            className="btn btn-outline"
+                            type="button"
+                            onClick={() => {
+                              navigator.clipboard.writeText(
+                                referralData?.referral_link
+                              )
+                              handleShow()
+                            }}
+                          >
                             Copy Code
                           </button>
                         </div>
@@ -270,6 +289,15 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Copy Code</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{referralData?.referral_link} has been copied!</Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>Close</Button>
+        </Modal.Footer>
+      </Modal>
     </Layout>
   )
 }

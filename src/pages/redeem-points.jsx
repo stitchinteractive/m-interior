@@ -60,7 +60,7 @@ const Profile = () => {
       })
     })
   })
-  
+
   useEffect(() => {
     //get yotpo data
     const options = {
@@ -72,7 +72,7 @@ const Profile = () => {
 
     fetch(
       "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
-      cusdata?.customer?.email +
+        cusdata?.customer?.email +
         "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
       options
     )
@@ -95,31 +95,31 @@ const Profile = () => {
       .catch((error) => {
         console.error("There was an error!", error)
       })
-      fetch(
-        "https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&",
-        options
-      )
-        .then(async (response) => {
-          const isJson = response.headers
-            .get("content-type")
-            ?.includes("application/json")
-          const rData = isJson && (await response.json())
-  
-          // check for error response
-          if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (rData && rData.message) || response.status
-            return Promise.reject(error)
-          }
-  
-          setRedemptData(rData)
-          console.log(rData)
-        })
-        .catch((error) => {
-          //this.setState({ errorMessage: error.toString() });
-          console.error("There was an error!", error)
-        })
-  }, [cusdata]);
+    fetch(
+      "https://loyalty.yotpo.com/api/v2/redemption_options?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&",
+      options
+    )
+      .then(async (response) => {
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json")
+        const rData = isJson && (await response.json())
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (rData && rData.message) || response.status
+          return Promise.reject(error)
+        }
+
+        setRedemptData(rData)
+        console.log(rData)
+      })
+      .catch((error) => {
+        //this.setState({ errorMessage: error.toString() });
+        console.error("There was an error!", error)
+      })
+  }, [cusdata])
 
   const token = getUser().token
   useQuery(GET_CUSTOMER, {
@@ -128,9 +128,9 @@ const Profile = () => {
       setCustomerData(data)
       console.log(data)
     },
-    onError: (error)=> {
+    onError: (error) => {
       return `Error! You have no access to this page: ${error.message}`
-    }
+    },
   })
 
   return (
@@ -152,7 +152,8 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
+                      {cusdata?.customer?.firstName}{" "}
+                      {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
