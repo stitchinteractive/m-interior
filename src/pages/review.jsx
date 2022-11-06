@@ -128,7 +128,7 @@ const Profile = () => {
         <Modal.Header closeButton>
           <Modal.Title>Review</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Your review has been submitted successfully.</Modal.Body>
+        <Modal.Body>Your review has been sent.</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
