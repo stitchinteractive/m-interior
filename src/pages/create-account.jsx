@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect, useRef } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
@@ -89,6 +89,23 @@ const Account = () => {
           })
           setMessage(err)
         } else {
+          // save birthday to yotpo
+          debugger
+          const [year, month, day] = oldBirthday.split('-')
+          const options = {
+            method: 'POST',
+            headers: {
+              accept: 'application/json',
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify({customer_email: result.customerCreate.customer.email, day: day, month: month, year: year})
+          };
+          
+          fetch('https://loyalty.yotpo.com/api/v2/customer_birthdays?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+            
           reset()
           setMessage("Profile created successfully")
         }
@@ -110,6 +127,7 @@ const Account = () => {
   // })
 
   const [customerCreate] = useMutation(CREATE_CUSTOMER)
+  const [oldBirthday, newBirthday] = useState("2000-01-01")
 
   return (
     <Layout>
@@ -205,6 +223,7 @@ const Account = () => {
                           name="birthday"
                           className="form-control"
                           id="input_last_name"
+                          onChange={(event) => newBirthday(event.target.value)}
                         />
                       </div>
                     </div>
