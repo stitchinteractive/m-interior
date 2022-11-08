@@ -4,95 +4,105 @@ import { Link } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
-import { useQuery, gql } from '@apollo/client';
-import { format } from 'date-fns';
+import { useQuery, gql } from "@apollo/client"
+import { format } from "date-fns"
 
 const GET_FEATURED_BLOG = gql`
-query {
-  blog(handle: "news") {
-    articles(first: 1, reverse: true, query:"tag:featured") {
-      edges {
-        node {
-          title
-          contentHtml
-          excerpt
-          publishedAt
-          image {
-            url
+  query {
+    blog(handle: "news") {
+      articles(first: 1, reverse: true, query: "tag:featured") {
+        edges {
+          node {
+            title
+            contentHtml
+            excerpt
+            publishedAt
+            image {
+              url
+            }
+            authorV2 {
+              name
+            }
+            handle
           }
-          authorV2 {
-            name
-          }
-          handle
         }
       }
     }
   }
-}
 `
 
 const GET_NEXT_BLOG = gql`
-query ($numProducts: Int!, $cursor: String) {
-  blog(handle: "news") {
-    articles(first: $numProducts, after: $cursor, reverse: true, query:"tag_not:featured") {
-      edges {
-        node {
-          title
-          contentHtml
-          excerpt
-          publishedAt
-          image {
-            url
+  query ($numProducts: Int!, $cursor: String) {
+    blog(handle: "news") {
+      articles(
+        first: $numProducts
+        after: $cursor
+        reverse: true
+        query: "tag_not:featured"
+      ) {
+        edges {
+          node {
+            title
+            contentHtml
+            excerpt
+            publishedAt
+            image {
+              url
+            }
+            authorV2 {
+              name
+            }
+            handle
           }
-          authorV2 {
-            name
-          }
-          handle
         }
-      }
-      pageInfo {
-        hasNextPage
-        endCursor
-        hasPreviousPage
-        startCursor
+        pageInfo {
+          hasNextPage
+          endCursor
+          hasPreviousPage
+          startCursor
+        }
       }
     }
   }
-}
 `
 
 const GET_PREV_BLOG = gql`
-query ($numProducts: Int!, $cursor: String) {
-  blog(handle: "news") {
-    articles(last: $numProducts, before: $cursor, reverse: true, query:"tag_not:featured") {
-      edges {
-        node {
-          title
-          contentHtml
-          excerpt
-          publishedAt
-          image {
-            url
+  query ($numProducts: Int!, $cursor: String) {
+    blog(handle: "news") {
+      articles(
+        last: $numProducts
+        before: $cursor
+        reverse: true
+        query: "tag_not:featured"
+      ) {
+        edges {
+          node {
+            title
+            contentHtml
+            excerpt
+            publishedAt
+            image {
+              url
+            }
+            authorV2 {
+              name
+            }
+            handle
           }
-          authorV2 {
-            name
-          }
-          handle
         }
-      }
-      pageInfo {
-        hasNextPage
-        endCursor
-        hasPreviousPage
-        startCursor
+        pageInfo {
+          hasNextPage
+          endCursor
+          hasPreviousPage
+          startCursor
+        }
       }
     }
   }
-}
 `
 
 // step 2: define component
-const InteriorDesignDetails = ({location}) => {
+const InteriorDesignDetails = ({ location }) => {
   const params = new URLSearchParams(location.search)
   const action = params.get("action")
   const cursor = params.get("cursor")
@@ -113,18 +123,30 @@ const InteriorDesignDetails = ({location}) => {
   })
 
   debugger
-  const { data: featuredData, loading: featuredLoading, error: featuredError } = useQuery(GET_FEATURED_BLOG);
-  const { data: blogDataNext, loading: blogLoadingNext, error: blogErrorNext } = useQuery(GET_NEXT_BLOG, {
-    variables: {numProducts: 6, cursor: cursor}
+  const {
+    data: featuredData,
+    loading: featuredLoading,
+    error: featuredError,
+  } = useQuery(GET_FEATURED_BLOG)
+  const {
+    data: blogDataNext,
+    loading: blogLoadingNext,
+    error: blogErrorNext,
+  } = useQuery(GET_NEXT_BLOG, {
+    variables: { numProducts: 6, cursor: cursor },
   })
-  const { data: blogDataPrev, loading: blogLoadingPrev, error: blogErrorPrev } = useQuery(GET_PREV_BLOG, {
-    variables: {numProducts: 6, cursor: cursor}
-  });
+  const {
+    data: blogDataPrev,
+    loading: blogLoadingPrev,
+    error: blogErrorPrev,
+  } = useQuery(GET_PREV_BLOG, {
+    variables: { numProducts: 6, cursor: cursor },
+  })
   var blogData = []
-  if(action === null || action === "next") {
+  if (action === null || action === "next") {
     blogData = blogDataNext
   }
-  if(action === "back") {
+  if (action === "back") {
     blogData = blogDataPrev
   }
 
@@ -139,106 +161,154 @@ const InteriorDesignDetails = ({location}) => {
     <Layout>
       <div>
         {hasFeatured ? (
-        <div className="container">
-          <div className="row row_padding d-flex align-items-center">
-            <div className="col-12 col-md-6 order-2 order-md-1">
-              <div className="row">
-                <h2 className="text-uppercase mb-60">{featuredData?.blog?.articles.edges[0].node.title}</h2>
-                <p className="font_light pb-4">{format(new Date(featuredData?.blog?.articles.edges[0].node.publishedAt), 'dd MMM yyyy')}</p>
-                <p dangerouslySetInnerHTML={{ __html: featuredData?.blog?.articles.edges[0].node.excerpt }}>
-                  
-                </p>
-                <div className="col-12">
-                  <Link to={"/blog?h="+featuredData?.blog?.articles.edges[0].node.handle}>
-                    <button
-                      type="submit"
-                      className="btn btn-outline btn-black mb-80"
+          <div className="container">
+            <div className="row row_padding d-flex align-items-center">
+              <div className="col-12 col-md-6 order-2 order-md-1">
+                <div className="row">
+                  <h2 className="text-uppercase mb-60">
+                    {featuredData?.blog?.articles.edges[0].node.title}
+                  </h2>
+                  <p className="font_light pb-4">
+                    {format(
+                      new Date(
+                        featuredData?.blog?.articles.edges[0].node.publishedAt
+                      ),
+                      "dd MMM yyyy"
+                    )}
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        featuredData?.blog?.articles.edges[0].node.excerpt,
+                    }}
+                  ></p>
+                  <div className="col-12">
+                    <Link
+                      to={
+                        "/blog?h=" +
+                        featuredData?.blog?.articles.edges[0].node.handle
+                      }
                     >
-                      Read More
-                    </button>
-                  </Link>
+                      <button
+                        type="submit"
+                        className="btn btn-outline btn-black mb-80"
+                      >
+                        Read More
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 order-1 order-md-2">
+                <p>
+                  <img
+                    src={featuredData?.blog?.articles.edges[0].node.image?.url}
+                    alt={featuredData?.blog?.articles.edges[0].node.title}
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="container">
+            <div className="row row_padding d-flex align-items-center">
+              <div className="col-12 col-md-6 order-2 order-md-1">
+                <div className="row">
+                  <h2 className="text-uppercase mb-60">
+                    {/*No featured post.*/}
+                  </h2>
+                  <p className="font_light pb-4">
+                    {/*No featured post.*/} Loading featured post...
+                  </p>
+                  <p>{/*No featured post.*/}</p>
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6 order-1 order-md-2">
-              <p>
-                <img src={featuredData?.blog?.articles.edges[0].node.image?.url} alt={featuredData?.blog?.articles.edges[0].node.title} />
-              </p>
-            </div>
           </div>
-        </div>
-        ) : (
-          <div className="container">
-          <div className="row row_padding d-flex align-items-center">
-            <div className="col-12 col-md-6 order-2 order-md-1">
-              <div className="row">
-                <h2 className="text-uppercase mb-60">No featured post.</h2>
-                <p className="font_light pb-4">No featured post.</p>
-                <p>
-                  No featured post.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
         )}
-        
 
         <div className="bg_grey">
           <div className="container">
             <div className="row row_padding">
-            {hasBlog &&
-              blogData?.blog?.articles.edges.map((blog) => (
-              <div className="col-12 col-md-6 col-lg-4">
-                <p>
-                  <img
-                    src={blog.node.image?.url}
-                    alt={blog.node.title}
-                  />
-                </p>
-                <h4 className="text-uppercase mb-3">{blog.node.title}</h4>
-                <p className="font_light pb-4">{format(new Date(blog.node.publishedAt), 'dd MMM yyyy')}</p>
-                <p dangerouslySetInnerHTML={{ __html: blog.node.excerpt }}>
-                </p>
-                <p className="mb-100">
-                  <Link to={"/blog?h="+blog.node.handle} className="link_underline">
-                    Read more &gt;
-                  </Link>
-                </p>
-              </div>
-            ))}
-            {
-              (blogData?.blog?.articles.pageInfo.hasPreviousPage || blogData?.blog?.articles.pageInfo.hasNextPage) ? (
-              <div className="col-12">
-                <nav aria-label="...">
-                  <ul className="pagination justify-content-center">
-                    <li className={blogData?.blog?.articles.pageInfo.hasPreviousPage ? "page-item" : "page-item disabled"}>
+              {hasBlog &&
+                blogData?.blog?.articles.edges.map((blog) => (
+                  <div className="col-12 col-md-6 col-lg-4">
+                    <p>
+                      <img src={blog.node.image?.url} alt={blog.node.title} />
+                    </p>
+                    <h4 className="text-uppercase mb-3">{blog.node.title}</h4>
+                    <p className="font_light pb-4">
+                      {format(new Date(blog.node.publishedAt), "dd MMM yyyy")}
+                    </p>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: blog.node.excerpt }}
+                    ></p>
+                    <p className="mb-100">
                       <Link
-                        className="page-link"
-                        href={"?action=back&cursor="+blogData?.blog?.articles.pageInfo.startCursor}
-                         //tabindex="-1"
-                        aria-disabled={blogData?.blog?.articles.pageInfo.hasPreviousPage ? "true" : "false"}
+                        to={"/blog?h=" + blog.node.handle}
+                        className="link_underline"
                       >
-                        Previous
+                        Read more &gt;
                       </Link>
-                    </li>
-                    <li class={blogData?.blog?.articles.pageInfo.hasNextPage ? "page-item" : "page-item disabled"}>
-                      <Link 
-                        className="page-link" 
-                        href={"?action=next&cursor="+blogData?.blog?.articles.pageInfo.endCursor}
-                        aria-disabled={blogData?.blog?.articles.pageInfo.hasNextPage ? "true" : "false"}>
-                        Next
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+                    </p>
+                  </div>
+                ))}
+              {blogData?.blog?.articles.pageInfo.hasPreviousPage ||
+              blogData?.blog?.articles.pageInfo.hasNextPage ? (
+                <div className="col-12">
+                  <nav aria-label="...">
+                    <ul className="pagination justify-content-center">
+                      <li
+                        className={
+                          blogData?.blog?.articles.pageInfo.hasPreviousPage
+                            ? "page-item"
+                            : "page-item disabled"
+                        }
+                      >
+                        <Link
+                          className="page-link"
+                          href={
+                            "?action=back&cursor=" +
+                            blogData?.blog?.articles.pageInfo.startCursor
+                          }
+                          //tabindex="-1"
+                          aria-disabled={
+                            blogData?.blog?.articles.pageInfo.hasPreviousPage
+                              ? "true"
+                              : "false"
+                          }
+                        >
+                          Previous
+                        </Link>
+                      </li>
+                      <li
+                        class={
+                          blogData?.blog?.articles.pageInfo.hasNextPage
+                            ? "page-item"
+                            : "page-item disabled"
+                        }
+                      >
+                        <Link
+                          className="page-link"
+                          href={
+                            "?action=next&cursor=" +
+                            blogData?.blog?.articles.pageInfo.endCursor
+                          }
+                          aria-disabled={
+                            blogData?.blog?.articles.pageInfo.hasNextPage
+                              ? "true"
+                              : "false"
+                          }
+                        >
+                          Next
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
               ) : (
                 <div></div>
-              )
-            }
-              
-
+              )}
             </div>
           </div>
         </div>

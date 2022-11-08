@@ -284,7 +284,7 @@ const Profile = () => {
               </div>
               <div className="row">
                 <div className="text-center pt-5">
-                  <a href="/create-account">
+                  <a href="/earn-points">
                     <button className="btn btn-primary-large mb-120">
                       Earn Points
                     </button>
@@ -329,7 +329,7 @@ const Profile = () => {
           <MembershipTable />
         </div>
         <div className="text-center pt-5">
-          <a href="/create-account">
+          <a href="/earn-points">
             <button className="btn btn-primary-large mb-120">
               Earn Points
             </button>

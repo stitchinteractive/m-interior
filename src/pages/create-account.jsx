@@ -26,10 +26,12 @@ const schema = yup
       .string()
       .email("Email is not in the correct format")
       .required("Email is mandatory"),
-    password: yup.string().matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
-    ),
+    password: yup
+      .string()
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
+      ),
     confirmPwd: yup
       .string()
       .oneOf([yup.ref("password")], "Passwords does not match"),
@@ -91,21 +93,29 @@ const Account = () => {
         } else {
           // save birthday to yotpo
           debugger
-          const [year, month, day] = oldBirthday.split('-')
+          const [year, month, day] = oldBirthday.split("-")
           const options = {
-            method: 'POST',
+            method: "POST",
             headers: {
-              accept: 'application/json',
-              'content-type': 'application/json'
+              accept: "application/json",
+              "content-type": "application/json",
             },
-            body: JSON.stringify({customer_email: result.customerCreate.customer.email, day: day, month: month, year: year})
-          };
-          
-          fetch('https://loyalty.yotpo.com/api/v2/customer_birthdays?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
-            
+            body: JSON.stringify({
+              customer_email: result.customerCreate.customer.email,
+              day: day,
+              month: month,
+              year: year,
+            }),
+          }
+
+          fetch(
+            "https://loyalty.yotpo.com/api/v2/customer_birthdays?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
+            options
+          )
+            .then((response) => response.json())
+            .then((response) => console.log(response))
+            .catch((err) => console.error(err))
+
           reset()
           setMessage("Profile created successfully")
         }
@@ -145,7 +155,7 @@ const Account = () => {
                         to="/login"
                         className="ms-2 font_yellow text-uppercase font_semibold no_underline"
                       >
-                        Back
+                        Back To Log In
                       </Link>
                     </div>
                     <div className="d-flex btn_back mb-20">
@@ -211,6 +221,7 @@ const Account = () => {
                           </span>
                         )}
                       </div>
+                      {/*
                       <div className="col-12 mb-5">
                         <label
                           htmlFor="input_first_name"
@@ -226,6 +237,7 @@ const Account = () => {
                           onChange={(event) => newBirthday(event.target.value)}
                         />
                       </div>
+                      */}
                     </div>
                   </div>
                   <div className="col-lg-6">
@@ -281,6 +293,7 @@ const Account = () => {
                           </span>
                         )}
                       </div>
+                      {/*
                       <div className="col-12 mb-5">
                         <label htmlFor="input_referral" className="form-label">
                           Referral Code
@@ -291,6 +304,7 @@ const Account = () => {
                           id="input_referral"
                         />
                       </div>
+                      */}
                     </div>
                   </div>
 

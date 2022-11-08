@@ -59,7 +59,7 @@ const Profile = () => {
 
     fetch(
       "https://loyalty.yotpo.com/api/v2/customers?customer_email=" +
-      cusdata?.customer?.email +
+        cusdata?.customer?.email +
         "&country_iso_code=null&with_referral_code=false&with_history=true&guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt",
       options
     )
@@ -84,7 +84,7 @@ const Profile = () => {
       })
     fetch(
       "https://loyalty.yotpo.com/api/v2/campaigns?guid=jx9X-MCEhx-re9u7YIbChg&api_key=KYoD7NmQ6FaibkwxyAcHGgtt&with_status=true&customer_email=" +
-      cusdata?.customer?.email,
+        cusdata?.customer?.email,
       options
     )
       .then(async (response) => {
@@ -107,7 +107,7 @@ const Profile = () => {
         //this.setState({ errorMessage: error.toString() });
         console.error("There was an error!", error)
       })
-  }, [cusdata]);
+  }, [cusdata])
 
   const token = getUser().token
   useQuery(GET_CUSTOMER, {
@@ -116,21 +116,21 @@ const Profile = () => {
       setCustomerData(data)
       console.log(data)
     },
-    onError: (error)=> {
+    onError: (error) => {
       return `Error! You have no access to this page: ${error.message}`
-    }
+    },
   })
 
   return (
     <Layout>
-      <div 
-      id="swell-customer-identification"
-      data-authenticated="true"
-      data-email={cusdata?.customer?.email}
-      data-id="##customer-id##"
-      data-tags="##customer-tags##"
-      style={{display: "none"}}>
-      </div>
+      <div
+        id="swell-customer-identification"
+        data-authenticated="true"
+        data-email={cusdata?.customer?.email}
+        data-id="##customer-id##"
+        data-tags="##customer-tags##"
+        style={{ display: "none" }}
+      ></div>
       <div className="bg_grey">
         <div className="container">
           <div className="row padding_heading">
@@ -148,7 +148,8 @@ const Profile = () => {
                   <div className={ProfileModule.customer_name}>
                     <div className="font_grey_medium_3">Hello.</div>
                     <div className="font_lg font_semibold text-uppercase">
-                      {cusdata?.customer?.firstName} {cusdata?.customer?.lastName}
+                      {cusdata?.customer?.firstName}{" "}
+                      {cusdata?.customer?.lastName}
                     </div>
                   </div>
                 </div>
@@ -279,13 +280,15 @@ const Profile = () => {
                 /> */}
               </div>
               <div className="py-3">^ Points expire within one year</div>
+              {/*
               <div className="text-center pt-5">
-                <a href="/create-account">
+                <a href="/earn-points">
                   <button className="btn btn-primary-large mb-120">
                     Earn Points
                   </button>
                 </a>
               </div>
+              */}
             </div>
           </div>
         </div>
