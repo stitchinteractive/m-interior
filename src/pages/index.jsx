@@ -577,7 +577,6 @@ const HomePage = () => {
                 </p>
               </div>
             </SwiperSlide>
-            {/*
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
@@ -594,7 +593,7 @@ const HomePage = () => {
               </p>
               <p>Join our community and be a part of something bigger.</p>
               <p>
-                <Link to="/">
+                <Link to="/create-account">
                   <button
                     type="button"
                     className="btn btn-outline btn-outline-large"
@@ -604,7 +603,6 @@ const HomePage = () => {
                 </Link>
               </p>
             </SwiperSlide>
-            */}
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{

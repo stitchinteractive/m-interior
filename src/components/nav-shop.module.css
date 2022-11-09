@@ -9,6 +9,10 @@ ul.listing li {
   list-style-type: none;
 }
 
+.no_border {
+  border-bottom: 0 !important;
+}
+
 /********** laptops **********/
 @media (min-width: 992px) {
   ul.listing {

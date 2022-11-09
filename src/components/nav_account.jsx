@@ -9,7 +9,7 @@ import * as navShopModule from "./nav-shop.module.css"
 export function NavAccount(props) {
   return (
     <div id="nav_account" className="text-uppercase">
-      <Accordion defaultActiveKey="0" className="nav_accordion">
+      <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             <div className="text-uppercase">M.INT Club</div>
@@ -22,7 +22,9 @@ export function NavAccount(props) {
                 </Link>
               </li>
               <li>
-                <a href="/earn-points" activeStyle={{ fontWeight: 600 }}>Earn Points</a>
+                <a href="/earn-points" activeStyle={{ fontWeight: 600 }}>
+                  Earn Points
+                </a>
               </li>
               <li>
                 <Link to="/redeem-points" activeStyle={{ fontWeight: 600 }}>

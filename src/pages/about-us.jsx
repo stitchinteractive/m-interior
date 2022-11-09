@@ -105,7 +105,10 @@ const AboutUs = () => {
                     advice from our team of designers.
                   </p>
                   <p className="pb-5">
-                    <Link to="/contact-us" className="link_underline">
+                    <Link
+                      to="/design-service#speak-to-us"
+                      className="link_underline"
+                    >
                       Speak to us now &gt;
                     </Link>
                   </p>

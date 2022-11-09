@@ -150,6 +150,7 @@ const InteriorDesignDetails = () => {
             </div>
           </div>
         </div>
+        <a id="talk-to-us"></a>
         <div id="consultation_form">
           <div className="container">
             <div className="row row_padding">
@@ -157,7 +158,7 @@ const InteriorDesignDetails = () => {
                 <form method="post" onSubmit={handleSubmit} className="row g-3">
                   <div className="col-12">
                     <h2 className="text-uppercase text-center pb-4">
-                      Talk To Us
+                      Speak To Us
                     </h2>
                     <p className="text-uppercase text-center font_xs font_semibold">
                       LET’S TALK DESIGN, OVER COFFFEE.

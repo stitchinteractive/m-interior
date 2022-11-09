@@ -33,27 +33,27 @@ export function NavShop(props) {
   return (
     <div id="nav_account" className="text-uppercase">
       <h2 className="text-uppercase mb-70">Shop</h2>
-      <div className="d-flex align-items-start">
-        <div className="align-self-start">
-          <img
-            src="/icons/filter.png"
-            className="mt-2 me-2"
-            width="16"
-            height="16"
-            alt="Filter"
-          />
-        </div>
-        <div className="align-self-start">
-          <div className="mb-3 font_grey_medium_4">Filter by</div>
-        </div>
-      </div>
 
-      <Accordion defaultActiveKey="1" className="nav_accordion">
-        <Accordion.Item eventKey="1">
+      <Accordion defaultActiveKey="1">
+        <Accordion.Item eventKey="1" className={navShopModule.no_border}>
           <Accordion.Header>
-            <div className="font_medium">Modular Furniture</div>
+            <div className="d-flex align-items-start">
+              <div className="align-self-start">
+                <img
+                  src="/icons/filter.png"
+                  className="mt-2 me-2"
+                  width="16"
+                  height="16"
+                  alt="Filter"
+                />
+              </div>
+              <div className="align-self-start">
+                <div className="mt-1">Filter by</div>
+              </div>
+            </div>
           </Accordion.Header>
           <Accordion.Body>
+            <div className="font_medium">Modular Furniture</div>
             <ul className={navShopModule.listing}>
               <li>
                 <Link
@@ -72,72 +72,75 @@ export function NavShop(props) {
                 </Link>
               </li>
             </ul>
+            <div className="font_medium mb-3">
+              <Link
+                to="/shop/acacia-for-pets"
+                activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
+              >
+                Acacia For Pets
+              </Link>
+            </div>
+            <div className="font_medium">
+              <Link
+                to="/shop/accessories"
+                activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
+              >
+                Accessories
+              </Link>
+            </div>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <ul className="listing font_medium">
-        <li>
-          <Link
-            to="/shop/acacia-for-pets"
-            activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
-          >
-            Acacia For Pets
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/shop/accessories"
-            activeStyle={{ fontWeight: 600, color: "#FBCB02" }}
-          >
-            Accessories
-          </Link>
-        </li>
-      </ul>
 
-      <br />
-      <br />
-
-      <div className="d-flex align-items-start">
-        <div className="align-self-start">
-          <img
-            src="/icons/sort.png"
-            className="mt-2 me-2"
-            width="16"
-            height="16"
-            alt="Sort"
-          />
-        </div>
-        <div className="align-self-start">
-          <div className="mb-3 font_grey_medium_4">Sort by</div>
-        </div>
-      </div>
-      <ul className="listing font_medium">
-        <li>
-          <Link to="?sortby=bestselling" style={bestsellingcode}>
-            Bestselling
-          </Link>
-        </li>
-        <li>
-          <Link to="?sortby=lowtohigh" style={lowtohighcode}>
-            Price (low to high)
-          </Link>
-        </li>
-        <li>
-          <Link to="?sortby=hightolow" style={hightolowcode}>
-            Price (High to low)
-          </Link>
-        </li>
-        <li>
-          <Link to="?sortby=AtoZ" style={atozcode}>
-            Alphabetically (A to Z)
-          </Link>
-        </li>
-        <li>
-          <Link to="?sortby=ZtoA" style={ztoacode}>
-            Alphabetically (Z to A)
-          </Link>
-        </li>
-      </ul>
+      <Accordion defaultActiveKey="2">
+        <Accordion.Item eventKey="2">
+          <Accordion.Header>
+            <div className="d-flex align-items-start">
+              <div className="align-self-start">
+                <img
+                  src="/icons/sort.png"
+                  className="mt-2 me-2"
+                  width="16"
+                  height="16"
+                  alt="Sort"
+                />
+              </div>
+              <div className="align-self-start">
+                <div className="mt-1">Sort by</div>
+              </div>
+            </div>
+          </Accordion.Header>
+          <Accordion.Body>
+            <ul className="listing font_medium">
+              <li>
+                <Link to="?sortby=bestselling" style={bestsellingcode}>
+                  Bestselling
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=lowtohigh" style={lowtohighcode}>
+                  Price (low to high)
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=hightolow" style={hightolowcode}>
+                  Price (High to low)
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=AtoZ" style={atozcode}>
+                  Alphabetically (A to Z)
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=ZtoA" style={ztoacode}>
+                  Alphabetically (Z to A)
+                </Link>
+              </li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </div>
   )
 }
