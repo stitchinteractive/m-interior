@@ -10,7 +10,7 @@ module.exports = {
     hrefLang: "en",
     siteDescription:
       "Find fun and freedom in transforming your spaces with our modular furniture series. Simply connect, stack and mount the blocks to build your own creative storage display.",
-    siteImage: "/default-og-image.jpg",
+    siteImage: "/mint.jpg",
     twitter: "@gatsbyjs",
   },
   flags: {

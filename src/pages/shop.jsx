@@ -151,7 +151,7 @@ const Shop = ({data: { collections, bestselling, allProducts }, location}) => {
     })
   })
 
-  debugger
+  //debugger
 
   var products = []
   const params = new URLSearchParams(location.search);

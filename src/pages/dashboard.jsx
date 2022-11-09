@@ -4,7 +4,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { Reward } from "../components/reward"
 import { MembershipTable } from "../components/membership-table"
 import { Stories } from "../components/stories"
@@ -41,6 +41,13 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  useEffect(() => {
+    console.log(getUser())
+    if (Object.keys(getUser()).length === 0) {
+      navigate('/login');
+    }
+  }, [])
+
   const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   const [yotpoRedemptionData, setRedemptData] = useState(null)

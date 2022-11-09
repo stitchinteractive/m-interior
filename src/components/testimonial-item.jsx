@@ -33,7 +33,9 @@ export function TestimonialItem(props) {
       </div>
       <div className="row">
         <div className="col pt-4">
-          <div className={testimonalModule.review}>{props.review}</div>
+          <div className={testimonalModule.review}><p
+                  dangerouslySetInnerHTML={{ __html: props.review }}
+                ></p></div>
         </div>
       </div>
       <div className="row">

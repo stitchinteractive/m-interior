@@ -30,16 +30,6 @@ const schema = yup
       .string()
       .email("Email is not in the correct format")
       .required("Email is mandatory"),
-    password: yup.string().matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
-    ),
-    //.required("Password is mandatory")
-    //.min(3, "Password must be at 3 char long"),
-    confirmPwd: yup
-      .string()
-      //.required("Password is mandatory")
-      .oneOf([yup.ref("password")], "Passwords does not match"),
   })
   .required()
 
@@ -88,6 +78,13 @@ const UPDATE_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  useEffect(() => {
+    console.log(getUser())
+    if (Object.keys(getUser()).length === 0) {
+      navigate('/login');
+    }
+  }, [])
+  
   const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   gsap.registerPlugin(ScrollTrigger)
@@ -140,10 +137,10 @@ const Profile = () => {
           setMessage(err)
         } else {
           //reset()
-          handleLogin(
-            result.customerUpdate.customerAccessToken.accessToken,
-            result.customerUpdate.customerAccessToken.expiresAt
-          )
+          // handleLogin(
+          //   result.customerUpdate.customerAccessToken.accessToken,
+          //   result.customerUpdate.customerAccessToken.expiresAt
+          // )
           window.location.reload(false)
           setMessage("Profile updated successfully")
         }
@@ -223,7 +220,7 @@ const Profile = () => {
       return `Error! You have no access to this page: ${error.message}`
     }
   })
-
+  
   return (
     <Layout>
       <div className="bg_grey">
@@ -337,6 +334,7 @@ const Profile = () => {
                       </label>
                       <input
                         type="date"
+                        placeholder="yyyy-mm-dd"
                         className="form-control"
                         id="input_birthday"
                         value={oldBirthday}
@@ -344,7 +342,7 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
                         Password
@@ -375,7 +373,7 @@ const Profile = () => {
                         <span>{errors.confirmPwd.message}</span>
                       )}
                     </div>
-                  </div>
+                  </div> */}
                   <div className="row">
                     <div className="col-12 mt-5 text-center">
                       <button

@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useState, useLayoutEffect, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link, navigate } from "gatsby"
@@ -15,12 +15,18 @@ import { handleLogin, isLoggedIn } from "../services/auth"
 // import module.css
 import * as ProfileModule from "./profile.module.css"
 
-import Button from "react-bootstrap/Button"
-import Modal from "react-bootstrap/Modal"
-
 const schema = yup
   .object({
-    review: yup.string().required("Review cannot be empty"),
+    password: yup.string().matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      "Password must contain at least 8 Characters, 1 uppercase, 1 lowercase, 1 number and 1 special case character"
+    ),
+    //.required("Password is mandatory")
+    //.min(3, "Password must be at 3 char long"),
+    confirmPwd: yup
+      .string()
+      //.required("Password is mandatory")
+      .oneOf([yup.ref("password")], "Passwords does not match"),
   })
   .required()
 
@@ -37,23 +43,46 @@ const GET_CUSTOMER = gql`
   }
 `
 
+const UPDATE_CUSTOMER = gql`
+  # create a customer
+  mutation customerUpdate(
+    $customer: CustomerUpdateInput!
+    $customerAccessToken: String!
+  ) {
+    customerUpdate(
+      customer: $customer
+      customerAccessToken: $customerAccessToken
+    ) {
+      customer {
+        firstName
+        lastName
+        email
+        phone
+        acceptsMarketing
+      }
+      customerAccessToken {
+        accessToken
+        expiresAt
+      }
+      customerUserErrors {
+        field
+        message
+        code
+      }
+    }
+  }
+`
+
 // step 2: define component
 const Profile = () => {
-  useEffect(() => {
-    console.log(getUser())
-    if (Object.keys(getUser()).length === 0) {
-      navigate('/login');
-    }
-  }, [])
+    useEffect(() => {
+        console.log(getUser())
+        if (Object.keys(getUser()).length === 0) {
+          navigate('/login');
+        }
+      }, [])
   const [cusdata, setCustomerData] = useState(null)
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => {
-    setShow(false)
-    navigate(`/earn-points`)
-  };
-  const handleShow = () => setShow(true);
-
+  const [yotpoData, setData] = useState(null)
   gsap.registerPlugin(ScrollTrigger)
 
   const {
@@ -69,52 +98,35 @@ const Profile = () => {
   const [message, setMessage] = React.useState(null)
 
   const onSubmit = (data) => {
-    //save review
     debugger
-    const options = {
-      method: 'POST',
-      headers: {accept: 'application/json', 'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        appkey: '0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT',
-        domain: 'https://m-interior.co/',
-        sku: 'SiteReview',
-        product_title: 'our product',
-        product_description: 'our product',
-        product_url: 'https://m-interior.co/',
-        product_image_url: 'https://m-interior.co/logo.png',
-        display_name: cusdata?.customer?.firstName+' '+cusdata?.customer?.lastName,
-        email: cusdata?.customer?.email,
-        is_incentivized: true,
-        review_content: data.review,
-        review_title: 'Site Review',
-        review_score: 5
-      })
-    };
-    
-    fetch('https://api.yotpo.com/v1/widget/reviews', options)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .then(response => {
-        handleShow()
-        reset()
-      })
-      .catch(err => console.error(err));
+    const { confirmPwd, ...customer } = data
+    // save other form data
+    console.log(customer)
+    customerUpdate({
+      variables: { customer: customer, customerAccessToken: token },
+      onCompleted: (result) => {
+        debugger
+        console.log(result)
+        if (result.customerUpdate.customerUserErrors.length > 0) {
+          var err = ""
+          result.customerUpdate.customerUserErrors.forEach((el) => {
+            err = err + el.message + ". "
+          })
+          setMessage(err)
+        } else {
+          //reset()
+          handleLogin(
+            result.customerUpdate.customerAccessToken.accessToken,
+            result.customerUpdate.customerAccessToken.expiresAt
+          )
+          window.location.reload(false)
+          setMessage("Password updated successfully")
+        }
+      },
+    })
   }
 
-
-
-  // useLayoutEffect(() => {
-  //   gsap.utils.toArray(".animate").forEach(function (e) {
-  //     gsap.from(e, {
-  //       duration: 0.8,
-  //       ease: "power1.out",
-  //       opacity: 0,
-  //       y: 100,
-  //       scrollTrigger: e,
-  //       onComplete: () => console.log(e),
-  //     })
-  //   })
-  // })
+  const [customerUpdate] = useMutation(UPDATE_CUSTOMER)
 
   //debugger
   useQuery(GET_CUSTOMER, {
@@ -130,17 +142,6 @@ const Profile = () => {
 
   return (
     <Layout>
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Review</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Your review has been sent.</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
       <div className="bg_grey">
         <div className="container">
           <div className="row row_padding">
@@ -171,34 +172,44 @@ const Profile = () => {
                   <div className="row">
                     <div className="col-12">
                       <div className="font_grey_medium_3 text-uppercase">
-                        M.int Club /
+                        My Account /
                       </div>
-                      <h3 className="text-uppercase pb-6">Write a review</h3>
+                      <h3 className="text-uppercase pb-6">My Password</h3>
                     </div>
                     <div className="d-flex btn_back mb-20">
                       {message && <label>{message}</label>}
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-12">
-                      <div class="mb-5">
-                        <label
-                          for="exampleFormControlTextarea1"
-                          class="form-label"
-                        >
-                          Describe your experience
-                        </label>
-                        <textarea
-                          class="form-control"
-                          id="exampleFormControlTextarea1"
-                          rows="3"
-                          name="review"
-                          {...register("review")}
-                        ></textarea>
-                        {errors.review && (
-                        <span>{errors.review.message}</span>
-                        )}
-                      </div>
+                    <div className="col-12 col-lg-6 pb-5">
+                      <label htmlFor="input_password" className="form-label">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="password"
+                        id="input_password"
+                        {...register("password")}
+                      />
+                      {errors.password && (
+                        <span>{errors.password.message}</span>
+                      )}
+                    </div>
+                    <div className="col-12 col-lg-6 pb-5">
+                      <label htmlFor="input_password" className="form-label">
+                        New Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="confirmPwd"
+                        id="input_password"
+                        {...register("confirmPwd")}
+                      />
+                      {errors.confirmPwd && (
+                        <span>{errors.confirmPwd.message}</span>
+                      )}
                     </div>
                   </div>
                   <div className="row">
@@ -208,7 +219,7 @@ const Profile = () => {
                         className="btn btn-primary"
                         onClick={handleSubmit(onSubmit)}
                       >
-                        Submit
+                        Update
                       </button>
                     </div>
                   </div>

@@ -1,6 +1,7 @@
 // step 1: import
 import React, { useLayoutEffect, useEffect, useState } from "react"
 import { gsap } from "gsap"
+import { Link, navigate } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { NavAccount } from "../components/nav_account"
@@ -27,6 +28,12 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  useEffect(() => {
+    console.log(getUser())
+    if (Object.keys(getUser()).length === 0) {
+      navigate('/login');
+    }
+  }, [])
   const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   gsap.registerPlugin(ScrollTrigger)

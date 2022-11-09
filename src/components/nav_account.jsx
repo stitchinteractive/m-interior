@@ -61,6 +61,11 @@ export function NavAccount(props) {
                 </Link>
               </li>
               <li>
+                <Link to="/password" activeStyle={{ fontWeight: 600 }}>
+                  Change Password
+                </Link>
+              </li>
+              <li>
                 <Link
                   to="/logout"
                   activeStyle={{ fontWeight: 600 }}

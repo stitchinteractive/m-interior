@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
@@ -104,6 +104,12 @@ const CREATE_CUSTOMER_ADDRESS = gql`
 
 // step 2: define component
 const Address = () => {
+  useEffect(() => {
+    console.log(getUser())
+    if (Object.keys(getUser()).length === 0) {
+      navigate('/login');
+    }
+  }, [])
   gsap.registerPlugin(ScrollTrigger)
 
   // useLayoutEffect(() => {

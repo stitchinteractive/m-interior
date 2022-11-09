@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from "react"
 import { Link } from "gatsby"
 import { TestimonialItem } from "../components/testimonial-item"
+import { format } from "date-fns"
 
 // import Swiper core and required modules
 import { Scrollbar, A11y } from "swiper"
@@ -19,34 +20,35 @@ export function Testimonials() {
 
   useEffect(() => {
     //get yotpo utoken
-  const options = {
-    method: 'POST',
-    headers: {accept: 'application/json', 'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      grant_type: 'client_credentials',
-      client_secret: 'UhhaZTngLG8Qf8MhrfDU9e86D8lvcjNxDS0c7w3a',
-      client_id: '0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT'
-    })
-  };
+    const options = {
+      method: 'POST',
+      headers: {accept: 'application/json', 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        grant_type: 'client_credentials',
+        client_secret: 'UhhaZTngLG8Qf8MhrfDU9e86D8lvcjNxDS0c7w3a',
+        client_id: '0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT'
+      })
+    };
   
-  fetch('https://api.yotpo.com/oauth/token', options)
-    .then(response => response.json())
-    .then(response => {
-      console.log(response.access_token)
-      const options = {
-        method: 'GET',
-        headers: {accept: 'application/json', 'Content-Type': 'application/json'}
-      };
-      
-      fetch('https://api.yotpo.com/v1/apps/0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT/reviews?count=100&deleted=false&utoken='+response.access_token, options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-    })
-    .catch(err => console.error(err));
+    fetch('https://api.yotpo.com/oauth/token', options)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response.access_token)
+        const options = {
+          method: 'GET',
+          headers: {accept: 'application/json', 'Content-Type': 'application/json'}
+        };
+        
+        fetch('https://api.yotpo.com/v1/apps/0UatVZyelKbytjRxmLaRfe9q6Zo83MYMLfOmbifT/reviews?count=100&deleted=false&utoken='+response.access_token, options)
+          .then(response => response.json())
+          .then(response => {
+            console.log(response)
+            setTestimonials(response)
+          })
+          .catch(err => console.error(err));
+      })
+      .catch(err => console.error(err));
   }, []);
-
-  
 
   return (
     <div className="bg_grey">
@@ -56,7 +58,7 @@ export function Testimonials() {
             <h2 className="pb-5 text-uppercase">Hear from our customers</h2>
             <div>
               <p className="pb-10">
-                <Link to="/contact-us">
+                <Link to="/review">
                   <button
                     type="button"
                     className="btn btn-outline-large btn-black-large"
@@ -90,15 +92,21 @@ export function Testimonials() {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log("slide change")}
               >
+                {testimonials &&
+                      testimonials?.reviews.reverse().map((t) => (
                 <SwiperSlide>
                   <TestimonialItem
                     image="/profile.jpg"
-                    name="Evelyn N"
-                    review="Great furniture provided, loved the quality and design!"
-                    date="18 July 2022"
+                    name={t.name}
+                    review={t.content}
+                    date={format(
+                      new Date(t?.created_at),
+                      "dd MMM yyyy"
+                    )}
                   />
                 </SwiperSlide>
-                <SwiperSlide>
+                ))}
+                {/* <SwiperSlide>
                   <TestimonialItem
                     image="/profile.jpg"
                     name="Eric"
@@ -177,7 +185,7 @@ export function Testimonials() {
                     review="Amazing service! I’ve ordered 3 stools from them and though there was a small issue with the delivery at first, they were quick to solve the problem. They made sure that the stools were delivered and were enthusiastic in their replies. They offered to change the colors of cushions when I wanted a different color too. Very happy to be a customer of M.INT. Apart from the top notch service, their stools are really cool and complete the look of my modern themed apartment and I like that they serve as good storage space too. Thank you so much! Would highly recommend."
                     date="3 October 2020"
                   />
-                </SwiperSlide>
+                </SwiperSlide> */}
               </Swiper>
             </div>
           </div>

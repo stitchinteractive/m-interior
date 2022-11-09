@@ -7,6 +7,7 @@ import { NavAccount } from "../components/nav_account"
 import * as ProfileModule from "./profile.module.css"
 import Button from "react-bootstrap/Button"
 import Modal from "react-bootstrap/Modal"
+import { Link, navigate } from "gatsby"
 
 // for user info
 import { getUser } from "../services/auth"
@@ -27,6 +28,12 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  useEffect(() => {
+    console.log(getUser())
+    if (Object.keys(getUser()).length === 0) {
+      navigate('/login');
+    }
+  }, [])
   const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   const [referralData, setReferral] = useState(null)
@@ -255,7 +262,7 @@ const Profile = () => {
                       className="mx-auto"
                     />
                   </p>
-                  <p>Share this code with your friends and earn points!</p>
+                  <p>Share this link with your friends and earn points!</p>
                   <div className="font_sm mb-5">
                     <form className="row g-3 px-lg-5">
                       <div className="input-group textfield_refer">

@@ -9,6 +9,7 @@ import { VoucherRedeemed } from "../components/voucher-redeemed"
 import { MembershipTableCurrent } from "../components/membership-table-current"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import * as ProfileModule from "./profile.module.css"
+import { Link, navigate } from "gatsby"
 
 // for user info
 import { getUser } from "../services/auth"
@@ -29,6 +30,12 @@ const GET_CUSTOMER = gql`
 
 // step 2: define component
 const Profile = () => {
+  useEffect(() => {
+    console.log(getUser())
+    if (Object.keys(getUser()).length === 0) {
+      navigate('/login');
+    }
+  }, [])
   const [cusdata, setCustomerData] = useState(null)
   const [yotpoData, setData] = useState(null)
   const [yotpoCampaign, setCampaignData] = useState(null)
@@ -245,7 +252,7 @@ const Profile = () => {
                 {yotpoCampaign &&
                   yotpoCampaign?.map((r) =>
                     r.status.customer_times_completed > 0 ? (
-                      <Voucher
+                      <VoucherRedeemed
                         type={r.type}
                         id={r.id}
                         heading={r.unrendered_title}

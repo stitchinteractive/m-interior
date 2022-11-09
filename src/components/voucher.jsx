@@ -40,7 +40,7 @@ export function Voucher(props) {
                 </div>
             </a>
           ) : (
-              <a href={props.type === "YotpoReviewCampaign" ? "/review" : props.type === "ReferralCampaign" ? "/refer-a-friend " : "/earn-points"} className="no_underline">
+              <a href={props.type === "YotpoReviewCampaign" ? "/review" : props.type === "ReferralCampaign" ? "/refer-a-friend " : props.type === "PointsForPurchasesCampaign" ? "/shop" : props.type === "BirthdayCampaign" ? "/profile" : "/earn-points"} className="no_underline">
                 <div className="voucher">
                   <h5 className="mb-3 text-uppercase">{props.heading}</h5>
                   <div className="mb-0">{props.points}</div>
