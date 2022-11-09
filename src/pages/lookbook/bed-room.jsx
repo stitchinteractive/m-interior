@@ -32,57 +32,125 @@ const LookBookDetails = () => {
             <h2 className="text-uppercase pb-7 animate">Bed Room</h2>
           </div>
           <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/1.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/3.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/5.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/7.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/9.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/11.jpg"
-              alt="Bed Room"
-            />
+            <a
+              href="/shop/detail/large-bedroom-chest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/1.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/large-side-table"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/3.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a href="/shop/detail/big-module" target="_blank" rel="noreferrer">
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/5.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/small-bedroom-chest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/7.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/small-module-with-full-drawer"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/9.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/acacia-block-bundle-of-10"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/11.jpg"
+                alt="Bed Room"
+              />
+            </a>
           </div>
 
           <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/2.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/4.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/6.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/8.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/10.jpg"
-              alt="Bed Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/bed_room/12.jpg"
-              alt="Bed Room"
-            />
+            <a
+              href="/shop/detail/large-side-table"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/2.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/large-side-table"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/4.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/large-bedroom-chest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/6.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/small-module-with-full-drawer"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/8.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/large-bedroom-chest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/10.jpg"
+                alt="Bed Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/acacia-block-bundle-of-3"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/bed_room/12.jpg"
+                alt="Bed Room"
+              />
+            </a>
           </div>
 
           <div className="d-flex btn_back">

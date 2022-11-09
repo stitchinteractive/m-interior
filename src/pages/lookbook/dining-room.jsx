@@ -32,33 +32,65 @@ const LookBookDetails = () => {
             <h2 className="text-uppercase pb-7 animate">Dining Room</h2>
           </div>
           <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/lookbook/dining_room/1.jpg"
-              alt="Dining Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/dining_room/3.jpg"
-              alt="Dining Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/dining_room/5.jpg"
-              alt="Dining Room"
-            />
+            <a
+              href="/shop/detail/long-tv-console"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/dining_room/1.jpg"
+                alt="Dining Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/big-module-with-full-drawer"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/dining_room/3.jpg"
+                alt="Dining Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/full-bookshelf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/dining_room/5.jpg"
+                alt="Dining Room"
+              />
+            </a>
           </div>
 
           <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/lookbook/dining_room/2.jpg"
-              alt="Dining Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/dining_room/4.jpg"
-              alt="Dining Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/dining_room/6.jpg"
-              alt="Dining Room"
-            />
+            <a
+              href="/shop/detail/small-tv-console"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/dining_room/2.jpg"
+                alt="Dining Room"
+              />
+            </a>
+            <a href="/shop/detail/big-module" target="_blank" rel="noreferrer">
+              <LookBookDetailsItem
+                image="/lookbook/dining_room/4.jpg"
+                alt="Dining Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/acacia-block-bundle-of-10"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/dining_room/6.jpg"
+                alt="Dining Room"
+              />
+            </a>
           </div>
 
           <div className="d-flex btn_back">

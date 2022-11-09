@@ -32,41 +32,85 @@ const LookBookDetails = () => {
             <h2 className="text-uppercase pb-7 animate">Study Room</h2>
           </div>
           <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/lookbook/study_room/1.jpg"
-              alt="Study Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/study_room/3.jpg"
-              alt="Study Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/study_room/5.jpg"
-              alt="Study Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/study_room/7.jpg"
-              alt="Study Room"
-            />
+            <a
+              href="/shop/detail/tall-bookshelf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/1.jpg"
+                alt="Study Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/full-bookshelf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/3.jpg"
+                alt="Study Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/acacia-block-bundle-of-10"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/5.jpg"
+                alt="Study Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/small-tv-console"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/7.jpg"
+                alt="Study Room"
+              />
+            </a>
           </div>
 
           <div className="col-12 col-md-6">
-            <LookBookDetailsItem
-              image="/lookbook/study_room/2.jpg"
-              alt="Study Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/study_room/4.jpg"
-              alt="Study Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/study_room/6.jpg"
-              alt="Study Room"
-            />
-            <LookBookDetailsItem
-              image="/lookbook/study_room/8.jpg"
-              alt="Study Room"
-            />
+            <a
+              href="/shop/detail/small-module"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/2.jpg"
+                alt="Study Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/full-bookshelf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/4.jpg"
+                alt="Study Room"
+              />
+            </a>
+            <a
+              href="/shop/detail/acacia-block-bundle-of-10"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LookBookDetailsItem
+                image="/lookbook/study_room/6.jpg"
+                alt="Study Room"
+              />
+            </a>
+            <a href="/shop/detail/big-module" target="_blank" rel="noreferrer">
+              <LookBookDetailsItem
+                image="/lookbook/study_room/8.jpg"
+                alt="Study Room"
+              />
+            </a>
           </div>
 
           <div className="d-flex btn_back">
