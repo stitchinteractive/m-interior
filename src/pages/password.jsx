@@ -183,7 +183,7 @@ const Profile = () => {
                   <div className="row">
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
-                        Password
+                        New Password
                       </label>
                       <input
                         type="password"
@@ -198,7 +198,7 @@ const Profile = () => {
                     </div>
                     <div className="col-12 col-lg-6 pb-5">
                       <label htmlFor="input_password" className="form-label">
-                        New Password
+                        Re-Type New Password
                       </label>
                       <input
                         type="password"

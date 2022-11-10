@@ -141,7 +141,7 @@ const Profile = () => {
           //   result.customerUpdate.customerAccessToken.accessToken,
           //   result.customerUpdate.customerAccessToken.expiresAt
           // )
-          window.location.reload(false)
+          window.location.reload()
           setMessage("Profile updated successfully")
         }
       },
@@ -219,7 +219,7 @@ const Profile = () => {
     onError: (error)=> {
       return `Error! You have no access to this page: ${error.message}`
     }
-  })
+  },[])
   
   return (
     <Layout>
