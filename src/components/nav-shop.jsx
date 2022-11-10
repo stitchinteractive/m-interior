@@ -90,10 +90,60 @@ export function NavShop(props) {
             </div>
           </Accordion.Body>
         </Accordion.Item>
+        {/* mobile only */}
+        <Accordion.Item eventKey="2" className="d-lg-none">
+          <Accordion.Header>
+            <div className="d-flex align-items-start">
+              <div className="align-self-start">
+                <img
+                  src="/icons/sort.png"
+                  className="mt-2 me-2"
+                  width="16"
+                  height="16"
+                  alt="Sort"
+                />
+              </div>
+              <div className="align-self-start">
+                <div className="mt-1">Sort by</div>
+              </div>
+            </div>
+          </Accordion.Header>
+          <Accordion.Body>
+            <ul className="listing font_medium">
+              <li>
+                <Link to="?sortby=bestselling" style={bestsellingcode}>
+                  Bestselling
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=lowtohigh" style={lowtohighcode}>
+                  Price (low to high)
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=hightolow" style={hightolowcode}>
+                  Price (High to low)
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=AtoZ" style={atozcode}>
+                  Alphabetically (A to Z)
+                </Link>
+              </li>
+              <li>
+                <Link to="?sortby=ZtoA" style={ztoacode}>
+                  Alphabetically (Z to A)
+                </Link>
+              </li>
+            </ul>
+          </Accordion.Body>
+        </Accordion.Item>
+        {/* end mobile only */}
       </Accordion>
 
-      <Accordion defaultActiveKey="2">
-        <Accordion.Item eventKey="2">
+      {/* desktop only */}
+      <Accordion defaultActiveKey="3" className="d-none d-lg-block">
+        <Accordion.Item eventKey="3">
           <Accordion.Header>
             <div className="d-flex align-items-start">
               <div className="align-self-start">
@@ -141,6 +191,7 @@ export function NavShop(props) {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      {/* end desktop only */}
     </div>
   )
 }

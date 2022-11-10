@@ -16,7 +16,9 @@
 }
 
 .testimonial_item .review {
-  height: 400px;
+  height: 300px;
+  padding-right: 15px;
+  overflow: auto;
 }
 
 /********** tablets **********/
@@ -27,23 +29,5 @@
 
   .testimonial_item .info {
     font-size: 14px;
-  }
-
-  .testimonial_item .review {
-    height: 200px;
-  }
-}
-
-/********** laptops **********/
-@media (min-width: 992px) {
-  .testimonial_item .review {
-    height: 350px;
-  }
-}
-
-/********** dekstops **********/
-@media (min-width: 1440px) {
-  .testimonial_item .review {
-    height: 300px;
   }
 }

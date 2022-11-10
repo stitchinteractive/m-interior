@@ -73,7 +73,7 @@ const LookBookDetails = () => {
               />
             </a>
             <a
-              href="shop/detail/big-module-with-full-drawer"
+              href="/shop/detail/big-module-with-full-drawer"
               target="_blank"
               rel="noreferrer"
             >
@@ -83,7 +83,7 @@ const LookBookDetails = () => {
               />
             </a>
             <a
-              href="shop/detail/small-side-table-ii"
+              href="/shop/detail/small-side-table-ii"
               target="_blank"
               rel="noreferrer"
             >
