@@ -17,9 +17,9 @@ export function NavAccount(props) {
           <Accordion.Body>
             <ul className={navShopModule.listing}>
               <li>
-                <Link to="/dashboard" activeStyle={{ fontWeight: 600 }}>
+              <a href="/dashboard" activeStyle={{ fontWeight: 600 }}>
                   Dashboard
-                </Link>
+                </a>
               </li>
               <li>
                 <a href="/earn-points" activeStyle={{ fontWeight: 600 }}>
@@ -27,14 +27,14 @@ export function NavAccount(props) {
                 </a>
               </li>
               <li>
-                <Link to="/redeem-points" activeStyle={{ fontWeight: 600 }}>
+              <a href="/redeem-points" activeStyle={{ fontWeight: 600 }}>
                   Redeem Points
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/refer-a-friend" activeStyle={{ fontWeight: 600 }}>
+              <a href="/refer-a-friend" activeStyle={{ fontWeight: 600 }}>
                   Refer A Friend
-                </Link>
+                </a>
               </li>
             </ul>
           </Accordion.Body>
@@ -51,19 +51,19 @@ export function NavAccount(props) {
                 </Link>
               </li>
               <li>
-                <Link to="/orders" activeStyle={{ fontWeight: 600 }}>
+              <a href="/orders" activeStyle={{ fontWeight: 600 }}>
                   My Orders
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/account-activity" activeStyle={{ fontWeight: 600 }}>
+              <a href="/account-activity" activeStyle={{ fontWeight: 600 }}>
                   Account Activity
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/password" activeStyle={{ fontWeight: 600 }}>
+              <a href="/password" activeStyle={{ fontWeight: 600 }}>
                   Change Password
-                </Link>
+                </a>
               </li>
               <li>
                 <Link

@@ -141,7 +141,7 @@ const Profile = () => {
           //   result.customerUpdate.customerAccessToken.accessToken,
           //   result.customerUpdate.customerAccessToken.expiresAt
           // )
-          window.location.reload()
+          //window.location.reload()
           setMessage("Profile updated successfully")
         }
       },
