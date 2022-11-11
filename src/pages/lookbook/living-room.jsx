@@ -33,7 +33,7 @@ const LookBookDetails = () => {
           </div>
           <div className="col-12 col-md-6">
             <a
-              href="/shop/detail/small-tv-console"
+              href="/shop/detail/long-tv-console"
               target="_blank"
               rel="noreferrer"
             >
