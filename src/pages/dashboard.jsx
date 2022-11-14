@@ -272,7 +272,7 @@ const Profile = () => {
                         <SwiperSlide key={r.id} data-hash={r.id}>
                           <div className="slider__image">
                             <Reward
-                              image_url="account/bg_reward.jpg"
+                              image_url="/account/bg_reward.jpg"
                               discount={r.name}
                               points={r.amount}
                               id={r.id}
