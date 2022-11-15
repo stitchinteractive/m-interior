@@ -248,7 +248,7 @@ const MintClub = () => {
                       If you have placed any order from us before or have
                       subscribed to our newsletter as of 31 October 2022, you
                       should have received an email from us with the account
-                      activation details. If not, please contact us at &nbsp;
+                      activation details. If not, please contact us at&nbsp;
                       <a href="mailto:hello@m-interior.co">
                         hello@m-interior.co
                       </a>
