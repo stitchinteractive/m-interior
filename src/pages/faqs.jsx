@@ -5,6 +5,7 @@ import Accordion from "react-bootstrap/Accordion"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { Link } from "gatsby"
 
 // step 2: define component
 const InteriorDesignDetails = () => {
@@ -61,8 +62,9 @@ const InteriorDesignDetails = () => {
                     24/7!
                   </p>
                   <p>
-                    You may contact us at hello@m-interior.co if you require any
-                    further assistance.
+                    You may contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;if you require any further assistance.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -80,8 +82,9 @@ const InteriorDesignDetails = () => {
                   <p>
                     If you would like to change your order details, please
                     notify us within 48 hours after the order has been placed.
-                    Please contact us at hello@m-interior.co with your invoice
-                    number for assistance.
+                    Please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;with your invoice number for assistance.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -93,8 +96,9 @@ const InteriorDesignDetails = () => {
                   <p>
                     Yes, you may submit another order and notify us within 48
                     hours after the order has been placed so that we can
-                    consolidate the orders. Please contact us at
-                    hello@m-interior.co with your invoice number for assistance.
+                    consolidate the orders. Please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;with your invoice number for assistance.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -123,8 +127,10 @@ const InteriorDesignDetails = () => {
                   </p>
                   <p>
                     If you have fulfilled the terms and conditions but still
-                    have trouble using the promo code, please contact us at
-                    hello@m-interior.co for assistance.
+                    have trouble using the promo code, please contact us
+                    at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;for assistance.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -183,7 +189,7 @@ const InteriorDesignDetails = () => {
                   <p>
                     We offer free local delivery for all orders above SGD 150.
                     For local orders, there is a flat delivery fee of SGD 10.
-                    You may refer to [insert link to shipping page] for more
+                    You may refer <Link to="/shipping">here</Link> for more
                     information.
                   </p>
                 </Accordion.Body>
@@ -211,8 +217,8 @@ const InteriorDesignDetails = () => {
                   </p>
                   <p>
                     Should the second delivery attempt fail, the third attempt
-                    will be chargeable based on our standard shipping rates
-                    [insert link to shipping page].
+                    will be chargeable based on our&nbsp;
+                    <Link to="/shipping">standard shipping rates</Link>.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -223,9 +229,11 @@ const InteriorDesignDetails = () => {
                 </Accordion.Header>
                 <Accordion.Body>
                   <p>
-                    Please contact us at hello@m-interior.co with your invoice
-                    number and we will try our best to expedite the order for
-                    you. Do note that express fees will be charged accordingly.
+                    Please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;with your invoice number and we will try our best to
+                    expedite the order for you. Do note that express fees will
+                    be charged accordingly.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -254,9 +262,9 @@ const InteriorDesignDetails = () => {
                 <Accordion.Body>
                   <p>
                     Yes, we offer exchanges within 20 days from the date of
-                    delivery under specified conditions. You may refer to
-                    [insert link to exchange and return page] for more
-                    information. Do note that all items sold are non-refundable.
+                    delivery under specified conditions. You may refer to more
+                    information <Link to="/mint-club">here</Link>. Do note that
+                    all items sold are non-refundable.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -266,10 +274,12 @@ const InteriorDesignDetails = () => {
                 </Accordion.Header>
                 <Accordion.Body>
                   <p>
-                    We are sorry! Please contact us at hello@m-interior.co with
-                    your invoice number and photo of your item(s) for
-                    assistance. You may refer to [insert link to exchange and
-                    return page] for more information.
+                    We are sorry! Please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;with your invoice number and photo of your item(s) for
+                    assistance. You may refer&nbsp;
+                    <Link to="/exchange-returns">here</Link> for more
+                    information.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -282,8 +292,9 @@ const InteriorDesignDetails = () => {
                     No, our products do not come with any warranty. However, if
                     the item(s) received is incorrect or has a manufacturing
                     defect, we are happy to offer exchanges within 20 days from
-                    the date of delivery. You may refer to [insert link to
-                    exchange and return page] for more information.
+                    the date of delivery. You may refer&nbsp;
+                    <Link to="/exchange-returns">here</Link> for more
+                    information.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -301,8 +312,8 @@ const InteriorDesignDetails = () => {
                     community to empower you to get creative with your spaces
                     and celebrate modularity with us. As a member, you get to
                     earn points to redeem exclusive content and rewards, plus
-                    enjoy member-only experiences. You may refer to [insert link
-                    to M.INT Club main page] for more information.
+                    enjoy member-only experiences. You may refer&nbsp;
+                    <Link to="/mint-club">here</Link> for more information.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -312,16 +323,18 @@ const InteriorDesignDetails = () => {
                 </Accordion.Header>
                 <Accordion.Body>
                   <p>
-                    If you have purchased any products from us or have
-                    subscribed to our newsletter as of 31 July 2022, you will be
-                    automatically registered as a member. You should have
-                    received an email notification with your assigned tier
-                    details. If not, please contact us at hello@m-interior.co
-                    for assistance.
+                    If you have placed any order from us before or have
+                    subscribed to our newsletter as of 31 October 2022, you
+                    should have received an email from us with the account
+                    activation details.
                   </p>
+
                   <p>
-                    If you’re new here, we welcome you to create an account for
-                    free here [insert link to create an account page].
+                    If not, please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;for assistance. If you’re new here, we welcome you to
+                    create an account for free&nbsp;
+                    <Link to="/create-account">here</Link>.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
@@ -410,8 +423,9 @@ const InteriorDesignDetails = () => {
                     reflected in your account. If you have placed an order, the
                     points will only be processed upon successful delivery of
                     your item(s). If you still have issues viewing your earned
-                    points, please contact us at hello@m-interior.co for
-                    assistance.
+                    points, please contact us at&nbsp;
+                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    &nbsp;for assistance.
                   </p>
                 </Accordion.Body>
               </Accordion.Item>
