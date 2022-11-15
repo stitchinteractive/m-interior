@@ -235,8 +235,8 @@ const MintClub = () => {
                     community to empower you to get creative with your spaces
                     and celebrate modularity with us. As a member, you get to
                     earn points to redeem exclusive content and rewards, plus
-                    enjoy member-only experiences. You may refer to [insert link
-                    to M.INT Club main page] for more information.
+                    enjoy member-only experiences. You may refer to more
+                    information <Link to="/mint-club">here</Link>.
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
@@ -246,18 +246,17 @@ const MintClub = () => {
                   <Accordion.Body>
                     <p>
                       If you have placed any order from us before or have
-                      subscribed to our newsletter as of 30 September 2022, you
-                      will be automatically registered as a member. You should
-                      have received an email notification with the membership
-                      details. If not, please contact us at&nbsp;
+                      subscribed to our newsletter as of 31 October 2022, you
+                      should have received an email from us with the account
+                      activation details. If not, please contact us at &nbsp;
                       <a href="mailto:hello@m-interior.co">
                         hello@m-interior.co
                       </a>
                       &nbsp;for assistance.
                     </p>
                     <p>
-                      If you’re new here, we welcome you to create an account
-                      for free <a href="/create-account">here</a>.
+                      If you're new here, we welcome you to create an account
+                      for free <Link to="/create-account">here</Link>.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
