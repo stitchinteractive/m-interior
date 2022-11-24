@@ -565,7 +565,7 @@ const HomePage = () => {
                 <h1 className="text-uppercase pb-3">Coming Soon</h1>
                 <p>
                   The best is yet to come - our interior website is underway but
-                  we are ready to go! tell us about your dream home and we'll
+                  we are ready to go! Tell us about your dream home and we'll
                   work our magic.
                 </p>
                 <p>
