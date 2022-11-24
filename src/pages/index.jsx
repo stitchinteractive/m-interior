@@ -557,6 +557,29 @@ const HomePage = () => {
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
+                background: "url(/home/banner_4.jpg) center center no-repeat",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="d-flex flex-column justify-content-center align-items-start h-100">
+                <h1 className="text-uppercase pb-3">Coming Soon</h1>
+                <p>
+                  The best is yet to come - our interior website is underway but
+                  we are ready to go! tell us about your dream home and we'll
+                  work our magic.
+                </p>
+                <p>
+                  <Link to="/interior-design">
+                    <button type="button" className="btn btn-outline-large">
+                      Get connected with our ID
+                    </button>
+                  </Link>
+                </p>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide
+              className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
+              style={{
                 background: "url(/home/banner_1.jpg) center center no-repeat",
                 backgroundSize: "cover",
               }}
