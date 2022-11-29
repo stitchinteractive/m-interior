@@ -421,7 +421,7 @@ const InteriorDesignDetails = () => {
                         <input
                           type="hidden"
                           role="uploadcare-uploader"
-                          data-public-key="b73d7dc0f38191790b2a"
+                          data-public-key="93632cd0465879d8fba3"
                           data-tabs="file camera url facebook gdrive gphotos"
                           name="floorplan"
                         />
