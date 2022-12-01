@@ -395,17 +395,19 @@ const InteriorDesignDetails = () => {
                         <option value="" selected>
                           Select an option
                         </option>
-                        <option value="Below 10000">Below S$10,000</option>
-                        <option value="10000-20000">S$10,000 - S$20,000</option>
-                        <option value="20001-30000">S$20,001 - S$30,000</option>
-                        <option value="30001-40000">S$30,001 - S$40,000</option>
-                        <option value="40001-50000">S$40,001 - S$50,000</option>
-                        <option value="50001-60000">S$50,001 - S$60,000</option>
+                        <option value="50000-60000">S$50,000 - S$60,000</option>
                         <option value="60001-70000">S$60,001 - S$70,000</option>
-                        <option value="70001-100000">
-                          S$70,001 - S$100,000
+                        <option value="70001-80000">S$70,001 - S$80,000</option>
+                        <option value="90001-100000">
+                          S$90,001 - S$100,000
                         </option>
-                        <option value="Above 100000">Above S$100,000</option>
+                        <option value="100001-120000">
+                          S$100,001 - S$120,000
+                        </option>
+                        <option value="120001-150000">
+                          S$120,001 - S$150,000
+                        </option>
+                        <option value="Above 150000">Above S$150,000</option>
                       </select>
                       <ValidationError
                         prefix="Renovation Budget"
