@@ -398,8 +398,8 @@ const InteriorDesignDetails = () => {
                         <option value="50000-60000">S$50,000 - S$60,000</option>
                         <option value="60001-70000">S$60,001 - S$70,000</option>
                         <option value="70001-80000">S$70,001 - S$80,000</option>
-                        <option value="90001-100000">
-                          S$90,001 - S$100,000
+                        <option value="80001-100000">
+                          S$80,001 - S$100,000
                         </option>
                         <option value="100001-120000">
                           S$100,001 - S$120,000
