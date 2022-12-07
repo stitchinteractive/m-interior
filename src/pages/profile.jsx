@@ -228,7 +228,7 @@ const Profile = () => {
           <div className="row row_padding">
             <div className="col-12 col-md-6 col-lg-3 bg_white p-5 mb-5">
               <div className="d-flex align-items-center mb-5">
-                <div className={ProfileModule.initials}>
+                <div className={ProfileModule.initials}> 
                   {cusdata?.customer?.firstName != undefined
                     ? Array.from(cusdata?.customer?.firstName)[0].toUpperCase()
                     : "M"}
