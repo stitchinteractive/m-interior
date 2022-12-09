@@ -6,11 +6,24 @@ import { Layout } from "../components/layout"
 const Configurator = () => {
   return (
     <Layout>
-      <iframe
-        src="https://mint.startsomething.sg"
-        width="100%"
-        height="1000"
-      ></iframe>
+      <div className="d-none d-lg-block">
+        <iframe
+          src="https://configurator.m-interior.co"
+          width="100%"
+          height="1000"
+        ></iframe>
+      </div>
+      <div id="content_container">
+        <div className="container pb-5">
+          <div className="d-md-block d-lg-none">
+            <h2 className="pb-4 text-uppercase">Your device is too small</h2>
+            <p>
+              This page does not work on mobile or tablet. Please use a laptop /
+              desktop to access this page. Thank you.
+            </p>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
