@@ -540,7 +540,8 @@ const ShopDetails = () => {
                 compartments. The Min+Modules can check all your boxes and even
                 offer more than what you need due to its multi-functional and
                 modular nature. Start building your very own Min+Modules
-                furniture with our product configurator HERE.
+                furniture with our product configurator&nbsp;
+                <Link to="/configurator">HERE</Link>.
               </p>
             </Tab>
             <Tab eventKey="details" title="Details">
@@ -705,7 +706,7 @@ const ShopDetails = () => {
                 storage compartments.
               </p>
               <p>
-                <Link to="/contact-us">
+                <Link to="/configurator">
                   <button type="button" className="btn btn-light">
                     Build your own Min+Modules
                   </button>

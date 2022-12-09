@@ -894,7 +894,7 @@ const HomePage = () => {
                   Why compromise when you can customise?
                 </h3>
                 <p>
-                  <Link to="/contact-us">
+                  <Link to="/configurator">
                     <button type="button" className="btn btn-outline-large">
                       Build your own Min+Modules
                     </button>

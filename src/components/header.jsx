@@ -104,15 +104,6 @@ function OffCanvasExample({ ...props }) {
                 </li>
                 <li>
                   <Link
-                    to="/configurator"
-                    activeStyle={{ color: "white" }}
-                    partiallyActive={true}
-                  >
-                    Configurator
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/blogs"
                     activeStyle={{ color: "white" }}
                     partiallyActive={true}
@@ -236,15 +227,6 @@ export function Header() {
                         partiallyActive={true}
                       >
                         M.INT Club
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/configurator"
-                        activeStyle={{ color: "white" }}
-                        partiallyActive={true}
-                      >
-                        Configurator
                       </Link>
                     </li>
                     <li>

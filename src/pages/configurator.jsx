@@ -13,15 +13,13 @@ const Configurator = () => {
           height="1000"
         ></iframe>
       </div>
-      <div id="content_container">
+      <div id="content_container" className="d-md-block d-lg-none">
         <div className="container pb-5">
-          <div className="d-md-block d-lg-none">
-            <h2 className="pb-4 text-uppercase">Your device is too small</h2>
-            <p>
-              This page does not work on mobile or tablet. Please use a laptop /
-              desktop to access this page. Thank you.
-            </p>
-          </div>
+          <h2 className="pb-4 text-uppercase">Your device is too small</h2>
+          <p>
+            This page does not work on mobile or tablet. Please use a laptop /
+            desktop to access this page. Thank you.
+          </p>
         </div>
       </div>
     </Layout>
