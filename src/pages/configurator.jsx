@@ -8,7 +8,7 @@ const Configurator = () => {
     <Layout>
       <div className="d-none d-lg-block">
         <iframe
-          src="https://configurator.m-interior.co"
+          src="https://configurator.m-furniture.co"
           width="100%"
           height="1000"
         ></iframe>
