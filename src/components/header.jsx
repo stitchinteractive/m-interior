@@ -85,13 +85,9 @@ function OffCanvasExample({ ...props }) {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/interior-design"
-                    activeStyle={{ color: "white" }}
-                    partiallyActive={true}
-                  >
+                  <a href="https://www.m-interior.co" target="_blank">
                     Interior Design
-                  </Link>
+                  </a>
                 </li>
                 <li>
                   <Link
@@ -212,13 +208,9 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/interior-design"
-                        activeStyle={{ color: "white" }}
-                        partiallyActive={true}
-                      >
+                      <a href="https://www.m-interior.co" target="_blank">
                         Interior Design
-                      </Link>
+                      </a>
                     </li>
                     <li>
                       <Link

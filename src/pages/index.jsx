@@ -557,26 +557,27 @@ const HomePage = () => {
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
-                background: "url(/home/banner_4.jpg) center center no-repeat",
+                background: "url(/home/banner_5.jpg) center center no-repeat",
                 backgroundSize: "cover",
               }}
             >
               <div className="d-flex flex-column justify-content-center align-items-start h-100">
-                <h1 className="text-uppercase pb-3">Coming Soon</h1>
+                <h1 className="text-uppercase pb-3">The Perfect Fit Exists</h1>
                 <p>
-                  The best is yet to come - our interior website is underway but
-                  we are ready to go! Tell us about your dream home and we'll
-                  work our magic.
+                  Customise your very own Min+Modules furniture with our product
+                  configurator – right down to details such as sizes, colours
+                  and storage compartments.
                 </p>
                 <p>
-                  <Link to="/interior-design">
+                  <Link to="/configurator">
                     <button type="button" className="btn btn-outline-large">
-                      Get connected with our ID
+                      BUILD YOUR OWN MIN+MODULES
                     </button>
                   </Link>
                 </p>
               </div>
             </SwiperSlide>
+            {/*
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
@@ -600,6 +601,7 @@ const HomePage = () => {
                 </p>
               </div>
             </SwiperSlide>
+            */}
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
@@ -650,6 +652,29 @@ const HomePage = () => {
                   </button>
                 </Link>
               </p>
+            </SwiperSlide>
+            <SwiperSlide
+              className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
+              style={{
+                background: "url(/home/banner_4.jpg) center center no-repeat",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="d-flex flex-column justify-content-center align-items-start h-100">
+                <h1 className="text-uppercase pb-3">More Than Furniture</h1>
+                <p>
+                  We offer full service interior design and build to transform
+                  every inch of your home – because your spaces deserve so much
+                  more.
+                </p>
+                <p>
+                  <a href="https://www.m-interior.co" target="_blank">
+                    <button type="button" className="btn btn-outline-large">
+                      See what we can do
+                    </button>
+                  </a>
+                </p>
+              </div>
             </SwiperSlide>
           </Swiper>
         </div>
