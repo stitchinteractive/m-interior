@@ -42,7 +42,7 @@ const InteriorDesignDetails = () => {
               <li>
                 These terms and conditions (&quot;T&amp;Cs&quot;) apply to
                 &nbsp;
-                <Link to="https://www.m-interior.co">www.m-interior.co</Link>
+                <Link to="https://www.m-furniture.co">www.m-furniture.co</Link>
                 &nbsp; (the &quot;Site&quot;) and form the terms and conditions
                 on which we provide products and services to you. Please read
                 through the T&amp;Cs carefully before you use the Site. By using

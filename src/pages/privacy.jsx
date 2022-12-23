@@ -34,7 +34,7 @@ const InteriorDesignDetails = () => {
               We&nbsp;
               <strong>(Minthedimensions Pte. Ltd. UEN No. 201928809W)</strong>
               &nbsp;are the operator of&nbsp;
-              <Link to="https://www.m-interior.co">www.m-interior.co</Link>
+              <Link to="https://www.m-furniture.co">www.m-furniture.co</Link>
               &nbsp;(&quot;the Site&quot;). Your privacy is important to us.
               Please read this Privacy Policy carefully before providing us with
               your personal data.

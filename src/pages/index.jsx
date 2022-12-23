@@ -668,7 +668,7 @@ const HomePage = () => {
                   more.
                 </p>
                 <p>
-                  <a href="https://www.m-interior.co" target="_blank">
+                  <a href="https://www.m-furniture.co" target="_blank">
                     <button type="button" className="btn btn-outline-large">
                       See what we can do
                     </button>
