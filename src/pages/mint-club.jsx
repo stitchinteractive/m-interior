@@ -249,8 +249,8 @@ const MintClub = () => {
                       subscribed to our newsletter as of 31 October 2022, you
                       should have received an email from us with the account
                       activation details. If not, please contact us at&nbsp;
-                      <a href="mailto:hello@m-interior.co">
-                        hello@m-interior.co
+                      <a href="mailto:hello@m-furniture.co">
+                        hello@m-furniture.co
                       </a>
                       &nbsp;for assistance.
                     </p>
@@ -335,7 +335,9 @@ const MintClub = () => {
                     points will only be processed upon successful delivery of
                     your item(s). If you still have issues viewing your earned
                     points, please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp; for assistance.
                   </Accordion.Body>
                 </Accordion.Item>

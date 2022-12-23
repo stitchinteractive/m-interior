@@ -150,7 +150,9 @@ const InteriorDesignDetails = () => {
               <h5>Accessing and Correcting Your Personal Data</h5>
               <li>
                 You may contact our Data Protection Officer at&nbsp;
-                <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
+                <Link to="mailto:hello@m-furniture.co">
+                  hello@m-furniture.co
+                </Link>
                 &nbsp;or write to us at&nbsp;
                 <strong>
                   62 Ubi Road 1 #07-20 Oxley Bizhub 2 Singapore 408734
@@ -165,7 +167,9 @@ const InteriorDesignDetails = () => {
               <li>
                 You may withdraw your consent for the collection, use and/or
                 disclosure of your personal data by contacting us at &nbsp;
-                <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
+                <Link to="mailto:hello@m-furniture.co">
+                  hello@m-furniture.co
+                </Link>
                 &nbsp;or writing to us at&nbsp;
                 <strong>
                   62 Ubi Road 1 #07-20 Oxley Bizhub 2 Singapore 408734

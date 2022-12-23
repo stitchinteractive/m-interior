@@ -46,8 +46,8 @@ const Login = () => {
                         <Link to="https://wa.me/6598642364">+65 9864 2364</Link>
                         &nbsp;(whatsapp)
                         <br />
-                        <Link to="mailto:hello@m-interior.co">
-                          hello@m-interior.co
+                        <Link to="mailto:hello@m-furniture.co">
+                          hello@m-furniture.co
                         </Link>
                       </p>
                       <iframe
