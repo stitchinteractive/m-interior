@@ -208,7 +208,7 @@ export function Header() {
                       </Link>
                     </li>
                     <li>
-                      <a href="https://www.m-furniture.co" target="_blank">
+                      <a href="https://www.m-interior.co" target="_blank">
                         Interior Design
                       </a>
                     </li>
