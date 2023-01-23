@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: "M.INT",
     siteTitleDefault: "M.INT",
-    siteUrl: "https://m-interior.co/",
+    siteUrl: "https://m-furniture.co/",
     hrefLang: "en",
     siteDescription:
       "Find fun and freedom in transforming your spaces with our modular furniture series. Simply connect, stack and mount the blocks to build your own creative storage display.",

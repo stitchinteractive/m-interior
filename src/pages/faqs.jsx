@@ -63,7 +63,9 @@ const InteriorDesignDetails = () => {
                   </p>
                   <p>
                     You may contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;if you require any further assistance.
                   </p>
                 </Accordion.Body>
@@ -83,7 +85,9 @@ const InteriorDesignDetails = () => {
                     If you would like to change your order details, please
                     notify us within 48 hours after the order has been placed.
                     Please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;with your invoice number for assistance.
                   </p>
                 </Accordion.Body>
@@ -97,7 +101,9 @@ const InteriorDesignDetails = () => {
                     Yes, you may submit another order and notify us within 48
                     hours after the order has been placed so that we can
                     consolidate the orders. Please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;with your invoice number for assistance.
                   </p>
                 </Accordion.Body>
@@ -129,7 +135,9 @@ const InteriorDesignDetails = () => {
                     If you have fulfilled the terms and conditions but still
                     have trouble using the promo code, please contact us
                     at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;for assistance.
                   </p>
                 </Accordion.Body>
@@ -230,7 +238,9 @@ const InteriorDesignDetails = () => {
                 <Accordion.Body>
                   <p>
                     Please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;with your invoice number and we will try our best to
                     expedite the order for you. Do note that express fees will
                     be charged accordingly.
@@ -275,7 +285,9 @@ const InteriorDesignDetails = () => {
                 <Accordion.Body>
                   <p>
                     We are sorry! Please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;with your invoice number and photo of your item(s) for
                     assistance. You may refer&nbsp;
                     <Link to="/exchange-returns">here</Link> for more
@@ -331,7 +343,9 @@ const InteriorDesignDetails = () => {
 
                   <p>
                     If not, please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;for assistance. If you’re new here, we welcome you to
                     create an account for free&nbsp;
                     <Link to="/create-account">here</Link>.
@@ -424,7 +438,9 @@ const InteriorDesignDetails = () => {
                     points will only be processed upon successful delivery of
                     your item(s). If you still have issues viewing your earned
                     points, please contact us at&nbsp;
-                    <a href="mailto:hello@m-interior.co">hello@m-interior.co</a>
+                    <a href="mailto:hello@m-furniture.co">
+                      hello@m-furniture.co
+                    </a>
                     &nbsp;for assistance.
                   </p>
                 </Accordion.Body>

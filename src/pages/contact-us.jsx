@@ -50,8 +50,8 @@ const Login = () => {
                       <p className="text-uppercase font_xs">
                         +65 9864 2364 (whatsapp)
                         <br />
-                        <Link to="mailto:hello@m-interior.co">
-                          hello@m-interior.co
+                        <Link to="mailto:hello@m-furniture.co">
+                          hello@m-furniture.co
                         </Link>
                       </p>
                       <iframe

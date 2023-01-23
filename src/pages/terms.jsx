@@ -42,7 +42,7 @@ const InteriorDesignDetails = () => {
               <li>
                 These terms and conditions (&quot;T&amp;Cs&quot;) apply to
                 &nbsp;
-                <Link to="https://www.m-interior.co">www.m-interior.co</Link>
+                <Link to="https://www.m-furniture.co">www.m-furniture.co</Link>
                 &nbsp; (the &quot;Site&quot;) and form the terms and conditions
                 on which we provide products and services to you. Please read
                 through the T&amp;Cs carefully before you use the Site. By using
@@ -65,7 +65,9 @@ const InteriorDesignDetails = () => {
               </li>
               <li>
                 You may contact us by email at&nbsp;
-                <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
+                <Link to="mailto:hello@m-furniture.co">
+                  hello@m-furniture.co
+                </Link>
                 &nbsp;if you have any questions about the T&amp;Cs.
               </li>
               <li>
@@ -370,8 +372,8 @@ const InteriorDesignDetails = () => {
                 </li>
                 <li>
                   To return your product for an exchange, please email us at
-                  <Link to="mailto:hello@m-interior.co">
-                    hello@m-interior.co
+                  <Link to="mailto:hello@m-furniture.co">
+                    hello@m-furniture.co
                   </Link>
                   . The product must be returned to us in its original condition
                   and packaging, together with your receipt within 20 days of

@@ -59,7 +59,7 @@ const InteriorDesignDetails = () => {
 
             <div className="bg_grey text-center p-5 font_semibold">
               For all exchange requests or after sales enquiry, please contact
-              hello@m-interior.co for assistance. Please note that all items
+              hello@m-furniture.co for assistance. Please note that all items
               sold are non-refundable.
             </div>
 

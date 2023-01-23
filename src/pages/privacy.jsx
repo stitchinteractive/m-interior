@@ -34,7 +34,7 @@ const InteriorDesignDetails = () => {
               We&nbsp;
               <strong>(Minthedimensions Pte. Ltd. UEN No. 201928809W)</strong>
               &nbsp;are the operator of&nbsp;
-              <Link to="https://www.m-interior.co">www.m-interior.co</Link>
+              <Link to="https://www.m-furniture.co">www.m-furniture.co</Link>
               &nbsp;(&quot;the Site&quot;). Your privacy is important to us.
               Please read this Privacy Policy carefully before providing us with
               your personal data.
@@ -150,7 +150,9 @@ const InteriorDesignDetails = () => {
               <h5>Accessing and Correcting Your Personal Data</h5>
               <li>
                 You may contact our Data Protection Officer at&nbsp;
-                <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
+                <Link to="mailto:hello@m-furniture.co">
+                  hello@m-furniture.co
+                </Link>
                 &nbsp;or write to us at&nbsp;
                 <strong>
                   62 Ubi Road 1 #07-20 Oxley Bizhub 2 Singapore 408734
@@ -165,7 +167,9 @@ const InteriorDesignDetails = () => {
               <li>
                 You may withdraw your consent for the collection, use and/or
                 disclosure of your personal data by contacting us at &nbsp;
-                <Link to="mailto:hello@m-interior.co">hello@m-interior.co</Link>
+                <Link to="mailto:hello@m-furniture.co">
+                  hello@m-furniture.co
+                </Link>
                 &nbsp;or writing to us at&nbsp;
                 <strong>
                   62 Ubi Road 1 #07-20 Oxley Bizhub 2 Singapore 408734

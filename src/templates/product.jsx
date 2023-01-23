@@ -436,7 +436,7 @@ const ShopDetails = ({ pageContext }) => {
               ></div>
               {showButton ? (
                 <p>
-                  <Link to="/contact-us">
+                  <Link to="/configurator">
                     <button
                       type="button"
                       className="btn btn-outline btn-black w-100"
@@ -922,7 +922,7 @@ const ShopDetails = ({ pageContext }) => {
                       sizes, colours and storage compartments.
                     </p>
                     <p>
-                      <Link to="/contact-us">
+                      <Link to="/configurator">
                         <button
                           type="button"
                           className="btn btn-outline btn-outline-large btn-black-large"

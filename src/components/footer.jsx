@@ -102,11 +102,9 @@ export function Footer() {
               <li>
                 <Link to="/design-service">Complimentary design service</Link>
               </li>
-              {/*
               <li>
-                <Link to="/">Min+modules configurator</Link>
+                <Link to="/configurator">Min+modules configurator</Link>
               </li>
-              */}
               <li>
                 <Link to="/media">Media</Link>
               </li>
