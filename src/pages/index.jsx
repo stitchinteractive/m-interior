@@ -1,8 +1,9 @@
 // step 1: import
-import React, { useEffect, useLayoutEffect, useRef } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
+import { graphql } from 'gatsby'
 
 // import components
 import { Layout } from "../components/layout"
@@ -23,7 +24,7 @@ import "swiper/css/scrollbar"
 import * as indexModule from "./index.module.css"
 
 // step 2: define
-const HomePage = () => {
+const HomePage = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   /* autoplay videos */
@@ -75,6 +76,7 @@ const HomePage = () => {
     })
   }, [])
 
+  const [homepage, setHomePage] = useState(data)
   const bannerRef = useRef(null)
   const minLeadInRef = useRef(null)
   const furniture1Ref = useRef(null)
@@ -539,6 +541,9 @@ const HomePage = () => {
       }
     )
   })
+  //debugger
+  //console.log("contentful: "+homepage.allContentfulHomepage.nodes[0].title)
+  //The Perfect Fit Exists
 
   return (
     <Layout>
@@ -554,29 +559,56 @@ const HomePage = () => {
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
           >
+            {homepage.allContentfulHomepage.nodes.map((hpBanner) => (
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
-                background: "url(/home/banner_5.jpg) center center no-repeat",
+                background: `url(${hpBanner.banner.url}) center center no-repeat`,
                 backgroundSize: "cover",
               }}
             >
               <div className="d-flex flex-column justify-content-center align-items-start h-100">
-                <h1 className="text-uppercase pb-3">The Perfect Fit Exists</h1>
-                <p>
-                  Customise your very own Min+Modules furniture with our product
-                  configurator – right down to details such as sizes, colours
-                  and storage compartments.
+                <h1 className="text-uppercase pb-3">{hpBanner.title}</h1>
+                <p dangerouslySetInnerHTML={{ __html: hpBanner.content.content }}>
+                  
                 </p>
                 <p>
-                  <Link to="/configurator">
+                  <Link to={hpBanner.buttonLink}>
                     <button type="button" className="btn btn-outline-large">
-                      BUILD YOUR OWN MIN+MODULES
+                    {hpBanner.buttonText}
+                      
                     </button>
                   </Link>
                 </p>
               </div>
             </SwiperSlide>
+            ))}
+
+            {/* <SwiperSlide
+              className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
+              style={{
+                background: `url(/home/banner_5.jpg) center center no-repeat`,
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="d-flex flex-column justify-content-center align-items-start h-100">
+                <h1 className="text-uppercase pb-3">MINT</h1>
+                <p >
+                  Customise your very own Min+Modules furniture with our product
+                  configurator – right down to details such as sizes, colours
+                  and storage compartments.
+                </p>
+                <p>
+                  <Link to={"/configurator"}>
+                    <button type="button" className="btn btn-outline-large">
+                      BUILD YOUR OWN MIN+MODULES
+                      
+                    </button>
+                  </Link>
+                </p>
+              </div>
+            </SwiperSlide> */}
+  
             {/*
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
@@ -602,7 +634,7 @@ const HomePage = () => {
               </div>
             </SwiperSlide>
             */}
-            <SwiperSlide
+            {/* <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
                 background: "url(/home/banner_2.jpg) center center no-repeat",
@@ -675,7 +707,7 @@ const HomePage = () => {
                   </a>
                 </p>
               </div>
-            </SwiperSlide>
+            </SwiperSlide> */}
           </Swiper>
         </div>
         {/* end banner */}
@@ -991,6 +1023,25 @@ const HomePage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulHomepage {
+      nodes {
+      contentful_id
+      title
+      banner {
+        url
+      }
+      buttonLink
+      buttonText
+      content {
+        content
+      }
+      }
+    }
+  }
+`
 
 // step 3: export
 export default HomePage
