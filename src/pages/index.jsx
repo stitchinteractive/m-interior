@@ -559,7 +559,7 @@ const HomePage = ({data}) => {
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
           >
-            {homepage.allContentfulHomepage.nodes.map((hpBanner) => (
+            {homepage?.allContentfulHomepage?.nodes?.map((hpBanner) => (
             <SwiperSlide
               className={`${indexModule.banner_home} d-flex flex-column justify-content-center align-items-start h-100`}
               style={{
@@ -992,13 +992,15 @@ const HomePage = ({data}) => {
           </div>
           <div className="col" ref={featured2Ref}>
             <div className="d-flex flex-column flex-md-row justify-content-evenly align-items-center bd-highlight mb-3">
+            {homepage?.allContentfulFeaturedOn?.nodes?.map((featured) => (
               <div className="padding_featured">
                 <img
-                  src="/home/logo_straits_times.png"
-                  alt="The Straits Times"
+                  src={featured.logo.url}
+                  alt={featured.alternateText}
                 />
               </div>
-              <div className="padding_featured">
+            ))}
+              {/* <div className="padding_featured">
                 <img src="/home/logo_today.png" alt="Today" />
               </div>
               <div className="padding_featured">
@@ -1009,7 +1011,7 @@ const HomePage = ({data}) => {
               </div>
               <div className="padding_featured">
                 <img src="/home/logo_squarerooms.png" alt="Square Rooms" />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -1026,18 +1028,27 @@ const HomePage = ({data}) => {
 
 export const query = graphql`
   query {
-    allContentfulHomepage {
+    allContentfulHomepage(sort: {fields: order, order: ASC}) {
       nodes {
-      contentful_id
-      title
-      banner {
-        url
+        contentful_id
+        title
+        banner {
+          url
+        }
+        buttonLink
+        buttonText
+        content {
+          content
+        }
       }
-      buttonLink
-      buttonText
-      content {
-        content
-      }
+    }
+    allContentfulFeaturedOn(sort: {fields: order, order: ASC}) {
+      nodes {
+        contentful_id
+        logo {
+          url
+        }
+        alternateText
       }
     }
   }
