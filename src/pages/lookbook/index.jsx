@@ -1,12 +1,13 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../../components/layout"
 import { LookBookItem } from "../../components/lookbook-item"
+import { graphql } from 'gatsby'
 
 // step 2: define component
-const LookBook = () => {
+const LookBook = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -22,21 +23,39 @@ const LookBook = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div className="container">
         <div className="row padding_heading animate">
           <div className="col-12">
             <h2 className="text-uppercase pb-4">
-              There’s 101 ways you can go modular with us.
+            {content?.allContentfulBanner?.nodes[0].header}
             </h2>
             <h4 className="text-uppercase pb-0">
-              Shop the look below and get inspirations for your space.
+            {content?.allContentfulBanner?.nodes[0].shortDescription}
             </h4>
           </div>
         </div>
       </div>
+      {content?.allContentfulLookbook?.nodes?.map((cont) => (
       <div className="animate">
+        <LookBookItem
+          bg={
+            cont.order % 2 == 0
+              ? "bg_grey"
+              : ""
+          }
+          area={cont.title}
+          content={cont.content}
+          link={cont.link}
+          image_large={cont.largeImage.url}
+          image_small={cont.smallImage.url}
+        ></LookBookItem>
+      </div>
+      ))}
+      {/* <div className="animate">
         <LookBookItem
           bg=""
           area="Living Room"
@@ -78,10 +97,35 @@ const LookBook = () => {
           image_large="/lookbook/dining_room/1.jpg"
           image_small="/lookbook/dining_room/2.jpg"
         ></LookBookItem>
-      </div>
+      </div> */}
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulBanner(filter: {section: {eq: "Lookbook"}}) {
+      nodes {
+        header
+        shortDescription
+      }
+    }
+    allContentfulLookbook(sort: {fields: order, order: ASC}) {
+      nodes {
+        title
+        content
+        link
+        largeImage {
+          url
+        }
+        smallImage {
+          url
+        }
+        order
+      }
+    }
+  }
+`
 
 // step 3: export
 export default LookBook
