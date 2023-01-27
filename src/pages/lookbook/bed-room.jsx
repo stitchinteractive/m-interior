@@ -1,14 +1,15 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../../components/layout"
 import { LookBookDetailsItem } from "../../components/lookbook-details-item"
 import { Link } from "gatsby"
 import BackIcon from "../../icons/back"
+import { graphql } from 'gatsby'
 
 // step 2: define component
-const LookBookDetails = () => {
+const LookBookDetails = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -24,6 +25,8 @@ const LookBookDetails = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div className="container">
@@ -32,7 +35,19 @@ const LookBookDetails = () => {
             <h2 className="text-uppercase pb-7 animate">Bed Room</h2>
           </div>
           <div className="col-12 col-md-6">
-            <a
+          {content?.leftLookbook?.nodes?.map((cont) => (
+          <a
+            href={cont.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LookBookDetailsItem
+              image={cont.image.url}
+              alt={cont.imageText}
+            />
+          </a>
+          ))}
+            {/* <a
               href="/shop/detail/large-bedroom-chest"
               target="_blank"
               rel="noreferrer"
@@ -87,11 +102,23 @@ const LookBookDetails = () => {
                 image="/lookbook/bed_room/11.jpg"
                 alt="Bed Room"
               />
-            </a>
+            </a> */}
           </div>
 
           <div className="col-12 col-md-6">
-            <a
+          {content?.rightLookbook?.nodes?.map((cont) => (
+          <a
+            href={cont.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LookBookDetailsItem
+              image={cont.image.url}
+              alt={cont.imageText}
+            />
+          </a>
+          ))}
+            {/* <a
               href="/shop/detail/large-side-table"
               target="_blank"
               rel="noreferrer"
@@ -150,7 +177,7 @@ const LookBookDetails = () => {
                 image="/lookbook/bed_room/12.jpg"
                 alt="Bed Room"
               />
-            </a>
+            </a> */}
           </div>
 
           <div className="d-flex btn_back">
@@ -167,6 +194,39 @@ const LookBookDetails = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    leftLookbook: allContentfulLookbookItem(
+      sort: {fields: order, order: ASC}
+      filter: {category: {eq: "Bed Room"}, position: {eq: "Left"}}
+    ) {
+      nodes {
+        category
+        image {
+          url
+        }
+        imageText
+        link
+        position
+      }
+    }
+    rightLookbook: allContentfulLookbookItem(
+      sort: {fields: order, order: ASC}
+      filter: {category: {eq: "Bed Room"}, position: {eq: "Right"}}
+    ) {
+      nodes {
+        category
+        image {
+          url
+        }
+        imageText
+        link
+        position
+      }
+    }
+  }
+`
 
 // step 3: export
 export default LookBookDetails
