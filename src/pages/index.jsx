@@ -4,6 +4,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
 import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // import components
 import { Layout } from "../components/layout"
@@ -569,8 +570,8 @@ const HomePage = ({data}) => {
             >
               <div className="d-flex flex-column justify-content-center align-items-start h-100">
                 <h1 className="text-uppercase pb-3">{hpBanner.title}</h1>
-                <p dangerouslySetInnerHTML={{ __html: hpBanner.content.content }}>
-                  
+                <p>
+                  {parse(hpBanner.content.content)}
                 </p>
                 <p>
                   <Link to={hpBanner.buttonLink}>

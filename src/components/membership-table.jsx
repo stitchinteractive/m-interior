@@ -36,57 +36,57 @@ export function MembershipTable() {
         <tr>
           <td>Welcome Gift (10% off first purchase)</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>Member-Only Sales</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>15% OFF Storewide on Birthday Month</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>Exclusive Preview for Launches</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
           <td>Exclusive Content and Interior Styling Tips</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
@@ -94,7 +94,7 @@ export function MembershipTable() {
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
         <tr>
@@ -102,7 +102,7 @@ export function MembershipTable() {
           <td>&nbsp;</td>
           <td>&nbsp;</td>
           <td>
-            <img src="icons/color_blue_membership.png" alt="Yes" />
+            <img src="/icons/color_blue_membership.png" alt="Yes" />
           </td>
         </tr>
       </tbody>

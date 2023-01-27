@@ -7,6 +7,7 @@ import { Layout } from "../components/layout"
 import { Membership } from "../components/membership"
 import * as aboutModule from "./about-us.module.css"
 import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
 const AboutUs = ({data}) => {
@@ -49,8 +50,8 @@ const AboutUs = ({data}) => {
                             cont.direction === "Left"
                               ? "col col-lg-6"
                               : "order-lg-2 col col-lg-6 offset-lg-1"
-                          } dangerouslySetInnerHTML={{ __html: cont.content.content }}>
-                  
+                          }>
+                  {parse(cont.content.content)}
                 </div>
                 <div className=
                 {

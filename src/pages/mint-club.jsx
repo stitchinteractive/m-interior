@@ -1,5 +1,5 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "gatsby"
@@ -8,12 +8,14 @@ import { MembershipTable } from "../components/membership-table"
 import AsteriskIcon from "../icons/asterisk"
 import AsteriskIconBlack from "../icons/asterisk-black"
 import Accordion from "react-bootstrap/Accordion"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // import module.css
 import * as mintClubModule from "./mint-club.module.css"
 
 // step 2: define component
-const MintClub = () => {
+const MintClub = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -29,6 +31,8 @@ const MintClub = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div>
@@ -37,11 +41,13 @@ const MintClub = () => {
             id={mintClubModule.banner}
             className="d-flex flex-column justify-content-center align-items-center text-center"
             style={{
-              background: "url(/home/banner_2.jpg) center center no-repeat",
+              background: `url(${content?.allContentfulBanner?.nodes[0].banner.url}) center center no-repeat`,
               backgroundSize: "cover",
             }}
           >
-            <h1 className="text-uppercase pb-2">M.INT club</h1>
+            {parse(content?.allContentfulBanner?.nodes[0].longDescription.longDescription)}
+
+            {/* <h1 className="text-uppercase pb-2">M.INT club</h1>
             <div className="font_xxl text-uppercase pb-2 font_montserrat">
               <strong>is</strong> <i>more than just </i>
               <strong>a rewards program</strong>
@@ -49,7 +55,7 @@ const MintClub = () => {
             <p className="pb-10">
               Join our community and be a part of something bigger.
             </p>
-            <p className="pb-3">Get a 10% off welcome gift when you join us!</p>
+            <p className="pb-3">Get a 10% off welcome gift when you join us!</p> 
             <p>
               <Link to="/create-account">
                 <button
@@ -67,7 +73,7 @@ const MintClub = () => {
                   Log In
                 </button>
               </Link>
-            </p>
+            </p>*/}
           </div>
         </div>
         <div className="bg_black font_white line_height_dense">
@@ -84,7 +90,20 @@ const MintClub = () => {
               </h2>
               <div className="col-12 col-md-10 offset-md-1 pt-5 animate">
                 <div className="row">
+                {content?.allContentfulMembersOnlyBenefits?.nodes?.map((cont) => (
                   <div className="col-12 col-md-6">
+                  <div className="row pb-5">
+                    <div className="col-2">
+                      <img src={cont.image.url} alt={cont.imageText} />
+                    </div>
+                    <div className="col-10 col-md-9">
+                      <h5 className="text-uppercase pb-3">{cont.header}</h5>
+                      <p>{cont.content}</p>
+                    </div>
+                  </div>
+                </div>
+                ))}
+                  {/* <div className="col-12 col-md-6">
                     <div className="row pb-5">
                       <div className="col-2">
                         <img src="/icons/club_discounts.png" alt="Discounts" />
@@ -146,7 +165,7 @@ const MintClub = () => {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -158,7 +177,26 @@ const MintClub = () => {
               <div className="col-12 col-md-3 d-flex justify-content-center align-items-center">
                 <h2 className="text-uppercase fst-italic pb-5">How it works</h2>
               </div>
-              <div className="col-12 col-md-3">
+              {content?.allContentfulHowItWorks?.nodes?.map((cont, index, array) => (
+                <div className="col-12 col-md-3">
+                <p>
+                  <img
+                    src={cont.image.url}
+                    alt={cont.imageText}
+                    className="mx-auto"
+                  />
+                </p>
+                <h4 className={
+                            array.length - 1 === index
+                              ? "text-uppercase pb-3"
+                              : "text-uppercase pb-3 how_it_works"
+                          }>{cont.header}</h4>
+                <p>
+                {cont.content}
+                </p>
+              </div>
+              ))}
+              {/* <div className="col-12 col-md-3">
                 <p>
                   <img
                     src="/icons/club_join.png"
@@ -192,7 +230,7 @@ const MintClub = () => {
                 </p>
                 <h4 className="text-uppercase pb-3">Redeem</h4>
                 <p>Redeem exclusive rewards!</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -228,7 +266,15 @@ const MintClub = () => {
                 Frequently asked questions
               </h2>
               <Accordion defaultActiveKey="1">
-                <Accordion.Item eventKey="1">
+              {content?.allContentfulFaq?.nodes?.map((cont, index, array) => (
+                <Accordion.Item eventKey={cont.order}>
+                <Accordion.Header>{cont.header}</Accordion.Header>
+                <Accordion.Body>
+                {parse(cont.body.body)}
+                </Accordion.Body>
+              </Accordion.Item>
+              ))}
+                {/* <Accordion.Item eventKey="1">
                   <Accordion.Header>What is M.INT Club?</Accordion.Header>
                   <Accordion.Body>
                     M.INT Club is more than just a rewards program, it’s a
@@ -378,7 +424,7 @@ const MintClub = () => {
                       and invite all your friends and relatives!
                     </p>
                   </Accordion.Body>
-                </Accordion.Item>
+                </Accordion.Item> */}
               </Accordion>
             </div>
           </div>
@@ -387,6 +433,50 @@ const MintClub = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulBanner(filter: {section: {eq: "Mint Club"}}) {
+      nodes {
+        banner {
+          url
+        }
+        longDescription {
+          longDescription
+        }
+      }
+    }
+    allContentfulMembersOnlyBenefits(sort: {fields: order, order: ASC}) {
+      nodes {
+        header
+        content
+        image {
+          url
+        }
+        imageText
+      }
+    }
+    allContentfulHowItWorks(sort: {fields: order, order: ASC}) {
+      nodes {
+        header
+        content
+        image {
+          url
+        }
+        imageText
+      }
+    }
+    allContentfulFaq(sort: {fields: order, order: ASC}) {
+      nodes {
+        body {
+          body
+        }
+        header
+        order
+      }
+    }
+  }
+`
 
 // step 3: export
 export default MintClub
