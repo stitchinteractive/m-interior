@@ -1,12 +1,14 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { Link } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
-const InteriorDesignDetails = () => {
+const InteriorDesignDetails = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -22,6 +24,8 @@ const InteriorDesignDetails = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div className="container">
@@ -30,7 +34,54 @@ const InteriorDesignDetails = () => {
             <h2 className="text-uppercase heading_line mb-60">Media</h2>
           </div>
           <div className="container animate">
-            <div className="row mb-100">
+
+          {content?.allContentfulMedia?.nodes?.map((cont) => (
+            cont?.position === "Left"
+                ? (
+                  <div className="row mb-100">
+                    <div className="d-md-flex align-items-center">
+                      <div className="col-12 col-md-5">
+                        <p>
+                          <img
+                            src={cont.logo.url}
+                            alt={cont.logo.title}
+                          />
+                        </p>
+                        <p className="font_xs font_montserrat_medium pb-2">
+                          {cont.articleDate}
+                        </p>
+                        {parse(cont?.content?.content)}
+                      </div>
+                      <div className="col-12 col-md-6 offset-md-1">
+                        <img src={cont.articleImage.url} alt={cont.articleImage.title} />
+                      </div>
+                    </div>
+                  </div>
+                )
+                : (
+                  <div className="row mb-100"> 
+                    <div className="d-md-flex align-items-center">
+                      <div className="col-12 col-md-6">
+                        <p>
+                          <img src={cont.articleImage.url} alt={cont.articleImage.title} />
+                        </p>
+                      </div>
+                      <div className="col-12 col-md-5 offset-md-1">
+                        <p>
+                          <img src={cont.logo.url} alt={cont.logo.title} />
+                        </p>
+                        <p className="font_xs font_montserrat_medium pb-2">
+                        2{cont.articleDate}
+                        </p>
+                        {parse(cont?.content?.content)}
+                      </div>
+                    </div>
+                  </div>
+                )
+            
+          ))}
+            
+            {/* <div className="row mb-100"> 
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-6">
                   <p>
@@ -65,6 +116,7 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
             </div>
+
             <div className="row mb-100">
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-5">
@@ -99,6 +151,8 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
             </div>
+
+            3 right
             <div className="row mb-100">
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-6">
@@ -121,6 +175,8 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
             </div>
+
+            4 left
             <div className="row mb-100">
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-5">
@@ -146,6 +202,8 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
             </div>
+
+            5 right
             <div className="row mb-100">
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-6">
@@ -176,6 +234,8 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
             </div>
+
+            6 left
             <div className="row mb-100">
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-5">
@@ -211,6 +271,8 @@ const InteriorDesignDetails = () => {
                 </div>
               </div>
             </div>
+
+            7 right
             <div className="row mb-100">
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-6">
@@ -245,7 +307,7 @@ const InteriorDesignDetails = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -253,5 +315,27 @@ const InteriorDesignDetails = () => {
   )
 }
 
+export const query = graphql`
+  query {
+    allContentfulMedia(sort: {fields: order, order: ASC}) {
+      nodes {
+        articleDate
+        articleImage {
+          title
+          url
+        }
+        content {
+          content
+        }
+        logo {
+          url
+          title
+        }
+        order
+        position
+      }
+    }
+  }
+`
 // step 3: export
 export default InteriorDesignDetails
