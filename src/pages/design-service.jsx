@@ -62,7 +62,7 @@ const InteriorDesignDetails = ({data}) => {
               <p>
                 <img
                   src={cont.image.url}
-                  alt={cont.imageText}
+                  alt={cont.image.title}
                   className="mx-auto"
                 />
               </p>
@@ -370,9 +370,9 @@ export const query = graphql`
     allContentfulDesignService(sort: {fields: order, order: ASC}) {
       nodes {
         header
-        imageText
         image {
           url
+          title
         }
         content
       }

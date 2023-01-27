@@ -94,7 +94,7 @@ const MintClub = ({data}) => {
                   <div className="col-12 col-md-6">
                   <div className="row pb-5">
                     <div className="col-2">
-                      <img src={cont.image.url} alt={cont.imageText} />
+                      <img src={cont.image.url} alt={cont.image.title} />
                     </div>
                     <div className="col-10 col-md-9">
                       <h5 className="text-uppercase pb-3">{cont.header}</h5>
@@ -182,7 +182,7 @@ const MintClub = ({data}) => {
                 <p>
                   <img
                     src={cont.image.url}
-                    alt={cont.imageText}
+                    alt={cont.image.title}
                     className="mx-auto"
                   />
                 </p>
@@ -452,8 +452,8 @@ export const query = graphql`
         content
         image {
           url
+          title
         }
-        imageText
       }
     }
     allContentfulHowItWorks(sort: {fields: order, order: ASC}) {
@@ -462,8 +462,8 @@ export const query = graphql`
         content
         image {
           url
+          title
         }
-        imageText
       }
     }
     allContentfulFaq(sort: {fields: order, order: ASC}) {

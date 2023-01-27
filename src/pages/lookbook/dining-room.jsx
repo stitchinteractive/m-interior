@@ -43,7 +43,7 @@ const LookBookDetails = ({data}) => {
           >
             <LookBookDetailsItem
               image={cont.image.url}
-              alt={cont.imageText}
+              alt={cont.image.title}
             />
           </a>
           ))}
@@ -88,7 +88,7 @@ const LookBookDetails = ({data}) => {
           >
             <LookBookDetailsItem
               image={cont.image.url}
-              alt={cont.imageText}
+              alt={cont.image.title}
             />
           </a>
           ))}
@@ -145,8 +145,8 @@ export const query = graphql`
         category
         image {
           url
+          title
         }
-        imageText
         link
         position
       }
@@ -159,8 +159,8 @@ export const query = graphql`
         category
         image {
           url
+          title
         }
-        imageText
         link
         position
       }

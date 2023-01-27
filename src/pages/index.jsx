@@ -997,7 +997,7 @@ const HomePage = ({data}) => {
               <div className="padding_featured">
                 <img
                   src={featured.logo.url}
-                  alt={featured.alternateText}
+                  alt={featured.logo.title}
                 />
               </div>
             ))}
@@ -1048,6 +1048,7 @@ export const query = graphql`
         contentful_id
         logo {
           url
+          title
         }
         alternateText
       }

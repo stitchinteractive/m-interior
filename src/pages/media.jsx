@@ -103,7 +103,7 @@ const InteriorDesignDetails = () => {
               <div className="d-md-flex align-items-center">
                 <div className="col-12 col-md-6">
                   <p>
-                    <img src="/media/square_rooms.jpg" alt="SquareRooms" />
+                    <img src="/media/square_room.jpg" alt="SquareRooms" />
                   </p>
                 </div>
                 <div className="col-12 col-md-5 offset-md-1">
