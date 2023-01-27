@@ -1,14 +1,16 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { Link, navigate } from "gatsby"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { useForm, ValidationError } from "@formspree/react"
 import uploadcare from "uploadcare-widget/uploadcare.lang.en.min.js"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
-const InteriorDesignDetails = () => {
+const InteriorDesignDetails = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -30,6 +32,8 @@ const InteriorDesignDetails = () => {
     navigate("/thank-you")
   }
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div>
@@ -37,10 +41,12 @@ const InteriorDesignDetails = () => {
           <div className="row row_padding">
             <div className="col-12 text-center">
               <h2 className="mb-4 text-uppercase">
-                EVERYONE IS DIFFERENT, AND SO IS&nbsp;
-                <span className="highlight">YOUR HOME.</span>
+              {parse(content?.designBannerTop?.nodes[0].header)}
+                {/* EVERYONE IS DIFFERENT, AND SO IS&nbsp; */}
+                <span className="highlight">{parse(content?.designBannerTop?.nodes[0].shortDescription)}</span>
               </h2>
-              <p>
+              {parse(content?.designBannerTop?.nodes[0].longDescription.longDescription)}
+              {/* <p>
                 Looking to customise a modular furniture but not sure where to
                 start? Need advice on choosing the colour and finishing to match
                 your interior? Or just simply curious about what wonders our
@@ -49,9 +55,24 @@ const InteriorDesignDetails = () => {
               <p>
                 Our design consultants are here to help you create that perfect
                 fit and look for your space.
+              </p> */}
+            </div>
+            {content?.allContentfulDesignService?.nodes?.map((cont) => (
+            <div className="col-12 col-md-6 col-lg-4 text-center">
+              <p>
+                <img
+                  src={cont.image.url}
+                  alt={cont.imageText}
+                  className="mx-auto"
+                />
+              </p>
+              <h4 className="mb-3 text-uppercase">{cont.header}</h4>
+              <p>
+              {cont.content}
               </p>
             </div>
-            <div className="col-12 col-md-6 col-lg-4 text-center">
+            ))}
+            {/* <div className="col-12 col-md-6 col-lg-4 text-center">
               <p>
                 <img
                   src="/design_service/personal_designer.png"
@@ -93,7 +114,7 @@ const InteriorDesignDetails = () => {
                 perfectly in your space, so you can place your order with a
                 peace of mind.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="bg_grey">
@@ -102,9 +123,23 @@ const InteriorDesignDetails = () => {
               <div className="col-12 col-lg-6">
                 <div className="row">
                   <div className="col-12">
-                    <h2 className="mb-60 text-uppercase">Here's how it goes</h2>
+                    <h2 className="mb-60 text-uppercase">{parse(content?.designBannerHow?.nodes[0].header)}</h2>
                   </div>
-                  <div className="col-2 col-md-1">
+                  {content?.allContentfulDesignServiceHeresHowItGoes?.nodes?.map((cont) => (
+                    <>
+                      <div className="col-2 col-md-1">
+                        <div className="circle">0{cont.order}</div>
+                      </div>
+                      <div className="col-10 col-md-11 ps-4">
+                        <h4>{cont.header}</h4>
+                        <p>
+                        {cont.content.content}
+                        </p>
+                      </div>
+                    </>
+                  ))}
+
+                  {/* <div className="col-2 col-md-1">
                     <div className="circle">01</div>
                   </div>
                   <div className="col-10 col-md-11 ps-4">
@@ -115,6 +150,8 @@ const InteriorDesignDetails = () => {
                       budget.
                     </p>
                   </div>
+
+
                   <div className="col-2 col-md-1">
                     <div className="circle">02</div>
                   </div>
@@ -138,13 +175,13 @@ const InteriorDesignDetails = () => {
                       convenience. All you gotta do is sit back, relax and enjoy
                       your new space!
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="col-12 col-lg-6">
                 <img
-                  src="/design_service/how_it_goes.jpg"
-                  alt="Here's how it goes"
+                  src={content?.designBannerHow?.nodes[0].banner.url}
+                  alt={parse(content?.designBannerHow?.nodes[0].shortDescription)}
                 />
               </div>
             </div>
@@ -273,7 +310,7 @@ const InteriorDesignDetails = () => {
           className="bg_interior d-flex align-items-center"
           style={{
             background:
-              "url(/design_service/banner.jpg) center center no-repeat",
+              `url(${content?.designBannerBottom?.nodes[0].banner.url}) center center no-repeat`,
             backgroundSize: "cover",
           }}
         >
@@ -281,14 +318,15 @@ const InteriorDesignDetails = () => {
             <div className="row">
               <div className="col-12 col-md-8 offset-md-4 col-lg-6 offset-lg-6">
                 <div className="box_overlay">
-                  <h2 className="mb-80 text-uppercase">
+                  {parse(content?.designBannerBottom?.nodes[0].longDescription.longDescription)}
+                  {/* <h2 className="mb-80 text-uppercase">
                     Looking for interior design?
                   </h2>
                   <a href="/interior-design">
                     <button className="btn btn-outline">
                       SEE WHAT WE CAN DO
                     </button>
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
@@ -298,6 +336,58 @@ const InteriorDesignDetails = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    designBannerHow:allContentfulBanner(filter: {section: {eq: "Design Service How It Goes"}}) {
+      nodes {
+        header
+        shortDescription
+        banner {
+          url
+        }
+      }
+    }
+    designBannerTop:allContentfulBanner(filter: {section: {eq: "Design Service Top"}}) {
+      nodes {
+        header
+        shortDescription
+        longDescription {
+          longDescription
+        }
+      }
+    }
+    designBannerBottom:allContentfulBanner(filter: {section: {eq: "Design Service Bottom"}}) {
+      nodes {
+        banner {
+          url
+        }
+        longDescription {
+          longDescription
+        }
+      }
+    }
+    allContentfulDesignService(sort: {fields: order, order: ASC}) {
+      nodes {
+        header
+        imageText
+        image {
+          url
+        }
+        content
+      }
+    }
+    allContentfulDesignServiceHeresHowItGoes(sort: {order: ASC, fields: order}) {
+      nodes {
+        header
+        content {
+          content
+        }
+        order
+      }
+    }
+  }
+`
 
 // step 3: export
 export default InteriorDesignDetails
