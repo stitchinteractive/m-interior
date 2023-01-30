@@ -1,14 +1,16 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link, navigate } from "gatsby"
 import { Layout } from "../components/layout"
 import * as loginModule from "./login.module.css"
 import { useForm, ValidationError } from "@formspree/react"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
-const Login = () => {
+const Login = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -25,6 +27,7 @@ const Login = () => {
   })
 
   const [state, handleSubmit] = useForm("mdojkgkg")
+  const [content, setContent] = useState(data)
 
   if (state.succeeded) {
     navigate("/thank-you")
@@ -41,9 +44,10 @@ const Login = () => {
                   <div className="row">
                     <div className="col font_montserrat_medium">
                       <h2 className="text-uppercase text-center pb-4">
-                        Contact Us
+                      {content?.contact?.nodes[0].header}
                       </h2>
-                      <p className="text-uppercase font_xs">
+                      {parse(content?.contact?.nodes[0].longDescription.longDescription)}
+                      {/* <p className="text-uppercase font_xs">
                         62 UBI ROAD 1, OXLEY BIZHUB 2, #07-21 <br />
                         SINGAPORE 408734
                       </p>
@@ -63,7 +67,7 @@ const Login = () => {
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         title="M.INT"
-                      ></iframe>
+                      ></iframe> */}
                     </div>
                   </div>
                 </div>
@@ -79,10 +83,10 @@ const Login = () => {
                   >
                     <div className="col-12">
                       <h2 className="text-uppercase text-center pb-4">
-                        Talk To Us
+                      {content?.talk?.nodes[0].header}
                       </h2>
                       <p className="text-uppercase text-center font_xs font_semibold">
-                        LET’S TALK DESIGN, OVER COFFFEE.
+                      {content?.talk?.nodes[0].shortDescription}
                       </p>
                     </div>
                     <div className="col-6">
@@ -195,6 +199,25 @@ const Login = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    contact:allContentfulBanner(filter: {section: {eq: "Contact"}}) {
+      nodes {
+        header
+        longDescription {
+          longDescription
+        }
+      }
+    }
+    talk:allContentfulBanner(filter: {section: {eq: "Talk to us"}}) {
+      nodes {
+        header
+        shortDescription
+      }
+    }
+  }
+`
 
 // step 3: export
 export default Login

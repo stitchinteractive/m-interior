@@ -1,11 +1,13 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
-const InteriorDesignDetails = () => {
+const InteriorDesignDetails = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -21,18 +23,21 @@ const InteriorDesignDetails = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div className="container">
         <div className="row row_padding animate">
           <div className="col col-lg-8 offset-lg-2">
-            <h2 className="text-uppercase heading_line mb-60">Shipping</h2>
+            <h2 className="text-uppercase heading_line mb-60">{content?.allContentfulBanner?.nodes[0].header}</h2>
             <p>
               <strong>
-                Enjoy free local delivery for all orders above SGD 150.
+              {content?.allContentfulBanner?.nodes[0].shortDescription}
               </strong>
             </p>
-            <h5>Local Delivery</h5>
+            {parse(content?.allContentfulBanner?.nodes[0].longDescription.longDescription)}
+            {/* <h5>Local Delivery</h5>
             <ul className="listing_bullet">
               <li>
                 For orders within Singapore, delivery fee will be charged at a
@@ -73,13 +78,27 @@ const InteriorDesignDetails = () => {
                 Should the second delivery attempt fail, the third attempt will
                 be chargeable based on our standard shipping rates
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulBanner(filter: {section: {eq: "Shipping"}}) {
+      nodes {
+        header
+        shortDescription
+        longDescription {
+          longDescription
+        }
+      }
+    }
+  }
+`
 
 // step 3: export
 export default InteriorDesignDetails

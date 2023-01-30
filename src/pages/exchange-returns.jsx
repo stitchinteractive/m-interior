@@ -1,11 +1,13 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
-const InteriorDesignDetails = () => {
+const InteriorDesignDetails = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -21,15 +23,18 @@ const InteriorDesignDetails = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div className="container">
         <div className="row row_padding animate">
           <div className="col col-lg-8 offset-lg-2">
             <h2 className="text-uppercase heading_line mb-60">
-              Exchange &amp; Returns
+            {content?.allContentfulBanner?.nodes[0].header}
             </h2>
-            <h5>
+            {parse(content?.allContentfulBanner?.nodes[0].longDescription.longDescription)}
+            {/* <h5>
               We are happy to offer exchanges within 20 days from date of
               delivery, if the following conditions are met:
             </h5>
@@ -74,13 +79,26 @@ const InteriorDesignDetails = () => {
               be cancelled once it has been arranged for delivery. A full refund
               of your item(s) will be made with no additional charges, within 14
               working days.
-            </strong>
+            </strong> */}
           </div>
         </div>
       </div>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulBanner(filter: {section: {eq: "Exchange"}}) {
+      nodes {
+        header
+        longDescription {
+          longDescription
+        }
+      }
+    }
+  }
+`
 
 // step 3: export
 export default InteriorDesignDetails

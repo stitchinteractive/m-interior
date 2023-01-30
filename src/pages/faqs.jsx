@@ -1,14 +1,16 @@
 // step 1: import
-import React, { useLayoutEffect } from "react"
+import React, { useLayoutEffect, useState } from "react"
 // import * as bootstrap from "bootstrap"
 import Accordion from "react-bootstrap/Accordion"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Layout } from "../components/layout"
 import { Link } from "gatsby"
+import { graphql } from 'gatsby'
+import parse from 'html-react-parser'
 
 // step 2: define component
-const InteriorDesignDetails = () => {
+const InteriorDesignDetails = ({data}) => {
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
@@ -24,6 +26,8 @@ const InteriorDesignDetails = () => {
     })
   })
 
+  const [content, setContent] = useState(data)
+
   return (
     <Layout>
       <div className="container">
@@ -36,7 +40,15 @@ const InteriorDesignDetails = () => {
             <h5 className="text-uppercase pb-5">General Enquiries</h5>
 
             <Accordion defaultActiveKey="1">
-              <Accordion.Item eventKey="1">
+              {content?.general?.nodes?.map((cont, index, array) => (
+                <Accordion.Item eventKey={cont.order}>
+                <Accordion.Header>{cont.header}</Accordion.Header>
+                <Accordion.Body>
+                {parse(cont.content.content)}
+                </Accordion.Body>
+              </Accordion.Item>
+              ))}
+              {/* <Accordion.Item eventKey="1">
                 <Accordion.Header>
                   What are the payment methods?
                 </Accordion.Header>
@@ -69,14 +81,23 @@ const InteriorDesignDetails = () => {
                     &nbsp;if you require any further assistance.
                   </p>
                 </Accordion.Body>
-              </Accordion.Item>
+              </Accordion.Item> */}
 
               <br />
               <br />
 
               <h5 className="text-uppercase py-5">Orders</h5>
 
-              <Accordion.Item eventKey="3">
+              {content?.orders?.nodes?.map((cont, index, array) => (
+                <Accordion.Item eventKey={cont.order}>
+                <Accordion.Header>{cont.header}</Accordion.Header>
+                <Accordion.Body>
+                {parse(cont.content.content)}
+                </Accordion.Body>
+              </Accordion.Item>
+              ))}
+
+              {/* <Accordion.Item eventKey="3">
                 <Accordion.Header>
                   Can I change my order prior to delivery?
                 </Accordion.Header>
@@ -156,14 +177,23 @@ const InteriorDesignDetails = () => {
                     and conditions are met).
                   </p>
                 </Accordion.Body>
-              </Accordion.Item>
+              </Accordion.Item> */}
 
               <br />
               <br />
 
               <h5 className="text-uppercase py-5">Delivery</h5>
 
-              <Accordion.Item eventKey="7">
+              {content?.delivery?.nodes?.map((cont, index, array) => (
+                <Accordion.Item eventKey={cont.order}>
+                <Accordion.Header>{cont.header}</Accordion.Header>
+                <Accordion.Body>
+                {parse(cont.content.content)}
+                </Accordion.Body>
+              </Accordion.Item>
+              ))}
+
+              {/* <Accordion.Item eventKey="7">
                 <Accordion.Header>
                   How long do deliveries usually take?
                 </Accordion.Header>
@@ -258,14 +288,23 @@ const InteriorDesignDetails = () => {
                     staircase delivery.
                   </p>
                 </Accordion.Body>
-              </Accordion.Item>
+              </Accordion.Item> */}
 
               <br />
               <br />
 
               <h5 className="text-uppercase py-5">After Sales</h5>
 
-              <Accordion.Item eventKey="15">
+              {content?.aftersales?.nodes?.map((cont, index, array) => (
+                <Accordion.Item eventKey={cont.order}>
+                <Accordion.Header>{cont.header}</Accordion.Header>
+                <Accordion.Body>
+                {parse(cont.content.content)}
+                </Accordion.Body>
+              </Accordion.Item>
+              ))}
+
+              {/* <Accordion.Item eventKey="15">
                 <Accordion.Header>
                   Can I exchange or return the item(s)?
                 </Accordion.Header>
@@ -309,14 +348,23 @@ const InteriorDesignDetails = () => {
                     information.
                   </p>
                 </Accordion.Body>
-              </Accordion.Item>
+              </Accordion.Item> */}
 
               <br />
               <br />
 
               <h5 className="text-uppercase py-5">M.INT Club Membership</h5>
 
-              <Accordion.Item eventKey="19">
+              {content?.club?.nodes?.map((cont, index, array) => (
+                <Accordion.Item eventKey={cont.order}>
+                <Accordion.Header>{cont.header}</Accordion.Header>
+                <Accordion.Body>
+                {parse(cont.content.content)}
+                </Accordion.Body>
+              </Accordion.Item>
+              ))}
+
+              {/* <Accordion.Item eventKey="19">
                 <Accordion.Header>What is M.INT Club?</Accordion.Header>
                 <Accordion.Body>
                   <p>
@@ -484,7 +532,7 @@ const InteriorDesignDetails = () => {
                     and invite all your friends and relatives!
                   </p>
                 </Accordion.Body>
-              </Accordion.Item>
+              </Accordion.Item> */}
             </Accordion>
           </div>
         </div>
@@ -492,6 +540,56 @@ const InteriorDesignDetails = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    club: allContentfulFaq(sort: {fields: order, order: ASC}, filter: {type: {eq: "MINT Club"}}) {
+      nodes {
+        content {
+          content
+        }
+        header
+        order
+      }
+    }
+    general: allContentfulFaq(sort: {fields: order, order: ASC}, filter: {type: {eq: "General Enquiries"}}) {
+      nodes {
+        content {
+          content
+        }
+        header
+        order
+      }
+    }
+    orders: allContentfulFaq(sort: {fields: order, order: ASC}, filter: {type: {eq: "Orders"}}) {
+      nodes {
+        content {
+          content
+        }
+        header
+        order
+      }
+    }
+    delivery: allContentfulFaq(sort: {fields: order, order: ASC}, filter: {type: {eq: "Delivery"}}) {
+      nodes {
+        content {
+          content
+        }
+        header
+        order
+      }
+    }
+    aftersales: allContentfulFaq(sort: {fields: order, order: ASC}, filter: {type: {eq: "After Sales"}}) {
+      nodes {
+        content {
+          content
+        }
+        header
+        order
+      }
+    }
+  }
+`
 
 // step 3: export
 export default InteriorDesignDetails

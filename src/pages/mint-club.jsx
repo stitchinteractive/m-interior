@@ -270,7 +270,7 @@ const MintClub = ({data}) => {
                 <Accordion.Item eventKey={cont.order}>
                 <Accordion.Header>{cont.header}</Accordion.Header>
                 <Accordion.Body>
-                {parse(cont.body.body)}
+                {parse(cont.content.content)}
                 </Accordion.Body>
               </Accordion.Item>
               ))}
@@ -466,10 +466,10 @@ export const query = graphql`
         }
       }
     }
-    allContentfulFaq(sort: {fields: order, order: ASC}) {
+    allContentfulFaq(sort: {fields: order, order: ASC}, filter: {type: {eq: "MINT Club"}}) {
       nodes {
-        body {
-          body
+        content {
+          content
         }
         header
         order
