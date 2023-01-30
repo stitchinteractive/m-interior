@@ -235,9 +235,9 @@ export const query = graphql`
         }
       }
       storefrontId
-      images {
+      featuredImage {
         # altText
-        id
+        #id
         gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
       }
       variants {
@@ -253,7 +253,7 @@ export const query = graphql`
       options {
         name
         values
-        id
+        #id
       }
     }
     suggestions: allShopifyProduct(
@@ -261,7 +261,44 @@ export const query = graphql`
       filter: { productType: { eq: $productType }, id: { ne: $id } }
     ) {
       nodes {
-        ...ProductCard
+        title
+        description
+        productType
+        productTypeSlug: gatsbyPath(
+          filePath: "/products/{ShopifyProduct.productType}"
+        )
+        tags
+        priceRangeV2 {
+          maxVariantPrice {
+            amount
+            currencyCode
+          }
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+        storefrontId
+        featuredImage {
+          # altText
+          #id
+          gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
+        }
+        variants {
+          availableForSale
+          storefrontId
+          title
+          price
+          selectedOptions {
+            name
+            value
+          }
+        }
+        options {
+          name
+          values
+          #id
+        }
       }
     }
   }

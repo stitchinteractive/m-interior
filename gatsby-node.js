@@ -19,9 +19,17 @@ exports.createPages = async ({ graphql, actions }) => {
                 value
               }
             }
-            images {
+            featuredImage {
               originalSrc
               altText
+            }
+            media {
+              preview {
+                image {
+                  originalSrc
+                  altText
+                }
+              }
             }
             shopifyId
             handle
@@ -53,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
             options {
               name
               values
-              id
+              #id
             }
             metafields {
               value
@@ -96,13 +104,20 @@ exports.createPages = async ({ graphql, actions }) => {
               key
             }
             image {
-              id
+              #id
               originalSrc
             }
             products {
               title
-              images {
+              featuredImage {
                 originalSrc
+              }
+              media {
+                preview {
+                  image {
+                    originalSrc
+                  }
+                }
               }
               shopifyId
               handle
@@ -133,7 +148,7 @@ exports.createPages = async ({ graphql, actions }) => {
               options {
                 name
                 values
-                id
+                #id
               }
               metafields {
                 value
@@ -164,13 +179,20 @@ exports.createPages = async ({ graphql, actions }) => {
               key
             }
             image {
-              id
+              #id
               originalSrc
             }
             products {
               title
-              images {
+              featuredImage {
                 originalSrc
+              }
+              media {
+                preview {
+                  image {
+                    originalSrc
+                  }
+                }
               }
               shopifyId
               handle
@@ -201,7 +223,7 @@ exports.createPages = async ({ graphql, actions }) => {
               options {
                 name
                 values
-                id
+                #id
               }
               metafields {
                 value

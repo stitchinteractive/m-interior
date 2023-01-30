@@ -31,7 +31,7 @@ export const query = graphql`
             value
           }
           image{
-            id
+            #id
             originalSrc
           }
         }
@@ -43,8 +43,15 @@ export const query = graphql`
       edges {
         node {
           title
-          images {
+          featuredImage {
             originalSrc
+          }
+          media {
+            preview {
+              image {
+                originalSrc
+              }
+            }
           }
           shopifyId
           handle
@@ -75,7 +82,7 @@ export const query = graphql`
           options {
             name
             values
-            id
+            #id
           }
           metafields {
             value
@@ -88,8 +95,15 @@ export const query = graphql`
       edges {
         node {
           title
-          images {
+          featuredImage {
             originalSrc
+          }
+          media {
+            preview {
+              image {
+                originalSrc
+              }
+            }
           }
           shopifyId
           handle
@@ -120,7 +134,7 @@ export const query = graphql`
           options {
             name
             values
-            id
+            #id
           }
           metafields {
             value

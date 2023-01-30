@@ -161,16 +161,16 @@ const ShopDetails = ({ pageContext }) => {
   // variables to set swiper
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
 
-  const hasImages = product.images.length > 0
-  const hasMultipleImages = true || product.images.length > 1
+  const hasImages = product.media.length > 0
+  const hasMultipleImages = true || product.media.length > 1
   const slides = []
   const altText = []
 
   if (hasImages) {
     //debugger
-    product.images.forEach((data, index) => {
-      slides.push(data.originalSrc)
-      if (data.altText) altText.push(data.altText)
+    product.media.forEach((data, index) => {
+      slides.push(data.preview.image.originalSrc)
+      if (data.preview.image.altText) altText.push(data.preview.image.altText)
       else altText.push(index)
       //console.log(data.originalSrc)
     })
