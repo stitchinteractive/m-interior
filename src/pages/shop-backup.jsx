@@ -14,44 +14,7 @@ export const query = graphql`
   query {
     shopifyCollection(handle: { eq: "frontpage" }) {
       products {
-        title
-        description
-        productType
-        productTypeSlug: gatsbyPath(
-          filePath: "/products/{ShopifyProduct.productType}"
-        )
-        tags
-        priceRangeV2 {
-          maxVariantPrice {
-            amount
-            currencyCode
-          }
-          minVariantPrice {
-            amount
-            currencyCode
-          }
-        }
-        storefrontId
-        featuredImage {
-          # altText
-          #id
-          gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
-        }
-        variants {
-          availableForSale
-          storefrontId
-          title
-          price
-          selectedOptions {
-            name
-            value
-          }
-        }
-        options {
-          name
-          values
-          #id
-        }
+        ...ProductCard
       }
     }
   }

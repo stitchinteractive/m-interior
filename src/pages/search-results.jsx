@@ -174,13 +174,13 @@ const Shop = ({
           </div>
           <div className="col-12 text-center mt-1">
             Popular Search Terms:
-            <Link to="/" className="px-3">
+            <Link to="/search-results/?q=Acacia%20Blocks" className="px-3">
               Acacia Blocks
             </Link>
-            <Link to="/" className="px-3">
+            <Link to="/search-results/?q=TV%20Console" className="px-3">
               TV Console
             </Link>
-            <Link to="/" className="px-3">
+            <Link to="/search-results/?q=Side%20Table" className="px-3">
               Side Table
             </Link>
           </div>
