@@ -40,8 +40,8 @@ function OffCanvasExample({ ...props }) {
         <Offcanvas.Body>
           <div className="row d-lg-none">
             <div className="col-10 offset-1">
-              {/*
-              <div className="input-group my-3">
+              
+              {/* <div className="input-group my-3">
                 <input
                   type="text"
                   className="form-control-sm txt_search"
@@ -50,12 +50,12 @@ function OffCanvasExample({ ...props }) {
                   aria-describedby="search"
                 />
                 <button className="btn btn_search" type="button">
-                  <Link to="/search-results">
+                  <a href="/search-results">
                     <SearchIcon />
-                  </Link>
+                  </a>
                 </button>
-              </div>
-              */}
+              </div> */}
+             
               <ul className="nav_link_mobile">
                 <li>
                   <Link
@@ -141,13 +141,14 @@ export function Header() {
               <div className="row">
                 <div className="col-md-12 d-flex justify-content-end">
                   <ul className={headerModule.nav_link_icon}>
-                    {/*
-                    <li className="d-none d-lg-block">
-                      <a href="javascript:void(0);" onClick={handleClick}>
+                    
+                    {/* <li className="d-none d-lg-block"> */}
+                    <li>
+                      <a href="/search-results/">
                         <SearchIcon />
                       </a>
                     </li>
-                    */}
+                   
                     <li>
                       <Link to="/login">
                         <ProfileIcon />
