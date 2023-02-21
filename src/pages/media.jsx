@@ -71,7 +71,7 @@ const InteriorDesignDetails = ({data}) => {
                           <img src={cont.logo.url} alt={cont.logo.title} />
                         </p>
                         <p className="font_xs font_montserrat_medium pb-2">
-                        2{cont.articleDate}
+                         {cont.articleDate}
                         </p>
                         {parse(cont?.content?.content)}
                       </div>
