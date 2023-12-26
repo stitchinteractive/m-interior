@@ -185,7 +185,7 @@ export function Header() {
                         activeStyle={{ color: "white" }}
                         partiallyActive={true}
                       >
-                        Shopping
+                        Shop
                       </Link>
                     </li>
                     <li>

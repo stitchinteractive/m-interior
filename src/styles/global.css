@@ -1622,6 +1622,10 @@ circle {
   border-bottom: 3px solid #1a3142;
 }
 
+.nav-tabs .nav-item:last-child {
+  display: none;
+}
+
 .tab-content {
   padding: 30px 0;
 }
