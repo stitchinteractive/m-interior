@@ -218,9 +218,11 @@ const ShopDetails = ({ pageContext }) => {
   const showDetails = product.collections[0]?.metafields.find((mf) => {
     return isEqual("show_details", mf.key)
   })
+  /*
   const showInstallation = product.collections[0]?.metafields.find((mf) => {
     return isEqual("show_installation", mf.key)
   })
+  */
   const showAbout = product.collections[0]?.metafields.find((mf) => {
     return isEqual("show_about", mf.key)
   })
@@ -258,10 +260,12 @@ const ShopDetails = ({ pageContext }) => {
       : false
   var showDet =
     showDetails?.value === "true" || showDetails === undefined ? true : false
+  /*
   var showIns =
     showInstallation?.value === "true" || showInstallation === undefined
       ? true
       : false
+  */
   var showAbt =
     showAbout?.value === "true" || showAbout === undefined ? true : false
   var showBannr =
@@ -642,6 +646,7 @@ const ShopDetails = ({ pageContext }) => {
               ) : (
                 <div></div>
               )}
+              /*
               {showIns ? (
                 <Tab eventKey="installation" title="Installation">
                   <div
@@ -651,6 +656,7 @@ const ShopDetails = ({ pageContext }) => {
               ) : (
                 <div></div>
               )}
+              */
               {showSamples ? (
                 <Tab eventKey="samples" title="Get Material Samples">
                   <h5>MODULAR CONNECTION</h5>
