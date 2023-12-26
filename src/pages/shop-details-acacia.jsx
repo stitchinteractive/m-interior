@@ -494,7 +494,6 @@ const ShopDetails = () => {
                 </div>
               </div>
             </Tab>
-            {/*
             <Tab eventKey="installation" title="Installation">
               <h5>WALL MOUNTING SERVICES</h5>
               <p>
@@ -517,7 +516,6 @@ const ShopDetails = () => {
                 complimentary design consultation to find out more!
               </p>
             </Tab>
-            */}
           </Tabs>
         </div>
       </div>
